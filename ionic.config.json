@@ -1,0 +1,8 @@
+{
+  "name": "umb-curso-front-end",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "461202f3"
+}
