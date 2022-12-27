@@ -22,8 +22,13 @@
 
     <p>{{leccion.number}}</p>
     <p>{{leccion.title}}</p>
+    
     <div [innerHTML]=this.trustedHTML></div>
     
+    <button ion-button (click)="goToEvaluation()" class="evaluame">
+      <ion-icon name="school"></ion-icon>
+      <div>Evalúame</div>
+    </button>
   </div>
 
 </ion-content>

@@ -1,0 +1,14 @@
+ion-card {    
+    ion-img {
+        width: 80px;
+        margin: auto;
+    }
+}
+
+ion-card-content {
+    text-align: center;
+}
+
+ion-card:focus, ion-card:hover {     
+    background-color: floralwhite;
+}

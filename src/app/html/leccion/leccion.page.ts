@@ -42,4 +42,9 @@ export class LeccionPage implements OnInit {
     );
   }
 
+  goToEvaluation()
+  {
+    alert('goToEvaluation()')
+  }
+
 }

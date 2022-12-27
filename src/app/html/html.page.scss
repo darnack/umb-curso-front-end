@@ -1,0 +1,15 @@
+$umb-color: #990000;
+
+span.item {
+    background-color: $umb-color;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 0 10px 0 5px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    color: white;
+}
+ion-item:focus, ion-item:hover {
+    background-color: floralwhite !important;
+}

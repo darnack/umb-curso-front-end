@@ -1,0 +1,16 @@
+$umb-color: #990000;
+
+button.evaluame {
+    background-color: rgb(0, 0, 0, 0);
+    color: $umb-color;
+    padding: 5px 10px;
+    display: block;
+    width: 120px;
+    margin: 15px auto;
+    ion-icon {
+        font-size: 38px;
+    }
+    div {
+        font-weight: bold;
+    }
+}
