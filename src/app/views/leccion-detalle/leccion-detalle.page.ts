@@ -5,14 +5,15 @@ import { LeccionModel } from '../../models/leccion.model'
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-leccion',
-  templateUrl: './leccion.page.html',
-  styleUrls: ['./leccion.page.scss'],
+  selector: 'app-leccion-detalle',
+  templateUrl: './leccion-detalle.page.html',
+  styleUrls: ['./leccion-detalle.page.scss'],
 })
-export class LeccionPage implements OnInit {
-  id: string = '';
+export class LeccionDetallePage implements OnInit {
+ 
   leccion: LeccionModel = { 
     number: '', 
+    module: '',
     title: '', 
     content: '', 
       evaluation: {
@@ -29,13 +30,15 @@ export class LeccionPage implements OnInit {
   }
 
   ngOnInit() {
-    this.route.queryParams
-      .subscribe(params => {
+    this.route.paramMap
+      .subscribe(paramMap => {
         //console.log('parametros query string: ', params); // { order: "popular" }
+        //console.log('parametros por url: ', paramMap); // { order: "popular" }
 
-        this.id = params['id'];
+        const id = paramMap.get('id') || '0';
+        const module = paramMap.get('module') || '0';
 
-        this.leccion = this.htmlService.getLeccion(this.id)
+        this.leccion = this.htmlService.getLeccion(module, id) 
         
         this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml(this.leccion.content);
       }

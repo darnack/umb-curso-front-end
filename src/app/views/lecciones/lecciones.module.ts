@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LeccionPageRoutingModule } from './leccion-routing.module';
+import { LeccionesPageRoutingModule } from './lecciones-routing.module';
 
-import { LeccionPage } from './leccion.page';
+import { LeccionesPage } from './lecciones.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LeccionPageRoutingModule
+    LeccionesPageRoutingModule
   ],
-  declarations: [LeccionPage]
+  declarations: [LeccionesPage]
 })
-export class LeccionPageModule {}
+export class LeccionesPageModule {}

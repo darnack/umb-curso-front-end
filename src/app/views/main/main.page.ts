@@ -14,9 +14,9 @@ export class MainPage implements OnInit {
   ngOnInit() {
   }
 
-  navigate(path: string)
+  navigate(module: string)
   {
-    this.router.navigate(['/' + path])
+    this.router.navigate(['/lecciones', module])
   }
 
 }

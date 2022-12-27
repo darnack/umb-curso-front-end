@@ -13,12 +13,27 @@ const routes: Routes = [
   },
   {
     path: 'main',
-    loadChildren: () => import('./main/main.module').then( m => m.MainPageModule)
+    loadChildren: () => import('./views/main/main.module').then( m => m.MainPageModule)
   },
   {
-    path: 'html',
-    loadChildren: () => import('./html/html.module').then( m => m.HtmlPageModule)
+    path: 'lecciones',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./views/lecciones/lecciones.module').then( m => m.LeccionesPageModule)
+      },
+      {
+        path: ':module',
+        loadChildren: () => import('./views/lecciones/lecciones.module').then( m => m.LeccionesPageModule)
+      },
+      {
+        path: ':module/:id',
+        loadChildren: () => import('./views/leccion-detalle/leccion-detalle.module').then( m => m.LeccionDetallePageModule)
+      }
+    ]
+    
   }
+
 
 ];
 

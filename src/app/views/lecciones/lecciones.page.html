@@ -19,7 +19,7 @@
 
   <div id="container">    
     <ion-list>
-      <ion-item *ngFor="let leccion of lecciones" [routerLink]="['/html/leccion']" [queryParams]="{id: leccion.number}">
+      <ion-item *ngFor="let leccion of lecciones" [routerLink]="['/lecciones', leccion.module, leccion.number]">
         <span class="item">
           {{leccion.number}}
         </span>
