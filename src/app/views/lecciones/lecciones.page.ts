@@ -9,7 +9,7 @@ import { LeccionModel } from '../../models/leccion.model'
   styleUrls: ['./lecciones.page.scss'],
 })
 export class LeccionesPage implements OnInit {
-  public title: string = 'Lecciones';
+  public titulo: string = 'Lecciones';
 
   lecciones: LeccionModel[] | undefined = []
 
@@ -26,7 +26,7 @@ export class LeccionesPage implements OnInit {
 
         this.lecciones = this.htmlService.getLecciones(module);
 
-        this.title = "Módulo " + module.toUpperCase()
+        this.titulo = "Módulo " + module.toUpperCase()
       }
     );
     

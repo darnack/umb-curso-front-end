@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HtmlService } from '../../services/html.service';
 import { LeccionModel } from '../../models/leccion.model'
-import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import { DomSanitizer} from '@angular/platform-browser';
+import { TipoEvaluacion } from 'src/app/models/tipo-evaluacion';
 
 @Component({
   selector: 'app-leccion-detalle',
@@ -11,26 +12,26 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser
 })
 export class LeccionDetallePage implements OnInit {
  
-  leccion: LeccionModel = { 
-    number: '', 
-    module: '',
-    title: '', 
-    content: '', 
-      evaluation: {
-      type: '',
-      result: ''
-    }
-  };  
   trustedHTML: object;
-  sanitizer;
+  leccion: LeccionModel;
+  routeEvaluationType: string;
 
-  constructor(private route: ActivatedRoute, private htmlService: HtmlService, private _sanitizer: DomSanitizer) { 
-    this.sanitizer = _sanitizer;
+  constructor(private activateRoute: ActivatedRoute, private htmlService: HtmlService, private sanitizer: DomSanitizer) { 
+
     this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml('');
+    this.leccion = { 
+      numero:'',
+      modulo: '',
+      titulo: '',
+      contenido:'',
+      evaluaciones: undefined
+    };
+
+    this.routeEvaluationType = '';
   }
 
   ngOnInit() {
-    this.route.paramMap
+    this.activateRoute.paramMap
       .subscribe(paramMap => {
         //console.log('parametros query string: ', params); // { order: "popular" }
         //console.log('parametros por url: ', paramMap); // { order: "popular" }
@@ -40,14 +41,31 @@ export class LeccionDetallePage implements OnInit {
 
         this.leccion = this.htmlService.getLeccion(module, id) 
         
-        this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml(this.leccion.content);
+        this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml(this.leccion.contenido);
       }
     );
+
+    const evaluationIndex = 0;
+
+    this.routeEvaluationType = this.getEvaluationTypeRoute(evaluationIndex);
   }
 
-  goToEvaluation()
+  getEvaluationTypeRoute(evaluationIndex: number) : string
   {
-    alert('goToEvaluation()')
+    var enumType = TipoEvaluacion.Default;
+
+    if(this.leccion.evaluaciones && this.leccion.evaluaciones.length > 0)
+    {
+      enumType = this.leccion.evaluaciones[evaluationIndex].tipo;
+    }
+
+    switch(enumType)
+    {
+      case TipoEvaluacion.RespuestaAbierta: return '/respuesta-abierta';
+      case TipoEvaluacion.Ordenamiento: return '/ordenamiento';
+      case TipoEvaluacion.OpcionMultiple: return '/opcion-multiple';
+      default: return 'default';      
+    }
   }
 
 }

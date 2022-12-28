@@ -30,10 +30,21 @@ const routes: Routes = [
         path: ':module/:id',
         loadChildren: () => import('./views/leccion-detalle/leccion-detalle.module').then( m => m.LeccionDetallePageModule)
       }
-    ]
-    
+    ]    
+  },
+  {
+    path: 'respuesta-abierta',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./views/evaluaciones/respuesta-abierta/respuesta-abierta.module').then( m => m.RespuestaAbiertaPageModule)
+      },
+      {
+        path: ':module/:id',
+        loadChildren: () => import('./views/evaluaciones/respuesta-abierta/respuesta-abierta.module').then( m => m.RespuestaAbiertaPageModule)
+      }
+    ]    
   }
-
 
 ];
 

@@ -1,0 +1,37 @@
+$umb-color: #990000;
+
+textarea
+{
+    display: inline-table;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    width: 100%;
+    font-family: system-ui;
+    position: relative;
+    box-sizing: border-box;
+    height: 100%;
+    border: none;
+    padding: 0 20px 20px 20px;
+    background-color: rgb(0,0,0,0);
+}
+
+textarea:focus{
+    outline: none;
+}
+
+input
+{
+    display: block;
+    margin: 8px 30% 18px 30%;
+    border: 1px solid;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    width: 100%;    
+}
+
+ion-button.ion-button-center {
+    display: block;
+    margin: 0 30% 10px 30%;
+    width: 100%;    
+}
