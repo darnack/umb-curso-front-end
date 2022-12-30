@@ -16,7 +16,7 @@ export class OrdenamientoPage implements OnInit {
   evaluacion: EvaluacionModel;
   viewItemList: string[];
   logicItemsList: string[];
-  resultado: string;
+  aprobado: boolean;  
   isModalOpen = false;
   currentTimeOut: NodeJS.Timeout | undefined
 
@@ -30,7 +30,7 @@ export class OrdenamientoPage implements OnInit {
     }
     this.viewItemList = [];
     this.logicItemsList = [];
-    this.resultado = ''
+    this.aprobado = false    
   }
 
   ngOnInit() {
@@ -62,8 +62,13 @@ export class OrdenamientoPage implements OnInit {
   {
     const newList = [...this.evaluacion.items];
     newList.sort(() => Math.random() - 0.5);
-    this.viewItemList = newList;
-    this.logicItemsList = this.viewItemList;
+
+    if(this.evaluacion.items.length > 1 && JSON.stringify(newList) === JSON.stringify(this.evaluacion.items))
+      this.randomize()
+    else {
+      this.viewItemList = newList;    
+      this.logicItemsList = this.viewItemList;
+    }
   }
 
   evaluate(answer: IonReorderGroup) 
@@ -74,9 +79,9 @@ export class OrdenamientoPage implements OnInit {
     this.setOpen(true);
 
     if(JSON.stringify(this.logicItemsList) === JSON.stringify(this.evaluacion.items))
-      this.resultado = "¡Has acertado!"
+      this.aprobado = true    
     else {
-      this.resultado = "No, no lo has entendido, intenta otra vez"
+      this.aprobado = false;
       this.currentTimeOut = setTimeout(() => {
         this.setOpen(false);
       }, 5000);
@@ -90,7 +95,7 @@ export class OrdenamientoPage implements OnInit {
   handleReorder(ev: CustomEvent<ItemReorderEventDetail>) {
     // The `from` and `to` properties contain the index of the item
     // when the drag started and ended, respectively
-    console.log('Dragged from index', ev.detail.from, 'to', ev.detail.to);
+    //console.log('Dragged from index', ev.detail.from, 'to', ev.detail.to);
 
     const draggedItem = this.logicItemsList.splice(ev.detail.from, 1)[0];  
     this.logicItemsList.splice(ev.detail.to, 0, draggedItem); 

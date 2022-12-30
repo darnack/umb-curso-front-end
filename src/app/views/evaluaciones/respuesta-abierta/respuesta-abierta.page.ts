@@ -13,7 +13,7 @@ export class RespuestaAbiertaPage implements OnInit {
 
   titulo: string = 'Evaluación';
   evaluacion: EvaluacionModel;
-  resultado: string;
+  aprobado: boolean;
   isModalOpen = false;
   currentTimeOut: NodeJS.Timeout | undefined
 
@@ -25,7 +25,7 @@ export class RespuestaAbiertaPage implements OnInit {
       items: [],
       respuesta: ''
     }
-    this.resultado = ''
+    this.aprobado = false;
   }
 
   ngOnInit() {
@@ -56,9 +56,9 @@ export class RespuestaAbiertaPage implements OnInit {
       this.setOpen(true);
 
       if(answer.value?.toString().trim() == this.evaluacion.respuesta)
-        this.resultado = "¡Has acertado!"
+        this.aprobado = true
       else {
-        this.resultado = "No, no lo has entendido, intenta otra vez"
+        this.aprobado = false
         this.currentTimeOut = setTimeout(() => {
           this.setOpen(false);
         }, 5000);

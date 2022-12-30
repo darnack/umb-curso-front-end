@@ -16,3 +16,19 @@ ion-col
 ion-label.console {
     font-family: 'Lucida Console';
 }
+
+ion-icon {
+    font-size: 90px;
+    margin: auto;
+    display: block;
+    color: cadetblue;
+}
+
+ion-icon.success {
+    //color: cadetblue;
+    color: mediumseagreen;
+}
+
+ion-icon.fail {
+    color: crimson;
+}
