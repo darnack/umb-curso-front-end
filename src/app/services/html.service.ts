@@ -51,6 +51,21 @@ export class HtmlService {
       titulo: 'Lección selectores',
       contenido:'<h1>Título H1</h1>',
       evaluaciones: undefined
+     },
+     { 
+      numero:'1',
+      modulo: 'javascript',
+      titulo: 'Lección Scripts',
+      contenido:'<h1>Scripts</h1>',
+      evaluaciones: [
+        {
+          tipo: TipoEvaluacion.Ordenamiento,
+          pregunta: 'Ordene las líneas de código de forma correcta',
+          contenido:'',
+          items: ['<script>','var name = "James";','console.log(name);', '</script>'],
+          respuesta: '',
+      }
+      ]
      }
    ]
 

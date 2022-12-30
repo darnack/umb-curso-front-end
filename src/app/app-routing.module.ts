@@ -57,9 +57,20 @@ const routes: Routes = [
         loadChildren: () => import('./views/evaluaciones/opcion-multiple/opcion-multiple.module').then( m => m.OpcionMultiplePageModule)
       }
     ]     
+  },
+  {
+    path: 'ordenamiento',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./views/evaluaciones/ordenamiento/ordenamiento.module').then( m => m.OrdenamientoPageModule)
+      },
+      {
+        path: ':module/:id/:evaluation',
+        loadChildren: () => import('./views/evaluaciones/ordenamiento/ordenamiento.module').then( m => m.OrdenamientoPageModule)
+      }
+    ]    
   }
-
-
 ];
 
 @NgModule({
