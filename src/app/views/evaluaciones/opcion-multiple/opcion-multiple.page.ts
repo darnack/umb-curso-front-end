@@ -3,13 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { HtmlService } from '../../../services/html.service';
 import { EvaluacionModel } from 'src/app/models/evaluacion-model';
 import { TipoEvaluacion } from 'src/app/models/tipo-evaluacion';
+import { IonRadioGroup } from '@ionic/angular';
 
 @Component({
-  selector: 'app-respuesta-abierta',
-  templateUrl: './respuesta-abierta.page.html',
-  styleUrls: ['./respuesta-abierta.page.scss'],
+  selector: 'app-opcion-multiple',
+  templateUrl: './opcion-multiple.page.html',
+  styleUrls: ['./opcion-multiple.page.scss'],
 })
-export class RespuestaAbiertaPage implements OnInit {
+export class OpcionMultiplePage implements OnInit {
 
   titulo: string = 'Evaluación';
   evaluacion: EvaluacionModel;
@@ -17,7 +18,7 @@ export class RespuestaAbiertaPage implements OnInit {
   isModalOpen = false;
   currentTimeOut: NodeJS.Timeout | undefined
 
-  constructor(private activateRoute: ActivatedRoute, private htmlService: HtmlService) {
+  constructor(private activateRoute: ActivatedRoute, private htmlService: HtmlService) { 
     this.evaluacion = {
       tipo: TipoEvaluacion.Default,
       pregunta: '',
@@ -46,7 +47,14 @@ export class RespuestaAbiertaPage implements OnInit {
     );
   }
 
-  evaluate(answer: HTMLInputElement) 
+  ionViewWillEnter() 
+  {
+    const newList = [...this.evaluacion.items];
+    newList.sort(() => Math.random() - 0.5);
+    this.evaluacion.items = newList;
+  }
+
+  evaluate(answer: IonRadioGroup) 
   {
     if (answer.value && answer.value?.toString().trim() !== '')
     {

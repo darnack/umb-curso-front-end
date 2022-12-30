@@ -4,6 +4,6 @@ export interface EvaluacionModel {
     tipo: TipoEvaluacion,
     pregunta: string,
     contenido: string,
-    items: [],
+    items: string[],
     respuesta: string,
 }

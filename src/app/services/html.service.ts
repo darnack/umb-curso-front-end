@@ -27,10 +27,16 @@ export class HtmlService {
           '}\n' + 
           '\n' +
           'alert(test(2));\n',
-        items: [],
-        respuesta: '5',
-     }
-    ]
+          items: [],
+          respuesta: '5',
+        },
+        {
+            tipo: TipoEvaluacion.OpcionMultiple,
+            pregunta: '¿Cómo se llama el compilador de JavaScript?',
+            contenido:'',
+            items: ['ECMAScript','No requiere compilación, es ejecutado en tiempo real','Enginne WebKit', 'JQuery'],
+            respuesta: 'No requiere compilación, es ejecutado en tiempo real',
+        }]
     },
     { 
       numero:'2',
@@ -38,7 +44,7 @@ export class HtmlService {
       titulo: 'Lección propiedades',
       contenido:'<h1>Título H1</h1>',
       evaluaciones: undefined
-     },     
+    },     
     { 
       numero:'1',
       modulo: 'css',

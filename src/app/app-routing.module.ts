@@ -40,11 +40,25 @@ const routes: Routes = [
         loadChildren: () => import('./views/evaluaciones/respuesta-abierta/respuesta-abierta.module').then( m => m.RespuestaAbiertaPageModule)
       },
       {
-        path: ':module/:id',
+        path: ':module/:id/:evaluation',
         loadChildren: () => import('./views/evaluaciones/respuesta-abierta/respuesta-abierta.module').then( m => m.RespuestaAbiertaPageModule)
       }
     ]    
+  },
+  {
+    path: 'opcion-multiple',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./views/evaluaciones/opcion-multiple/opcion-multiple.module').then( m => m.OpcionMultiplePageModule)
+      },
+      {
+        path: ':module/:id/:evaluation',
+        loadChildren: () => import('./views/evaluaciones/opcion-multiple/opcion-multiple.module').then( m => m.OpcionMultiplePageModule)
+      }
+    ]     
   }
+
 
 ];
 

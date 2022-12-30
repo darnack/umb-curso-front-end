@@ -15,6 +15,7 @@ export class LeccionDetallePage implements OnInit {
   trustedHTML: object;
   leccion: LeccionModel;
   routeEvaluationType: string;
+  evaluationIndex: number;
 
   constructor(private activateRoute: ActivatedRoute, private htmlService: HtmlService, private sanitizer: DomSanitizer) { 
 
@@ -28,6 +29,7 @@ export class LeccionDetallePage implements OnInit {
     };
 
     this.routeEvaluationType = '';
+    this.evaluationIndex = 0;
   }
 
   ngOnInit() {
@@ -43,11 +45,15 @@ export class LeccionDetallePage implements OnInit {
         
         this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml(this.leccion.contenido);
       }
-    );
+    );    
+  }
 
-    const evaluationIndex = 0;
-
-    this.routeEvaluationType = this.getEvaluationTypeRoute(evaluationIndex);
+  ionViewWillEnter() {
+    if(this.leccion.evaluaciones && this.leccion.evaluaciones.length > 0)
+    {    
+      this.evaluationIndex = this.getRandomInt(0, this.leccion.evaluaciones?.length - 1);
+      this.routeEvaluationType = this.getEvaluationTypeRoute(this.evaluationIndex);
+    }
   }
 
   getEvaluationTypeRoute(evaluationIndex: number) : string
@@ -66,6 +72,10 @@ export class LeccionDetallePage implements OnInit {
       case TipoEvaluacion.OpcionMultiple: return '/opcion-multiple';
       default: return 'default';      
     }
+  }
+
+  getRandomInt(min: number, max: number) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
 }
