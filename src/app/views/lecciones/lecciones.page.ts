@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HtmlService } from '../../services/html.service';
+import { LeccionesService } from '../../services/lecciones.service';
 import { LeccionModel } from '../../models/leccion.model'
 
 @Component({
@@ -13,7 +13,7 @@ export class LeccionesPage implements OnInit {
 
   lecciones: LeccionModel[] | undefined = []
 
-  constructor(private route: ActivatedRoute, private htmlService: HtmlService) { }
+  constructor(private route: ActivatedRoute, private leccionesService: LeccionesService) { }
 
   ngOnInit() {
 
@@ -24,7 +24,7 @@ export class LeccionesPage implements OnInit {
 
         const module = paramMap.get('module') || '';        
 
-        this.lecciones = this.htmlService.getLecciones(module);
+        this.lecciones = this.leccionesService.getLecciones(module);
 
         this.titulo = "Módulo " + module.toUpperCase()
       }

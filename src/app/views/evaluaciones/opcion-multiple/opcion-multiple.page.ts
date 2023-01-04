@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HtmlService } from '../../../services/html.service';
+import { LeccionesService } from '../../../services/lecciones.service';
 import { EvaluacionModel } from 'src/app/models/evaluacion-model';
 import { TipoEvaluacion } from 'src/app/models/tipo-evaluacion';
 import { IonRadioGroup } from '@ionic/angular';
@@ -18,7 +18,7 @@ export class OpcionMultiplePage implements OnInit {
   isModalOpen = false;
   currentTimeOut: NodeJS.Timeout | undefined
 
-  constructor(private activateRoute: ActivatedRoute, private htmlService: HtmlService) { 
+  constructor(private activateRoute: ActivatedRoute, private leccionesService: LeccionesService) { 
     this.evaluacion = {
       tipo: TipoEvaluacion.Default,
       pregunta: '',
@@ -39,7 +39,7 @@ export class OpcionMultiplePage implements OnInit {
         const module = paramMap.get('module') || '0';
         const evaluation = Number(paramMap.get('evaluation') || 0);
 
-        const leccion = this.htmlService.getLeccion(module, id);
+        const leccion = this.leccionesService.getLeccion(module, id);
 
         if(leccion.evaluaciones && leccion.evaluaciones.length > 0)
           this.evaluacion = leccion.evaluaciones[evaluation];

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HtmlService } from '../../services/html.service';
+import { LeccionesService } from '../../services/lecciones.service';
 import { LeccionModel } from '../../models/leccion.model'
 import { DomSanitizer} from '@angular/platform-browser';
 import { TipoEvaluacion } from 'src/app/models/tipo-evaluacion';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-leccion-detalle',
@@ -17,8 +18,12 @@ export class LeccionDetallePage implements OnInit {
   routeEvaluationType: string;
   evaluationIndex: number;
 
-  constructor(private activateRoute: ActivatedRoute, private htmlService: HtmlService, private sanitizer: DomSanitizer) { 
-
+  constructor(
+    private activateRoute: ActivatedRoute, 
+    private leccionesService: LeccionesService, 
+    private sanitizer: DomSanitizer,
+    private httpClient: HttpClient) 
+  {
     this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml('');
     this.leccion = { 
       numero:'',
@@ -41,9 +46,16 @@ export class LeccionDetallePage implements OnInit {
         const id = paramMap.get('id') || '0';
         const module = paramMap.get('module') || '0';
 
-        this.leccion = this.htmlService.getLeccion(module, id) 
-        
-        this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml(this.leccion.contenido);
+        this.leccion = this.leccionesService.getLeccion(module, id) 
+
+        const uri = "assets/data/" + this.leccion.modulo + "/" + this.leccion.contenido
+        const httpOptions = {headers: {'Content-Type': 'text/html; charset=utf-8'}, responseType: 'text' as 'json'}
+
+        this.httpClient.get<string>(uri, httpOptions).subscribe(htmlBody => {
+
+          this.leccion.contenido = htmlBody
+          this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml(this.leccion.contenido);
+        })
       }
     );    
   }

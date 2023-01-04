@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LeccionesService } from './services/lecciones.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -14,5 +15,7 @@ export class AppComponent {
     //{ title: 'Spam', url: '/folder/Spam', icon: 'warning' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+  
+  // Se inyecta servicio para que carge las lecciones desde el arranque de la app con suficiente tiempo para evitar pantallas blancas por falta de datos
+  constructor(private leccionesService: LeccionesService) {}
 }

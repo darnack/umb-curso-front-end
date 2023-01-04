@@ -1,0 +1,89 @@
+[
+    { 
+     "numero": "1",
+     "modulo": "html",
+     "titulo": "Introducción HTML",
+     "contenido": "leccion.introduccion.html",
+     "evaluaciones": [
+      {
+        "tipo": 3,
+        "pregunta": "¿Qué etiqueta define el contenido visible de una página HTML? ",
+        "contenido": "",
+        "items": ["<meta>","<html>","<body>","<layout>","<head>"],
+        "respuesta": "<body>"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "¿Qué significa HTML?",
+        "contenido": "",
+        "items": ["Hyper Text Mask Language","Hard Text Markup Language","Hyper Text Markup Language"],
+        "respuesta": "Hyper Text Markup Language"
+      }]
+    },
+    { 
+      "numero":"2",
+      "modulo": "html",
+      "titulo": "Lección enlaces",
+      "contenido":"<h1>Título H1</h1>",
+      "evaluaciones": [	  
+      {
+        "tipo": 3,
+        "pregunta": "¿Cómo se inserta un vínculo o enlace?",
+        "contenido": "",
+        "items": ["<a target=\"http://www.ejemplo.com\">...</a>","<a url=\"http://www.ejemplo.com\">...</a>","<a href=\"http://www.ejemplo.com\">...</a>", "<a link=\"http://www.ejemplo.com\">...</a>"],
+        "respuesta": "<a href=\"http://www.ejemplo.com\">...</a>"
+      }
+	  ]
+    },
+    { 
+      "numero": "3",
+      "modulo": "html",
+      "titulo": "Lección Tags",
+      "contenido": "leccion.tags.html",
+      "evaluaciones": [
+      {
+        "tipo": 1,
+        "pregunta": "¿Cuál es el valor de salida de este código?",
+        "contenido": "function test(number) {\n  while(number < 5) {\n    number++;\n  }\n \n  return number;\n}\n\nalert(test(2));\n",
+        "items": [],
+        "respuesta": "5"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "¿Cómo se llama el compilador de JavaScript?",
+        "contenido": "",
+        "items": ["ECMAScript","No requiere compilación, es ejecutado en tiempo real","Enginne WebKit", "JQuery"],
+        "respuesta": "No requiere compilación, es ejecutado en tiempo real"
+      }]
+     },  
+    { 
+      "numero":"1",
+      "modulo": "css",
+      "titulo": "Lección selectores",
+      "contenido": "<h1>Título H1</h1>",
+      "evaluaciones": [
+	    {
+        "tipo": 3,
+        "pregunta": "¿Qué sintaxis es la correcta para asignar color rojo a un elemento de tipo h1 cuya clase es titulo1?",
+        "contenido": "",
+        "items": ["h1.titulo1{color: red;}","#titulo1{color: red;}","titulo1.h1{color: red}", "h1#titulo1{color: red}"],
+        "respuesta": "h1#titulo1{color: red}"
+      }
+	  ]
+     },
+     { 
+      "numero":"1",
+      "modulo": "javascript",
+      "titulo": "Lección Scripts",
+      "contenido": "<h1>Scripts</h1>",
+      "evaluaciones": [
+      {
+        "tipo": 2,
+        "pregunta": "Ordene las líneas de código de forma correcta",
+        "contenido": "",
+        "items": ["<script>","var name = \"James\";","console.log(name);", "</script>"],
+        "respuesta": ""
+      }
+      ]
+     }
+   ]
