@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { LeccionesService } from '../../../services/lecciones.service';
 import { EvaluacionModel } from 'src/app/models/evaluacion-model';
 import { TipoEvaluacion } from 'src/app/models/tipo-evaluacion';
@@ -18,9 +18,11 @@ export class OrdenamientoPage implements OnInit {
   logicItemsList: string[];
   aprobado: boolean;  
   isModalOpen = false;
+  numero: string;
+  modulo: string;
   currentTimeOut: NodeJS.Timeout | undefined
 
-  constructor(private activateRoute: ActivatedRoute, private leccionesService: LeccionesService) { 
+  constructor(private activateRoute: ActivatedRoute, private leccionesService: LeccionesService, private router: Router) { 
     this.evaluacion = {
       tipo: TipoEvaluacion.Default,
       pregunta: '',
@@ -30,7 +32,9 @@ export class OrdenamientoPage implements OnInit {
     }
     this.viewItemList = [];
     this.logicItemsList = [];
-    this.aprobado = false    
+    this.aprobado = false
+    this.numero = ''
+    this.modulo = '' 
   }
 
   ngOnInit() {
@@ -44,6 +48,9 @@ export class OrdenamientoPage implements OnInit {
         const evaluation = Number(paramMap.get('evaluation') || 0);
 
         const leccion = this.leccionesService.getLeccion(module, id);
+
+        this.modulo = module
+        this.numero = (Number(id) + 1).toString()
 
         if(leccion.evaluaciones && leccion.evaluaciones.length > 0)
           this.evaluacion = leccion.evaluaciones[evaluation];
@@ -78,8 +85,12 @@ export class OrdenamientoPage implements OnInit {
 
     this.setOpen(true);
 
-    if(JSON.stringify(this.logicItemsList) === JSON.stringify(this.evaluacion.items))
-      this.aprobado = true    
+    if(JSON.stringify(this.logicItemsList) === JSON.stringify(this.evaluacion.items)) {
+      this.aprobado = true          
+      this.currentTimeOut = setTimeout(() => {            
+        this.siguiente();
+      }, 3000);
+    }
     else {
       this.aprobado = false;
       this.currentTimeOut = setTimeout(() => {
@@ -90,6 +101,13 @@ export class OrdenamientoPage implements OnInit {
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
+  }
+
+  siguiente()  {
+    this.setOpen(false);
+    this.currentTimeOut = setTimeout(() => {      
+      this.router.navigate(['/lecciones', this.modulo, this.numero])    
+    }, 10);    
   }
 
   handleReorder(ev: CustomEvent<ItemReorderEventDetail>) {

@@ -17,16 +17,30 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">    
-    <span>{{leccion.numero}}</span>
-    <ion-title>{{leccion.titulo}}</ion-title>    
-    
-    <div [innerHTML]=this.trustedHTML></div>
-    
-    <button ion-button class="evaluame" [routerLink]="[routeEvaluationType, leccion.modulo, leccion.numero, evaluationIndex]">
-      <ion-icon name="school"></ion-icon>
-      <div>Evalúame</div>
-    </button>
+  <div id="container">
+
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="auto">
+          <span class="item">{{leccion.numero}}</span>       
+        </ion-col>
+        <ion-col>
+          <h3>{{leccion.titulo}}</h3>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-text-wrap ion-text-justify">
+        <ion-col class="ion-no-padding">
+          <div [innerHTML]=this.trustedHTML></div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <button ion-button class="evaluame" [routerLink]="[routeEvaluationType, leccion.modulo, leccion.numero, evaluationIndex]">
+          <ion-icon name="school"></ion-icon>
+          <div>Evalúame</div>
+        </button>
+      </ion-row>   
+    </ion-grid>
+
   </div>
 
 </ion-content>

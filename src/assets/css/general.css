@@ -1,0 +1,39 @@
+.code-card {
+    margin: 10px 0;
+    font-size: smaller;
+}
+
+.code-pre {    
+    line-height: 1.4em; 
+    background: #eeeef0;
+    padding: 18px 0 0 0;
+    margin: -10px;
+}
+
+code {
+    background: #eeeef0;
+}
+
+span.tag {
+    color: #905;
+}
+
+span.punctuation {
+    color: #999;
+}
+
+span.attr-name {
+    color: #690;
+}
+
+span.attr-name {
+    color: #07a;
+}
+
+span.doctype {
+    color: #708090;
+}
+
+ul {
+    padding: 0 0 0 24px;
+}

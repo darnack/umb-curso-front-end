@@ -1,11 +1,26 @@
 <p>Ahora comencemos a ver los fundamentos de HTML. Aquí tenemos un ejemplo de una página web muy sencilla:</p>
-<figure class="kg-card kg-code-card"><pre class=" language-html"><code class=" language-html"><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>es<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Mi página web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Mi página web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Estoy aprendiendo desarrollo web.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre><figcaption>Ejemplo</figcaption></figure>
+<figure class="code-card">
+  <pre class="code-pre">
+  <span class="doctype">&lt;!DOCTYPE html&gt;</span>
+  <span class="tag"><span class="tag"><span class="punctuation">&lt;</span>html</span> <span class="attr-name">lang</span><span class="attr-value"><span class="punctuation">=</span><span class="punctuation">"</span>es<span class="punctuation">"</span></span><span class="punctuation">&gt;</span></span>
+    <span class="tag"><span class="tag"><span class="punctuation">&lt;</span>head</span><span class="punctuation">&gt;</span></span>
+      <span class="tag"><span class="tag"><span class="punctuation">&lt;</span>title</span><span class="punctuation">&gt;</span></span>Mi página web<span class="tag"><span class="tag"><span class="punctuation">&lt;/</span>title</span><span class="punctuation">&gt;</span></span>
+    <span class="tag"><span class="tag"><span class="punctuation">&lt;/</span>head</span><span class="punctuation">&gt;</span></span>
+    <span class="tag"><span class="tag"><span class="punctuation">&lt;</span>body</span><span class="punctuation">&gt;</span></span>
+      <span class="tag"><span class="tag"><span class="punctuation">&lt;</span>h1</span><span class="punctuation">&gt;</span></span>Mi página web<span class="tag"><span class="tag"><span class="punctuation">&lt;/</span>h1</span><span class="punctuation">&gt;</span></span>
+      <span class="tag"><span class="tag"><span class="punctuation">&lt;</span>p</span><span class="punctuation">&gt;</span></span>Estoy aprendiendo desarrollo web.<span class="tag"><span class="tag"><span class="punctuation">&lt;/</span>p</span><span class="punctuation">&gt;</span></span>
+    <span class="tag"><span class="tag"><span class="punctuation">&lt;/</span>body</span><span class="punctuation">&gt;</span></span>
+  <span class="tag"><span class="tag"><span class="punctuation">&lt;/</span>html</span><span class="punctuation">&gt;</span></span>
+  </pre>  
+</figure>
+<p>Un archivo HTML está conformado por elementos HTML. Estos elementos son componentes individuales en HTML que nos permiten crear la estructura de la página.</p>
+<p>Este es un ejemplo de un elemento:</p>
+<figure class="code-card">
+  <pre class="code-pre">
+  <span class="tag"><span class="tag"><span class="punctuation">&lt;</span>h1</span><span class="punctuation">&gt;</span></span>Mi elemento HTML<span class="tag"><span class="tag"><span class="punctuation">&lt;/</span>h1</span><span class="punctuation">&gt;</span></span>
+  </pre>
+</figure>
+<h3>Etiquetas</h3>
+<p>Cada elemento tiene una etiqueta asociada. Podemos crear un elemento usando su etiqueta en nuestro archivo HTML</p>
+<p>Estos son ejemplos de etiquetas usadas comúnmente:</p>
+<ul><li><code><strong>&lt;html&gt;</strong></code> - todo el contenido de la página debe estar entre estas etiquetas.</li><li><code><strong>&lt;head&gt;</strong></code> - este elemento contiene el título de la página que puedes ver en la pestaña de tu navegador y además contiene metadatos.</li><li><code><strong>&lt;body&gt;</strong></code> - este elemento contiene todos los elementos visibles de la página web. Toda la estructura de la página debe estar entre estas etiquetas.</li><li><strong><code>&lt;h1&gt;</code></strong>,<strong> <code>&lt;h2&gt;</code></strong>, <strong><code>&lt;h3&gt;</code></strong>, <strong><code>&lt;h4&gt;</code></strong>,<strong> <code>&lt;h5&gt;</code></strong>, <strong><code>&lt;h6&gt;</code></strong> - estos elementos representan encabezados o títulos de mayor a menor importancia o nivel en la página web. &nbsp;</li><li><code><strong>&lt;p&gt;</strong></code> - un párrafo.</li><li><code><strong>&lt;a&gt;</strong></code> - un enlace a otra página web o a secciones internas de tu página web.</li><li><code><strong>&lt;strong&gt;</strong></code> - esta etiqueta te permite resaltar texto importante. Usualmente se muestra en negrita. </li><li><code><strong>&lt;em&gt;</strong></code> - esta etiqueta te permite resaltar texto importante. Usualmente se muestra en cursiva.</li><li><code><strong>&lt;form&gt;</strong></code> - este elemento te permite crear un formulario. </li><li><code><strong>&lt;hr&gt;</strong></code> - una línea horizontal que puede ser usada para separar párrafos o secciones de tu página web.</li><li><code><strong>&lt;input&gt;</strong></code> - un elemento que te permite crear formularios porque puede tomar texto o actuar como un botón de radio o una casilla de verificación.</li><li><code><strong>&lt;footer&gt;</strong></code> - un pie de página.</li></ul>

@@ -18,6 +18,13 @@
         "contenido": "",
         "items": ["Hyper Text Mask Language","Hard Text Markup Language","Hyper Text Markup Language"],
         "respuesta": "Hyper Text Markup Language"
+      },      
+      {
+        "tipo": 2,
+        "pregunta": "Ordena los elementos html correctamente",
+        "contenido": "",
+        "items": ["<!DOCTYPE html>","<html>","<head>","</head>","<body>","</body>","</html>"],
+        "respuesta": ""
       }]
     },
     { 

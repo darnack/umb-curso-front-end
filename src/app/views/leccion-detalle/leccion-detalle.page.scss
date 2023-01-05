@@ -15,16 +15,16 @@ button.evaluame {
     }
 }
 
-.language-html {
-    overflow-x: auto;
-    margin: 1.5em 0 3em;
-    padding: 20px;
-    max-width: 100%;
-    color: #1b1b32;
-    font-size: 1.4rem;
-    line-height: 1.5em;
-    background: #eeeef0;
+span.item {
+    background-color: #990000;
+    border-radius: 50%;
+    padding: 10px 14px;
+    color: white;
 }
-span.tag {
-    color: #905;
+
+ion-row.padding {
+    padding: 5px;
+}
+p, h1, h2, h3, h4 {
+    padding: 0 5px;
 }

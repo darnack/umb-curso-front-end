@@ -40,7 +40,7 @@
   </div>
 
   <ion-modal [isOpen]="isModalOpen">
-    <ng-template>
+    <ng-template #modal>
       <ion-header>
         <ion-toolbar>
           <ion-title></ion-title>
@@ -56,7 +56,8 @@
           <h4 class="ion-text-center ion-text-wrap">¡Has acertado!</h4>
           <p class="ion-text-center ion-text-wrap">
            Muy bien, prueba superada. Ahora puedes continuar con la siguiente lección.
-          </p>
+          </p>         
+
         </ng-template>
         <ng-template #panelReprobado>
           <ion-icon name="close-circle" class="fail"></ion-icon>
@@ -65,6 +66,7 @@
             Tal vez te ayudaría repasar la lección.
           </p>
         </ng-template>
+
       </ion-content>
     </ng-template>
   </ion-modal>
