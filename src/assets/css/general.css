@@ -12,6 +12,7 @@
 
 code {
     background: #eeeef0;
+    font-weight: bold;
 }
 
 span.tag {
@@ -26,7 +27,7 @@ span.attr-name {
     color: #690;
 }
 
-span.attr-name {
+span.attr-value {
     color: #07a;
 }
 

@@ -30,6 +30,21 @@
     { 
       "numero":"2",
       "modulo": "html",
+      "titulo": "Atributos",
+      "contenido":"leccion.atributos.html",
+      "evaluaciones": [	  
+      {
+        "tipo": 3,
+        "pregunta": "¿Cómo se inserta un vínculo o enlace?",
+        "contenido": "",
+        "items": ["<a target=\"http://www.ejemplo.com\">...</a>","<a url=\"http://www.ejemplo.com\">...</a>","<a href=\"http://www.ejemplo.com\">...</a>", "<a link=\"http://www.ejemplo.com\">...</a>"],
+        "respuesta": "<a href=\"http://www.ejemplo.com\">...</a>"
+      }
+	  ]
+    },    
+    { 
+      "numero":"3",
+      "modulo": "html",
       "titulo": "Lección enlaces",
       "contenido":"<h1>Título H1</h1>",
       "evaluaciones": [	  
@@ -43,7 +58,7 @@
 	  ]
     },
     { 
-      "numero": "3",
+      "numero": "4",
       "modulo": "html",
       "titulo": "Lección Tags",
       "contenido": "leccion.tags.html",
