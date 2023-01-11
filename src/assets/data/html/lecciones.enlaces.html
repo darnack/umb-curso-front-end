@@ -1,0 +1,47 @@
+<p>Una de las características que más ha influido en el éxito de la Web ha sido, la posibilidad de unir los distintos documentos repartidos por todo el mundo por medio de enlaces hipertexto.</p>  
+<p>En general, los enlaces tienen la siguiente estructura:</p>
+<figure class="code-card">
+    <pre class="code-pre">
+  &lt;<tag>a</tag> <name>href</name>="<value>URL</value>"&gt;<text>TEXTO</text>&lt;/<tag>a</tag>&gt;    
+    </pre>  
+</figure>
+<p>Donde URL es el destino del enlace, y TEXTO es el texto visible del enlace.</p>
+<h3>Uso de los enlaces</h3>
+<p>Los enlaces pueden utilizarsen de tres maneras:</p>
+<h4>Enlaces externos</h4>
+<p>Aquellos que dirigen a sitios fuera de nuestro propio sitio, para ello es necesario colocar la url completa del sitio externo en el atributo <code>href</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+  &lt;<tag>a</tag> <name>href</name>="<value>https://www.sitioweb.com</value>"&gt;<text>TEXTO</text>&lt;/<tag>a</tag>&gt;    
+    </pre>  
+</figure>
+<h4>Enlaces internos</h4>
+<p>Aquellos enlaces que permiten la navegabilidad dentro de nuesto propio sitio, para ello se deben utilizar url relativas en el atributo <code>href</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+  &lt;<tag>a</tag> <name>href</name>="<value>/compras.html</value>"&gt;<text>TEXTO</text>&lt;/<tag>a</tag>&gt;    
+    </pre>  
+</figure>
+<h4>Marcador</h4>
+<p>Permite que al dar clic, la página se desplaze visualmente a un punto específico, permitiendo al usuario ubicar rápidamente un contenido dentro una página. Para ello se debe colocar en el atributo <code>href</code> el símbolo <code>#</code> seguido del identificador del contenido que se quiere marcar. Por ejemplo, <code>href="#contactar"</code>, para que funcione debe existir un elemento HTML visible cuyo atributo <code>id</code> correspondan al marcador, en el caso de este ejemplo: <code>"contactar"</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+  &lt;<tag>a</tag> <name>href</name>="<value>#contactar</value>"&gt;<text>TEXTO</text>&lt;/<tag>a</tag>&gt;    
+    </pre>  
+</figure>
+<br>
+<h3>Uso especial de los enlaces</h3>
+<h4>Mail To</h4>
+<p>Permite generar un enlace directo a la bandeja de correo electrónico para redactar un correo a una destinatario determinado. Para ello se debe colocar en el atributo <code>href</code> la palabra <code>mailto</code> seguido de dos puntos y el correo del destinatario. </p>
+<figure class="code-card">
+    <pre class="code-pre">
+  &lt;<tag>a</tag> <name>href</name>="<value>mailto:soporte@site.com</value>"&gt;<text>Soporte</text>&lt;/<tag>a</tag>&gt;    
+    </pre>  
+</figure>
+<h4>JavaScript</h4>
+<p>Permite ejecutar funciones escritas en JavaScript. Para ello se debe colocar en el atributo <code>href</code> la palabra <code>javascript</code> seguido de dos puntos y el nombre de la función JavaScript. </p>
+<figure class="code-card">
+    <pre class="code-pre">
+  &lt;<tag>a</tag> <name>href</name>="<value>javascript:doSomething()</value>"&gt;<text>Clic</text>&lt;/<tag>a</tag>&gt;    
+    </pre>  
+</figure>

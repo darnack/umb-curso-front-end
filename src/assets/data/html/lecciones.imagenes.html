@@ -1,0 +1,66 @@
+<p>Este elemento HTML permite incluir imágenes en diferentes formatos en el contenido de nuestro sitio web. </p>
+<p>Se estructura es la siguiente:</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>img</tag> <name>src</name>="<value>imagen.gif</value>" /&gt;    
+    </pre>  
+</figure>
+<h3>Atributo src</h3>
+<p>Las imágenes pueden estar alojadas en archivos o serializarse directamente dentro del documento HTML en formato base64. En el atributo <code>src</code> se debe colocar la ubicación absoluta o relativa de la fuente de la imagen.</p>  
+<h4>Formatos soportados</h4>
+<table class="ws-table-all notranslate">
+    <tbody><tr>    
+    <th>Formato</th>
+    <th>Extensión</th>
+    </tr>
+    <tr>    
+    <td>Animated Portable Network Graphics</td>
+    <td>.apng</td>
+    </tr>
+    <tr>    
+    <td>Graphics Interchange Format</td>
+    <td>.gif</td>
+    </tr>
+    <tr>    
+    <td>Microsoft Icon</td>
+    <td>.ico, .cur </td>
+    </tr>
+    <tr>    
+    <td>Joint Photographic Expert Group image</td>
+    <td>.jpg, .jpeg, .jfif, .pjpeg, .pjp</td>
+    </tr>
+    <tr>    
+    <td>Portable Network Graphics</td>
+    <td>.png</td>
+    </tr>
+    <tr>    
+    <td>Scalable Vector Graphics</td>
+    <td>.svg</td>
+    </tr>
+    </tbody>
+</table>
+<h3>Atributo Alt</h3>
+<p>Este atributo permite mostrar un texto descriptivo en caso de que la imagen no pueda cargar, de esta manera, en caso de error, el lugar de la imagen no queda en blanco.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>img</tag> <name>src</name>="<value>isla.png</value>" <name>alt</name>="<value>Isla Bora Bora</value>" /&gt;    
+    </pre>  
+</figure>
+<h3>Alto y Ancho</h3>
+<p>Estos atributos se definen para preservar el espacio correspondiente de la imagen mientras esta carga</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>img</tag> <name>width</name>="<value>150px</value>" <name>height</name>="<value>75px</value>" 
+    <name>src</name>="<value>isla.png</value>" /&gt;    
+    </pre>  
+</figure>
+<h3>Imagen como enlace</h3>
+<p>Si se envuelve una imagen dentro de un enlace, la imagen se convierte en un enlace al que se le puede hacer clic.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>a</tag> <name>href</name>="<value>home.html</value>"&gt;
+        &lt;<tag>img</tag> <name>src</name>="<value>imagen.gif</value>" <name>alt</name>="<value>text</value>" /&gt;         
+    &lt;/<tag>a</tag>&gt;      
+    </pre>  
+</figure>
+

@@ -1,3 +1,25 @@
+h4 {
+    margin: 20px 0 0 0;
+}
+
+ul {
+    padding: 0 0 0 24px;
+}
+
+table th {
+    padding: 4px 0px;
+    padding: 5px;
+}
+
+table td {
+    text-align: left;
+    padding: 5px;
+}
+
+table tr:nth-child(even) {
+    background-color: #eeeef0;    
+}
+
 .code-card {
     margin: 10px 0;
     font-size: smaller;
@@ -8,33 +30,23 @@
     background: #eeeef0;
     padding: 18px 0 0 0;
     margin: -10px;
+    color: #999;
 }
 
 code {
     background: #eeeef0;
-    font-weight: bold;
+    font-weight: bold;    
 }
 
-span.tag {
+tag {
     color: #905;
 }
-
-span.punctuation {
-    color: #999;
-}
-
-span.attr-name {
+name {
     color: #690;
 }
-
-span.attr-value {
+value {
     color: #07a;
 }
-
-span.doctype {
-    color: #708090;
-}
-
-ul {
-    padding: 0 0 0 24px;
+text {
+    color: #222;
 }

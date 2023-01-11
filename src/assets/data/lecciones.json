@@ -2,7 +2,7 @@
     { 
      "numero": "1",
      "modulo": "html",
-     "titulo": "Introducción HTML",
+     "titulo": "Introducción",
      "contenido": "leccion.introduccion.html",
      "evaluaciones": [
       {
@@ -23,12 +23,27 @@
         "tipo": 2,
         "pregunta": "Ordena los elementos html correctamente",
         "contenido": "",
-        "items": ["<!DOCTYPE html>","<html>","<head>","</head>","<body>","</body>","</html>"],
+        "items": ["<!DOCTYPE html>","<html>","  <head>","  </head>","  <body>","  </body>","</html>"],
         "respuesta": ""
       }]
     },
     { 
       "numero":"2",
+      "modulo": "html",
+      "titulo": "Etiquetas",
+      "contenido":"leccion.etiquetas.html",
+      "evaluaciones": [	  
+      {
+        "tipo": 3,
+        "pregunta": "¿Cúal de estos elementos no permite contener otros elementos?",
+        "contenido": "",
+        "items": ["<p>","<button>","<strong>","<input>"],
+        "respuesta": "<input>"
+      }
+	    ]
+    }, 
+    { 
+      "numero":"3",
       "modulo": "html",
       "titulo": "Atributos",
       "contenido":"leccion.atributos.html",
@@ -40,13 +55,13 @@
         "items": ["<a target=\"http://www.ejemplo.com\">...</a>","<a url=\"http://www.ejemplo.com\">...</a>","<a href=\"http://www.ejemplo.com\">...</a>", "<a link=\"http://www.ejemplo.com\">...</a>"],
         "respuesta": "<a href=\"http://www.ejemplo.com\">...</a>"
       }
-	  ]
+	    ]
     },    
     { 
-      "numero":"3",
+      "numero":"4",
       "modulo": "html",
-      "titulo": "Lección enlaces",
-      "contenido":"<h1>Título H1</h1>",
+      "titulo": "Enlaces",
+      "contenido":"lecciones.enlaces.html",
       "evaluaciones": [	  
       {
         "tipo": 3,
@@ -58,26 +73,27 @@
 	  ]
     },
     { 
-      "numero": "4",
+      "numero":"5",
       "modulo": "html",
-      "titulo": "Lección Tags",
-      "contenido": "leccion.tags.html",
-      "evaluaciones": [
+      "titulo": "Imágenes",
+      "contenido":"lecciones.imagenes.html",
+      "evaluaciones": [	  
       {
         "tipo": 1,
-        "pregunta": "¿Cuál es el valor de salida de este código?",
-        "contenido": "function test(number) {\n  while(number < 5) {\n    number++;\n  }\n \n  return number;\n}\n\nalert(test(2));\n",
+        "pregunta": "¿Cuál es el atributo que hace falta?",
+        "contenido": "<a href=\"index.html\">\n  <img ???=\"icon.ico\" alt=\"...\">\n</a>",
         "items": [],
-        "respuesta": "5"
+        "respuesta": "src"
       },
       {
         "tipo": 3,
-        "pregunta": "¿Cómo se llama el compilador de JavaScript?",
+        "pregunta": "No es un formato de imagen soportado en HTML",
         "contenido": "",
-        "items": ["ECMAScript","No requiere compilación, es ejecutado en tiempo real","Enginne WebKit", "JQuery"],
-        "respuesta": "No requiere compilación, es ejecutado en tiempo real"
-      }]
-     },  
+        "items": ["PNG","SVG","JPEG", "BMP"],
+        "respuesta": "BMP"
+      }
+	  ]
+    },
     { 
       "numero":"1",
       "modulo": "css",
@@ -96,7 +112,7 @@
      { 
       "numero":"1",
       "modulo": "javascript",
-      "titulo": "Lección Scripts",
+      "titulo": "Scripts",
       "contenido": "<h1>Scripts</h1>",
       "evaluaciones": [
       {
@@ -107,5 +123,26 @@
         "respuesta": ""
       }
       ]
+     },
+     { 
+      "numero": "2",
+      "modulo": "javascript",
+      "titulo": "Funciones",
+      "contenido": "leccion.tags.html",
+      "evaluaciones": [
+      {
+        "tipo": 1,
+        "pregunta": "¿Cuál es el valor de salida de este código?",
+        "contenido": "function test(number) {\n  while(number < 5) {\n    number++;\n  }\n \n  return number;\n}\n\nalert(test(2));\n",
+        "items": [],
+        "respuesta": "5"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "¿Cómo se llama el compilador de JavaScript?",
+        "contenido": "",
+        "items": ["ECMAScript","No requiere compilación, es ejecutado en tiempo real","Enginne WebKit", "JQuery"],
+        "respuesta": "No requiere compilación, es ejecutado en tiempo real"
+      }]
      }
    ]

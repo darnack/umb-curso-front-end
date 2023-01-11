@@ -62,7 +62,7 @@ export class RespuestaAbiertaPage implements OnInit {
 
       this.setOpen(true);
 
-      if(answer.value?.toString().trim() == this.evaluacion.respuesta) {
+      if(answer.value?.toString().trim().toUpperCase() == this.evaluacion.respuesta.trim().toUpperCase()) {
         this.aprobado = true          
         this.currentTimeOut = setTimeout(() => {            
           this.siguiente();
