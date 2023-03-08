@@ -61,7 +61,7 @@
       "numero":"4",
       "modulo": "html",
       "titulo": "Enlaces",
-      "contenido":"lecciones.enlaces.html",
+      "contenido":"leccion.enlaces.html",
       "evaluaciones": [	  
       {
         "tipo": 3,
@@ -76,7 +76,29 @@
       "numero":"5",
       "modulo": "html",
       "titulo": "Imágenes",
-      "contenido":"lecciones.imagenes.html",
+      "contenido":"leccion.imagenes.html",
+      "evaluaciones": [	  
+      {
+        "tipo": 1,
+        "pregunta": "¿Cuál es el atributo que hace falta?",
+        "contenido": "<a href=\"index.html\">\n  <img ???=\"icon.ico\" alt=\"...\">\n</a>",
+        "items": [],
+        "respuesta": "src"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "No es un formato de imagen soportado en HTML",
+        "contenido": "",
+        "items": ["PNG","SVG","JPEG", "BMP"],
+        "respuesta": "BMP"
+      }
+	  ]
+    },
+    { 
+      "numero":"6",
+      "modulo": "html",
+      "titulo": "Tablas",
+      "contenido":"leccion.tablas.html",
       "evaluaciones": [	  
       {
         "tipo": 1,
