@@ -6,17 +6,33 @@ ul {
     padding: 0 0 0 24px;
 }
 
+table {
+    margin: auto;
+}
+
 table th {
     padding: 4px 0px;
     padding: 5px;
+    border: 1px solid;
 }
 
 table td {
-    text-align: left;
-    padding: 5px;
+    text-align: center;
+    border: 1px solid;
+    padding: 5px;    
 }
 
-table tr:nth-child(even) {
+table.ws-table-all th {
+    border: none;
+}
+
+table.ws-table-all td {
+    text-align: left;
+    padding: 5px;
+    border: none;
+}
+
+table.ws-table-all tr:nth-child(even) {
     background-color: #eeeef0;    
 }
 

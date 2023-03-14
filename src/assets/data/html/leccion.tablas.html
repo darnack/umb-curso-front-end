@@ -1,6 +1,7 @@
-<p>Las tablas son un potente elmentos que permite organizar eficientemente un conjunto de datos en filas y columnas. Permite la lectura y comparación rápida de los datos proporcionados.</p>
+<p>Las tablas son un potente elemento que permiten organizar eficientemente un conjunto de datos en filas y columnas, permite la lectura y comparación rápida de los datos proporcionados.</p>
 <h3>Estructura de una tabla</h3>
-<p>La etiqueta principal <code>&lt;table/&gt;</code> contiene a las filas <code>&lt;tr/&gt;</code>, y cada fila contiene sus columnas, de cabecera <code>&lt;th/&gt;</code>, y de campos <code>&lt;td/&gt;</code>. </p>
+<p>La etiqueta principal <code>&lt;table&gt;</code> contiene las filas <code>&lt;tr&gt;</code> de la tabla, y cada fila contiene sus columnas; de cabecera <code>&lt;th&gt;</code>, y de campos <code>&lt;td&gt;</code>. </p>
+<p>El código de la estructura básica de una tabla se vería de la siguiente manera:</p>
 <figure class="code-card">
     <pre class="code-pre">
     &lt;<tag>table</tag>&gt;
@@ -17,7 +18,7 @@
     &lt;<tag>table</tag>/&gt; 
     </pre>  
 </figure>
-<p>Lo que daría como resultado...</p>
+<p>Lo que daría como resultado la siguiente tabla:</p>
 <table>
     <tr>
         <th>columna 1</th>
@@ -29,5 +30,142 @@
         <td>dato 2</td>
         <td>dato 3</td>
     </tr>
+</table>
+<h3>Expansión de celdas</h3>
+<p>Las celdas pueden expandirse para ocupar más de una fila o columna. Esto es útil para agrupar datos. </p>
+<p>Para expandir una celda horizontalmente se debe utilizar el atributo <code>colspan</code> e indicar la cantidad de columnas a expandir.</p>
+<p>Para expandir una celda verticalmente se debe utilizar el atributo <code>rowspan</code> e indicar la cantidad de filas a expandir.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>table</tag>&gt;
+        &lt;<tag>tr</tag>&gt;
+            &lt;<tag>th</tag>&gt;<text>columna 1</text>&lt;<tag>th</tag>/&gt;
+            &lt;<tag>th</tag>&gt;<text>columna 2</text>&lt;<tag>th</tag>/&gt;
+            &lt;<tag>th</tag>&gt;<text>columna 3</text>&lt;<tag>th</tag>/&gt;
+        &lt;<tag>tr</tag>/&gt;
+        &lt;<tag>tr</tag>&gt;
+            &lt;<tag>td</tag> <name>colspan</name>="<value>2</value>"&gt;<text>dato 1</text>&lt;<tag>td</tag>/&gt;
+            &lt;<tag>td</tag> <name>rowspan</name>="<value>2</value>"&gt;<text>dato 2</text>&lt;<tag>td</tag>/&gt;            
+        &lt;<tag>tr</tag>/&gt;
+        &lt;<tag>tr</tag>&gt;
+            &lt;<tag>td</tag>&gt;<text>dato 3</text>&lt;<tag>td</tag>/&gt;
+            &lt;<tag>td</tag>&gt;<text>dato 4</text>&lt;<tag>td</tag>/&gt;            
+        &lt;<tag>tr</tag>/&gt;
+    &lt;<tag>table</tag>/&gt; 
+    </pre>  
+</figure>
+<p>Lo que daría como resultado...</p>
+<table>
+    <tr>
+        <th>columna 1</th>
+        <th>columna 2</th>
+        <th>columna 3</th>
+    </tr>
+    <tr>
+        <td colspan="2">dato 1</td>
+        <td rowspan="2">dato 2</td>       
+    </tr>
+    <tr>
+        <td>dato 3</td> 
+        <td>dato 4</td>           
+    </tr>    
+</table>
+<h3>Título de tabla</h3>
+<p>Para agregar un título se puede utlizar el tag <code>&lt;caption&gt;</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>table</tag>&gt;
+        &lt;<tag>caption</tag>&gt;Título de tabla&lt;<tag>caption</tag>/&gt;
+        &lt;<tag>tr</tag>&gt;
+            &lt;<tag>th</tag>&gt;<text>columna 1</text>&lt;<tag>th</tag>/&gt;
+            &lt;<tag>th</tag>&gt;<text>columna 2</text>&lt;<tag>th</tag>/&gt;
+        &lt;<tag>tr</tag>/&gt;
+        &lt;<tag>tr</tag>&gt;
+            &lt;<tag>td</tag>&gt;<text>dato 1</text>&lt;<tag>td</tag>/&gt;
+            &lt;<tag>td</tag>&gt;<text>dato 2</text>&lt;<tag>td</tag>/&gt;
+        &lt;<tag>tr</tag>/&gt;
+    &lt;<tag>table</tag>/&gt; 
+    </pre>  
+</figure>
+<p>Lo que daría como resultado...</p>
+<table>
+    <caption>Título de tabla</caption>
+    <tr>
+        <th>columna 1</th>
+        <th>columna 2</th>
+    </tr>
+    <tr>
+        <td>dato 1</td>
+        <td>dato 2</td>
+    </tr>    
+</table>
+<h3>Cabeceras laterales</h3>
+<p>Las cabeceras <code>&lt;th&gt;</code> pueden ser ubicadas según la preferencia.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>table</tag>&gt;        
+        &lt;<tag>tr</tag>&gt;
+            &lt;<tag>th</tag>&gt;<text>fila 1</text>&lt;<tag>th</tag>/&gt;
+            &lt;<tag>td</tag>&gt;<text>dato 1</text>&lt;<tag>td</tag>/&gt;
+        &lt;<tag>tr</tag>/&gt;
+        &lt;<tag>tr</tag>&gt;
+            &lt;<tag>th</tag>&gt;<text>fila 2</text>&lt;<tag>th</tag>/&gt;
+            &lt;<tag>td</tag>&gt;<text>dato 2</text>&lt;<tag>td</tag>/&gt;
+        &lt;<tag>tr</tag>/&gt;
+    &lt;<tag>table</tag>/&gt; 
+    </pre>  
+</figure>
+<p>Lo que daría como resultado...</p>
+<table>
+    <tr>
+        <th>fila 1</th>
+        <td>dato 1</td>
+    </tr>
+    <tr>
+        <th>fila 2</th>
+        <td>dato 2</td>
+    </tr>    
+</table>
+<h3>Atributos</h3>
+<p>Además existen algunos atributos que permiten determinar el aspecto de las tablas:</p>
+<table class="ws-table-all notranslate">
+    <tbody><tr>    
+    <th>Atributo</th>
+    <th>Descripción</th>
+    </tr>
+    <tr>    
+    <td>align</td>
+    <td>Determina la alineación horizontal de una tabla o celda.</td>
+    </tr>
+    <tr>    
+    <td>valign</td>
+    <td>Determina la alineación vertical de una tabla o celda.</td>
+    </tr>
+    <tr>    
+    <td>cellpadding</td>
+    <td>Determina el margen interior de las celdas.</td>
+    </tr>
+    <tr>    
+    <td>cellspacing</td>
+    <td>Determina el espacio o margen de las celdas.</td>
+    </tr>
+    <tr>    
+    <td>width</td>
+    <td>Determina el ancho de una tabla o celda.</td>
+    </tr>
+    <tr>    
+    <td>height</td>
+    <td>Determina la altura de una tabla o celda.</td>
+    </tr>
+    <tr>    
+        <td>border</td>
+        <td>Determina el grosor, color y tipo de los bordes de una tabla o celda individual.</td>
+        </tr>
+    </tbody>
+    <tr>    
+        <td>bgcolor</td>
+        <td>Determina el color de una celda.</td>
+        </tr>
+    </tbody>
 </table>
 
