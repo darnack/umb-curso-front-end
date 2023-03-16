@@ -1,0 +1,188 @@
+<p>Los formularios permiten capturar información de una página y enviarla al servidor para su almacenamiento o procesamiento. </p>
+<p>Se componen de campos de entrada y botones de acción que permiten la interacción con el usuario.</p>
+<h3>Etiqueta principal</h3>
+<p>Los atributos más importantes de la etiqueta <code>&lt;form&gt;</code> son:</p>
+<table class="ws-table-all notranslate">
+    <tbody><tr>    
+    <th>Atributo</th>
+    <th>Descripción</th>
+    </tr>
+    <tr>    
+    <td>action</td>
+    <td>Establece la url a la que se enviará la información, también permite ejecutar funciones JavaScript.</td>
+    </tr>
+    <tr>    
+    <td>method</td>
+    <td>Establece el método o verbo http con el cual se enviará la información: <name>GET, POST, PUT, DELETE</name>, etc.</td>
+    </tr>
+    <tr>    
+    <td>enctype</td>
+    <td>Cuando el valor del atributo method es post, este atributo es el tipo MIME del contenido que es usado para enviar el formulario al servidor.</td>
+    </tr>
+    </tbody>
+</table>
+<p>Un ejemplo de aplicación sería...</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>form</tag>
+        <name>action</name>="<value>/catalogo/insertar-producto</value>"
+        <name>method</name>="<value>post</value>"
+        <name>enctype</name>="<value>text/plain</value>"&gt;
+    ...        
+    &lt;<tag>form</tag>/&gt; 
+    </pre>  
+</figure>
+<h3>Campos de entrada</h3>
+<p>Los campos de entrada o elementos <code>&lt;input/&gt;</code> permiten capturar datos del usuario, para que posteriormente sean enviados por medio del fomulario al servidor.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>input</tag> <name>type</name>="<value>text</value>" /&gt;
+    </pre>  
+</figure>
+<p>Existen varios tipos de campos de entrada:</p>
+<table class="ws-table-all notranslate">
+    <tbody><tr>    
+    <th>Tipo</th>
+    <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>text</td>
+        <td>Permiten la captura de texto.</td>
+    </tr>
+    <tr> 
+        <td colspan="2"><input type="text" value="texto..."/></td>    
+    </tr>
+    <tr>    
+        <td>password</td>
+        <td>Permiten la captura de texto oculto.</td>
+    </tr>
+    <tr> 
+        <td colspan="2"><input type="password" value="password..."/></td>    
+    </tr>
+    <tr>    
+        <td>number</td>
+        <td>Límita la captura para que solo se ingresen números</td>
+    </tr>
+    <tr> 
+        <td colspan="2"><input type="number" value="5"/></td>    
+    </tr>
+    <tr>
+        <td>range</td>
+        <td>Permite seleccionar un valor dentro de un rango</td>
+    </tr>
+    <tr> 
+        <td colspan="2"><input type="range" /></td>    
+    </tr>
+    <tr>
+        <td>radio</td>
+        <td>Permite seleccionar una opción única.</td>
+    </tr>
+    <tr> 
+        <td colspan="2"><input type="radio" /> <label>Opción única</label></td>    
+    </tr>
+    <tr>
+        <td>checkbox</td>
+        <td>Permite seleccionar una opción múltiple.</td>
+    </tr>
+    <tr> 
+        <td colspan="2"><input type="checkbox" /> <label>Opción múltiple</label></td>    
+    </tr>
+    <tr>
+        <td>file</td>
+        <td>Permite seleccionar un archivo del sistema.</td>
+    </tr>
+    <tr> 
+        <td colspan="2"><input type="file" /></td>    
+    </tr>
+    <tr>
+        <td>color</td>
+        <td>Permite seleccionar un color.</td>
+    </tr>
+    <tr> 
+        <td colspan="2"><input type="color" /></td>    
+    </tr>
+    <tr>
+        <td>date</td>
+        <td>Permite seleccionar una fecha.</td>
+    </tr>
+    <tr> 
+        <td colspan="2"><input type="date" /></td>    
+    </tr>
+    <tr>
+        <td>month</td>
+        <td>Permite seleccionar un mes.</td>
+    </tr>
+    <tr> 
+        <td colspan="2"><input type="month" /></td>    
+    </tr>
+    <tr>
+        <td>week</td>
+        <td>Permite seleccionar una semana.</td>
+    </tr>
+    <tr> 
+        <td colspan="2"><input type="week" /></td>    
+    </tr>
+    <tr>
+        <td>time</td>
+        <td>Permite seleccionar una hora específica.</td>
+    </tr>
+    <tr> 
+        <td colspan="2"><input type="time" /></td>    
+    </tr>
+    <tr>
+        <td>datetime-local</td>
+        <td>Permite seleccionar una fecha y hora.</td>
+    </tr>
+    <tr> 
+        <td colspan="2"><input type="datetime-local" /></td>    
+    </tr>
+    <tr>
+        <td>hidden</td>
+        <td>Campo oculto que permite guardar información temporalmente.</td>
+    </tr>
+    <tr> 
+        <td colspan="2"><input type="text" disabled="disabled" /></td>    
+    </tr>
+    </tbody>
+</table>
+<h3>Select</h3>
+<p>Además de los inputs, existe el elemento <code>&lt;select&gt;</code> que permite la selección de una opción única dentro de un listado desplegable.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>select</tag>&gt;
+        &lt;option <name>value</name>="<value>0</value>"&gt;<text>Seleccione...</text>&lt;option/&gt;
+        &lt;option <name>value</name>="<value>1</value>"&gt;<text>Opción 1</text>&lt;option/&gt;
+        &lt;option <name>value</name>="<value>2</value>"&gt;<text>Opción 2</text>&lt;option/&gt;
+        &lt;option <name>value</name>="<value>3</value>"&gt;<text>Opción 3</text>&lt;option/&gt;
+    &lt;<tag>select</tag>/&gt; 
+    </pre>  
+</figure>
+<select>
+    <option value="0">Seleccione...</option>
+    <option value="1">Opción 1</option>
+    <option value="2">Opción 2</option>
+    <option value="3">Opción 3</option>
+</select>
+<h3>Botones de acción</h3>
+<p>Los botones de acción también son inputs, pero en lugar de comportarsen como campos de entrada, permiten la ejecución de una acción.</p>
+<table class="ws-table-all notranslate">
+    <tbody><tr>    
+    <th>Tipo</th>
+    <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>submit</td>
+        <td>Al hacer click serializa los datos capturados por los inputs y los envía al destino remoto configurado en la propiedad <code>action</code> del formulario.</td>
+    </tr>
+    <tr> 
+        <td colspan="2"><input type="submit" value="submit" /></td>    
+    </tr>
+    <tr>    
+        <td>button</td>
+        <td>Al hacer click ejecuta una acción sin enviar los datos del formulario.</td>
+    </tr>
+    <tr> 
+        <td colspan="2"><input type="button" value="button"/></td>    
+    </tr>
+    </tbody>
+</table>

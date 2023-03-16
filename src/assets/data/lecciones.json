@@ -124,6 +124,35 @@
 	  ]
     },
     { 
+      "numero":"7",
+      "modulo": "html",
+      "titulo": "Formularios",
+      "contenido":"leccion.formularios.html",
+      "evaluaciones": [	  
+      {
+        "tipo": 2,
+        "pregunta": "¿Cuál es el orden correcto?",
+        "contenido": "",
+        "items": ["<table>","<caption>Título></caption>","<tr>","<td>","dato celda","</td>","</tr>","</table>"],
+        "respuesta": "src"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "¿Qué atributo permite expandir verticalmente una celda?",
+        "contenido": "",
+        "items": ["vspan","expand","colspan", "rowspan"],
+        "respuesta": "rowspan"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "¿Qué atributo permite expandir horizontalmente una celda?",
+        "contenido": "",
+        "items": ["hspan","expand","colspan", "rowspan"],
+        "respuesta": "colspan"
+      }
+	  ]
+    },
+    { 
       "numero":"1",
       "modulo": "css",
       "titulo": "Lección selectores",

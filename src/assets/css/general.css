@@ -36,6 +36,17 @@ table.ws-table-all tr:nth-child(even) {
     background-color: #eeeef0;    
 }
 
+table.ws-table-all input {
+    padding: 4px 4px;
+    margin: 2px 4px;
+}
+
+.ion-page select {
+    padding: 4px 4px;
+    margin: 8px 25%;
+    width: 50%;
+}
+
 .code-card {
     margin: 10px 0;
     font-size: smaller;
