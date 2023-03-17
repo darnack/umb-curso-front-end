@@ -69,6 +69,7 @@ export class RespuestaAbiertaPage implements OnInit {
         }, 3000);
       }
       else {
+        answer.value = '';
         this.aprobado = false
         this.currentTimeOut = setTimeout(() => {
           this.setOpen(false);

@@ -130,25 +130,25 @@
       "contenido":"leccion.formularios.html",
       "evaluaciones": [	  
       {
-        "tipo": 2,
-        "pregunta": "¿Cuál es el orden correcto?",
+        "tipo": 1,
+        "pregunta": "Tipo de input que permite el envío del formulario al servidor",
         "contenido": "",
-        "items": ["<table>","<caption>Título></caption>","<tr>","<td>","dato celda","</td>","</tr>","</table>"],
-        "respuesta": "src"
+        "items": [],
+        "respuesta": "submit"
       },
       {
         "tipo": 3,
-        "pregunta": "¿Qué atributo permite expandir verticalmente una celda?",
+        "pregunta": "¿Qué otro elemento además de los inputs permite la captura de información?",
         "contenido": "",
-        "items": ["vspan","expand","colspan", "rowspan"],
-        "respuesta": "rowspan"
-      },
+        "items": ["select","radio","checkbox", "fieldset"],
+        "respuesta": "select"
+      },      
       {
         "tipo": 3,
-        "pregunta": "¿Qué atributo permite expandir horizontalmente una celda?",
+        "pregunta": "¿Qué atributo de los input es indispensable para el envío de datos hacía el servidor?",
         "contenido": "",
-        "items": ["hspan","expand","colspan", "rowspan"],
-        "respuesta": "colspan"
+        "items": ["type","id","name", "value"],
+        "respuesta": "name"
       }
 	  ]
     },

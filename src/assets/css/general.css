@@ -41,10 +41,28 @@ table.ws-table-all input {
     margin: 2px 4px;
 }
 
-.ion-page select {
+table.ws-table-all input[type=submit], table.ws-table-all input[type=button] {
+    padding: 6px 20px;
+    margin: 2px auto;
+    display: block;
+}
+
+textarea {
+    width: 100%;
+    margin: 10px 0px;
+    padding: 2px;
+    overflow-y: scroll !important;
+    resize: none;
+    height: 60px !important;
+}
+
+fieldset {
+    border: none;
+    display: grid;
+}
+
+select {
     padding: 4px 4px;
-    margin: 8px 25%;
-    width: 50%;
 }
 
 .code-card {
