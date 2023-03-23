@@ -80,7 +80,7 @@ export class OpcionMultiplePage implements OnInit {
         this.aprobado = false
         this.currentTimeOut = setTimeout(() => {
           this.setOpen(false);
-        }, 5000);
+        }, 4000);
       }
     }
   }

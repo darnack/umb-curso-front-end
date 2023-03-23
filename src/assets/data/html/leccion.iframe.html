@@ -1,0 +1,54 @@
+<p>Los <code>&lt;iframe&gt;</code> permiten incrustar una página HTML dentro de otra. 
+    Esto resulta útil cuando se desea agregar una funcionalidad compleja y estandarizada de forma rápida y sencilla, 
+    como por ejemplo, la implementación de un mapa, servicio de reportes geológicos o meteorológicos.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+  &lt;<tag>iframe</tag>
+     <name>width</name>="<value>320</value>"
+     <name>height</name>="<value>240</value>"
+     <name>src</name>="<value>https://www.openstreetmap.org/export/embed.html?
+        bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&
+        layer=mapnik</value>"&gt;
+  &lt;/<tag>iframe</tag>&gt;    
+    </pre>  
+</figure>
+<iframe 
+    width="320"
+    height="220"
+    src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
+</iframe>
+<p>💡 No se recomienda incluir un <code>&lt;iframe&gt;</code> dentro de otro <code>&lt;iframe&gt;</code>, ya que puede generar problemas de rendimiento, además de afectar la experiencia del usuario.</p>
+<h4>Atributos</h4>
+<p>Los <code>&lt;iframe&gt;</code> tienen los siguientes atributos:</p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Atributo</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>src</td>
+        <td>La url de la página a insertar</td>
+    </tr>
+    </tr>    
+        <td>width</td>
+        <td>Determina el ancho del marco en píxeles o porcentaje.</td>
+    </tr>
+    </tr>    
+        <td>height</td>
+        <td>Determina el alto del marco en píxeles o porcentaje.</td>
+    </tr>
+    <tr>    
+        <td>allowfullscreen</td>
+        <td>Atributo tipo booleano. Activa el modo pantalla completa.</td>
+    </tr>    
+        <td>scrolling</td>
+        <td>Permite la inserción de barras de desplazamiento dentro del iframe. Se puede definir como: <code>yes</code>, <code>no</code>, <code>auto</code>.</td>
+    </tr>
+    </tr>    
+        <td>importance</td>
+        <td>Define la prioridad de descarga del recurso. Se puede definir como: <code>high</code>, <code>low</code>, <code>auto</code>.</td>
+    </tr>
+</tbody>    
+</table>
+<p>💡 Para conocer más acerca de los recursos <code>&lt;iframe&gt;</code> ingresa <a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/iframe" target="_blank">aquí</a>.</p>

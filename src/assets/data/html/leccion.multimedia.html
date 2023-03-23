@@ -1,0 +1,150 @@
+<p>A partir de html 5 se ha introducido soporte de reproducción de recursos multimedia.</p>
+<h3>Audio</h3>
+<p>La etiqueta <code>&lt;audio&gt;</code> permite implementar un recurso de audio. Dentro de esta etiqueta, se configura uno o varios origenes por medio de la etiqueta 
+    <code>&lt;source&gt;</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+  &lt;<tag>audio</tag>&gt;
+    &lt;<tag>source</tag> <name>src</name>="<value>audio.ogg</value>" <name>type</name>="<value>audio/ogg</value>"&gt;
+    &lt;<tag>source</tag> <name>src</name>="<value>audio.mp3</value>" <name>type</name>="<value>audio/mpeg</value>"&gt;
+  &lt;/<tag>audio</tag>&gt;    
+    </pre>  
+</figure>
+<p>💡 La etiqueta <code>&lt;source&gt;</code> permite agregar archivos de audio alternativos que cada navegador pueda elegir de acuerdo a los formatos soportados.</p>
+<p>Los formatos de audio soportados por html 5 son los siguientes, aunque varian dependiendo del navegador.</p>
+<table class="ws-table-all notranslate">
+<tbody>
+    <tr>    
+        <th>Nombre</th>
+        <th>Media type</th>
+    </tr>
+    <tr>    
+        <td>MP3</td>
+        <td>audio/mpeg</td>
+    </tr>
+    <tr>    
+        <td>OGG</td>
+        <td>audio/ogg</td>
+    </tr>    
+        <td>WAV</td>
+        <td>audio/wav</td>
+    </tr>
+</tbody>    
+</table>
+<h4>Atributos de audio</h4>
+<p>Los atributos de la etiqueta <code>&lt;audio&gt;</code> permiten controlar caraterísticas de la reproducción del recurso.</p>
+<table class="ws-table-all notranslate">
+<tbody>
+    <tr>    
+        <th>Atributo</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>controls</td>
+        <td>Visualiza un control de audio con botón de reproducción/pausa, control de volumen y barra de progreso.</td>
+    </tr>
+    <tr>    
+        <td>crossorigin</td>
+        <td>Permite habilitar permisos para reproducir el audio desde un dominio remoto. Su valor puede ser <code>anonymous</code> o <code>use-credentials</code>.</td>
+    </tr>    
+        <td>loop</td>
+        <td>Atributo booleano que determina si el audio se reproduce en bucle infinito.</td>
+    </tr>
+    </tr>    
+        <td>mute</td>
+        <td>Atributo booleano que determina si el control inicia silenciado.</td>
+    </tr>
+    </tr>    
+        <td>autoplay</td>
+        <td>Atributo booleano que determina si audio se comienza a reproducir automáticamente.</td>
+    </tr>
+</tbody>    
+</table>
+<h3>Video</h3>
+<p>La etiqueta <code>&lt;video&gt;</code> permite implementar un recurso de video. Dentro de esta etiqueta, se configura uno o varios origenes por medio de la etiqueta 
+    <code>&lt;source&gt;</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+  &lt;<tag>video</tag>&gt;
+    &lt;<tag>source</tag> <name>src</name>="<value>video.ogg</value>" <name>type</name>="<value>video/ogg</value>"&gt;
+    &lt;<tag>source</tag> <name>src</name>="<value>video.mp4</value>" <name>type</name>="<value>video/mp4</value>"&gt;
+  &lt;/<tag>video</tag>&gt;    
+    </pre>  
+</figure>
+<p>Los formatos de video soportados por html 5 son los siguientes, aunque varian dependiendo del navegador.</p>
+<table class="ws-table-all notranslate">
+<tbody>
+    <tr>    
+        <th>Nombre</th>
+        <th>Media type</th>
+    </tr>
+    <tr>    
+        <td>MP4</td>
+        <td>video/mp4</td>
+    </tr>
+    <tr>    
+        <td>WebM</td>
+        <td>video/webm</td>
+    </tr>    
+        <td>OGG</td>
+        <td>video/ogg</td>
+    </tr>
+</tbody>    
+</table>
+<h4>Atributos de video</h4>
+<p>Los atributos de la etiqueta <code>&lt;video&gt;</code> permiten controlar caraterísticas de la reproducción del recurso.</p>
+<table class="ws-table-all notranslate">
+<tbody>
+    <tr>    
+        <th>Atributo</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>controls</td>
+        <td>Visualiza un control de video con botón de reproducción/pausa, control de volumen, barra de progreso, opción de pantalla completa, y otras opciones.</td>
+    </tr>
+    </tr>    
+        <td>width</td>
+        <td>Determina el ancho fijo del marco en píxeles.</td>
+    </tr>
+    </tr>    
+        <td>height</td>
+        <td>Determina el alto fijo del marco en píxeles.</td>
+    </tr>
+    <tr>    
+        <td>crossorigin</td>
+        <td>Permite habilitar permisos para reproducir el video desde un dominio remoto. Su valor puede ser <code>anonymous</code> o <code>use-credentials</code>.</td>
+    </tr>    
+        <td>loop</td>
+        <td>Atributo booleano que determina si el video se reproduce en bucle infinito.</td>
+    </tr>
+    </tr>    
+        <td>mute</td>
+        <td>Atributo booleano que determina si el control inicia silenciado.</td>
+    </tr>
+    </tr>    
+        <td>autoplay</td>
+        <td>Atributo booleano que determina si video se comienza a reproducir automáticamente.</td>
+    </tr>
+    </tr>    
+        <td>disablepicture
+            inpicture</td>
+        <td>Atributo booleano que desactiva la opción de pantalla flotante.</td>
+    </tr>
+</tbody>    
+</table>
+<h3>Subtítulos</h3>
+<p>Por medio de la etiqueta <code>&lt;track&gt;</code> es posible asociar una pista de subtítulos a un video. Para ello se implementa un archivo de recursos <code>.vtt</code></p>
+<figure class="code-card">
+    <pre class="code-pre">
+  &lt;<tag>video</tag>&gt;
+    &lt;<tag>source</tag> <name>src</name>="<value>video.ogg</value>" <name>type</name>="<value>video/ogg</value>"&gt;
+    &lt;<tag>track</tag> 
+        <name>kind</name>="<value>subtitles</value>" 
+        <name>srclang</name>="<value>en</value>"
+        <name>source</name>="<value>subtitle.vtt</value>"&gt;
+  &lt;/<tag>video</tag>&gt;    
+    </pre>  
+</figure>
+<p>Una vez implementada la pista, el control de reproducción detectará la opción de subtítulos.</p>
+<p>💡 Para conocer más acerca de los recursos <code>.vtt</code> ingresa <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API" target="_blank">aquí</a>.</p>

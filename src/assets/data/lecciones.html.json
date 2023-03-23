@@ -50,10 +50,10 @@
       "evaluaciones": [	  
       {
         "tipo": 3,
-        "pregunta": "¿Cómo se inserta un vínculo o enlace?",
+        "pregunta": "No es un atributo soportado por todos los elementos html",
         "contenido": "",
-        "items": ["<a target=\"http://www.ejemplo.com\">...</a>","<a url=\"http://www.ejemplo.com\">...</a>","<a href=\"http://www.ejemplo.com\">...</a>", "<a link=\"http://www.ejemplo.com\">...</a>"],
-        "respuesta": "<a href=\"http://www.ejemplo.com\">...</a>"
+        "items": ["name","class","value", "id"],
+        "respuesta": "value"
       }
 	    ]
     },    
@@ -67,32 +67,39 @@
         "tipo": 3,
         "pregunta": "¿Cómo se inserta un vínculo o enlace?",
         "contenido": "",
-        "items": ["<a target=\"http://www.ejemplo.com\">...</a>","<a url=\"http://www.ejemplo.com\">...</a>","<a href=\"http://www.ejemplo.com\">...</a>", "<a link=\"http://www.ejemplo.com\">...</a>"],
-        "respuesta": "<a href=\"http://www.ejemplo.com\">...</a>"
+        "items": ["<a target=\"http://www.site.com\"></a>","<a url=\"http://www.site.com\"></a>","<a href=\"http://www.site.com\"></a>", "<a link=\"http://www.site.com\"></a>"],
+        "respuesta": "<a href=\"http://www.site.com\"></a>"
+      },
+      {
+        "tipo": 1,
+        "pregunta": "Escribe el valor correcto",
+        "contenido": "Se requiere que el enlace abra en una nueva pestaña. ¿Qué valor se debería asignar a la propiedad target?",
+        "items": [],
+        "respuesta": "_blank"
       }
 	  ]
-    },
+    },    
     { 
       "numero":"5",
       "modulo": "html",
-      "titulo": "Imágenes",
-      "contenido":"leccion.imagenes.html",
+      "titulo": "Listas",
+      "contenido":"leccion.listas.html",
       "evaluaciones": [	  
-      {
-        "tipo": 1,
-        "pregunta": "¿Cuál es el atributo que hace falta?",
-        "contenido": "<a href=\"index.html\">\n  <img ???=\"icon.ico\" alt=\"...\">\n</a>",
-        "items": [],
-        "respuesta": "src"
-      },
-      {
-        "tipo": 3,
-        "pregunta": "No es un formato de imagen soportado en HTML",
-        "contenido": "",
-        "items": ["PNG","SVG","JPEG", "BMP"],
-        "respuesta": "BMP"
-      }
-	  ]
+        {
+          "tipo": 3,
+          "pregunta": "No es un tipo de lista ordenada",
+          "contenido": "",
+          "items": ["Romana minúscula (i)","Alfabética mayúscula (A)","Decimal (1)","Alfabética minúscula (a)","Numérica (#)"],
+          "respuesta": "Numérica (#)"
+        },
+        {
+          "tipo": 2,
+          "pregunta": "¿Cuál es el orden correcto de esta frase?",
+          "contenido": "",
+          "items": ["Una lista de tipo <ul>","es una lista desordenada","mientras que","<dl>","es una lista tipo llave/valor"],
+          "respuesta": ""
+        }
+      ]
     },
     { 
       "numero":"6",
@@ -151,27 +158,64 @@
         "respuesta": "name"
       }
 	  ]
-    },
+    },  
     { 
       "numero":"8",
       "modulo": "html",
-      "titulo": "Listas",
-      "contenido":"leccion.listas.html",
+      "titulo": "Imágenes",
+      "contenido":"leccion.imagenes.html",
       "evaluaciones": [	  
-        {
-          "tipo": 3,
-          "pregunta": "No es un tipo de lista ordenada",
-          "contenido": "",
-          "items": ["Romana minúscula (i)","Alfabética mayúscula (A)","Decimal (1)","Alfabética minúscula (a)","Numérica (#)"],
-          "respuesta": "Numérica (#)"
-        },
-        {
-          "tipo": 2,
-          "pregunta": "¿Cuál es el orden correcto de esta frase?",
-          "contenido": "",
-          "items": ["Una lista de tipo <ul>","es una lista desordenada","mientras que","<dl>","es una lista tipo llave/valor"],
-          "respuesta": ""
-        }
-      ]
+      {
+        "tipo": 1,
+        "pregunta": "¿Cuál es el atributo que hace falta?",
+        "contenido": "<a href=\"index.html\">\n  <img ???=\"icon.ico\" alt=\"...\">\n</a>",
+        "items": [],
+        "respuesta": "src"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "No es un formato de imagen soportado en HTML",
+        "contenido": "",
+        "items": ["PNG","SVG","JPEG", "BMP"],
+        "respuesta": "BMP"
+      }
+	  ]
+    },  
+    { 
+      "numero":"9",
+      "modulo": "html",
+      "titulo": "Multimedia",
+      "contenido":"leccion.multimedia.html",
+      "evaluaciones": [	  
+      {
+        "tipo": 1,
+        "pregunta": "Escribe la respuesta correcta",
+        "contenido": "¿Cuál es el nombre de la etiqueta que permite agregar un recurso de origen de audio o video?",
+        "items": [],
+        "respuesta": "source"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "No es un formato de audio soportado por HTML 5",
+        "contenido": "",
+        "items": ["MP3","WMA","WAV", "OGG"],
+        "respuesta": "WMA"
+      }
+	  ]
+    },  
+    { 
+      "numero":"10",
+      "modulo": "html",
+      "titulo": "iFrame",
+      "contenido":"leccion.iframe.html",
+      "evaluaciones": [
+      {
+        "tipo": 3,
+        "pregunta": "No es un atributo de los iframes",
+        "contenido": "",
+        "items": ["scrolling","allowfullscreen","importance", "source"],
+        "respuesta": "source"
+      }
+	  ]
     }
 ]
