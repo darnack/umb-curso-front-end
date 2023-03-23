@@ -1,0 +1,38 @@
+[
+    { 
+      "numero":"1",
+      "modulo": "javascript",
+      "titulo": "Scripts",
+      "contenido": "<h1>Scripts</h1>",
+      "evaluaciones": [
+      {
+        "tipo": 2,
+        "pregunta": "Ordene las líneas de código de forma correcta",
+        "contenido": "",
+        "items": ["<script>","var name = \"James\";","console.log(name);", "</script>"],
+        "respuesta": ""
+      }
+      ]
+     },
+     { 
+      "numero": "2",
+      "modulo": "javascript",
+      "titulo": "Funciones",
+      "contenido": "leccion.tags.html",
+      "evaluaciones": [
+      {
+        "tipo": 1,
+        "pregunta": "¿Cuál es el valor de salida de este código?",
+        "contenido": "function test(number) {\n  while(number < 5) {\n    number++;\n  }\n \n  return number;\n}\n\nalert(test(2));\n",
+        "items": [],
+        "respuesta": "5"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "¿Cómo se llama el compilador de JavaScript?",
+        "contenido": "",
+        "items": ["ECMAScript","No requiere compilación, es ejecutado en tiempo real","Enginne WebKit", "JQuery"],
+        "respuesta": "No requiere compilación, es ejecutado en tiempo real"
+      }]
+     }
+   ]

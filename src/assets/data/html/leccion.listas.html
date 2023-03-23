@@ -1,0 +1,101 @@
+<p>En HTML es posible crear listas ordenadas y listas no ordenadas con las etiquetas <code>&lt;ol&gt;</code> y <code>&lt;ul&gt;</code>, respectivamente.</p>
+<h3>Lista ordenada</h3>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>ol</tag>&gt;        
+        &lt;<tag>li</tag>&gt;<text>Inicio</text>&lt;/<tag>li</tag>&gt;
+        &lt;<tag>li</tag>&gt;<text>Desarrollo</text>&lt;/<tag>li</tag>&gt;
+        &lt;<tag>li</tag>&gt;<text>Conclusión</text>&lt;/<tag>li</tag>&gt;
+    &lt;/<tag>ol</tag>&gt; 
+    </pre>  
+</figure>
+<ol>        
+    <li>Inicio</li>
+    <li>Desarrollo</li>
+    <li>Conclusión</li>
+</ol> 
+<h3>Lista no ordenada</h3>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>ul</tag>&gt;        
+        &lt;<tag>li</tag>&gt;<text>Arroz</text>&lt;/<tag>li</tag>&gt;
+        &lt;<tag>li</tag>&gt;<text>Sal</text>&lt;/<tag>li</tag>&gt;
+        &lt;<tag>li</tag>&gt;<text>Pimienta</text>&lt;/<tag>li</tag>&gt;
+    &lt;/<tag>ul</tag>&gt; 
+    </pre>  
+</figure>
+<ul>        
+    <li>Arroz</li>
+    <li>Sal</li>
+    <li>Pimienta</li>
+</ul> 
+<h3>Tipos de lista ordenada</h3>
+<p>Las listas ordenadas soportan diferentes tipos de ordenamiento.</p>
+<table class="ws-table-all notranslate">
+    <tr>    
+        <th>Tipo</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>1</td>
+        <td>Listas decimales.</td>
+    </tr>
+    <tr>    
+        <td>a</td>
+        <td>Listas alfabéticas en minúsculas.</td>
+    </tr>   
+    <tr>    
+        <td>A</td>
+        <td>Listas alfabéticas en mayúsculas.</td>
+    </tr>
+    <tr>    
+        <td>i</td>
+        <td>Listas números romanos en minúsculas.</td>
+    </tr>
+    <tr>    
+        <td>I</td>
+        <td>Listas números romanos en mayúsculas.</td>
+    </tr>  
+</table>
+<p>De esta manera se vería una lista ordenada tipo (i).</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>ol</tag> <name>type</name>="<value>i</value>"&gt;        
+        &lt;<tag>li</tag>&gt;<text>Análisis</text>&lt;/<tag>li</tag>&gt;
+        &lt;<tag>li</tag>&gt;<text>Diseño</text>&lt;/<tag>li</tag>&gt;
+        &lt;<tag>li</tag>&gt;<text>Desarrollo</text>&lt;/<tag>li</tag>&gt;
+        &lt;<tag>li</tag>&gt;<text>Pruebas</text>&lt;/<tag>li</tag>&gt;
+        &lt;<tag>li</tag>&gt;<text>Despliegue</text>&lt;/<tag>li</tag>&gt;
+    &lt;/<tag>ol</tag>&gt; 
+    </pre>  
+</figure>
+<ol type="i">        
+    <li>Análisis</li>
+    <li>Diseño</li>
+    <li>Desarrollo</li>
+    <li>Pruebas</li>
+    <li>Despliegue</li>
+</ol> 
+<h3>Listas de definición</h3>
+<p>Permiten implementar listas con estructura llave/valor como si fuese un diccionario.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>dl</tag>&gt;        
+        &lt;<tag>dt</tag>&gt;<text>Término 1</text>&lt;/<tag>dt</tag>&gt;
+        &lt;<tag>dd</tag>&gt;<text>Definición 1</text>&lt;/<tag>dd</tag>&gt;
+        &lt;<tag>dt</tag>&gt;<text>Término 2</text>&lt;/<tag>dt</tag>&gt;
+        &lt;<tag>dd</tag>&gt;<text>Definición 2</text>&lt;/<tag>dd</tag>&gt;
+        &lt;<tag>dt</tag>&gt;<text>Término N</text>&lt;/<tag>dt</tag>&gt;
+        &lt;<tag>dd</tag>&gt;<text>Definición N</text>&lt;/<tag>dd</tag>&gt;
+    &lt;/<tag>dl</tag>&gt; 
+    </pre>  
+</figure>
+<dl>
+    <dt>Término 1</dt>
+    <dd>Definición 1</dd>
+    <dt>Término 2</dt>
+    <dd>Definición 2</dd>    
+    <dt>Término N</dt>
+    <dd>Definición N</dd>
+  </dl>
+  <p>💡 Todos los tipos de lista se puede anidar una dentro de otra para generar estructuras jerarquizadas, como por ejemplo, árboles de contenido.</p>

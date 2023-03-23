@@ -145,7 +145,7 @@
     </tr>
     </tbody>
 </table>
-<p>* No todos los navegadores soportan todos los tipos de inputs.</p>
+<p>💡 No todos los navegadores soportan todos los tipos de inputs.</p>
 <h3>Select</h3>
 <p>Además de los inputs, existe el elemento <code>&lt;select&gt;</code> que permite la selección de una opción única dentro de un listado desplegable.</p>
 <figure class="code-card">
@@ -181,6 +181,7 @@
     &lt;<tag>input</tag> <name>name</name>="<value>[name]</value>" <name>type</name>="<value>[type]</value>" /&gt;
     </pre>  
 </figure>
+<p>Existen varios tipos:</p>
 <table class="ws-table-all notranslate">
     <tbody><tr>    
     <th>Tipo</th>
@@ -214,7 +215,8 @@
     <input type="text"/>
 </fieldset>
 <h3>Todo a la vez...</h3>
-<p>Un formulario podría tener el siguiente aspecto. Es muy importante tener en cuenta que el atributo <code>name</code> es indispensable para obtener los datos del formulario. El nombre que se asigne al campo, será el nombre que tendrá el dato al llegar al servidor.</p>
+<p>Si combinamos los elementos anteriormente vistos, podemos construir un formulario funcional que capture la información del usuario y la envíe al servidor.</p>
+<p>Un formulario que, por ejemplo, capture datos de un producto para agregarlos a un catálogo, podría tener el siguiente aspecto. </p>
 <figure class="code-card">
     <pre class="code-pre">
  &lt;<tag>form</tag>
@@ -267,6 +269,7 @@
         <textarea name="observacion"></textarea> 
     </fieldset>
     <fieldset>
-        <input type="submit" value="Insertar" />
+        <input type="submit" value="Enviar" style="margin: auto;padding: 5px 10px;"/>
     </fieldset>
 </form> 
+<p>💡 Es muy importante tener en cuenta que el atributo <code>name</code> es indispensable para obtener los datos del formulario, el nombre que se asigne al campo, será el nombre que tendrá el dato al llegar al servidor.</p>

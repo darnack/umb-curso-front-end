@@ -1,0 +1,17 @@
+[  
+  { 
+    "numero":"1",
+    "modulo": "css",
+    "titulo": "Lección selectores",
+    "contenido": "<h1>Título H1</h1>",
+    "evaluaciones": [
+      {
+        "tipo": 3,
+        "pregunta": "¿Qué sintaxis es la correcta para asignar color rojo a un elemento de tipo h1 cuya clase es titulo1?",
+        "contenido": "",
+        "items": ["h1.titulo1{color: red;}","#titulo1{color: red;}","titulo1.h1{color: red}", "h1#titulo1{color: red}"],
+        "respuesta": "h1#titulo1{color: red}"
+      }
+    ]
+  }
+]

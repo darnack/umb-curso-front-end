@@ -153,54 +153,25 @@
 	  ]
     },
     { 
-      "numero":"1",
-      "modulo": "css",
-      "titulo": "Lección selectores",
-      "contenido": "<h1>Título H1</h1>",
-      "evaluaciones": [
-	    {
-        "tipo": 3,
-        "pregunta": "¿Qué sintaxis es la correcta para asignar color rojo a un elemento de tipo h1 cuya clase es titulo1?",
-        "contenido": "",
-        "items": ["h1.titulo1{color: red;}","#titulo1{color: red;}","titulo1.h1{color: red}", "h1#titulo1{color: red}"],
-        "respuesta": "h1#titulo1{color: red}"
-      }
-	  ]
-     },
-     { 
-      "numero":"1",
-      "modulo": "javascript",
-      "titulo": "Scripts",
-      "contenido": "<h1>Scripts</h1>",
-      "evaluaciones": [
-      {
-        "tipo": 2,
-        "pregunta": "Ordene las líneas de código de forma correcta",
-        "contenido": "",
-        "items": ["<script>","var name = \"James\";","console.log(name);", "</script>"],
-        "respuesta": ""
-      }
+      "numero":"8",
+      "modulo": "html",
+      "titulo": "Listas",
+      "contenido":"leccion.listas.html",
+      "evaluaciones": [	  
+        {
+          "tipo": 3,
+          "pregunta": "No es un tipo de lista ordenada",
+          "contenido": "",
+          "items": ["Romana minúscula (i)","Alfabética mayúscula (A)","Decimal (1)","Alfabética minúscula (a)","Numérica (#)"],
+          "respuesta": "Numérica (#)"
+        },
+        {
+          "tipo": 2,
+          "pregunta": "¿Cuál es el orden correcto de esta frase?",
+          "contenido": "",
+          "items": ["Una lista de tipo <ul>","es una lista desordenada","mientras que","<dl>","es una lista tipo llave/valor"],
+          "respuesta": ""
+        }
       ]
-     },
-     { 
-      "numero": "2",
-      "modulo": "javascript",
-      "titulo": "Funciones",
-      "contenido": "leccion.tags.html",
-      "evaluaciones": [
-      {
-        "tipo": 1,
-        "pregunta": "¿Cuál es el valor de salida de este código?",
-        "contenido": "function test(number) {\n  while(number < 5) {\n    number++;\n  }\n \n  return number;\n}\n\nalert(test(2));\n",
-        "items": [],
-        "respuesta": "5"
-      },
-      {
-        "tipo": 3,
-        "pregunta": "¿Cómo se llama el compilador de JavaScript?",
-        "contenido": "",
-        "items": ["ECMAScript","No requiere compilación, es ejecutado en tiempo real","Enginne WebKit", "JQuery"],
-        "respuesta": "No requiere compilación, es ejecutado en tiempo real"
-      }]
-     }
-   ]
+    }
+]

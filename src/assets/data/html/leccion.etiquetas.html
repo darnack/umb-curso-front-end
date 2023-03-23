@@ -4,15 +4,25 @@
   <li><code>&lt;html&gt;</code>: Todo el contenido de la página debe estar entre estas etiquetas.</li>
   <li><code>&lt;head&gt;</code>: Contiene el título de la página que puedes ver en la pestaña de tu navegador y además contiene metadatos.</li>
   <li><code>&lt;body&gt;</code>: Contiene todos los elementos visibles de la página web. Toda la estructura de la página debe estar entre estas etiquetas.</li>
+  <li><code>&lt;div&gt;</code>: Contenedor de elementos. Permite personalizar la estructura de un documento html.</li>  
   <li><code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code>, <code>&lt;h6&gt;</code>: Estos elementos representan encabezados o títulos de mayor a menor importancia o nivel en la página web. &nbsp;</li>
-  <li><code>&lt;p&gt;</code>: Un párrafo.</li>
+  <li><code>&lt;p&gt;</code>: Párrafo.</li>
+  <li><code>&lt;span&gt;</code>: Etiqueta de texto.</li>
   <li><code>&lt;a&gt;</code>: Enlace a otra página web o a secciones internas de tu página web.</li>
   <li><code>&lt;strong&gt;</code>: Permite resaltar texto importante mostrándola en negrilla. </li>
+  <li><code>&lt;center&gt;</code>: Permite centrar un conjunto de elementos. </li>
   <li><code>&lt;em&gt;</code>: Permite resaltar texto importante mostrándola en cursiva.</li>
-  <li><code>&lt;form&gt;</code>: Permite crear un formulario. </li>
   <li><code>&lt;hr&gt;</code>: Línea horizontal que puede ser usada para separar párrafos o secciones de tu página web.</li>
-  <li><code>&lt;input&gt;</code>: Campo de entrada que permite capturar texto o actuar como un botón de radio o una casilla de verificación.</li>
-  <li><code>&lt;footer&gt;</code>: Pie de página.</li></ul>
+  <li><code>&lt;br&gt;</code>: Salto de línea.</li>
+  <li><code>&lt;form&gt;</code>: Formulario. Permite capturar datos.</li>  
+  <li><code>&lt;input&gt;</code>: Campo de entrada que permite capturar información para porteriormente enviarla a un servidor.</li>
+  <li><code>&lt;select&gt;</code>: Lista desplegable.</li>
+  <li><code>&lt;textarea&gt;</code>: Campo de texto multilínea.</li>
+  <li><code>&lt;ol&gt;</code>: Lista de elementos ordenados.</li>
+  <li><code>&lt;ul&gt;</code>: Lista de elementos no ordenados.</li>  
+  <li><code>&lt;aside&gt;</code>: Panel lateral.</li>
+  <li><code>&lt;footer&gt;</code>: Pie de página.</li>
+</ul>
 
 <p>La mayoría de los elementos en HTML tienen una etiqueta de apertura y una etiqueta de cierre. Entre ambas etiquetas se escribe el contenido del elemento.</p>
 <figure class="code-card">
@@ -22,6 +32,12 @@
 </figure>
 <p>Este elemento tiene una etiqueta de apertura y una etiqueta de cierre para rodear su contenido.</p>
 <ul><li>La etiqueta de apertura es <code><strong>&lt;h1&gt;</strong></code> </li><li>La etiqueta de cierre es <code><strong>&lt;/h1&gt;</strong></code>.</li></ul>
-<p>Sin embargo, algunos elementos no necesitan una etiqueta de cierre porque no actúan como contenedores. Por ejemplo, imágenes y componentes de entrada:</p>
-<p><code><strong>&lt;img src="imagen.jpg"/&gt;</strong></code></p>
-<p><code><strong>&lt;input type="text"/&gt;</strong></code></p>
+<p>Sin embargo, algunos elementos no necesitan una etiqueta de cierre porque no actúan como contenedores. Por ejemplo, imágenes y campos de entrada:</p>
+<figure class="code-card">
+  <pre class="code-pre">
+  &lt;!-- Etiqueta de imagen --&gt;
+  &lt;<tag>img</tag> <name>src</name>="<value>imagen.jpg</value>" /&gt; 
+  &lt;!-- Etiqueta de campo de entrada --&gt;
+  &lt;<tag>input</tag> <name>type</name>="<value>text</value>" /&gt;
+  </pre>
+</figure>

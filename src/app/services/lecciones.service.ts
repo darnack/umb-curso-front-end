@@ -7,21 +7,25 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LeccionesService {
 
-  private lecciones: LeccionModel[]
-  private uri: string
+  private lecciones: LeccionModel[]  
 
-  constructor(private httpClient: HttpClient) {    
-    this.uri = "assets/data/lecciones.json"
+  constructor(private httpClient: HttpClient) {        
     this.lecciones = []
    
     this.loadData();
   }
 
   loadData() {
-    this.httpClient.get<LeccionModel[]>(this.uri).subscribe(response => {
-      
-      this.lecciones = response
-      
+    this.httpClient.get<LeccionModel[]>("assets/data/lecciones.html.json").subscribe(response => {      
+      this.lecciones = this.lecciones.concat(response);
+    });
+
+    this.httpClient.get<LeccionModel[]>("assets/data/lecciones.css.json").subscribe(response => {      
+      this.lecciones = this.lecciones.concat(response);
+    });
+
+    this.httpClient.get<LeccionModel[]>("assets/data/lecciones.javascript.json").subscribe(response => {      
+      this.lecciones = this.lecciones.concat(response);
     });
   }
 
