@@ -1,0 +1,141 @@
+<p>Los selectores son expresiones que permiten agrupar un conjunto de elementos HTML para que posteriormente sean afectadas sus propiedades gráficas de determinada manera. Existen varios tipos de selectores.</p>
+<h3>Selector universal</h3>
+<p>Selecciona todos los elementos.</p>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;">    
+    <tag>*</tag> {
+       <name>margin</name>: <value>0</value>;
+       <name>border</name>: <value>none</value>;
+    }
+    </pre>  
+</figure>
+<h3>Selectores de tipo</h3>
+<p>Permite seleccionar todos los elementos de un mismo tipo. </p>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;">    
+    <tag>p</tag> {
+       <name>color</name>: <value>#303030</value>;
+    }
+
+    <tag>input</tag> {
+        <name>padding</name>: <value>8px</value>;
+    }
+    </pre>  
+</figure>
+<h3>Selectores de clase</h3>
+<p>Permite seleccionar todos los elementos que tengan la misma clase. 
+    Para ello es necesario aplicar la clase a los elementos HTML que queremos que se vean afectados por medio del atributo <code>class</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>div</tag> <name>class</name>="<value>campo</value>"&gt;&lt;/<tag>div</tag>&gt;    
+    </pre>  
+</figure>
+<p>A su vez, el selector debe ser implementado utilizando el caracter punto <code>.</code> seguido del nombre de la clase.</p>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;">    
+    <tag>.campo</tag> {
+       <name>border</name>: <value>1px solid #000</value>;
+    }   
+    </pre>  
+</figure>
+<h3>Selector por ID</h3>
+<p>Permite seleccionar un elemento por identificador. Para ello el elemento debe implementar su identificador correspondiente haciendo uso del atributo <code>id</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>span</tag> <name>id</name>="<value>mensaje_error</value>"&gt;&lt;/<tag>span</tag>&gt;    
+    </pre>  
+</figure>
+<p>El selector debe ser implementado utilizando el caracter almohadilla <code>#</code> seguido del identificador del elemento.</p>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;">    
+    <tag>#mensaje_error</tag> {
+       <name>color</name>: <value>red</value>;
+    }   
+    </pre>  
+</figure>
+<h3>Selector por atributo</h3>
+<p>Permite seleccionar un conjunto de elementos que tengan un determinado valor para un determinado atributo. 
+    Podemos hacer uso de atributos propios de los elementos, o inventar un atributo personalizado. </p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>input</tag> <name>value</name>="<value>50</value>" <name>custom</name>="<value>dark</value>" /&gt;    
+    </pre>  
+</figure>
+<p>El selector debe ser implementado utilizando llaves cuadradas, dentro de las cuales debemos colocar el nombre y valor del atributo.</p>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;">    
+    <text>[<name>value</name>=<tag>50</tag>]</text> {
+       <name>color</name>: <value>green</value>;
+    }
+
+    <text>[<name>custom</name>=<tag>dark</tag>]</text> {
+        <name>color</name>: <value>black</value>;
+    }  
+    </pre>  
+</figure>
+<h3>Selectores descendentes</h3>
+<p>Es una composición de selectores que permiten afectar a un conjunto de elementos a partir de su contenedor.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>a</tag> <name>class</name>="<value>link</value>" <name>href</name>="<value>http://site.com/</value>"&gt; 
+        &lt;<tag>img</tag> <name>src</name>="<value>img/site.png</value> /&gt;    
+    &lt;/<tag>a</tag>&gt;   
+    </pre>  
+</figure>
+<p>Los selectores deben ser implementados de afuera hacía adentro en orden de izquierda a derecha separados por un espaco simple, 
+    donde el primero hace referencia al contenedor, y el siguiente al elemento contenido. 
+    Esto se puede repetir tantos niveles de anidación como sean necesarios.
+    </p>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;">    
+    <tag>.link img</tag> {
+        <name>cursor</name>: <value>pointer</value>;
+    } 
+    </pre>  
+</figure>
+<h3>Selectores de psedo-clase</h3>
+<p>Una pseudo-clase CSS es una palabra clave que se añade a los selectores y que especifica un estado especial del elemento seleccionado. 
+    La más común de todas es <code>hover</code>, la cual permite seleccionar un elemento únicamente mientras el puntero del mouse se encuentre por encima del elemento.
+</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>a</tag> <name>href</name>="<value>http://site.com/</value>"&gt; 
+        <text>haz clic aquí...</text>  
+    &lt;/<tag>a</tag>&gt;   
+    </pre>  
+</figure>
+<p>Para implementar el selector de psedo-clase se debe agregar el caracter dos puntos <code>:</code> justo despúes del selector convencional, 
+    y agregar enseguida la palabra clave de la psedo-clase correspondiente.</p>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;">    
+    <tag>a:hover</tag> {
+        <name>cursor</name>: <value>pointer</value>;
+        <name>font-weight</name>: <value>bold</value>;
+    } 
+    </pre>  
+</figure>
+<p>💡 Para conocer más acerca de las psedo-clases ingresa <a href="https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-classes" target="_blank">aquí</a>.</p>
+<h3>Selectores de psedo-elementos</h3>
+<p>Los pseudoelementos son abstracciones que representan entidades más allá de los elementos HTML. 
+    Por ejemplo, HTML no tiene un elemento que describa la primera letra de un párrafo ni los marcadores de una lista.
+    Pero estos existen como psedo-elementos y se pueden seleccionar para aplicarles un estilo.
+</p>
+<p>Por ejemplo, es posible seleccionar la primera línea de un párrafo y resultarla.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>p</tag>&gt; 
+        <text>Primera línea...</text>  
+        <text>segunda línea...</text>  
+    &lt;/<tag>p&gt;   
+    </pre>  
+</figure>
+<p>Para implementar el selector de psedo-elemento se debe agregar el caracter dos puntos dobles <code>::</code> justo despúes del selector convencional, 
+    y agregar enseguida la palabra clave del psedo-elemento correspondiente.</p>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;">    
+    <tag>p:first-line</tag> {        
+        <name>font-weight</name>: <value>bold</value>;
+    } 
+    </pre>  
+</figure>
+<p>💡 Para conocer más acerca de los psedo-elementos ingresa <a href="https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-elements" target="_blank">aquí</a>.</p>

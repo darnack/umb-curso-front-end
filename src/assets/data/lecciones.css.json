@@ -2,15 +2,66 @@
   { 
     "numero":"1",
     "modulo": "css",
-    "titulo": "Lección selectores",
-    "contenido": "<h1>Título H1</h1>",
+    "titulo": "Introducción",
+    "contenido": "leccion.introduccion.html",
+    "evaluaciones": [
+      {
+        "tipo": 1,
+        "pregunta": "Escribe la respuesta correcta",
+        "contenido": "¿Cuál es el nombre del atributo HTML que permite asignar estilos en línea?",
+        "items": [],
+        "respuesta": "style"
+      },      
+      {
+        "tipo": 2,
+        "pregunta": "Ordena los elementos correctamente",
+        "contenido": "",
+        "items": ["<html>","  <head>","   <style>","   </style>","  </head>","  <body>","  </body>","</html>"],
+        "respuesta": ""
+      }
+    ]
+  },
+  { 
+    "numero":"2",
+    "modulo": "css",
+    "titulo": "Estructura de las reglas",
+    "contenido": "leccion.estructura.html",
     "evaluaciones": [
       {
         "tipo": 3,
-        "pregunta": "¿Qué sintaxis es la correcta para asignar color rojo a un elemento de tipo h1 cuya clase es titulo1?",
+        "pregunta": "¿Cuantas propiedades se pueden especificar en una misma regla?",
         "contenido": "",
-        "items": ["h1.titulo1{color: red;}","#titulo1{color: red;}","titulo1.h1{color: red}", "h1#titulo1{color: red}"],
-        "respuesta": "h1#titulo1{color: red}"
+        "items": ["Solo una","Son atributos, no propiedades","No hay límite", "Máximo 255"],
+        "respuesta": "No hay límite"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "¿Cuantos selectores se pueden incluir en una misma regla?",
+        "contenido": "",
+        "items": ["Solo uno","Varios separados por punto y coma","Varios separados por comas", "Máximo 2"],
+        "respuesta": "Varios separados por comas"
+      }
+    ]
+  },
+  { 
+    "numero":"3",
+    "modulo": "css",
+    "titulo": "Selectores",
+    "contenido": "leccion.selectores.html",
+    "evaluaciones": [
+      {
+        "tipo": 3,
+        "pregunta": "¿Qué selector afecta al elemento <a id=\"enlace\" class=\"link\"></a>?",
+        "contenido": "",
+        "items": ["a.enlace",".enlace","#link", "a.link"],
+        "respuesta": "a.link"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "No es un tipo de selector",
+        "contenido": "",
+        "items": ["psedo-clase","psedo-elemento","clase", "descendente","psedo-tipo"],
+        "respuesta": "psedo-tipo"
       }
     ]
   }

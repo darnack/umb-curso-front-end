@@ -1,0 +1,49 @@
+<p>CSS (Cascading Style Sheets) es un lenguaje basado en reglas. 
+    Estas reglas nos permiten especificar las caraterísticas gráficas de los elementos HTML en la página web, a partir de selectores, propiedades y sus valores.</p>
+<h3>Estilos en línea</h3>
+<p>Se denomina estilo en línea cuando se asignan las propiedades gráficas directamente al elemento HTML. 
+    Para esto se utiliza la propiedad <code>style</code>, la cual es soportada por cualquier elemento HTML.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>h1</tag> <name>style</name>="<value>color: blue</value>"&gt;&lt;/<tag>h1</tag>&gt;    
+    </pre>  
+</figure>
+<h3>Etiqueta &lt;style&gt;</h3>
+<p>La etiqueta <code>&lt;style&gt;</code> permite contener estilos CSS que se puede aplicar a más de un elmento HTML a través de reglas de selección.</p>
+<p>La etiqueta <code>&lt;style&gt;</code> debe incluirse dentro de la cabecera del documento HTML.</p>
+<figure class="code-card">
+  <pre class="code-pre">
+    &lt;<tag>head</tag>&gt;
+      &lt;<tag>title</tag>&gt;<text>Mi página web</text>&lt;/<tag>title</tag>&gt;
+      &lt;<tag>style</tag>&gt;
+        <tag>h1</tag> {
+           <name>color</name>: <value>blue</value>;
+        }
+      &lt;/<tag>style</tag>&gt;
+    &lt;/<tag>head</tag>&gt;       
+  </pre>  
+</figure>
+<h3>Archivos CSS</h3>
+<p>La manera más apropiada de implementar estilos CSS es por medio de un archivo CSS enlazado al documento HTML.
+    Para ello, debemos incluir un elemento <code>&lt;link&gt;</code> en <code>&lt;head&gt;</code> y asignar la ubicación del archivo como el valor de <code>href</code>.    
+</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>head</tag>&gt;
+      &lt;<tag>title</tag>&gt;<text>Mi página web</text>&lt;/<tag>title</tag>&gt;
+      &lt;<tag>style</tag> 
+          <name>href</name>="<value>style.css</value>" 
+          <name>rel</name>="<value>stylesheet</value>"&gt;
+      &lt;/<tag>style</tag>&gt;
+    &lt;/<tag>head</tag>&gt;       
+    </pre>  
+</figure>
+<p>Por otro lado, el archivo de estilos debe tener extensión <code>.css</code>. Este contiene las reglas CSS que afectarán al documento HTML.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;!-- archivo style.css --&gt;
+    <tag>h1</tag> {
+       <name>color</name>: <value>blue</value>;
+    }
+    </pre>  
+</figure>
