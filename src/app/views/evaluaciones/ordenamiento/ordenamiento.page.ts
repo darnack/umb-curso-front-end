@@ -68,9 +68,9 @@ export class OrdenamientoPage implements OnInit {
   randomize()
   {
     const newList = [...this.evaluacion.items];
-    newList.sort(() => Math.random() - 0.5);
-
-    if(this.evaluacion.items.length > 1 && JSON.stringify(newList) === JSON.stringify(this.evaluacion.items))
+    newList.sort(() => Math.random() - 0.5);    
+    
+    if( (this.evaluacion.items.length > 1 && JSON.stringify(newList) === JSON.stringify(this.evaluacion.items)) || newList[0] === this.evaluacion.items[0])
       this.randomize()
     else {
       this.viewItemList = newList;    

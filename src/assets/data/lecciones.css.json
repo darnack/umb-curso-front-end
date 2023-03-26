@@ -64,5 +64,56 @@
         "respuesta": "psedo-tipo"
       }
     ]
+  },
+  { 
+    "numero":"4",
+    "modulo": "css",
+    "titulo": "Especificidad",
+    "contenido": "leccion.especificidad.html",
+    "evaluaciones": [
+      {
+        "tipo": 2,
+        "pregunta": "Ordena los niveles de especificidad del más prevaleciente al menos prevaleciente",
+        "contenido": "",
+        "items": ["!important","Estilos en línea","identificador", "Clase, pseudo-clase, atributo", "Tipo, pseudo-elemento"],
+        "respuesta": ""
+      },
+      {
+        "tipo": 3,
+        "pregunta": "¿A dónde se aplica la palabra clave !important?",
+        "contenido": "",
+        "items": ["Al selector","Al elemento", "Al atributo","A la propiedad"],
+        "respuesta": "A la propiedad"
+      }
+    ]
+  },
+  { 
+    "numero":"5",
+    "modulo": "css",
+    "titulo": "Unidades de medida",
+    "contenido": "leccion.unidades.html",
+    "evaluaciones": [
+      {
+        "tipo": 1,
+        "pregunta": "Escribe la respuesta correcta",
+        "contenido": "Unidad de medida relativa al tamaño de la fuente del elemento raíz (root)",
+        "items": [],
+        "respuesta": "rem"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "Es una unidad de medida relativa",
+        "contenido": "",
+        "items": ["vw", "px","Q","mm","em"],
+        "respuesta": "em"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "Es una unidad de medida flexible",
+        "contenido": "",
+        "items": ["em", "px","vh","in","rem"],
+        "respuesta": "vh"
+      }
+    ]
   }
 ]

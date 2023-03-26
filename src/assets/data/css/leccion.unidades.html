@@ -1,0 +1,135 @@
+<p>Las unidades de medida en CSS se dividen en <code>absolutas</code> y <code>relativas</code>. 
+    Estas permiten asignar valores numéricos específicos a las propiedades numéricas, como por ejemplo, anchura, altura, márgenes, o tamaño de letra. </p>
+<h3>Unidades absolutas</h3>
+<p>Se caracterizan porque son fijas, no varian dependiendo del dispositivo ni del contenedor del elemento.</p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Unidad</th>
+        <th>Descripción</th>
+        <th>Equivalencia</th>
+    </tr>
+    <tr>    
+        <td>in</td>
+        <td>Pulgadas</td>
+        <td>25.4mm</td>
+    </tr>
+    <tr>    
+        <td>cm</td>
+        <td>Centímetros</td>
+        <td>10mm</td>
+    </tr>
+    <tr>    
+        <td>pc</td>
+        <td>Picas</td>
+        <td>4.23mm</td>
+    </tr>
+    <tr>    
+        <td>mm</td>
+        <td>Milímetros</td>
+        <td>1mm</td>
+    </tr>
+    <tr>    
+        <td>pt</td>
+        <td>Puntos</td>
+        <td>0.35mm</td>
+    </tr>
+    <tr>    
+        <td>px</td>
+        <td>Píxeles</td>
+        <td>0.26mm</td>
+    </tr>
+    <tr>    
+        <td>Q</td>
+        <td>Cuarto de mm</td>
+        <td>0.248mm</td>
+    </tr>
+</tbody>    
+</table>
+<p>💡 El punto <code>pt</code> podría ser una medida ideal para documentos CSS en los que se fija el tamaño de las fuentes en medios impresos.</p>
+<h3>Unidades relativas</h3>
+<p>Son unidades dependientes de otros factores, como el contenedor del elemento, la resolución u orientación de la pantalla.</p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Unidad</th>
+        <th>Descripción</th>
+        <th>Ejemplo</th>
+    </tr>
+    <tr>    
+        <td>%</td>
+        <td>Porcentaje relativo al contenedor.</td>
+        <td>50% = mitad del contenedor</td>
+    </tr>
+    <tr>    
+        <td>rem</td>
+        <td>Valor relativo al tamaño de fuente del elemento raíz (root).</td>
+        <td>1rem = 16px</td>
+    </tr>
+    <tr>    
+        <td>em</td>
+        <td>Valor relativo al tamaño de fuente del contenedor del elemento.</td>
+        <td>1em = 16px</td>
+    </tr>
+    <tr>    
+        <td>ex</td>
+        <td>Altura de una letra minúscula. Depende de la fuente.</td>
+        <td>1ex ~ 0.5em</td>
+    </tr>
+    <tr>    
+        <td>ch</td>
+        <td>Ancho del carácter cero (0). Depende de la fuente.</td>
+        <td>1ch ~ 1 carácter</td>
+    </tr>    
+</tbody>    
+</table>
+<h4>Ejemplo de uso de <code>rem</code></h4>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;">    
+    <tag>:root</tag> {
+       &lt;!-- Tamaño base --&gt;
+       <name>font-size</name>: <value>16px</value>;
+    }
+
+    <tag>h1</tag> {
+       &lt;!-- El doble del tamaño base 32px --&gt;
+       <name>font-size</name>: <value>2rem</value>;
+    }
+
+    <tag>h2</tag> {
+       &lt;!-- El mismo tamaño base 16px --&gt;
+       <name>font-size</name>: <value>1rem</value>;
+    }
+    </pre>  
+</figure>
+<h3>Unidades flexibles</h3>
+<p>Son unidades relativas al viewport, es decir, al área visible del navegador.</p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Unidad</th>
+        <th>Descripción</th>
+        <th>Ejemplo</th>
+    </tr>
+    <tr>    
+        <td>vw</td>
+        <td>viewport width</td>
+        <td>1vw = 1% ancho de navegador</td>
+    </tr>
+    <tr>    
+        <td>vh</td>
+        <td>viewport height</td>
+        <td>1vh = 1% alto de navegador</td>
+    </tr>
+    <tr>    
+        <td>vmin</td>
+        <td>viewport minimum</td>
+        <td>1vmin = 1% del valor más pequeño entre el ancho y el alto del viewport</td>
+    </tr>
+    <tr>    
+        <td>vmax</td>
+        <td>viewport maximum</td>
+        <td>1vmax = 1% del valor más grande entre el ancho y el alto del viewport</td>
+    </tr>   
+</tbody>    
+</table>
