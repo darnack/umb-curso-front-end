@@ -1,0 +1,157 @@
+<p>Las propiedades de texto permiten establecer el aspecto gráfico de la fuente, su color, estilo, espaciado, tamaño, etc.
+   Algunas de las proiedades de texto más útiles son las siguientes:
+</p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Propiedad</th>
+        <th>Descripción</th>        
+    </tr>
+    <tr>    
+        <td>font-family</td>
+        <td>Define la fuente o tipografía del texto. Se puede especificar una lista de fuentes en orden de preferencia, en caso de que la primera opción no esté disponible.</td>        
+    </tr>    
+    <tr>    
+        <td>font-size</td>
+        <td>Define el tamaño de la fuente. Se puede especificar en píxeles, ems, porcentajes u otras unidades.</td>        
+    </tr> 
+    <tr>    
+        <td>font-weight</td>
+        <td>Define el grosor de la fuente. Se puede especificar valores como "normal" o "bold", o se pueden utilizar valores numéricos para un control más preciso.</td>        
+    </tr> 
+    <tr>    
+        <td>font-style</td>
+        <td>Define el estilo de la fuente.  Se puede especificar valores como "normal", "italic" o "oblique".</td>        
+    </tr> 
+    <tr>    
+        <td>text-align</td>
+        <td>Determina la alineación del texto. Se puede especificar "left", "right", "center" o "justify".</td>        
+    </tr> 
+    <tr>    
+        <td>text-decoration</td>
+        <td>Agrega líneas decorativas al texto. Se pueden especificar valores como "none", "underline" o "line-through".</td>        
+    </tr> 
+    <tr>    
+        <td>line-height</td>
+        <td>Define el espaciado entre líneas de texto. Se puede especificar en píxeles, ems, porcentajes u otras unidades.</td>        
+    </tr> 
+    <tr>    
+        <td>text-transform</td>
+        <td>Permite transformar el texto a mayúsculas, minúsculas o letra capital. Se pueden utilizar los valores "uppercase", "lowercase" o "capitalize".</td>        
+    </tr> 
+    <tr>
+        <td>text-indent</td>
+        <td>Establece la sangría de la primera leta de un párrafo. Se puede especificar en píxeles, ems, porcentajes u otras unidades.</td>
+    </tr>
+    <tr>
+        <td>letter-spacing</td>
+        <td>Determina la separación entre caracteres. Se puede especificar en píxeles, ems, porcentajes u otras unidades.</td>
+    </tr>
+    <tr>
+        <td>word-spacing</td>
+        <td>Determina la separación entre palabras. Se puede especificar en píxeles, ems, porcentajes u otras unidades.</td>
+    </tr>
+    <tr>
+        <td>text-shadow</td>
+        <td>Crea un efecto de sobra detrás del texto. Se pueden especificar valores para la posición de la sombra, el desenfoque y el color.</td>
+    </tr>
+    <tr>
+        <td>color</td>
+        <td>Define el color del texto. Se pueden especificar valores en hexadecimal o por nombre del color.</td>
+    </tr>
+</tbody>    
+</table>
+<h4>Ejemplo de implementación</h4>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;">    
+    <tag>p</tag> {       
+       <name>font-family</name>: <value>Tahoma, Georgia, Arial</value>;
+       <name>font-size</name>: <value>16px</value>;
+       <name>font-weight</name>: <value>bold</value>;
+       <name>font-style</name>: <value>italic</value>;
+       <name>font-align</name>: <value>center</value>;
+       <name>text-decoration</name>: <value>underline</value>;
+       <name>line-height</name>: <value>20px</value>;
+       <name>text-transform</name>: <value>capitalize</value>;
+       <name>text-indent</name>: <value>10px</value>;
+       <name>letter-spacing</name>: <value>1px</value>;
+       <name>word-spacing</name>: <value>2px</value>;
+       <name>text-shadow</name>: <value>1px 1px 2px black</value>;
+       <name>color</name>: <value>red</value>;       
+    }
+    </pre>  
+</figure>
+<h3>Fuentes seguras</h3>
+<p>Las fuentes seguras son aquellas que vienen incluidas en los navegadores de forma nativa. 
+    Se denominan seguras porque no dependen de una fuente externa, por lo tanto siempre estarán disponibles pase lo que pase. 
+    A continuación se muestra el listado completo de fuentes seguras.</p>
+    <ul>
+        <li>Arial, sans-serif</li>
+        <li>Helvetica, sans-serif</li>
+        <li>Verdana, sans-serif</li>
+        <li>Tahoma, sans-serif</li>
+        <li>Trebuchet MS, sans-serif</li>
+        <li>Times New Roman, serif</li>
+        <li>Georgia, serif</li>
+        <li>Garamond, serif</li>
+        <li>Courier New, monospace</li>
+        <li>Lucida Console, monospace</li>
+      </ul>
+      
+<h3>Fuentes externas</h3>
+<p>Si deseamos implementar una fuente especial, que no esté incluida en el navegador, debemos incluirla desde un origen externo.</p>
+<p>Para ello se debe hacer uso de la etiqueta <code>&lt;link&gt;</code> y por medio del atributo <code>href</code> 
+    referenciar el origen de la fuente.
+</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>head</tag>&gt;
+      &lt;<tag>title</tag>&gt;<text>Mi página web</text>&lt;/<tag>title</tag>&gt;
+      &lt;<tag>link</tag> 
+          <name>href</name>="<value>https://fonts.googleapis.com/
+            css2?family=Alkatra&display=swap</value>" 
+          <name>rel</name>="<value>stylesheet</value>"&gt;
+      &lt;/<tag>link</tag>&gt;
+    &lt;/<tag>head</tag>&gt;       
+    </pre>  
+</figure>
+<h3>Fuentes locales</h3>
+<p>Otra manera de implementar fuentes es referenciándolas localmente a partir de sus archivos de origen.</p>
+<p>Para ello se debe hacer uso de la etiqueta @font-face como una regla más de CSS, asignando un nombre y origen a la fuente.</p>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;">    
+    <tag>@font-face</tag> {       
+       <name>font-family</name>: <value>FontName</value>;
+       <name>src</name>: <value>url(../fonts/custom.ttf)</value>;    
+    }
+    </pre>  
+</figure>
+<p> A continuación se muestran los formatos de fuente soportados por la mayoría de navegadores.</p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Extensión</th>
+        <th>Descripción</th>        
+    </tr>
+    <tr>    
+        <td>.oft</td>
+        <td>OpenType font.</td>        
+    </tr>    
+    <tr>    
+        <td>.ttf</td>
+        <td>TrueType font.</td>        
+    </tr> 
+    <tr>    
+        <td>.woff</td>
+        <td>Web Open Font Format.</td>        
+    </tr> 
+    <tr>    
+        <td>.woff2</td>
+        <td>Web Open Font Format 2.</td>        
+    </tr> 
+    <tr>    
+        <td>.svg</td>
+        <td>Scalable Vector Graphics font.</td>        
+    </tr> 
+</tbody>    
+</table>

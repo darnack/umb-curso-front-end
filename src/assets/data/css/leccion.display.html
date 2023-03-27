@@ -1,0 +1,63 @@
+<h3>Tipos de caja</h3>
+<p>Existen dos tipos de caja, cajas en bloque cajas y en línea.</p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>En bloque</th>
+        <th>En línea</th>        
+    </tr>
+    <tr>    
+        <td>La caja ocupa el 100% del ancho de su contenedor.</td>
+        <td>La caja solo ocupa el ancho de su propio contenido.</td>        
+    </tr> 
+    <tr>    
+        <td>La caja fuerza un salto de línea al llegar al final de la línea.</td>
+        <td>La caja no fuerza ningún salto de línea al llegar al final de la línea.</td>        
+    </tr>    
+
+    <tr>    
+        <td>Se respetan las propiedades <code>width</code> y <code>height</code>.</td>
+        <td>Las propiedades <code>width</code> y <code>height</code> no se aplican.</td>        
+    </tr> 
+    <tr>    
+        <td><code>&lt;h1&gt;</code> y <code>&lt;p&gt;</code> son ejemplo de elementos en bloque.</td>
+        <td><code>&lt;a&gt;</code> y <code>&lt;span&gt;</code> son ejemplo de elementos en línea.</td>       
+    </tr> 
+</tbody>    
+</table>
+<p>💡 El tipo de caja que se aplica a un elemento está definido por los valores de propiedad display.</p>
+<h3>Propiedad Display</h3>
+<p>La propiedad display controla el tipo de caja aplicado al elemento. 
+    Los valores más comunes son: <code>block</code> para elementos en bloque, e <code>inline</code> para elementos en línea.
+</p>
+<p>A continuación, se describen los valores más importantes a tener en cuenta para esta propiedad.</p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Valor</th>
+        <th>Descripción</th>        
+    </tr>
+    <tr>    
+        <td>block</td>
+        <td>El elemento se comporta como bloque y ocupa todo el ancho del contenedor.</td>        
+    </tr> 
+    <tr>    
+        <td>inline</td>
+        <td>El elemento se apila en línea y solo ocupa el ancho de su contenido. No es posible modificar el alto y ancho.</td>        
+    </tr>    
+
+    <tr>    
+        <td>inline-block</td>
+        <td>El elemento se apila en línea acupando el ancho de su contenido, pero a diferencia de <code>inline</code> si es posible modificar el alto y ancho.</td>        
+    </tr> 
+    <tr>    
+        <td>flex</td>
+        <td>El contenedor queda en bloque, pero sus ítems se auto ajustan en línea ocupando todo el ancho de su contenedor.</td>       
+    </tr> 
+    <tr>    
+        <td>grid</td>
+        <td>El contenedor queda en bloque, pero sus ítems se ajustan en filas y columnas.</td>       
+    </tr> 
+</tbody>    
+</table>
+<p>💡 Para conocer más acerca de la propiedad <code>display</code> haz clic <a href="https://developer.mozilla.org/es/docs/Web/CSS/display" target="_blank">aquí</a>.</p>

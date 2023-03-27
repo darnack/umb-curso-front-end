@@ -1,0 +1,120 @@
+<p>El modelo de caja o <i>box model</i> es una jerarquización de la estructura interna de los elementos HTML.</p>
+<p>En el siguiente diagrama se puede ver el contenido rodeado por el <code>padding</code> o margen interno del elemento, fuera del cuál encontramos el borde del elemento <code>border</code>, y lo que se encuentra fuera del borde es el área del margen <code>margin</code>.
+De esta maneja se estructuran todos los elementos HTML, tal como si fueran cajas.</p>
+<ion-img src="../assets/img/box-model.png"></ion-img>
+<h3>Propiedad padding</h3>
+<p>Determina el espaciado o margen interno del elemento. </p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Propiedad</th>
+        <th>Descripción</th>        
+    </tr>
+    <tr>    
+        <td>padding-top</td>
+        <td>Determina el espaciado interno superior.</td>        
+    </tr> 
+    <tr>    
+        <td>padding-right</td>
+        <td>Dermina el espaciado interior derecho.</td>        
+    </tr>  
+    <tr>    
+        <td>padding-bottom</td>
+        <td>Determina el espaciado interior inferior.</td>        
+    </tr> 
+    <tr>    
+        <td>padding-left</td>
+        <td>Determina el espaciado interior izquierdo.</td>        
+    </tr>
+</tbody>    
+</table>
+<p>💡 La manera más sencilla es implementarlo a través de la propiedad resumida <code>padding</code>, se asignan los valores comenzando con el top y siguiendo en el orden de las manecillas del reloj.</p>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;"> 
+    &lt;!-- De forma extendida --&gt;   
+    <tag>div</tag> {        
+        <name>padding-top</name>: <value>10px</value>;
+        <name>padding-right</name>: <value>15px</value>;
+        <name>padding-bottom</name>: <value>20px</value>;
+        <name>padding-left</name>: <value>5px</value>;
+    }
+
+    &lt;!-- De forma reducida --&gt;   
+    <tag>div</tag> {        
+        <name>padding</name>: <value>10px 15px 20px 5px</value>;        
+    } 
+    </pre>  
+</figure>
+<div style="padding: 10px 15px 20px 5px; background: aliceblue; border: 1px solid gray;">Elemento que implementa la propiedad paddin...</div>
+<h3>Propiedad margin</h3>
+<p>Determina el margen externo del elemento. </p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Propiedad</th>
+        <th>Descripción</th>        
+    </tr>
+    <tr>    
+        <td>margin-top</td>
+        <td>Determina el margen superior.</td>        
+    </tr> 
+    <tr>    
+        <td>margin-right</td>
+        <td>Dermina el margen derecho.</td>        
+    </tr>  
+    <tr>    
+        <td>margin-bottom</td>
+        <td>Determina el margen inferior.</td>        
+    </tr> 
+    <tr>    
+        <td>margin-left</td>
+        <td>Determina el margen izquierdo.</td>        
+    </tr>
+</tbody>    
+</table>
+<p>💡 La manera más sencilla es implementarlo a través de la propiedad resumida <code>margin</code>, se asignan los valores comenzando con el top y siguiendo en el orden de las manecillas del reloj.</p>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;"> 
+    &lt;!-- De forma extendida --&gt;   
+    <tag>div</tag> {        
+        <name>margin-top</name>: <value>10px</value>;
+        <name>margin-right</name>: <value>15px</value>;
+        <name>margin-bottom</name>: <value>20px</value>;
+        <name>margin-left</name>: <value>5px</value>;
+    }
+
+    &lt;!-- De forma reducida --&gt;   
+    <tag>div</tag> {        
+        <name>margin</name>: <value>10px 15px 20px 5px</value>;        
+    } 
+    </pre>  
+</figure>
+<div style="background-color: bisque;display: flex;">
+<div style="margin: 10px 15px 20px 5px;padding: 10px 15px 20px 5px; background: aliceblue; border: 1px solid gray;">
+    Elemento que implementa las propiedades margin y padding...</div>
+</div>
+<h3>Propiedad border</h3>
+<p>La propiedad <code>border</code> determina el grosor de línea del border, su tipo de línea, y su color</p>
+<p>Al igual que <code>padding</code> y <code>margin</code> se puede determinar de manera independiente su valor <code>top</code>, <code>right</code>, <code>bottom</code> y <code>left</code>.
+Así mismo, se puede determinar de forma independiente su color, estilo, y grosor, o se puede escribir de forma reducida.
+</p>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;"> 
+    &lt;!-- De forma extendida --&gt;   
+    <tag>div</tag> {        
+        <name>border-top-color</name>: <value>darkseagreen</value>;
+        <name>border-right-color</name>: <value>blue</value>;
+        <name>border-bottom-color</name>: <value>dodgerblue</value>;
+        <name>border-left-color</name>: <value>green</value>;
+    }
+
+    &lt;!-- De forma reducida --&gt;   
+    <tag>div</tag> {        
+        <name>border</name>: <value>5px solid black</value>;        
+    } 
+    </pre>  
+</figure>
+<div style="background-color: bisque;display: flex;">
+    <div style="margin: 10px 15px 20px 5px;padding: 10px 15px 20px 5px; background: aliceblue; border: 5px solid;border-top-color: darkseagreen;border-right-color: blue;border-bottom-color: dodgerblue;border-left-color: green;">
+        Elemento que implementa las propiedades padding, margin y border...</div>
+</div>

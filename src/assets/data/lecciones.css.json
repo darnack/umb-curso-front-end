@@ -115,5 +115,100 @@
         "respuesta": "vh"
       }
     ]
+  },
+  { 
+    "numero":"6",
+    "modulo": "css",
+    "titulo": "Propiedades de texto",
+    "contenido": "leccion.texto.html",
+    "evaluaciones": [
+      {
+        "tipo": 1,
+        "pregunta": "Escribe la respuesta correcta",
+        "contenido": "Propiedad que define la fuente tipográfica de un elemento",
+        "items": [],
+        "respuesta": "font-family"
+      },
+      {
+        "tipo": 1,
+        "pregunta": "Escribe la respuesta correcta",
+        "contenido": "Propiedad que define el interlineado del texto",
+        "items": [],
+        "respuesta": "line-height"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "Propiedad que define la sangría de un párrafo",
+        "contenido": "",
+        "items": ["font-style", "word-spacing","text-indent","letter-spacing"],
+        "respuesta": "text-indent"
+      }
+    ]
+  },
+  { 
+    "numero":"7",
+    "modulo": "css",
+    "titulo": "Modelo de caja",
+    "contenido": "leccion.modelo-caja.html",
+    "evaluaciones": [
+      {
+        "tipo": 1,
+        "pregunta": "Escribe la respuesta correcta",
+        "contenido": "Propiedad que determina el espaciado o margen interno de un elemento",
+        "items": [],
+        "respuesta": "padding"
+      },
+      {
+        "tipo": 2,
+        "pregunta": "Ordena los componentes de la caja, del más externo al más interno.",
+        "contenido": "",
+        "items": ["margin","border","padding","content"],
+        "respuesta": ""
+      }
+    ]
+  },
+  { 
+    "numero":"8",
+    "modulo": "css",
+    "titulo": "Propiedad display",
+    "contenido": "leccion.display.html",
+    "evaluaciones": [
+      {
+        "tipo": 1,
+        "pregunta": "Escribe la respuesta correcta",
+        "contenido": "Valor de la propiedad display que permite al elemento ocupar todo el ancho de su contenedor",
+        "items": [],
+        "respuesta": "block"
+      },
+      {
+        "tipo": 2,
+        "pregunta": "Ordena los componentes de la caja, del más externo al más interno.",
+        "contenido": "",
+        "items": ["margin","border","padding","content"],
+        "respuesta": ""
+      }
+    ]
+  },
+  { 
+    "numero":"9",
+    "modulo": "css",
+    "titulo": "Propiedad position",
+    "contenido": "leccion.position.html",
+    "evaluaciones": [
+      {
+        "tipo": 3,
+        "pregunta": "Reserva el espacio del elemento",
+        "contenido": "",
+        "items": ["fixed","static","absolute", "relative"],
+        "respuesta": "relative"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "Valor de la propiedad position para un elemento no posicionado",
+        "contenido": "",
+        "items": ["fixed","static","sticky","absolute", "relative"],
+        "respuesta": "static"
+      }
+    ]
   }
 ]

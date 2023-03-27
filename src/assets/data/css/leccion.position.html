@@ -1,0 +1,26 @@
+<p>La propiedad <code>position</code> determina el comportamiento de posicionamiento de los elementos HTML.</p>
+<h3>Static</h3>
+<p>Cuando un elemento tiene <code>position</code> = <code>static</code> significa que es un elemento no posicionado.
+Por lo tanto, carece de las propiedades de posicionamiento <code>top</code>, <code>left</code>, <code>bottom</code> y <code>right</code>.</p>
+<h3>Relative</h3>
+<p>Permite posicionar un elemento de manera relativa. 
+    Al hace esto, aparecen las propiedades de posicionamiento: <code>top</code>, <code>left</code>, <code>bottom</code> y <code>right</code>. 
+    Estas propiedades permiten controlar el posicionamiento del elemento respecto a sus cuatro bordes de forma <strong>relativa</strong> a la posición actual del elemento.
+</p>
+<p>Por ejemplo, con un top: 20px, el elemento se desplazará 20 píxeles respecto a su borde superior. Pero el espacio originalmente reservado para el elemento se conserva, 
+    por lo tanto el contenido por debajo del elemento no se desplaza.
+</p>
+<h3>Absolute</h3>
+<p>Permite posicionar un elemento de manera absoluta. Eso quiere decir que las propiedades <code>top</code>, <code>left</code>, <code>bottom</code> y <code>right</code> se calculan a partir del <code>viewport</code> del navegador, 
+    o del contenedor del elemento.
+</p>
+<p>💡 Los elementos posicionados como <code>absolute</code> no reservan su espacio, por lo que queden todos apilados uno encima de otros.</p>
+<p>💡 Los elementos posicionados como <code>absolute</code> pasan a ocupar un ancho ajustado a su contenido como si fueran en línea, sin importar que sean elementos en bloque.</p>
+<p>💡 Las propiedades de posicionamiento se calculan a partir del contenedor, solamente si el contenedo está posicionado.</p>
+<h3>Fixed</h3>
+<p>Conserva el mismo comportamiento de <code>absolute</code>, pero agrega una nueva caraterística: el elemento se queda fijo en pantalla, 
+    a diferencia del resto del contenido que se desplaza mientras se hace scroll. Este comportamiento se utiliza en menús y bloques de publicidad.</p>
+<h3>Sticky</h3>
+<p>Es igual al <code>fixed</code>, la diferencia es que comporta como <code>relative</code> reservando el espacio del elemento, por lo tanto se mueve con el resto del contenido mientras se hace scroll. 
+</p>
+<p>Pero una vez el elemento <code>sticky</code> llega al top de la pantalla, entonces a partir de ahí se comporta como <code>fixed</code> quedando fijo en el top de la pantalla mientras el resto de contenido se desplaza con el scroll.</p>
