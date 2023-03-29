@@ -4,9 +4,9 @@
 <h3>Key frames</h3>
 <p>La palabra clave <code>@keyframes</code> permite escribir una animación, la cuál se compone de los diferentes frames o etapas de la animación.</p>
 <p>Cada <code>@keyframes</code> requiere ser nombrado para su posterior implementación.</p>
-<p>Existen dos maneras de implementarlos:</p>
+<p>Existen dos maneras de escribir animaciones:</p>
 <h4>from to</h4>
-<p>Con las palabras clave <code>from</code> <code>to</code> se describen las etapas inicial y final de una animación. A continuación un ejemplo:</p>
+<p>Con las palabras clave <code>from</code> <code>to</code> se describen las etapas inicial y final de una animación. Por ejemplo:</p>
 <figure class="code-card">
     <pre class="code-pre" style="padding: 0;">    
    <tag>@keyframes</tag> <value>girar</value> {  
@@ -79,13 +79,21 @@
     </tr> 
     <tr>    
         <td>animation-fill-mode</td>
-        <td>Determina el estado que el elemento aplicará al comienzo y al finalizar de la animación. 
-            Con <code>forward</code> mantiene el estado final al finalizar la animación, con <code>both</code> aplica el estado inicial desde la carga de la página y preserva el estado final al final de la animación.</td>        
+        <td>Determina el comportamiento de la animación. 
+            <br>
+            <code>none</code>: El elemento retoma sus propiedades originales al finalizar la animación.
+            <br>
+            <code>forwards</code>: Mantiene el último estado al finalizar la animación.
+            <br>
+            <code>backwards</code>: Aplica el primer estado de la animación desde el comienzo del delay.
+            <br>
+            <code>both</code>: Aplica forwards y backwards.
+        </td>
     </tr>
 </tbody>    
 </table>
 
-<h4>Ejemplo de implementación</h4>
+<h3>Ejemplo de implementación</h3>
 <figure class="code-card">
     <pre class="code-pre" style="padding: 0;">    
    <tag>#caja-animacion</tag> {        

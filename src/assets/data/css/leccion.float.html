@@ -1,6 +1,6 @@
 <p>Esta propiedad permite liberar al elemento de las reglas de posicionamiento de caja (en bloque, en línea), permitiendo al elemento flotar por sobre otros elementos y alinearlo fácilmente a la izquierda o a la derecha de su contenedor.</p>
 <p>La propiedad solía tener muchos usos en diseño de sitios web, pero en el último tiempo a sido relegada, ya que con display:flex y display:grid se puede trabajar de mejor forma. 
-    Sin embargo, <code>float</code> aún tiene un uso que puede resultar de mucha utilidad, y es lograr que un párarfo rodeé una imagen.</p>
+    Sin embargo, <code>float</code> aún tiene un uso que puede resultar de mucha utilidad, y es lograr que un párrafo rodeé una imagen.</p>
 <p>El truco consiste en colocar el texto debajo de la imagen, y colocar ambos elementos dentro de un contenedor.</p>
 <figure class="code-card">
     <pre class="code-pre">
@@ -16,18 +16,18 @@
     &lt;/<tag>div</tag>&gt;      
     </pre>  
 </figure>
-<p>Al elemento de imagen <code>&lt;img&gt;</code> se le asigna la propiedad <code>float</code>, cuyos valores posibles son <code>left</code> y <code>right</code>.</p>
+<p>La propiedad <code>float</code> se implementa sobre el elemento de imagen <code>&lt;img&gt;</code>, asignándole el valor <code>left</code> o <code>right</code>.</p>
 <figure class="code-card">
     <pre class="code-pre" style="padding: 0;">
-
-    <tag>.container</tag> {
-        <name>font-family</name>: <value>Garamond, serif</value>;
-        <name>margin</name>: <value>auto</value>;
-    }
 
     <tag>.container img</tag> {
         <name>float</name>: <value>left</value>;
         <name>width</name>: <value>60px</value>;
+    }
+
+    <tag>.container</tag> {
+        <name>font-family</name>: <value>Garamond, serif</value>;
+        <name>margin</name>: <value>auto</value>;
     }
     </pre>  
 </figure>

@@ -2,8 +2,8 @@
     { 
       "numero":"1",
       "modulo": "javascript",
-      "titulo": "Scripts",
-      "contenido": "<h1>Scripts</h1>",
+      "titulo": "Introducción",
+      "contenido": "leccion.introduccion.html",
       "evaluaciones": [
       {
         "tipo": 2,
@@ -17,22 +17,106 @@
      { 
       "numero": "2",
       "modulo": "javascript",
+      "titulo": "Variables",
+      "contenido": "leccion.variables.html",
+      "evaluaciones": [ ]
+     },
+     { 
+      "numero": "3",
+      "modulo": "javascript",
+      "titulo": "Operadores",
+      "contenido": "leccion.operadores.html",
+      "evaluaciones": [ ]
+     },
+     { 
+      "numero": "4",
+      "modulo": "javascript",
+      "titulo": "Cláusulas",
+      "contenido": "leccion.clausulas.html",
+      "evaluaciones": [ ]
+     },
+     { 
+      "numero": "5",
+      "modulo": "javascript",
       "titulo": "Funciones",
-      "contenido": "leccion.tags.html",
-      "evaluaciones": [
-      {
-        "tipo": 1,
-        "pregunta": "¿Cuál es el valor de salida de este código?",
-        "contenido": "function test(number) {\n  while(number < 5) {\n    number++;\n  }\n \n  return number;\n}\n\nalert(test(2));\n",
-        "items": [],
-        "respuesta": "5"
-      },
-      {
-        "tipo": 3,
-        "pregunta": "¿Cómo se llama el compilador de JavaScript?",
-        "contenido": "",
-        "items": ["ECMAScript","No requiere compilación, es ejecutado en tiempo real","Enginne WebKit", "JQuery"],
-        "respuesta": "No requiere compilación, es ejecutado en tiempo real"
-      }]
+      "contenido": "leccion.funciones.html",
+      "evaluaciones": [ ]
+     },
+     { 
+      "numero": "6",
+      "modulo": "javascript",
+      "titulo": "Consola de depuración",
+      "contenido": "leccion.consola.html",
+      "evaluaciones": [ ]
+     },
+     { 
+      "numero": "7",
+      "modulo": "javascript",
+      "titulo": "Módulos",
+      "contenido": "leccion.modulos.html",
+      "evaluaciones": [ ]
+     },
+     { 
+      "numero": "8",
+      "modulo": "javascript",
+      "titulo": "Métodos de cadena",
+      "contenido": "leccion.metodos-cadena.html",
+      "evaluaciones": [ ]
+     },
+     { 
+      "numero": "9",
+      "modulo": "javascript",
+      "titulo": "Arreglos",
+      "contenido": "leccion.arreglos.html",
+      "evaluaciones": [ ]
+     },
+     { 
+      "numero": "10",
+      "modulo": "javascript",
+      "titulo": "Conversiones",
+      "contenido": "leccion.conversiones.html",
+      "evaluaciones": [ ]
+     },
+     { 
+      "numero": "11",
+      "modulo": "javascript",
+      "titulo": "DOM",
+      "contenido": "leccion.dom.html",
+      "evaluaciones": [ ]
+     },
+     { 
+      "numero": "12",
+      "modulo": "javascript",
+      "titulo": "Selección de elementos",
+      "contenido": "leccion.seleccion-elementos.html",
+      "evaluaciones": [ ]
+     },
+     { 
+      "numero": "13",
+      "modulo": "javascript",
+      "titulo": "Lectura de atributos",
+      "contenido": "leccion.lectura-atributos.html",
+      "evaluaciones": [ ]
+     },
+     { 
+      "numero": "14",
+      "modulo": "javascript",
+      "titulo": "Manipulación de atributos",
+      "contenido": "leccion.manipulacion-atributos.html",
+      "evaluaciones": [ ]
+     },
+     { 
+      "numero": "15",
+      "modulo": "javascript",
+      "titulo": "Eventos",
+      "contenido": "leccion.eventos.html",
+      "evaluaciones": [ ]
+     },
+     { 
+      "numero": "16",
+      "modulo": "javascript",
+      "titulo": "Consumo de APIs",
+      "contenido": "leccion.consumo-apis.html",
+      "evaluaciones": [ ]
      }
    ]
