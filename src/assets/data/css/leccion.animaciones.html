@@ -1,0 +1,154 @@
+<p>Las animaciones CSS son similares a las transiciones, pero ofrecen muchas más posibilidades, por ejemplo, no requieren obligatoriamente un evento disparador.
+    Además, podemos controlar minuciosamente el comportamiento de los elementos en cada etapa de la animación.
+</p>
+<h3>Key frames</h3>
+<p>La palabra clave <code>@keyframes</code> permite escribir una animación, la cuál se compone de los diferentes frames o etapas de la animación.</p>
+<p>Cada <code>@keyframes</code> requiere ser nombrado para su posterior implementación.</p>
+<p>Existen dos maneras de implementarlos:</p>
+<h4>from to</h4>
+<p>Con las palabras clave <code>from</code> <code>to</code> se describen las etapas inicial y final de una animación. A continuación un ejemplo:</p>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;">    
+   <tag>@keyframes</tag> <value>girar</value> {  
+
+      <tag>from</tag> {        
+        <name>background-color</name>: <value>red<value>;      
+        <name>transform</name>: <value>rotate(0)<value>;    
+      }     
+
+      <tag>to</tag> {        
+        <name>background-color</name>: <value>yellow<value>;      
+        <name>transform</name>: <value>rotate(90deg)<value>;    
+      } 
+   }   
+   </pre>  
+</figure>
+<h4>Porcentajes</h4>
+<p>Por medio de los porcentajes es posible describir de forma precisa las propiedades del elemento en diferentes etapas de la animación:</p>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;">    
+   <tag>@keyframes</tag> <value>girar</value> {  
+
+      <tag>0%</tag> {        
+        <name>background-color</name>: <value>red</value>;      
+        <name>transform</name>: <value>rotate(0)</value>;    
+      }
+
+      <tag>25%</tag> {        
+        <name>background-color</name>: <value>green</value>;          
+      }
+
+      <tag>75%</tag> {        
+        <name>background-color</name>: <value>blue</value>;          
+      }
+
+      <tag>100%</tag> {        
+        <name>background-color</name>: <value>yellow</value>;      
+        <name>transform</name>: <value>rotate(90deg)</value>;    
+      } 
+   }   
+   </pre>  
+</figure>
+<h3>Implementación</h3>
+<p>Para implementar una animación se debe referenciar el nombre del <code>@keyframes</code> por medio del atributo <code>animation-name</code> sobre el elemento a animar.</p>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;">    
+   <tag>#boton-animado</tag> {        
+      <name>animation-name</name>: <value>girar</value>;
+   } 
+   </pre>  
+</figure>
+<p>Además de <code>animation-name</code> se dispone de varias propiedades para controlar las características de la animación.</p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Propiedad</th>
+        <th>Descripción</th>        
+    </tr>
+    <tr>    
+        <td>animation-direction</td>
+        <td>Determina la dirección de la animación. Puede ser <code>normal</code>, <code>reverse</code> o <code>alternate</code>.</td>        
+    </tr> 
+    <tr>    
+        <td>animation-duration</td>
+        <td>Determina la duración de la animación.</td>        
+    </tr>  
+    <tr>    
+        <td>animation-iteration-count</td>
+        <td>Determina cuantas veces se repite la animación. Puede ser un número entero mayor a 0 o <code>infinite</code>.</td>        
+    </tr> 
+    <tr>    
+        <td>animation-fill-mode</td>
+        <td>Determina el estado que el elemento aplicará al comienzo y al finalizar de la animación. 
+            Con <code>forward</code> mantiene el estado final al finalizar la animación, con <code>both</code> aplica el estado inicial desde la carga de la página y preserva el estado final al final de la animación.</td>        
+    </tr>
+</tbody>    
+</table>
+
+<h4>Ejemplo de implementación</h4>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;">    
+   <tag>#caja-animacion</tag> {        
+      <name>animation-name</name>: <value>oscilar</value>;
+      <name>animation-direction</name>: <value>alternate</value>;
+      <name>animation-duration</name>: <value>2s</value>;
+      <name>animation-iteration-count</name>: <value>infinite</value>;       
+      <name>animation-fill-mode</name>: <value>both</value>;  
+   } 
+
+   <tag>@keyframes</tag> <value>oscilar</value> {  
+
+        <tag>0%</tag> {        
+            <name>background-color</name>: <value>red</value>;      
+            <name>transform</name>: <value>rotate(0)</value>;    
+        }
+
+        <tag>50%</tag> {        
+            <name>background-color</name>: <value>blue</value>;          
+        }
+
+        <tag>100%</tag> {        
+            <name>background-color</name>: <value>yellow</value>;      
+            <name>transform</name>: <value>rotate(90deg)</value>;  
+            <name>margin-left</name>: <value>212px</value>;              
+        } 
+    }   
+   </pre>  
+</figure>
+<br>
+<center>Caja oscilante</center>
+<div style="display:flex;flex-wrap:wrap;color:white;max-width: 300px;border: 1px dashed black; margin: auto; ">
+    <div id="caja-animacion"></div> 
+</div>
+
+<style>
+#caja-animacion {
+    padding:5px;
+    margin:5px;
+    background-color: green;
+    width:80px;
+    height: 80px; 
+    animation-name: oscilar;
+    animation-direction: alternate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;    
+}
+ @keyframes oscilar {  
+
+    0% {        
+        background-color: red;      
+        transform: rotate(0);    
+    }
+
+    50% {        
+        background-color: blue;          
+    }
+
+    100% {        
+        background-color: yellow;      
+        transform: rotate(90deg);  
+        margin-left: 212px;  
+    } 
+}
+</style>

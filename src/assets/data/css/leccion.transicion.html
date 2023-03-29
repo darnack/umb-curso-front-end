@@ -1,0 +1,94 @@
+<p>Las transiciones permiten suavizar el paso de un valor a otro para una propiedad concreta. 
+    Por ejemplo, que el color de un botón pase de un color inicial a otro de forma progresiva, en lugar de hacerlo de manera abrupta.
+</p>
+<p>Para implementar cualquier transición se requiere un evento que dispare dicha transición, como hacer clic o pasar por encima el puntero del mouse. 
+En esencia, se requiere que el navegador detecte que algo ha modificado el valor de la propiedad.</p>
+<center>Presiona el cuadrado</center>
+<div style="display:flex;flex-wrap:wrap;color:white;max-width: 300px;border: 1px dashed black; margin: auto; justify-content:center;">
+    <div id="caja-transition1"></div> 
+</div>
+<style>
+    #caja-transition1 {
+        padding:5px;
+        margin:5px;
+        background-color: green;
+        width:80px;
+        height: 80px; 
+        transition-property: background-color; 
+        transition-duration: 3s;
+    }
+
+    #caja-transition1:active {
+        background-color: orange;
+        justify-content: end;
+    }
+
+    #caja-transition {
+      padding: 5px;
+      margin: 5px;
+      width: 80px;
+      height: 80px;
+      background-color: red;
+      transition-property: background-color,transform;
+      transition-duration: 3s, 2s;      
+      transition-delay: 200ms;      
+      transition-timing-function: ease-out; 
+    }
+
+    #caja-transition:active {
+        background-color: yellow;
+        transform: rotate(90deg);        
+    }
+</style>
+<h3>Propiedades transition</h3>
+<p>Permiten agregar transiciones a las propiedades con valores numéricos, ya que solo estas pueden ser transicionadas progresivamente. </p>
+<p>💡 Colores expresados con nombres: <code>blue</code>, <code>red</code>, etc también puede ser transicionados ya que internamente tienen valores hexadecimales.</p>
+<p>💡 Es posible agregar transiciones a varias propiedades, para ello se deben ingresar los valores separados por comas</p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Propiedad</th>
+        <th>Descripción</th>        
+    </tr>
+    <tr>    
+        <td>transition-property</td>
+        <td>Determina la propiedad que será objeto de transición</td>        
+    </tr> 
+    <tr>    
+        <td>transition-duration</td>
+        <td>Determina la duración de la transición.</td>        
+    </tr>  
+    <tr>    
+        <td>transition-delay</td>
+        <td>Determina el retardo con el cuál inicia la transición.</td>        
+    </tr> 
+    <tr>    
+        <td>transition-timing-function</td>
+        <td>Determina la función de tiempo de la transición. Esto permite agregar diferentes curvas de aceleración y desaceleración a la transición.</td>        
+    </tr>
+</tbody>    
+</table>
+<p>Ejemplo de implementación</p>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;">    
+   <tag>#caja-transition</tag> {        
+      <name>background-color</name>: <value>red</value>;
+      <name>transform</name>: <value>rotate(0)</value>;
+      <name>transition-property</name>: <value>background-color, 
+        transform</value>;
+      <name>transition-duration</name>: <value>3s, 2s</value>;      
+      <name>transition-delay</name>: <value>200ms</value>;      
+      <name>transition-timing-function</name>: <value>ease-out</value>;  
+   } 
+
+   <tag>#caja-transition:active</tag> {        
+      <name>background-color</name>: <value>yellow<value>;      
+      <name>transform</name>: <value>rotate(90deg)<value>;    
+   }
+   </pre>  
+</figure>
+<center>Presiona el cuadrado</center>
+<div style="display:flex;flex-wrap:wrap;color:white;max-width: 300px;border: 1px dashed black; margin: auto; justify-content:center;">
+    <div id="caja-transition"></div> 
+</div>
+<p>💡 Para conocer más acerca de la propiedad <code>transition-timing-function</code> ingresa <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function" target="_blank">aquí</a>.</p>

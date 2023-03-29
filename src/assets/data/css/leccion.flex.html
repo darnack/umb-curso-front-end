@@ -1,0 +1,223 @@
+<p>La propiedad <code>display:flex</code> es ampliamente utilizada para estructurar contenido HTML. 
+    Esta permite darle comportamineto en bloque al contenedor, pero al mismo tiempo le asigna comportamiento en línea al contenido, y además, 
+    mantiene dinámicamente las proporciones del contenido sin importar la cantidad de elementos contenidos.</p>
+<div style="display:flex;">
+    <div style="padding:5px;margin:5px;background-color: aliceblue;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex nesciunt similique, soluta officia tenetur amet sequi maxime laudantium. </div>
+    <div style="padding:5px;margin:5px;background-color: antiquewhite;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed doloribus illo ex non possimus provident, aodit atque fugit mollitia.</div>
+    <div style="padding:5px;margin:5px;background-color: cornsilk;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ipsa quae molestiae eos a! Debitis magni harum sit nemo ipsum provident.</div>        
+</div>
+<h3>Flex direction</h3>
+<p>La propiedad <code>flex-direction</code> controla el <i>main axis</i>, es decir, la dirección en la cual los elementos son dibujados dentro de un contenedor <code>flex.</code></p>
+<p>Por ejemplo, si se asigna a la propiedad <code>flex-direction</code> el valor <code>column</code> se obtiene el siguiente resultado.</p>
+<div style="display:flex;flex-direction:column;">
+    <div style="padding:5px;margin:5px;background-color: aliceblue;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex nesciunt similique, soluta officia tenetur amet sequi maxime laudantium. </div>
+    <div style="padding:5px;margin:5px;background-color: antiquewhite;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed doloribus illo ex non possimus provident, aodit atque fugit mollitia.</div>
+    <div style="padding:5px;margin:5px;background-color: cornsilk;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ipsa quae molestiae eos a! Debitis magni harum sit nemo ipsum provident.</div>        
+</div>
+<p>Esto es, dibujar los elementos contenidos en dirección de las columnas.</p>
+<p>Existen otros posibles valores, como <code>row</code> el cuál es el valor por defecto, 
+    y también la posibilidad de invertir el orden de dibujado con los valores <code>row-reverse</code> y <code>column-reverse</code>.</p>
+<h3>Flex wrap</h3>
+<p>El comportamiento por defecto de flex hace que los elementos se ajusten al ancho total del contenedor, 
+    esto causa que entre más elementos tenga el contenedor, el espacio disponible para cada elemento sea menor, lo que deforma a los elementos alargándolos.
+</p>
+<div style="display:flex;color:white;max-width: 300px;border: 1px dashed black; margin: auto;">
+    <div style="padding:5px;margin:5px;background-color: blue;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: blue;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: blue;width:50px;height: 50px;">Caja flex</div>     
+    <div style="padding:5px;margin:5px;background-color: blue;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: blue;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: blue;width:50px;height: 50px;">Caja flex</div>     
+</div>
+<p>En ciertos casos, no queremos ese comportamiento, sino que los elementos conserven su ancho, 
+    y que los elementos que no tengan espacio disponible a lo ancho del contenedor pasen a la siguiente fila. 
+Para ello aplicamos a la propiedad <code>flex-wrap</code> el valor <code>wrap</code> sobre el contenedor.</p>
+<div style="display:flex;flex-wrap:wrap;color:white;max-width: 300px;border: 1px dashed black; margin: auto;">
+    <div style="padding:5px;margin:5px;background-color: blue;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: blue;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: blue;width:50px;height: 50px;">Caja flex</div>     
+    <div style="padding:5px;margin:5px;background-color: blue;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: blue;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: blue;width:50px;height: 50px;">Caja flex</div>     
+</div>
+<h3>Justify content</h3>
+<p>Esta propiedad permite alinear horizontalmente los elementos dentro de un contenedor flex. Veámoslo con ejemplos:</p>
+<p>justify-content: center</p>
+<div style="display:flex;flex-wrap:wrap;color:white;max-width: 300px;border: 1px dashed black; margin: auto; justify-content:center;">
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>   
+</div>
+<p>justify-content: space-around</p>
+<div style="display:flex;flex-wrap:wrap;color:white;max-width: 300px;border: 1px dashed black; margin: auto; justify-content:space-around;">
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>   
+</div>
+<p>justify-content: space-evenly</p>
+<div style="display:flex;flex-wrap:wrap;color:white;max-width: 300px;border: 1px dashed black; margin: auto; justify-content:space-evenly;">
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>  
+</div>
+<p>justify-content: space-between</p>
+<div style="display:flex;flex-wrap:wrap;color:white;max-width: 300px;border: 1px dashed black; margin: auto; justify-content:space-between;">
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>  
+</div>
+<p>justify-content: flex-start</p>
+<div style="display:flex;flex-wrap:wrap;color:white;max-width: 300px;border: 1px dashed black; margin: auto; justify-content:flex-start;">
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>  
+</div>
+<p>justify-content: flex-end</p>
+<div style="display:flex;flex-wrap:wrap;color:white;max-width: 300px;border: 1px dashed black; margin: auto; justify-content:flex-end;">
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: green;width:50px;height: 50px;">Caja flex</div>
+</div>
+<h3>Align content</h3>
+<p>Esta propiedad permite alinear verticalmente los elementos dentro de un contenedor flex.</p>
+<p>align-content: center</p>
+<div style="display:flex;flex-wrap:wrap;color:black;max-width: 300px;border: 1px dashed black; margin: auto; justify-content:center; height: 180px; align-content: center;">
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+</div>
+<p>align-content: space-around</p>
+<div style="display:flex;flex-wrap:wrap;color:black;max-width: 300px;border: 1px dashed black; margin: auto; justify-content:center; height: 180px; align-content: space-around;">
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+</div>
+<p>align-content: space-between</p>
+<div style="display:flex;flex-wrap:wrap;color:black;max-width: 300px;border: 1px dashed black; margin: auto; justify-content:center; height: 180px; align-content: space-between;">
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+</div>
+<p>align-content: flex-start</p>
+<div style="display:flex;flex-wrap:wrap;color:black;max-width: 300px;border: 1px dashed black; margin: auto; justify-content:center; height: 180px; align-content: flex-start;">
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+</div>
+<p>align-content: flex-end</p>
+<div style="display:flex;flex-wrap:wrap;color:black;max-width: 300px;border: 1px dashed black; margin: auto; justify-content:center; height: 180px; align-content: flex-end;">
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+    <div style="padding:5px;margin:5px;background-color: yellow;width:50px;height: 50px;">Caja flex</div>
+</div>
+<h3>Propiedades flex items</h3>
+<p>Son propiedades que se implementan individualmente sobre cada elemento dentro de un contenedor flex.</p>
+<h4>Order</h4>
+<p>Determina el orden de los elementos.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>div</tag> <name>class</name>="<value>container-flex</value>"&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>order:3</value>"&gt;<text>1</text>&lt;/<tag>div</tag>&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>order:4</value>"&gt;<text>2</text>&lt;/<tag>div</tag>&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>order:1</value>"&gt;<text>3</text>&lt;/<tag>div</tag>&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>order:2</value>"&gt;<text>4</text>&lt;/<tag>div</tag>&gt;
+    &lt;/<tag>div</tag>&gt;      
+    </pre>  
+</figure>
+<div style="display:flex;flex-wrap:wrap;color:white;max-width: 300px;border: 1px dashed black; margin: auto; justify-content:center;">
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center;">3</div>
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center;">4</div>
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center;">1</div>  
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center;">2</div>  
+</div>
+<h4>Flex-grow</h4>
+<p>Determina el uso proporcionado del espacio disponible del contenedor, sirve para extender un elemento y rellenar.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>div</tag> <name>class</name>="<value>container-flex</value>"&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>flex-grow:1</value>"&gt;<text>1</text>&lt;/<tag>div</tag>&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>flex-grow:1</value>"&gt;<text>2</text>&lt;/<tag>div</tag>&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>flex-grow:6</value>"&gt;<text>3</text>&lt;/<tag>div</tag>&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>flex-grow:2</value>"&gt;<text>4</text>&lt;/<tag>div</tag>&gt;
+    &lt;/<tag>div</tag>&gt;      
+    </pre>  
+</figure>
+<div style="display:flex;flex-wrap:wrap;color:white;max-width: 300px;border: 1px dashed black; margin: auto; justify-content:center;">
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center; flex-grow:1;">1</div>
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center; flex-grow:1;">2</div>
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center; flex-grow:6;">3</div>  
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center; flex-grow:2;">4</div>  
+</div>
+<h4>Flex-shrink</h4>
+<p>Determina que tanto se encoje un elemento para adaptarse al contenedor.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>div</tag> <name>class</name>="<value>container-flex</value>"&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>flex-shrink:1</value>"&gt;<text>1</text>&lt;/<tag>div</tag>&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>flex-shrink:1</value>"&gt;<text>2</text>&lt;/<tag>div</tag>&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>flex-shrink:0</value>"&gt;<text>3</text>&lt;/<tag>div</tag>&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>flex-shrink:2</value>"&gt;<text>4</text>&lt;/<tag>div</tag>&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>flex-shrink:1</value>"&gt;<text>5</text>&lt;/<tag>div</tag>&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>flex-shrink:1</value>"&gt;<text>6</text>&lt;/<tag>div</tag>&gt;
+    &lt;/<tag>div</tag>&gt;      
+    </pre>  
+</figure>
+<div style="display:flex;color:white;max-width: 300px;border: 1px dashed black; margin: auto; justify-content:center;">
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center; flex-shrink:1;">1</div>
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center; flex-shrink:1;">2</div>
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center; flex-shrink:0;">3</div>  
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center; flex-shrink:2;">4</div>  
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center; flex-shrink:1;">5</div>  
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center; flex-shrink:1;">6</div> 
+</div>
+<h4>Flex-basis</h4>
+<p>Determina el ancho de un elemento.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>div</tag> <name>class</name>="<value>container-flex</value>"&gt;
+        &lt;<tag>div</tag>&gt;<text>1</text>&lt;/<tag>div</tag>&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>flex-basis:100px</value>"&gt;<text>2</text>&lt;/<tag>div</tag>&gt;
+        &lt;<tag>div</tag>&gt;<text>3</text>&lt;/<tag>div</tag>&gt;
+        &lt;<tag>div</tag>&gt;<text>4</text>&lt;/<tag>div</tag>&gt;
+    &lt;/<tag>div</tag>&gt;      
+    </pre>  
+</figure>
+<div style="display:flex;flex-wrap:wrap;color:white;max-width: 300px;border: 1px dashed black; margin: auto; justify-content:center;">
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center;">1</div>
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center; flex-basis:100px;">2</div>
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center;">3</div>  
+    <div style="padding:5px;margin:5px;background-color: red;width:50px;height: 50px; font-size: 35px; text-align: center;">4</div>  
+</div>
+<h4>Align-self</h4>
+<p>Determina la alineación vertical de un elemento.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>div</tag> <name>class</name>="<value>container-flex</value>"&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>align-self:start</value>"&gt;<text>1</text>&lt;/<tag>div</tag>&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>align-self:end</value>"&gt;<text>2</text>&lt;/<tag>div</tag>&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>align-self:center</value>"&gt;<text>3</text>&lt;/<tag>div</tag>&gt;
+        &lt;<tag>div</tag> <name>style</name>="<value>align-self:stretch</value>"&gt;<text>4</text>&lt;/<tag>div</tag>&gt;
+    &lt;/<tag>div</tag>&gt;      
+    </pre>  
+</figure>
+<div style="display:flex;flex-wrap:wrap;color:white;max-width: 300px;height: 150px; border: 1px dashed black; margin: auto; justify-content:center;">
+    <div style="padding:5px;margin:5px;background-color: red;width:50px; font-size: 35px; text-align: center; align-self:start;">1</div>
+    <div style="padding:5px;margin:5px;background-color: red;width:50px; font-size: 35px; text-align: center; align-self:end;">2</div>
+    <div style="padding:5px;margin:5px;background-color: red;width:50px; font-size: 35px; text-align: center; align-self:center;">3</div>  
+    <div style="padding:5px;margin:5px;background-color: red;width:50px; font-size: 35px; text-align: center; align-self:stretch;">4</div>  
+</div>

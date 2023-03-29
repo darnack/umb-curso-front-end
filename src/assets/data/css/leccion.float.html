@@ -1,0 +1,38 @@
+<p>Esta propiedad permite liberar al elemento de las reglas de posicionamiento de caja (en bloque, en línea), permitiendo al elemento flotar por sobre otros elementos y alinearlo fácilmente a la izquierda o a la derecha de su contenedor.</p>
+<p>La propiedad solía tener muchos usos en diseño de sitios web, pero en el último tiempo a sido relegada, ya que con display:flex y display:grid se puede trabajar de mejor forma. 
+    Sin embargo, <code>float</code> aún tiene un uso que puede resultar de mucha utilidad, y es lograr que un párarfo rodeé una imagen.</p>
+<p>El truco consiste en colocar el texto debajo de la imagen, y colocar ambos elementos dentro de un contenedor.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>div</tag> <name>class</name>="<value>container</value>"&gt;
+      &lt;<tag>img</tag> <name>src</name>="<value>letra.jpg</value>" <name>alt</name>="<value>Lorem</value>" /&gt;  
+      <text>orem ipsum dolor sit amet consectetur 
+      adipisicing elit. Distinctio veritatis 
+      voluptas labore nihil rerum. Asperiores, 
+      dolorum eum reiciendis facere ratione 
+      est blanditiis architecto voluptas enim 
+      obcaecati fuga repudiandae? Accusantium, 
+      amet?</text>
+    &lt;/<tag>div</tag>&gt;      
+    </pre>  
+</figure>
+<p>Al elemento de imagen <code>&lt;img&gt;</code> se le asigna la propiedad <code>float</code>, cuyos valores posibles son <code>left</code> y <code>right</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre" style="padding: 0;">
+
+    <tag>.container</tag> {
+        <name>font-family</name>: <value>Garamond, serif</value>;
+        <name>margin</name>: <value>auto</value>;
+    }
+
+    <tag>.container img</tag> {
+        <name>float</name>: <value>left</value>;
+        <name>width</name>: <value>60px</value>;
+    }
+    </pre>  
+</figure>
+<p>El efecto resultante es el siguiente:</p>
+<div class="container" style="max-width: 300px;margin: auto; padding: 10px 0px;font-family: Garamond, serif;">
+    <img src="../assets/img/letra.jpg" alt="Lorem" style="width:60px;float:left;margin-right: 10px;"/>  
+    orem ipsum dolor sit amet, consectetur adipisicing elit. Ea ipsam laboriosam, nemo iste odit laudantium optio! Harum odit quia beatae, dolorum, id libero iste tempora amet quisquam modi velit! Doloribus?
+</div> 

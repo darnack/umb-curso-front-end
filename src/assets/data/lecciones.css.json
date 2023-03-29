@@ -210,5 +210,101 @@
         "respuesta": "static"
       }
     ]
+  },
+  { 
+    "numero":"10",
+    "modulo": "css",
+    "titulo": "Propiedad float",
+    "contenido": "leccion.float.html",
+    "evaluaciones": [
+      {
+        "tipo": 2,
+        "pregunta": "Ordene las etiquetas para lograr el efecto de texto rodeando a la imagen",
+        "contenido": "",
+        "items": ["<div class=\"container\">","  <img src=\"imagen.png\" />","  Lorem ipsum dolor sit...","</div>"],
+        "respuesta": ""
+      }
+    ]
+  },
+  { 
+    "numero":"11",
+    "modulo": "css",
+    "titulo": "Display flex",
+    "contenido": "leccion.flex.html",
+    "evaluaciones": [
+      {
+        "tipo": 3,
+        "pregunta": "¿Qué propiedad permite alinear horizontalmente los elementos flex?",
+        "contenido": "",
+        "items": ["align-content","align-self","justify-content","align-flex"],
+        "respuesta": "justify-content"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "¿Qué propiedad permite alinear individualmente los elementos flex de forma vertical?",
+        "contenido": "",
+        "items": ["align-content","align-self","justify-content","align-flex"],
+        "respuesta": "align-self"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "¿Qué propiedad permite modificar la orientación de dibujado de los elementos en un contenedor flex?",
+        "contenido": "",
+        "items": ["flex-draw","flex-direction","column","row-reverse"],
+        "respuesta": "flex-direction"
+      }
+    ]
+  },
+  { 
+    "numero":"12",
+    "modulo": "css",
+    "titulo": "Display grid",
+    "contenido": "leccion.grid.html",
+    "evaluaciones": [
+      {
+        "tipo": 3,
+        "pregunta": "¿Qué propiedad permite extender un elemento varias filas dentro de un contenedor grid?",
+        "contenido": "",
+        "items": ["grid-row","rowspan","justify-content","grid-grow"],
+        "respuesta": "grid-row"
+      },
+      {
+        "tipo": 3,
+        "pregunta": "¿Qué propiedad permite agregar espaciado entre las celdas de un contenedor grid?",
+        "contenido": "",
+        "items": ["padding","margin","grid-flex","grid-gap"],
+        "respuesta": "grid-gap"
+      }
+    ]
+  },
+  { 
+    "numero":"13",
+    "modulo": "css",
+    "titulo": "Transiciones",
+    "contenido": "leccion.transicion.html",
+    "evaluaciones": [
+      {
+        "tipo": 3,
+        "pregunta": "No es una propiedad transition",
+        "contenido": "",
+        "items": ["transition-property","transition-delay","transition-timing-function","transition-duration","transition-animation"],
+        "respuesta": "transition-animation"
+      }
+    ]
+  },
+  { 
+    "numero":"14",
+    "modulo": "css",
+    "titulo": "Animaciones",
+    "contenido": "leccion.animaciones.html",
+    "evaluaciones": [
+      {
+        "tipo": 3,
+        "pregunta": "Propiedad que permite ejecutar infinitamente una animación",
+        "contenido": "",
+        "items": ["animation-delay","animation-direction","animation-duration","animation-iteration-count"],
+        "respuesta": "animation-iteration-count"
+      }
+    ]
   }
 ]

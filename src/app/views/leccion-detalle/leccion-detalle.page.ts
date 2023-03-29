@@ -56,6 +56,7 @@ export class LeccionDetallePage implements OnInit {
           this.leccion.contenido = htmlBody
           this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml(this.leccion.contenido);
         })
+        
       }
     );    
   }
