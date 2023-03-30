@@ -76,6 +76,7 @@ select {
 }
 
 .code-pre {    
+    font-size: 0.85rem;
     line-height: 1.4em; 
     background: #eeeef0;
     padding: 18px 0 0 0;

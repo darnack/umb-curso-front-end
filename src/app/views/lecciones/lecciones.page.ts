@@ -27,6 +27,9 @@ export class LeccionesPage implements OnInit {
         this.lecciones = this.leccionesService.getLecciones(module);
 
         this.titulo = "Módulo " + module.toUpperCase()
+
+        if(module == "javascript")
+          this.titulo = "Módulo JavaScript";
       }
     );
     

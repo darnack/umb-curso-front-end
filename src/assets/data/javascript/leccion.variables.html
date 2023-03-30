@@ -1,0 +1,161 @@
+<p>Las variables nos permiten almacenar datos en memoria por medio de referencias nombradas. </p>
+<p>JavaScript es un lenguaje de tipado dinámico, eso quiere decir que las variables no están fuertemente tipadas, o no están asociadas a un tipo de dato concreto.
+    Por esto, una variable en JavaScript puede contener un texto, un número, una fecha, un booleano, un objeto, e incluso, una función, sin necesidad de indicar previamente su tipo.        
+</p>
+<h4>Ámbito de una variable</h4>
+<p>Las variables tienen diferentes niveles de accesibilidad que son importantes tener en cuenta.</p>
+<table class="ws-table-all notranslate">
+    <tr>    
+        <th>Ámbito</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>Global</td>
+        <td>La variable es accesible para toda la aplicación, por lo tanto puede ser leída, reasignada y redefinida desde cualquier línea de código del aplicativo.</td>
+    </tr>
+    <tr>    
+        <td>Local</td>
+        <td>La variable solamente es accesible dentro de la función donde ha sido declarada, en otro contexto diferente la variable simplemente no existe o no está definida.</td>
+    </tr>   
+    <tr>    
+        <td>Bloque</td>
+        <td>La variable solamente es accesible dentro del bloque donde ha sido declarada, el bloque se define por lo que se encuentra entre corchetes <code>{</code> <code>}</code>.</td>
+    </tr> 
+    <tr>    
+        <td>Módulo</td>
+        <td>La variable es global a nivel del módulo donde es declarada, pero fuera del módulo no existe.</td>
+    </tr>    
+</table>
+<h3>Declarar una variable</h3>
+<p>Existen 4 formas de declarar una variable en JavaScript. </p>
+    
+<p>💡El ámbito de las variables declaradas dependerá de dónde se declaren.</p>
+<h4>Usando var</h4>
+<p>La palabra clave <code>var</code> permite declarar una variable que puede ser redefinida y reasignada.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>variable</name> = <value>"Hola"</value>;
+    </pre>  
+</figure>
+<h4>Usando let</h4>
+<p>La palabra clave <code>let</code> permite declarar una variable que puede ser reasignada, pero no redefinida.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>variable</name> = <value>"Hola"</value>;
+    </pre>  
+</figure>
+<h4>Usando const</h4>
+<p>La palabra clave <code>const</code> permite declarar una constante, esta no puede ser reasignada ni redefinida.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>const</tag> <name>PI</name> = <value>3.1415</value>;
+    </pre>  
+</figure>
+<h4>De forma implícita</h4>
+<p>Si se omite la palabra clave antes de la declaración, es decir solo escribiendo el nombre de la variable, también es posible realizar una declaración. 
+    Esta se comportará como si si utilizara <code>var</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <name>variable</name> = <value>"Hola"</value>;
+    </pre>  
+</figure>
+<p>💡 Las variables <code>const</code> y las variables declaradas implícitamente deben obligatoriamente ser inicializadas, es decir, darles un valor al ser declaradas. 
+    Mientras que con <code>var</code> y <code>let</code> se puede omitir el valor al momento de la declaración.</p>
+<p>💡 Las variables no inicializadas tendrán por defecto el valor <code>undefined</code>.</p>
+
+<h3>Tipos de valor</h3>
+<p>Si bien las variables no están atadas a un tipo de dato específico, JavaScript permite manejar e identificar diferentes tipos de valor.</p>
+<h4>Undefined</h4>
+<p>Es el valor por defecto de una variable no inicializada.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>variable</name>;
+    <tag>typeof</tag> <name>variable</name>; // 'undefined'
+    </pre>  
+</figure>
+<h4>Boolean</h4>
+<p>Representa un valor de dos estados posibles: <code>true</code> o <code>false</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>variable</name> = <value>true</value>;
+    <tag>typeof</tag> <name>variable</name>; // 'boolean'
+    </pre>  
+</figure>
+<h4>Number</h4>
+<p>Representa un valor numérico de punto flotante de 64 bits de doble presición. 
+    Su valor para punto flotante puede ir desde <code>Number.MIN_VALUE</code> <i>(5e-324)</i> hasta <code>Number.MAX_VALUE</code> <i>(1.7976931348623157e+308)</i>.
+    Mientras que para valores enteros puede ir desde <code>Number.MIN_SAFE_INTEGER</code> <i>(-9007199254740991)</i> hasta <code>Number.MAX_SAFE_INTEGER</code> <i>(9007199254740991)</i>.
+</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>variable</name> = <value>5.24</value>;
+    <tag>typeof</tag> <name>variable</name>; // 'number'
+    </pre>  
+</figure>
+<p>💡 Cuando se realiza una operación matemática inválida, JavaScript asigna a la variable el valor <code>NaN</code> para indicar que se trata de un valor no numérico.</p>
+<h4>BigInt</h4>
+<p>Representa un valor numérico entero más grande que un valor <code>Number</code>, es decir supera los valores <code>Number.MIN_SAFE_INTEGER</code> y <code>Number.MAX_SAFE_INTEGER</code>. 
+Para implementarlo se debe agregar la letra <code>n</code> al final de un valor entero, o utilizar el constructor <code><tag>BigInt()</tag></code>.
+</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>bigNumber</name> = <value>9007199254740992n</value>;
+    <tag>typeof</tag> <name>bigNumber</name>; // 'bigint'
+
+    <tag>let</tag> <name>hugeNumber</name> = <tag>BigInt(<value>9007199254740992</value>)</tag>;    
+    <tag>typeof</tag> <name>hugeNumber</name>; // 'bigint'
+    </pre>  
+</figure>
+<h4>String</h4>
+<p>Representa una cadena de texto. 
+   Las cadenas de JavaScript son inmutables. Esto significa que una vez que se crea una cadena, no es posible modificarla.
+   Sin embargo, es posible crear una cadena nueva modificada basada en la cadena original. 
+</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>variable</name> = <value>"Hola JavaScript!"</value>;
+    <tag>typeof</tag> <name>variable</name>; // 'string'
+    </pre>  
+</figure>
+<h4>Object</h4>
+<p>Representa una estructura de datos. Por ejemplo <code>new Object</code>, <code>new Array</code>, <code>new Map</code>, <code>new Set</code>, 
+    <code>new WeakMap</code>, <code>new WeakSet</code>, <code>new Date</code> y casi todo lo hecho con la palabra clave <code>new</code>, así como objetos JSON, 
+    los cuales son representados por estructuras clave/valor contenidas por corchetes <code>{</code> <code>}</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>objeto</name> = <value>{}</value>;
+    <tag>typeof</tag> <name>objeto</name>; // 'object'
+    </pre>  
+</figure>
+<h4>Null</h4>
+<p>Representa un valor nulo, que es diferente al valor <code>undefined</code>. JavaScript lo reconoce como un valor tipo <code>object</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>variable</name> = <value>null</value>;
+    <tag>typeof</tag> <name>variable</name>; // 'object'
+    </pre>  
+</figure>
+<h4>Symbol</h4>
+<p>Representa un símbolo, lo cual es algo abstracto y sirve para crear un identificador único que garantice que las propiedades del objeto no entren en conflicto con otras propiedades. 
+Se implementa por medio del constructor <code><tag>Symbol()</tag></code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>const</tag> <name>simbolo</name> = <tag>Symbol(<value>'nombre_clave'</value>)</tag>;
+    <tag>typeof</tag> <name>simbolo</name>; // 'symbol'
+
+    <tag>const</tag> <name>objeto</name> = <value>{}</value>;
+    <name>objeto</name>[<name>simbolo</name>] = <value>'valor'</value>;
+    <tag>console</tag>.<value>log</value>(<name>objeto</name>[<name>simbolo</name>]) // 'valor'
+    </pre>  
+</figure>
+<h4>Function</h4>
+<p>JavaScript es un lenguaje de programación funcional, por lo que las funciones son tratadas como datos y por lo tanto pueden ser almacenadas en variables.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>holaMundo</name> = <value>function()</value> {
+        <tag>console</tag>.<value>log</value>(<tag>'Hola Mundo!'</tag>);
+    }
+
+    <tag>typeof</tag> <name>holaMundo</name>; // 'function'
+    </pre>  
+</figure>

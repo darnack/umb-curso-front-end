@@ -1,1 +1,54 @@
-<p>Introducción</p>
+<p>JavaScript es un lenguaje de programación tipo <i>scripting</i>, es decir, es un lenguaje interpretado en tiempo de ejecución. 
+Nació a mediados de los años 90's como una característica del navegador <i>Netscape</i>. A lo largo de este tiempo su uso se ha popularizado y extendido, 
+ya no solamente al uso sobre navegadores, si no que también puede ejecutarse en servidores y dispositivos.</p>
+
+<p>JavaScript es un lenguaje funcional, es decir, permite que las funciones sea tratadas como variable y por lo tanto puedan ser recibidas como parámetro y devueltas como valor de retorno, 
+    esto potencia y flexibiliza la construcción de aplicaciones. </p>
+<p>Su uso nos permite agregar interactividad a las aplicaciones web, capturar datos, recibir datos de servicios externos, modificar los elementos en pantalla, realizar cálculos, manejar eventos, entre otras funcionalidades.</p>
+
+<h3>Implementar JavaScript</h3>
+<p>Implementar JavaScript se puede hacer de dos maneras: por medio de la etiqueta <code>&lt;script&gt;</code> de forma directa o implementando un archivo con extensión <code>.js</code>.</p>
+<h4>Etiqueta Script</h4>
+<p>La etiqueta <code>&lt;script&gt;</code> puede ser implementada dentro del <code>&lt;head&gt;</code> o dentro del <code>&lt;body&gt;</code> del documento.</p>
+<p>💡 Por experiencia se ha descubierto que agregar la etiqueta <code>&lt;script&gt;</code> dentro del <code>&lt;body&gt;</code> favorece la carga más rápida del script.</p>
+<pre class="code-pre">
+    &lt;!DOCTYPE html&gt;
+    &lt;<tag>html</tag> <name>lang</name>="<value>es</value>"&gt;  
+      &lt;<tag>head</tag>&gt;
+        &lt;<tag>title</tag>&gt;<text>Mi página web</text>&lt;/<tag>title</tag>&gt;
+      &lt;/<tag>head</tag>&gt;
+      &lt;<tag>body</tag>&gt;    
+        &lt;<tag>h1</tag>&gt;<text>Título</text>&lt;/<tag>h1</tag>&gt;
+        &lt;<tag>script</tag>&gt; 
+           <name>console</name>.<value>log</value>(<tag>"Hola mundo."</tag>);
+        &lt;/<tag>script</tag>&gt;
+      &lt;/<tag>body</tag>&gt;
+    &lt;/<tag>html</tag>&gt;
+    </pre>  
+</figure>
+<h4>Archivo JavaScript</h4>
+<p>Lo más recomendable siempre será implementar archivos <code>.js</code>. Para ello se debe enlazar el archivo por medio de la etiqueta <code>&lt;script&gt;</code> y su atributo <code>src</code>.</p>
+<pre class="code-pre">
+    &lt;!DOCTYPE html&gt;
+    &lt;<tag>html</tag> <name>lang</name>="<value>es</value>"&gt;  
+      &lt;<tag>head</tag>&gt;
+        &lt;<tag>title</tag>&gt;<text>Mi página web</text>&lt;/<tag>title</tag>&gt;
+      &lt;/<tag>head</tag>&gt;
+      &lt;<tag>body</tag>&gt;    
+        &lt;<tag>h1</tag>&gt;<text>Título</text>&lt;/<tag>h1</tag>&gt;
+        &lt;<tag>script</tag> 
+            <name>src</name>="<value>script.js</value>" 
+            <name>type</name>="<value>application/javascript</value>"&gt;             
+        &lt;/<tag>script</tag>&gt;
+      &lt;/<tag>body</tag>&gt;
+    &lt;/<tag>html</tag>&gt;
+      </pre>  
+  </figure>
+<p>💡 Con el atributo <code>type</code> y su valor <code>application/javascript</code>, nos aseguramos de que el archivo sea cargado correctamente desde el servidor indicando su <i>MIME type</i>.</p>
+<p>Por otro lado, se debe implementar el correspondiente archivo con extensión <code>.js</code>. Este contiene todo el código JavaScript.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;!-- archivo script.js --&gt;
+    <name>console</name>.<value>log</value>(<tag>"Hola mundo."</tag>);
+    </pre>  
+</figure>

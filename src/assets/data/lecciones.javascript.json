@@ -5,13 +5,20 @@
       "titulo": "Introducción",
       "contenido": "leccion.introduccion.html",
       "evaluaciones": [
-      {
-        "tipo": 2,
-        "pregunta": "Ordene las líneas de código de forma correcta",
-        "contenido": "",
-        "items": ["<script>","var name = \"James\";","console.log(name);", "</script>"],
-        "respuesta": ""
-      }
+        {
+          "tipo": 3,
+          "pregunta": "¿Dónde se puede agregar la etiqueta script?",
+          "contenido": "",
+          "items": ["Solo en el <head>","Solo en el <body>","En <head> o en el <body>", "En un archivo .js"],
+          "respuesta": "En <head> o en el <body>"
+        },
+        {
+          "tipo": 3,
+          "pregunta": "¿Cuál es el MIME type correspondiente a un archivo JavaScript?",
+          "contenido": "",
+          "items": ["application/javascript","application/js","text/javascript", "text/js"],
+          "respuesta": "application/javascript"
+        }
       ]
      },
      { 
@@ -19,7 +26,29 @@
       "modulo": "javascript",
       "titulo": "Variables",
       "contenido": "leccion.variables.html",
-      "evaluaciones": [ ]
+      "evaluaciones": [
+        {
+          "tipo": 2,
+          "pregunta": "Ordene las líneas de código de forma correcta",
+          "contenido": "",
+          "items": ["<script>","var name = \"James\";","console.log(name);", "</script>"],
+          "respuesta": ""
+        },
+        {
+          "tipo": 2,
+          "pregunta": "Ordene los ámbitos de las variables, de mayor alcance a menor alcance",
+          "contenido": "",
+          "items": ["Global","Módulo","Local", "Bloque"],
+          "respuesta": ""
+        },
+        {
+          "tipo": 3,
+          "pregunta": "¿Que declaración no permite que la variable sea redefinida ni reasignada?",
+          "contenido": "",
+          "items": ["const","var","implícita", "let"],
+          "respuesta": "const"
+        }
+       ]
      },
      { 
       "numero": "3",
