@@ -1,0 +1,207 @@
+<p>JavaScript cuenta con un amplio conjunto de operadores que nos pueden resultar de mucha utilidad.</p>
+<h3>Operadores aritméticos</h3>
+<table class="ws-table-all notranslate">
+    <tr>    
+        <th>Nombre</th>
+        <th>Ejemplo</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>Suma</td>
+        <td><mono>a + b</mono></td>
+        <td>Suma el valor de <code>a</code> al valor de <code>b</code>.</td>
+    </tr>  
+    <tr>    
+        <td>Resta</td>
+        <td><mono>a - b</mono></td>
+        <td>Resta el valor de <code>a</code> al valor de <code>b</code>.</td>
+    </tr> 
+    <tr>    
+        <td>Multiplicación</td>
+        <td><mono>a * b</mono></td>
+        <td>Multiplica el valor de <code>a</code> al valor de <code>b</code>.</td>
+    </tr>
+    <tr>    
+        <td>División</td>
+        <td><mono>a / b</mono></td>
+        <td>Divide el valor de <code>a</code> entre el valor de <code>b</code>.</td>
+    </tr>
+    <tr>    
+        <td>Módulo</td>
+        <td><mono>a % b</mono></td>
+        <td>Devuelve el residuo de la división de <code>a</code> entre <code>b</code>.</td>
+    </tr>
+    <tr>    
+        <td>Exponenciación</td>
+        <td><mono>a ** b</mono></td>
+        <td>Eleva <code>a</code> a la potencia de <code>b</code>.</td>
+    </tr>
+</table>
+<h3>Operadores de asignación</h3>
+<table class="ws-table-all notranslate">
+    <tr>    
+        <th>Nombre</th>
+        <th>Ejemplo</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>Asignación</td>
+        <td><mono>x = y</mono></td>
+        <td>Asigna un valor a una variable u objeto.</td>
+    </tr>  
+    <tr>    
+        <td>Adición</td>
+        <td><mono>x += y</mono></td>
+        <td><mono>x = x + y</mono></td>
+    </tr> 
+    <tr>    
+        <td>Resta</td>
+        <td><mono>x -= y</mono></td>
+        <td><mono>x = x - y</mono></td>
+    </tr>
+    <tr>    
+        <td>Multiplicación</td>
+        <td><mono>x *= y</mono></td>
+        <td><mono>x = x * y</mono></td>
+    </tr>
+    <tr>    
+        <td>División</td>
+        <td><mono>x /= y</mono></td>
+        <td><mono>x = x / y</mono></td>
+    </tr>
+    <tr>    
+        <td>Residuo</td>
+        <td><mono>x %= y</mono></td>
+        <td>Se asigna a <code>x</code> el residuo de la división entre <code>x</code> y <code>y</code>.</td>
+    </tr>
+    <tr>    
+        <td>Exponenciación</td>
+        <td><mono>x **= y</mono></td>
+        <td>Se asigna a <code>x</code> el resultado de <code>x</code> elevado a la <code>y</code>.</td>
+    </tr>
+</table>
+<h3>Operadores de comparación</h3>
+<table class="ws-table-all notranslate">
+    <tr>    
+        <th>Nombre</th>
+        <th>Ejemplo</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>Igualdad</td>
+        <td><mono>a == b</mono></td>
+        <td>Comprueba si el valor de <code>a</code> es igual al de <code>b</code>. <strong>No comprueba tipo de dato.</strong></td>
+    </tr>  
+    <tr>    
+        <td>Identidad</td>
+        <td><mono>a === b</mono></td>
+        <td>Comprueba si el valor y <strong>tipo de dato</strong> de <code>a</code> son iguales al de <code>b</code>.</td>
+    </tr> 
+    <tr>    
+        <td>Desigualdad</td>
+        <td><mono>a != b</mono></td>
+        <td>Verdadero si el valor de <code>a</code> es diferente al de <code>b</code>. <strong>No comprueba tipo de dato.</strong></td>
+    </tr>
+    <tr>    
+        <td>No Idéntico</td>
+        <td><mono>a !== b</mono></td>
+        <td>Verdadero si el valor y <strong>tipo de dato</strong> de <code>a</code> son diferentes al de <code>b</code>.</td>
+    </tr> 
+    <tr>    
+        <td>Mayor que</td>
+        <td><mono>a > b</mono></td>
+        <td>Comprueba si el valor de <code>a</code> es mayor que el de <code>b</code>.</td>
+    </tr> 
+    <tr>    
+        <td>Mayor igual que</td>
+        <td><mono>a >= b</mono></td>
+        <td>Comprueba si el valor de <code>a</code> es mayor o <strong>igual</strong> que el de <code>b</code>.</td>
+    </tr> 
+    <tr>    
+        <td>Menor que</td>
+        <td><mono>a &lt; b</mono></td>
+        <td>Comprueba si el valor de <code>a</code> es menor que el de <code>b</code>.</td>
+    </tr> 
+    <tr>    
+        <td>Menor igual que</td>
+        <td><mono>a &lt;= b</mono></td>
+        <td>Comprueba si el valor de <code>a</code> es menor o <strong>igual</strong> que el de <code>b</code>.</td>
+    </tr> 
+</table>   
+<h3>Operadores unarios</h3>
+<table class="ws-table-all notranslate">
+    <tr>    
+        <th>Nombre</th>
+        <th>Ejemplo</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>Incremento</td>
+        <td><mono>a++</mono></td>
+        <td>Usa el valor de <code>a</code> y luego lo incrementa. También llamado <strong>postincremento</strong>.</td>
+    </tr>
+    <tr>  
+        <td>Decremento</td>
+        <td><mono>a--</mono></td>
+        <td>Usa el valor de <code>a</code> y luego lo decrementa. También llamado <strong>postdecremento</strong>.</td>
+    </tr>
+    <tr>  
+        <td>Incremento previo</td>
+        <td><mono>++a</mono></td>
+        <td>Incrementa el valor de <code>a</code> y luego lo usa. También llamado <strong>preincremento</strong>.</td>
+    </tr>
+    <tr>  
+        <td>Decremento previo</td>
+        <td><mono>--a</mono></td>
+        <td>Decrementa el valor de <code>a</code> y luego lo usa. También llamado <strong>predecremento</strong>.</td>
+    </tr>
+    <tr>  
+        <td>Resta unaria</td>
+        <td><mono>-a</mono></td>
+        <td>Cambia de signo a la variable <code>a</code>.</td>
+    </tr>
+</table>   
+<h3>Operadores binario</h3>
+<table class="ws-table-all notranslate">
+    <tr>    
+        <th>Nombre</th>
+        <th>Ejemplo</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>AND</td>
+        <td><mono>a & b</mono></td>
+        <td>Devuelve verdadero si ambos operandos son verdaderos.</td>
+    </tr>
+    <tr>    
+        <td>OR</td>
+        <td><mono>a | b</mono></td>
+        <td>Devuelve verdadero si al menos un operando es verdadero.</td>
+    </tr>
+    <tr>    
+        <td>XOR</td>
+        <td><mono>a ^ b</mono></td>
+        <td>Devuelve verdadero si ambos operandos son diferentes.</td>
+    </tr>
+    <tr>    
+        <td>NOT</td>
+        <td><mono>~a</mono></td>
+        <td>Invierte los bits del operando (por ejemplo, 000101 pasa a 111010). Trunca a 32 bits.</td>
+    </tr>
+    <tr>    
+        <td>LEFT SHIFT</td>
+        <td><mono>a &lt;&lt; b</mono></td>
+        <td>Desplaza el primer operando el número especificado de bits a la izquierda. Ejemplo: 9&lt;&lt;2 produce 36, porque <code>1001</code> desplazado 2 bits a la izquierda se convierte en <code>100100</code>, que es 36.</td>
+    </tr>
+    <tr>    
+        <td>RIGHT SHIFT</td>
+        <td><mono>a >> b</mono></td>
+        <td>Desplaza el primer operando el número especificado de bits a la derecha. Ejemplo: 9>>2 produce 2, porque <code>1001</code> desplazado 2 bits a la derecha se convierte en <code>10</code>, que es 2.</td>
+    </tr>
+    <tr>    
+        <td>RIGHT SHIFT sin signo</td>
+        <td><mono>a >>> b</mono></td>
+        <td>Similar al desplazamiento a la derecha RIGHT SHIFT, excepto que todos los bits vacíos a la izquierda se rellenan con <mono>0</mono>s. 
+            Esto significa que el resultado de este operador siempre es un entero positivo y siempre trata el entero que se desplaza como un entero sin signo.</td>
+    </tr>
+</table>   

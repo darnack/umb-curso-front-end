@@ -1,0 +1,192 @@
+<p>Las estructuras de control de flujo permite determinar el comportamiento de una aplicación por medio de compuertas lógicas e iteradores. 
+    Estas permiten decirle a la aplicación el conjunto de reglas lógicas que debe ejecutar para cada situación determinada.</p>
+<h3>If</h3>
+<p>La estructura <code>if</code> permite implementar un flujo condicional para decirle a la aplicación que decisión tomar con base a unas reglas lógicas dadas. </p>
+<p>Esta se compone de una condición y de un bloque de código que se ejecuta en caso de cumplirse la condición.</p>
+
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>if</tag> (<name>condición</name>)
+    {
+        // bloque de código a ejecutar
+    }
+    </pre>  
+</figure>
+<p>Por medio de estas condiciones podemos moldear el comportamiento que deseamos por parte de la aplicación.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    // Evita división por cero.
+    <tag>if</tag> (<tag>b</tag> != <value>0</value>)
+    {
+        <tag>c</tag> = <tag>a</tag> / <tag>b</tag>;
+    }
+    </pre>  
+</figure>
+<h3>If / Else</h3>
+<p>La estructura <code>else</code> permite implementar un flujo alternativo en caso de que la condicional del <code>if</code> no se cumpla.</p>
+<p>Esta se compone de una condicional y dos bloques de código, el primero se ejecuta solo si se cumple la condicional, y el segundo se ejecuta solo si no se cumple la condicional.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>if</tag> (<name>condición</name>)
+    {
+        // bloque de código 1
+    } <tag>else</tag> 
+    {
+        // bloque de código 2
+    }
+    </pre>  
+</figure>
+<p>Esta estructura garantiza que se ejecute un bloque de código o el otro.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    // permite una rotación circular de la 
+       posición X
+    <tag>if</tag> (<tag>posX</tag> >= <value>limiteX</value>) {
+        <tag>posX</tag> = <value>0</value>;
+    } <tag>else</tag> {
+        <tag>posX</tag>++;
+    }
+    </pre>  
+</figure>
+<h3>Switch</h3>
+<p>La estructura <code>switch</code> permite implementar varios flujos de ejecución de código mediante casos específicos. 
+    Cada caso satisface un valor específico de una variable discreta, es decir, una variable con un número finito de posibles valores.</p>
+<p>Esta estructura se compone de un valor de entrada y los bloques de código a ejecutar para cada valor posible. 
+    La palabra <code>break</code> permite salir del <code>switch</code> una vez se ejecuta el bloque de código correspondiente. 
+    <code>default</code> permite la ejecución de un bloque de código en caso de no cumplir ninguno de los casos.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>switch</tag> (<name>variable_discreta</name>)
+    {
+        <tag>case</tag> <value>valor1</value>: 
+            // bloque código 1
+            <tag>break</tag>;
+        <tag>case</tag> <value>valor2</value>:         
+            // bloque código 2
+            <tag>break</tag>;
+        <tag>case</tag> <value>valor3</value>: 
+            // bloque código 3
+            <tag>break</tag>;
+        <tag>default</tag>: 
+            // bloque por defecto
+    }
+    </pre>  
+</figure>
+<p>Los bloques <code>switch</code> permiten escribir lógica de una manera ordenada y reducida.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>color</name> = <value>"rojo"</value>;
+    
+    <tag>switch</tag> (<name>color</name>)
+    {
+        <tag>case</tag> <value>"azul"</value>: 
+            mensaje.informacion();
+            <tag>break</tag>;
+        <tag>case</tag> <value>"amarillo"</value>: 
+            mensaje.advertencia();
+            <tag>break</tag>;
+        <tag>case</tag> <value>"rojo"</value>: 
+            mensaje.error();
+            <tag>break</tag>;
+        <tag>default</tag>: 
+            mensaje.nodefinido();
+    }
+    </pre>  
+</figure>
+<h3>For</h3>
+<p>La estructura <code>for</code> permite la ejecución repetitiva de un bloque de código.</p>
+<p>Esta se compone de un contador que controla la cantidad de iteraciones, una condicional que determina hasta cuando se repite el código, un incremento para el contador, y el bloque de código a repetir. </p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>for</tag> (<name>contador</name>; <name>condición</name>; <name>incremento</name>;)
+    {
+        // bloque de código
+    }
+    </pre>  
+</figure>
+<p>Esta estructura es potencialmente peligrosa ya que una mala implementación puede ocasionar un bucle infinito, y por lo tanto, un bloqueo de la aplicación. Se debe asegurar que el bloque se ejecute un número finito de veces.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>fibonacci</name> = <value>1</value>;
+
+    <tag>for</tag> (<tag>let</tag> <name>i</name> = <value>0</value>; <name>i</name> &lt; <value>20</value>; <name>i</name>++;)
+    {
+        <name>fibonacci</name> += <name>fibonacci</name>;
+    }
+    </pre>  
+</figure>
+<h3>While</h3>
+<p>La estructura <code>while</code> permite la ejecución repetitiva de un bloque de código hasta que se cumple una condición dada.</p>
+<p>Se compone de una condicional y un bloque de código.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>while</tag> (<name>condición</name>)
+    {
+        // bloque de código
+    }
+    </pre>  
+</figure>
+<p>Al igual que <code>for</code>, <code>while</code> puede generar un ciclo infinito, por lo cuál se debe garantizar que el condicional se cumpla en algún momento para que el ciclo sea finito.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>a</name> = <value>0</value>;
+    <tag>let</tag> <name>b</name> = <value>10</value>;
+
+    <tag>while</tag> (<name>a</name> &lt; <name>b</name>)
+    {
+        <name>a</name> += <value>2</value>;
+    }
+    // a = 10
+    </pre>  
+</figure>
+<h3>Do While</h3>
+<p>La estructura <code>do</code> permite ejecutar el bloque de código y posteriormente analizar la condición.</p>
+<p>Su estructura exige que primero debe ir el bloque de código a ejecutar seguido de su correspondiente condicional, que en caso de no cumplirse finaliza la ejecución del ciclo.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>do</tag> {
+        // bloque de código
+    } <tag>while</tag> (<name>condición</name>)
+    </pre>  
+</figure>
+<p>Es poco utilizado ya que no tiene diferencia en el resultado respecto a <code>while</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>a</name> = <value>0</value>;
+    <tag>let</tag> <name>b</name> = <value>10</value>;
+
+    <tag>do</tag> {
+        <name>a</name> += <value>2</value>;
+    } <tag>while</tag> (<name>a</name> &lt; <name>b</name>)
+    // a = 10
+    </pre>  
+</figure>
+<h3>Try / Catch</h3>
+<p>La estructura <code>try / catch</code> permite realizar manejo de los errores de ejecución.</p>
+<p>Dentro de la estructura <code>try</code> se coloca el bloque de código que presenta riesgo de generación de excepciones, 
+    y por medio de la estructura <code>catch</code> se define un bloque de código que se ejecuta en caso de presentarse la excepción.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>try</tag> {
+        // bloque de código
+    } <tag>catch</tag> (<name>exception</name>) {
+        // control de la excepción
+    }
+    </pre>  
+</figure>
+<p>Se pueden controlar excepciones en la ejecución inherentes al código, pero también se pueden generar excepciones propias a través de <code>throw</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>a</name> = <value>0</value>;
+    <tag>let</tag> <name>b</name> = <value>10</value>;
+
+    <tag>try</tag> {
+        <tag>if</tag> (<name>a</name> == <value>0</value>) {
+            <tag>throw</tag> <value>'División por 0'</value>;
+        }
+        <name>b</name> = <name>b</name> / <name>a</name>;
+    } <tag>catch</tag> (<name>exception</name>) {
+        <tag>console</tag>.error(<name>exception</name>);
+    }
+    </pre>  
+</figure>
