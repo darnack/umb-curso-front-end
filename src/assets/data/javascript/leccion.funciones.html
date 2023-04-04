@@ -1,0 +1,61 @@
+<p>Las funciones son procedimientos que encierran bloques de código y permiten su reutilización.</p>
+<p>La estructura de una función se compone de la palabra clave <code>function</code>, el nombre de la función, los parámetros de entrada entre paréntesis y separados por comas, 
+    los cuales son opcionales, y los corchetes que encierran el bloque de código.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>function</tag> <name>nombre</name>(<tag>par1</tag>, <tag>par2</tag>, <tag>par3</tag>)
+    {
+        // bloque de código
+    }
+    </pre>  
+</figure>
+<p>En muchas casos se desea que una función devuelva un valor, para esto se debe utilizar la palabra clave <code>return</code> seguida del valor de retorno.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>function</tag> <value>pow</value>(<name>a</name>, <name>b</name>)
+    {
+        <tag>return</tag> <name>a</name> ** <name>b</name>;
+    }
+    </pre>  
+</figure>
+<h3>Funciones anónimas</h3>
+<p>JavaScript es un lenguaje funcional, lo que permite almacenar funciones en variables y enviarlas como parámetros a otras funciones.</p>
+<p>Es posible declarar funciones anónimas que son directamente asignadas a variables.
+    En este caso, en lugar de nombrar la función, se nombra la variable que almacena la función.
+</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>const</tag> <value>pow</value> = <tag>function</tag>(<name>a</name>, <name>b</name>)
+    {
+        <tag>return</tag> <name>a</name> ** <name>b</name>;
+    };
+    </pre>  
+</figure>
+<h3>Llamado a funciones</h3>
+<p>Para llamar una función se debe escribir el nombre de la función o el nombre de la variable que hacen referencia a la función, 
+    seguido de los parámetros de invocación entre paréntesis.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>const</tag> <name>result</name> = <value>pow</value>(<name>5</name>, <name>3</name>); // 125  
+    </pre>  
+</figure>
+<h3>Funciones anidadas</h3>
+<p>Una función puede declararse dentro de otra función, esto permite crear estructuras de programación complejas y jerarquizadas.</p>
+<p>El ámbito de la función está limitando al contexto donde se declara. Si una función es declarada dentro de una función padre, 
+    la función declarada solamente existe dentro de la función padre y no es accesible desde afuera, a menos que la función padre retorne la función hijo, 
+    caso en el cual ya sería accesible fuera de su propio contexto.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>const</tag> <value>padre</value> = <tag>function</tag>()
+    {
+        <tag>const</tag> <value>hijo</value> = <tag>function</tag>(<name>a</name>)
+        {
+            <tag>return</tag> <value>2</value> ** <name>a</name>;
+        };
+
+        <tag>return</tag> <value>hijo</value>;
+    };
+
+    <value>padre</value>.<value>hijo</value>(<name>8</name>); // 256
+    </pre>  
+</figure>

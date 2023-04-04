@@ -99,7 +99,22 @@
       "modulo": "javascript",
       "titulo": "Funciones",
       "contenido": "leccion.funciones.html",
-      "evaluaciones": [ ]
+      "evaluaciones": [
+        {
+          "tipo": 1,
+          "pregunta": "Ingresa la palabra clave correcta que corrige este código.",
+          "contenido": "const pow = funcion(a, b)\n{\n   return a ** b;\n};",
+          "items": [],
+          "respuesta": "function"
+        },
+        {
+          "tipo": 1,
+          "pregunta": "Ingresa la palabra clave correcta que corrige este código.",
+          "contenido": "funcion pow(a, b)\n{\n   return a ** b;\n}",
+          "items": [],
+          "respuesta": "function"
+        }
+       ]
      },
      { 
       "numero": "6",
