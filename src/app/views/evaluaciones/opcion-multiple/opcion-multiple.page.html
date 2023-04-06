@@ -19,6 +19,11 @@
           <h4 class="ion-text-center">{{evaluacion.pregunta}}</h4>
         </ion-col>
       </ion-row>
+      <ion-row *ngIf="evaluacion.contenido != ''">
+        <ion-col class="fit-height">
+          <textarea readonly="true" disabled="true">{{evaluacion.contenido}}</textarea>
+        </ion-col>
+      </ion-row>
       <ion-row>
         <ion-col>
           <ion-list>

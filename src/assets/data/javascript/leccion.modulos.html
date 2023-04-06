@@ -1,0 +1,97 @@
+<p>Las estructuras de programación en JavaScript son muy flexibles, por lo cuál se permite escribir código de una forma desordenada y poco jerarquizada.
+La solución a este problema es implementar programación modular, lo que hace que el código sea ordenado, fácil de leer y de reutilizar.
+</p>
+<h3>Escritura de un módulo</h3>
+<p>Los módulos en JavaScript deben estar escritos dentro de un archivo con extensión <code>.js</code>. 
+    Solo puede crearse un módulo por archivo.</p>
+<p>Un módulo se crea con el uso de la palabra clave <code>export</code>, 
+    por medio de la cual se definen las variables, objetos y funciones que serán expuestas para su implementación. 
+</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>const</tag> <value>name</value> = <tag>'square'</tag>;
+
+    <tag>var</tag> <value>canvas</value> = document.<tag>getElementById</tag>(<tag>'cvs'</tag>);    
+    <tag>var</tag> <value>ctx</value> = <value>canvas</value>.<tag>getContext</tag>(<tag>'2d'</tag>); 
+
+    <tag>function</tag> <name>draw</name>(<value>length</value>, <value>x</value>, <value>y</value>, <value>color</value>)
+    {
+        <value>ctx</value>.<tag>fillStyle</tag> = <value>color</value>;
+        <value>ctx</value>.<tag>fillRect</tag>(<value>x</value>, <value>y</value>, <value>length</value>, <value>length</value>);  
+    };
+
+    <tag>export</tag> { <value>name</value>, <name>draw</name> };
+    </pre>  
+</figure>
+<p>Los elementos que no se definen dentro de <code>export</code> no serán accesibles fuera del módulo.</p>
+<h3>Importación de un módulo</h3>
+<p>Se debe importar por medio de la palabra clave <code>import</code>, seguido de los elementos del módulo a importar,
+    y posteriormente por la palabra clave <code>from</code> y la ruta del módulo entre comillas.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>import</tag> { <value>name</value>, <value>draw</value> } 
+        <tag>from</tag> '.modules/square.js';
+    </pre>  
+</figure>
+<p>💡 Se usa la sintaxis de punto (.) en la ruta del módulo para referirse a la ubicación actual del archivo. 
+    No se recomienda utilizar rutas absolutas o rutas relativas extensas, ya que estas pueden cambiar entre ambientes.</p>
+<p>💡 Una vez importado ya es posible hacer uso del módulo. Solamente se dispondrá de los elementos del módulo que hayan sido incluidos en la importación.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>import</tag> { <value>name</value>, <value>draw</value> } 
+        <tag>from</tag> '.modules/square.js';
+
+    <name>console</name>.<tag>info</tag>(<value>name</value>);       
+    <value>draw</value>(<name>200</name>, <name>50</name>, <name>50</name>, <name>'#f00'</name>);
+    </pre>  
+</figure>
+
+<h3>Implementación</h3>
+<p>Para implementar los módulos se debe referenciar un módulo principal dentro del documento HTML, 
+    este módulo principal será el encargado de importar y usar los módulos utilitarios de la aplicación.</p>
+<p>Por medio de la etiqueta <code>&lt;script&gt;</code> y el atributo <code>type</code> establecido como <code>module</code> se debe hacer referencia al archivo del módulo principal.</p>
+<h4>Documento HTML</h4>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;!DOCTYPE html&gt;
+    &lt;<tag>html</tag> <name>lang</name>="<value>es</value>"&gt;  
+        &lt;<tag>head</tag>&gt;
+            &lt;<tag>script</tag> <name>type</name>="<value>module</value>"
+                    <name>src</name>="<value>main.js</value>"&gt;
+            &lt;/<tag>script</tag>&gt;
+        &lt;/<tag>head</tag>&gt;
+        &lt;<tag>body</tag>&gt;    
+            &lt;<tag>canvas</tag> <name>id</name>="<value>cvs</value>"&gt;&lt;/<tag>canvas</tag>&gt;
+        &lt;/<tag>body</tag>&gt;
+    &lt;/<tag>html</tag>&gt;
+    </pre>  
+</figure>
+<h4>Módulo principal</h4>
+<figure class="code-card">
+    <pre class="code-pre">
+    // archivo main.js
+    <tag>import</tag> { <value>name</value>, <value>draw</value> } 
+        <tag>from</tag> '.modules/square.js';
+      
+    <value>draw</value>(<name>200</name>, <name>50</name>, <name>50</name>, <name>'#f00'</name>);
+    </pre>  
+</figure>
+<h4>Módulo utilitario</h4>
+<figure class="code-card">
+    <pre class="code-pre">
+    // archivo square.js
+    <tag>const</tag> <value>name</value> = <tag>'square'</tag>;
+
+    <tag>var</tag> <value>canvas</value> = document.<tag>getElementById</tag>(<tag>'cvs'</tag>);    
+    <tag>var</tag> <value>ctx</value> = <value>canvas</value>.<tag>getContext</tag>(<tag>'2d'</tag>); 
+
+    <tag>function</tag> <name>draw</name>(<value>length</value>, <value>x</value>, <value>y</value>, <value>color</value>)
+    {
+        <value>ctx</value>.<tag>fillStyle</tag> = <value>color</value>;
+        <value>ctx</value>.<tag>fillRect</tag>(<value>x</value>, <value>y</value>, <value>length</value>, <value>length</value>);  
+    };
+
+    <tag>export</tag> { <value>name</value>, <name>draw</name> };
+    </pre>  
+</figure>
+<p>💡 Los módulos solamente son funcionales si la aplicación corre sobre un servidor, de lo contrario se generarán errores de carga.</p>

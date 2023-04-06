@@ -60,8 +60,8 @@
           "tipo": 3,
           "pregunta": "¿Para qué se utiliza el operador '>>'?",
           "contenido": "",
-          "items": ["Para desplazar los bits una posición a la derecha.","Como operador mayor que.","Para tomar el siguiente valor.", "Para eliminar un bit de la cadena."],
-          "respuesta": "Para desplazar los bits una posición a la derecha."
+          "items": ["Para desplazar la posición de los bits a la derecha.","Como operador mayor que.","Para tomar el siguiente valor.", "Para eliminar un bit de la cadena."],
+          "respuesta": "Para desplazar la posición de los bits a la derecha."
         },
         {
           "tipo": 3,
@@ -121,21 +121,59 @@
       "modulo": "javascript",
       "titulo": "Consola de depuración",
       "contenido": "leccion.consola.html",
-      "evaluaciones": [ ]
+      "evaluaciones": [
+        {
+          "tipo": 3,
+          "pregunta": "¿Qué opción de implentación es más adecuada en este caso?",
+          "contenido": "console.log('Error inesperado');",
+          "items": ["console.info()","console.error()","console.warn()"],
+          "respuesta": "console.error()"
+        },
+        {
+          "tipo": 3,
+          "pregunta": "¿Qué operación realiza este método?",
+          "contenido": "console.timeLog();",
+          "items": ["Inicia un temporizador.","Toma el tiempo transcurrido.","Detiene un temporizador.","Muestra la hora del sistema."],
+          "respuesta": "Toma el tiempo transcurrido."
+        }     
+       ]
      },
      { 
       "numero": "7",
       "modulo": "javascript",
       "titulo": "Módulos",
       "contenido": "leccion.modulos.html",
-      "evaluaciones": [ ]
+      "evaluaciones": [
+        {
+          "tipo": 1,
+          "pregunta": "Ingresa la palabra clave correcta para exportar esta función.",
+          "contenido": "funcion pow(a, b)\n{\n   return a ** b;\n}",
+          "items": [],
+          "respuesta": "export"
+        },
+        {
+          "tipo": 3,
+          "pregunta": "¿Qué valor debe tener el atributo type para referenciar correctamente un módulo?",
+          "contenido": "<script type=\"?\" src=\"main.js\"></script>",
+          "items": ["module","application/javascript","text/javascript","application/module"],
+          "respuesta": "module"
+        } 
+       ]
      },
      { 
       "numero": "8",
       "modulo": "javascript",
       "titulo": "Métodos de cadena",
       "contenido": "leccion.metodos-cadena.html",
-      "evaluaciones": [ ]
+      "evaluaciones": [ 
+        {
+          "tipo": 3,
+          "pregunta": "¿Qué valor devuelve este código?",
+          "contenido": "var texto = 'JavaScript';\ntexto.substring(1,4);",
+          "items": ["ava","JavaScript","Java","avaS","-1"],
+          "respuesta": "ava"
+        } 
+      ]
      },
      { 
       "numero": "9",

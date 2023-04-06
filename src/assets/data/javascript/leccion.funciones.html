@@ -3,7 +3,7 @@
     los cuales son opcionales, y los corchetes que encierran el bloque de código.</p>
 <figure class="code-card">
     <pre class="code-pre">
-    <tag>function</tag> <name>nombre</name>(<tag>par1</tag>, <tag>par2</tag>, <tag>par3</tag>)
+    <tag>function</tag> <value>nombre</value>(<name>par1</name>, <name>par2</name>, <name>par3</name>)
     {
         // bloque de código
     }
@@ -41,9 +41,8 @@
 </figure>
 <h3>Funciones anidadas</h3>
 <p>Una función puede declararse dentro de otra función, esto permite crear estructuras de programación complejas y jerarquizadas.</p>
-<p>El ámbito de la función está limitando al contexto donde se declara. Si una función es declarada dentro de una función padre, 
-    la función declarada solamente existe dentro de la función padre y no es accesible desde afuera, a menos que la función padre retorne la función hijo, 
-    caso en el cual ya sería accesible fuera de su propio contexto.</p>
+<p>El ámbito de la función está limitando al contexto donde se declara. Si una función hijo es declarada dentro de una función padre, 
+    la función declarada solamente existe dentro de la función padre y no es accesible desde afuera, a menos que la función padre retorne la función hijo.</p>
 <figure class="code-card">
     <pre class="code-pre">
     <tag>const</tag> <value>padre</value> = <tag>function</tag>()
@@ -56,6 +55,6 @@
         <tag>return</tag> <value>hijo</value>;
     };
 
-    <value>padre</value>.<value>hijo</value>(<name>8</name>); // 256
+    <tag>let</tag> <name>result</name> = <value>padre</value>.<value>hijo</value>(<name>8</name>); // 256
     </pre>  
 </figure>

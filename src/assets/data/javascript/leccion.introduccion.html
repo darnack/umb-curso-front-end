@@ -11,6 +11,7 @@ ya no solamente al uso sobre navegadores, si no que también puede ejecutarse en
 <h4>Etiqueta Script</h4>
 <p>La etiqueta <code>&lt;script&gt;</code> puede ser implementada dentro del <code>&lt;head&gt;</code> o dentro del <code>&lt;body&gt;</code> del documento.</p>
 <p>💡 Por experiencia se ha descubierto que agregar la etiqueta <code>&lt;script&gt;</code> dentro del <code>&lt;body&gt;</code> favorece la carga más rápida del script.</p>
+<figure class="code-card">
 <pre class="code-pre">
     &lt;!DOCTYPE html&gt;
     &lt;<tag>html</tag> <name>lang</name>="<value>es</value>"&gt;  
@@ -28,6 +29,7 @@ ya no solamente al uso sobre navegadores, si no que también puede ejecutarse en
 </figure>
 <h4>Archivo JavaScript</h4>
 <p>Lo más recomendable siempre será implementar archivos <code>.js</code>. Para ello se debe enlazar el archivo por medio de la etiqueta <code>&lt;script&gt;</code> y su atributo <code>src</code>.</p>
+<figure class="code-card">
 <pre class="code-pre">
     &lt;!DOCTYPE html&gt;
     &lt;<tag>html</tag> <name>lang</name>="<value>es</value>"&gt;  
@@ -42,8 +44,8 @@ ya no solamente al uso sobre navegadores, si no que también puede ejecutarse en
         &lt;/<tag>script</tag>&gt;
       &lt;/<tag>body</tag>&gt;
     &lt;/<tag>html</tag>&gt;
-      </pre>  
-  </figure>
+</pre>  
+</figure>
 <p>💡 Con el atributo <code>type</code> y su valor <code>application/javascript</code>, nos aseguramos de que el archivo sea cargado correctamente desde el servidor indicando su <i>MIME type</i>.</p>
 <p>Por otro lado, se debe implementar el correspondiente archivo con extensión <code>.js</code>. Este contiene todo el código JavaScript.</p>
 <figure class="code-card">

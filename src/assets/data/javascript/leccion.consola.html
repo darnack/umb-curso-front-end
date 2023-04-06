@@ -1,0 +1,144 @@
+<p>La consola de depuración es una herramienta de desarrollo de software que permite evaluar el correcto funcionamiento de nuestras aplicaciones web.</p>
+<p>Para acceder a la consola del navegador debemos presionar la tecla <code>F12</code> y en el panel desplegado seleccionar la pestaña <code>console</code>. 
+    Allí se podrá visualizar los mensajes de consola escritos desde el aplicativo.</p>
+<p>JavaScript cuenta con el componente <code>console</code> que permite escribir mensajes en la consola de depuración. 
+    Gracias a esto podemos evaluar y verificar el valor de variables y objetos en tiempo de ejecución, medir tiempos de respuesta y verificar en general el correcto comportamiento de la aplicación o sitio web.</p>
+<h3>Mensajería</h3>
+<p>Estos métodos permiten escribir mensajes en la consola de depuración, resulta muy útil para visualizar el valor de un objeto o variable en tiempo de ejecución, 
+    o para dejar un mensaje de seguimiento que nos permita reconocer que la ejecución de código a llegado a un punto determinado.</p>
+<h4>console.log()</h4>
+<p>Permite escribir un mensaje en consola, puede recibir un número indeterminado de parámetros de entrada, los cuales pueden ser un mensaje de texto, una variable o un objeto.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>a</name> = <value>512</value>;     
+
+    <name>console</name>.<tag>log</tag>(<value>'El valor de a es:'</value>, <name>a</name>);    
+    </pre>  
+</figure>
+<h4>console.info()</h4>
+<p>Igual a <code>console.log()</code>, permite escribir un mensaje de nivel <code>information</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <name>console</name>.<tag>info</tag>(<value>'El proceso ha finalizado.'</value>);    
+    </pre>  
+</figure>
+<h4>console.warn()</h4>
+<p>Permite escribir un mensaje de nivel <code>warning</code> que se visualiza de color amarillo.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <name>console</name>.<tag>warn</tag>(<value>'El campo es requerido.'</value>);    
+    </pre>  
+</figure>
+<h4>console.error()</h4>
+<p>Permite escribir un mensaje de nivel <code>error</code> que se visualiza de color rojo.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <name>console</name>.<tag>error</tag>(<value>'Servicio no disponible.'</value>);    
+    </pre>  
+</figure>
+<h4>console.clear()</h4>
+<p>Elimina todos los mensajes de la consola de depuración.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <name>console</name>.<tag>clear</tag>();    
+    </pre>  
+</figure>
+<h3>Estructurados</h3>
+<p>Estos métodos permiten escribir datos de forma estructurada sobre la consola de depuración, lo cuál permite un mejor análisis de la información que maneja la aplicación.</p>
+<h4>console.table()</h4>
+<p>Permite visualizar un objeto de forma estructurada en formato tabla.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <value>ob</value> = {
+        <name>nombre</name>:<tag>'Juan'</tag>,
+        <name>apellido</name>:<tag>'Pueblo'</tag>,
+        <name>edad</name>:<value>30</value>,
+    };     
+
+    <name>console</name>.<tag>table</tag>(<value>ob</value>);    
+    </pre>  
+</figure>
+<h4>console.trace()</h4>
+<p>Permite visualizar el <code>stacktrace</code> o pila de llamados.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>function</tag> <value>foo</value> ()
+    {
+        <tag>function</tag> <value>bar</value> ()
+        {
+            <name>console</name>.<tag>trace</tag>(<value>'Mensaje trace'</value>);
+        };
+
+        <value>bar</value>();
+    };
+
+    <value>foo</value>();
+    </pre>  
+</figure>
+<p>En consola se visualizaría como...</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    Mensaje trace
+    bar
+    foo
+    (anonymous)
+    </pre>  
+</figure>
+<h3>Conteo</h3>
+<p>Estos métodos permiten medir de forma concreta la cantidad de veces que se repite la ejecución de un bloque de código determinado.</p>
+<h4>console.count()</h4>
+<p>Permite llevar un conteo por medio de una etiqueta. De esta manera podemos identificar cuantas veces se ha ejecutado cada etiqueta de manera independiente.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <name>console</name>.<tag>count</tag>(<value>'bloque A'</value>); // bloque A: 1  
+    <name>console</name>.<tag>count</tag>(<value>'bloque A'</value>); // bloque A: 2
+    <name>console</name>.<tag>count</tag>(<value>'bloque B'</value>); // bloque B: 1
+    <name>console</name>.<tag>count</tag>(<value>'bloque B'</value>); // bloque B: 2
+    <name>console</name>.<tag>count</tag>(<value>'bloque A'</value>); // bloque A: 3
+    <name>console</name>.<tag>count</tag>(<value>'bloque A'</value>); // bloque A: 4
+    <name>console</name>.<tag>count</tag>(<value>'bloque A'</value>); // bloque A: 5
+    <name>console</name>.<tag>count</tag>(); // default: 1
+    <name>console</name>.<tag>count</tag>(); // default: 2
+    </pre>  
+</figure>
+<h4>console.countReset()</h4>
+<p>Reinicia el conteo de una etiqueta.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <name>console</name>.<tag>count</tag>(<value>'bloque A'</value>); // bloque A: 1  
+    <name>console</name>.<tag>count</tag>(<value>'bloque A'</value>); // bloque A: 2
+    <name>console</name>.<tag>count</tag>(<value>'bloque A'</value>); // bloque A: 3
+    <name>console</name>.<tag>countReset</tag>(<value>'bloque A'</value>);
+    <name>console</name>.<tag>count</tag>(<value>'bloque A'</value>); // bloque A: 1
+    </pre>  
+</figure>
+<h3>Tiempo</h3>
+<p>Estos métodos permiten medir de forma concreta el tiempo que toma la ejecución de un bloque de código determinado.</p>
+<h4>console.time()</h4>
+<p>Inicia un temporizador, puede recibir un nombre como parámetro, lo que permite manejar hasta <code>10.000</code> temporizadores de manera simultánea.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <name>console</name>.<tag>time</tag>(<value>'bloque A'</value>);
+    <name>console</name>.<tag>time</tag>(<value>'bloque B'</value>);
+    </pre>  
+</figure>
+<h4>console.timeLog()</h4>
+<p>Toma el tiempo transcurido del temporizador en milisegundos.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <name>console</name>.<tag>timeLog</tag>(<value>'bloque A'</value>); 
+    // bloque A: 1746.953 ms
+    <name>console</name>.<tag>timeLog</tag>(<value>'bloque B'</value>); 
+    // bloque B: 3945.943 ms
+    </pre>  
+</figure>
+<h4>console.timeEnd()</h4>
+<p>Detiene el temporizador y devuelve el tiempo transcurrido en milisegundos.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <name>console</name>.<tag>timeEnd</tag>(<value>'bloque A'</value>); 
+    // bloque A: 10211.917 ms
+    <name>console</name>.<tag>timeEnd</tag>(<value>'bloque B'</value>); 
+    // bloque B: 7945.619 ms
+    </pre>  
+</figure>

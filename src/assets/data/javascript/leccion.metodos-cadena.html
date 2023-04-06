@@ -1,73 +1,146 @@
 <p>Los métodos de cadena permiten realizar operaciones muy útiles sobre cadenas de texto.
     Estos métodos se utilizan como métodos de extensión, es decir, se invocan como métodos de la misma cadena: <code>cadena_de_texto.metodo();</code>.
 </p>
-<table class="ws-table-all notranslate">
-    <tbody>
-    <tr>    
-        <th>Método</th>
-        <th>Descripción</th>
-    </tr>
-    <tr>    
-        <td>concat()</td>
-        <td>Recibe una o varias cadenas de texto que une para devolver una sola.</td>        
-    </tr>
-    <tr>    
-        <td>startsWith()</td>
-        <td>Determina si el comienzo de una cadena coincide con el valor de entrada del método.</td>
-    </tr>
-    <tr>    
-        <td>endsWith()</td>
-        <td>Determina si el final de una cadena coincide con el valor de entrada del método.</td>
-    </tr>
-    <tr>    
-        <td>includes()</td>
-        <td>Determina si la cadena contiene al comienzo, al final, o de forma intermedia, el valor de entrada del método.</td>
-    </tr>
-    <tr>    
-        <td>indexOf()</td>
-        <td>Si el texto de entrada existe dentro de la cadena original, 
-            devuelve el índice donde comienza el texto encontrado, de lo contrario devuelve -1.</td>
-    </tr>
-    <tr>    
-        <td>lastIndexOf()</td>
-        <td>Si el texto de entrada existe dentro de la cadena original, 
-            devuelve el índice donde termina el texto encontrado, de lo contrario devuelve -1.</td>
-    </tr>
-    <tr>    
-        <td>padStart()</td>
-        <td>Rellena la cadena de texto a la izquiera tantas posiciones como se indique, y con el caracter que se indique.</td>
-    </tr>
-    <tr>    
-        <td>padEnd()</td>
-        <td>Rellena la cadena de texto a la derecha tantas posiciones como se indique, y con el caracter que se indique.</td>
-    </tr>
-    <tr>    
-        <td>repeat()</td>
-        <td>Devuelve la misma cadena tantas veces como se indique.</td>
-    </tr>
-    <tr>    
-        <td>split()</td>
-        <td>Divide la cadena por medio de un carcater separador.</td>
-    </tr>
-    <tr>    
-        <td>substring()</td>
-        <td>Devuelve un segmento de la cadena con base a los índices de comienzo y fin indicados.</td>
-    </tr>
-    <tr>    
-        <td>toLowerCase()</td>
-        <td>Convierte una cadena a minúscula.</td>
-    </tr>
-    <tr>    
-        <td>toUpperCase()</td>
-        <td>Convierte una cadena a mayúscula.</td>
-    </tr>
-    <tr>    
-        <td>toString()</td>
-        <td>Convierte un valor que no es cadena <code>string</code> a su representación tipo cadena.</td>
-    </tr>
-    <tr>    
-        <td>trim()</td>
-        <td>Elimina los espacios al comienzo y fin de una cadena de texto.</td>
-    </tr>
-    </tbody>
-</table>
+<h3>concat()</h3>
+<p>Recibe una o varias cadenas de texto que une para devolver una sola.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>a</name> = <value>'Hola'</value>;
+    <tag>let</tag> <name>b</name> = <value>' mundo '</value>;
+    <tag>let</tag> <name>c</name> = <value>'JavaScript!'</value>;
+
+    <name>a</name>.<tag>concat</tag>(<name>b</name>, <name>c</name>); // 'Hola mundo JavaScript!'    
+    </pre>  
+</figure>
+<h3>startsWith()</h3>
+<p>Determina si el comienzo de una cadena de texto coincide con el valor de entrada.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>texto</name> = <value>'JavaScript'</value>;
+
+    <name>texto</name>.<tag>startsWith</tag>(<name>'Java'</name>); // true
+    <name>texto</name>.<tag>startsWith</tag>(<name>'Script'</name>); // false
+    </pre>  
+</figure>
+<h3>endsWith()</h3>
+<p>Determina si el final de una cadena coincide con el valor de entrada del método.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>texto</name> = <value>'JavaScript'</value>;
+
+    <name>texto</name>.<tag>endsWith</tag>(<name>'Java'</name>); // false
+    <name>texto</name>.<tag>endsWith</tag>(<name>'Script'</name>); // true
+    </pre>  
+</figure>
+<h3>includes()</h3>
+<p>Determina si la cadena contiene al comienzo, al final, o de forma intermedia, el valor de entrada del método.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>texto</name> = <value>'JavaScript'</value>;
+
+    <name>texto</name>.<tag>includes</tag>(<name>'rip'</name>); // true
+    <name>texto</name>.<tag>includes</tag>(<name>'abc'</name>); // false
+    </pre>  
+</figure>
+<h3>indexOf()</h3>
+<p>Si el texto de entrada existe dentro de la cadena original, devuelve el índice de la primera coincidencia, de lo contrario devuelve -1.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>texto</name> = <value>'JavaScript'</value>;
+
+    <name>texto</name>.<tag>indexOf</tag>(<name>'a'</name>); // 1
+    <name>texto</name>.<tag>indexOf</tag>(<name>'?'</name>); // -1
+    </pre>  
+</figure>
+<h3>lastIndexOf()</h3>
+<p>Si el texto de entrada existe dentro de la cadena original, devuelve el índice de la última coincidencia, de lo contrario devuelve -1.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>texto</name> = <value>'JavaScript'</value>;
+
+    <name>texto</name>.<tag>lastIndexOf</tag>(<name>'a'</name>); // 3
+    <name>texto</name>.<tag>lastIndexOf</tag>(<name>'?'</name>); // -1
+    </pre>  
+</figure>
+<h3>padStart()</h3>
+<p>Rellena la cadena de texto a la izquiera tantas posiciones como se indique con el caracter que se indique.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>texto</name> = <value>'JavaScript'</value>;
+
+    <name>texto</name>.<tag>padStart</tag>(<value>12</value>, <tag>'*'</tag>); // '**JavaScript'    
+    </pre>  
+</figure>
+<h3>padEnd()</h3>
+<p>Rellena la cadena de texto a la derecha tantas posiciones como se indique con el caracter que se indique.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>texto</name> = <value>'JavaScript'</value>;
+
+    <name>texto</name>.<tag>padEnd</tag>(<value>13</value>, <tag>'*'</tag>); // 'JavaScript***'    
+    </pre>  
+</figure>
+<h3>repeat()</h3>
+<p>Devuelve la misma cadena tantas veces como se indique.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>texto</name> = <value>'yeah '</value>;
+
+    <name>texto</name>.<tag>repeat</tag>(<value>3</value>); // 'yeah yeah yeah '    
+    </pre>  
+</figure>
+<h3>split()</h3>
+<p>Divide la cadena por medio de un caracter separador y devuelve un arreglo con cada segmento.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>texto</name> = <value>'Hola mundo JavaScript'</value>;
+
+    <name>texto</name>.<tag>split</tag>(<tag>' '</tag>); 
+    // ['Hola', 'mundo', 'JavaScript']   
+    </pre>  
+</figure>
+<h3>substring()</h3>
+<p>Devuelve un segmento de la cadena de texto con base a los índices de comienzo y fin indicados.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>texto</name> = <value>'JavaScript'</value>;
+
+    <name>texto</name>.<tag>substring</tag>(<value>4</value>, <value>10</value>); // 'Script'    
+    </pre>  
+</figure>
+<h3>toLowerCase()</h3>
+<p>Convierte una cadena a minúsculas.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>texto</name> = <value>'JavaScript'</value>;
+
+    <name>texto</name>.<tag>toLowerCase</tag>(); // 'javascript'    
+    </pre>  
+</figure>
+<h3>toUpperCase()</h3>
+<p>Convierte una cadena a mayúsculas.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>texto</name> = <value>'JavaScript'</value>;
+
+    <name>texto</name>.<tag>toUpperCase</tag>(); // 'JAVASCRIPT'    
+    </pre>  
+</figure>
+<h3>toString()</h3>
+<p>Convierte un valor que no es cadena <code>string</code> a su representación tipo cadena.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>number</name> = <value>256</value>;
+
+    <name>number</name>.<tag>toString</tag>(); // "256"    
+    </pre>  
+</figure>
+<h3>trim()</h3>
+<p>Elimina los espacios al comienzo y fin de una cadena de texto.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>texto</name> = <value>'  JavaScript  '</value>;
+
+    <name>texto</name>.<tag>trim</tag>(); // 'JavaScript'    
+    </pre>  
+</figure>

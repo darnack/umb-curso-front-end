@@ -28,3 +28,27 @@ ion-icon.success {
 ion-icon.fail {
     color: crimson;
 }
+
+ion-col.fit-height
+{
+    height: 48px;
+}
+
+textarea
+{
+    display: inline-table;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    width: 100%;
+    font-family: system-ui;
+    position: relative;
+    box-sizing: border-box;    
+    border: none;
+    padding: 0 20px 0 20px;
+    margin: 5px 0 0 0;
+    background-color: rgb(0,0,0,0);
+}
+
+textarea:focus{
+    outline: none;
+}
