@@ -180,41 +180,85 @@
       "modulo": "javascript",
       "titulo": "Arreglos",
       "contenido": "leccion.arreglos.html",
-      "evaluaciones": [ ]
+      "evaluaciones": [
+        {
+          "tipo": 3,
+          "pregunta": "¿Qué método permite agrega un elemento al comienzo de un arreglo?",
+          "contenido": "",
+          "items": ["shift","unshift","push","pop"],
+          "respuesta": "unshift"
+        },
+        {
+          "tipo": 3,
+          "pregunta": "¿Cuál es el resultado de la siguiente operación?",
+          "contenido": "let colores = ['rojo', 'verde', 'azul'];\ncolores.splice(2,1,'negro');",
+          "items": ["['rojo', 'verde']","['rojo', 'azul', 'verde']","['rojo', 'verde', 'negro']","['rojo', 'verde', 'azul', 'negro']"],
+          "respuesta": "['rojo', 'verde', 'negro']"
+        }
+       ]
      },
      { 
       "numero": "10",
       "modulo": "javascript",
       "titulo": "Conversiones",
       "contenido": "leccion.conversiones.html",
-      "evaluaciones": [ ]
+      "evaluaciones": [
+        {
+          "tipo": 3,
+          "pregunta": "¿Cuál es el resultado de la siguiente operación?",
+          "contenido": "let number = 0.123456;\nBoolean(parseInt(number.toPrecision(2)));",
+          "items": ["true", "false", "0", "1"],
+          "respuesta": "false"
+        },
+        {
+          "tipo": 3,
+          "pregunta": "¿Cuál es el resultado de la siguiente operación?",
+          "contenido": "let number = Number(12 + '0.852');\nparseFloat(number.toPrecision(5));",
+          "items": ["120.85", "'120.85'", "12.85", "12.852"],
+          "respuesta": "120.85"
+        }
+       ]
      },
      { 
       "numero": "11",
       "modulo": "javascript",
       "titulo": "DOM",
       "contenido": "leccion.dom.html",
-      "evaluaciones": [ ]
+      "evaluaciones": [ 
+        {
+          "tipo": 3,
+          "pregunta": "¿Qué devuelve este selector?",
+          "contenido": "document.querySelector('.container p');",
+          "items": ["Todos los elementos <p>.", "Todos los elementos <p> dentro de un elemento con clase 'container'.", "El primer elemento <p> dentro de un elemento con clase 'container'.", "Genera error."],
+          "respuesta": "El primer elemento <p> dentro de un elemento con clase 'container'."
+        },        {
+          "tipo": 3,
+          "pregunta": "¿Qué selector obtiene este elemento?",
+          "contenido": "<img id=\"logo\" src=\"logo.png\"/>",
+          "items": ["document.getElementsByName('logo')", "document.getElementById('img')", "document.querySelector('#logo')", "document.querySelectorAll('logo')"],
+          "respuesta": "document.querySelector('#logo')"
+        }
+      ]
      },
      { 
       "numero": "12",
       "modulo": "javascript",
-      "titulo": "Selección de elementos",
-      "contenido": "leccion.seleccion-elementos.html",
+      "titulo": "Manipulación del DOM",
+      "contenido": "leccion.manipulacion-dom.html",
       "evaluaciones": [ ]
      },
      { 
       "numero": "13",
       "modulo": "javascript",
-      "titulo": "Lectura de atributos",
-      "contenido": "leccion.lectura-atributos.html",
+      "titulo": "Cláusulas",
+      "contenido": "leccion.clausulas.html",
       "evaluaciones": [ ]
      },
      { 
       "numero": "14",
       "modulo": "javascript",
-      "titulo": "Manipulación de atributos",
-      "contenido": "leccion.manipulacion-atributos.html",
+      "titulo": "Json",
+      "contenido": "leccion.json.html",
       "evaluaciones": [ ]
      },
      { 

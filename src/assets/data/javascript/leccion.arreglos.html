@@ -1,0 +1,125 @@
+<p>Un arreglo es una colección de datos, estas estructuras permiten manejar listas, recorrerlas, permutarlas, ordenarlas, agregar elementos o eliminar elementos.</p>
+<p>Existen dos maneras que crear un arreglo. Por medio de llaves <code>[</code> <code>]</code>:</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>array</name> = [<value>'rojo'</value>,<value>'verde'</value>,<value>'azul'</value>];
+    </pre>  
+</figure>
+<p>O por medio del constructor <code>Array</code>:</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>array</name> = <value>new</value> <tag>Array</tag>(<value>'rojo'</value>,<value>'verde'</value>,<value>'azul'</value>);
+    <tag>let</tag> <name>array</name> = <tag>Array</tag>(<value>'rojo'</value>,<value>'verde'</value>,<value>'azul'</value>);
+    </pre>  
+</figure>
+<p>💡 El constructor <code>Array</code> puede ser invocado con o sin el operador <code>new</code>.</p>
+<h3>Propiedad length</h3>
+<p>Permite conocer la cantidad de elementos contenidos dentro del arreglo.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>array</name> = [<value>'rojo'</value>,<value>'verde'</value>,<value>'azul'</value>];
+    <name>array</name>.<tag>length</tag>; // 3
+    </pre>  
+</figure>
+<h3>Lectura por índice</h3>
+<p>Es posible acceder a un elemento del arreglo por medio de su índice.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>primero</name> = <name>array</name>[<value>0</value>]; 
+    // 'rojo'
+    <tag>let</tag> <name>ultimo</name> = <name>array</name>[<name>array</name>.<tag>length</tag>-<value>1</value>];
+    // 'azul'
+    </pre>  
+</figure>
+<h3>Encontrar el índice</h3>
+<p>El método <code>indexOf</code> permite encontrar el índice de un elemento dentro de un arreglo.</p>
+<p>💡 Se debe tener en cuenta que los índices comienzan en <code>0</code>, no en <code>1</code>, por lo tanto el índice del primer elemento será siempre <code>0</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <value>indice</value> = <name>frutas</name>.<tag>indexOf</tag>(<value>'Banana'</value>);
+    // 1
+    </pre>  
+</figure>
+<h3>Recorrer un arreglo</h3>
+<p>Los arreglos pueden ser recorridos por medio de iteraciones. El método <code>forEach</code> permite recorrer uno a uno cada elemento contenido en un arreglo.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>frutas</name> = [<value>'Manzana'</value>,<value>'Banana'</value>];
+
+    <name>frutas</name>.<tag>forEach</tag>(<value>function</value>(<name>elemento</name>,<name>indice</name>,<name>array</name>)) {
+        <name>console</name>.<tag>log</tag>(<name>elemento</name>,<name>indice</name>); 
+    })
+    // Manzana 0
+    // Banana 1
+    </pre>  
+</figure>
+<h3>Agregar al final</h3>
+<p>El método <code>push</code> permite agregar un elemento al final de un arreglo.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <value>nuevaLongitud</value> = <name>frutas</name>.<tag>push</tag>(<value>'Naranja'</value>);
+    // ["Manzana", "Banana", "Naranja"]
+    </pre>  
+</figure>
+<h3>Agregar al comienzo</h3>
+<p>El método <code>unshift</code> permite agrega un elemento al comienzo de un arreglo.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <value>nuevaLongitud</value> = <name>frutas</name>.<tag>unshift</tag>(<value>'Fresa'</value>);
+    // ["Fresa", "Manzana", "Banana", "Naranja"]
+    </pre>  
+</figure>
+<h3>Eliminar el último elemento</h3>
+<p>El método <code>pop</code> permite eliminar el último elemento de un arreglo.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <value>ultimoElemento</value> = <name>frutas</name>.<tag>pop</tag>();
+    // ["Fresa", "Manzana", "Banana"]
+    </pre>  
+</figure>
+<h3>Eliminar el primer elemento</h3>
+<p>El método <code>shift</code> permite eliminar el primer elemento de un arreglo.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <value>primerElemento</value> = <name>frutas</name>.<tag>shift</tag>();
+    // ["Manzana", "Banana"]
+    </pre>  
+</figure>
+<h3>Eliminar por índice</h3>
+<p>El método <code>splice</code> permite eliminar uno o varios elementos a partir de un índice.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>frutas</name> = [<value>'Fresa'</value>,<value>'Manzana'</value>,<value>'Banana'</value>];
+    <tag>let</tag> <name>indice</name> = <name>frutas</name>.<tag>indexOf</tag>(<value>'Manzana'</value>);
+
+    // Elimina un elemento a partir del índice
+    <name>frutas</name>.<tag>splice</tag>(<name>indice</name>,<name>1</name>);
+    // ["Manzana"]
+
+    // Elimina 2 elementos a partir del índice
+    <name>frutas</name>.<tag>splice</tag>(<name>indice</name>,<name>2</name>);
+    // ["Manzana", "Banana"]
+    </pre>  
+</figure>
+<h3>Agregar intermedio</h3>
+<p>El método <code>splice</code> también permite realizar inserciones a un arreglo. El primer parámetro es el índice de inserción, 
+    el segundo parámetro corresponde a la cantidad de elementos a eliminar, y de ahí en adelante los parámetros que se agregen corresponderán a nuevos elementos a insertar sobre el índice indicado.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>frutas</name> = [<value>'Fresa'</value>,<value>'Manzana'</value>];
+    <tag>let</tag> <name>indice</name> = <name>frutas</name>.<tag>indexOf</tag>(<value>'Fresa'</value>);
+
+    // Inserta 'Naranja' despúes de 'Fresa'
+    <name>frutas</name>.<tag>splice</tag>(<name>indice</name>,<name>0</name>,<value>'Naranja'</value>);
+    // ["Fresa", "Naranja", "Manzana"]
+    </pre>  
+</figure>
+<h3>Copiar un arreglo</h3>
+<p>El método <code>slice</code> permite copiar un arreglo.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <value>copiaFrutas</value> = <name>frutas</name>.<tag>slice</tag>();    
+    </pre>  
+</figure>
+
+

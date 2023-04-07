@@ -1,0 +1,176 @@
+<p>Las siglas <code>DOM</code> significan Document Object Model, o lo que es lo mismo, la estructura del documento HTML. 
+    Una página HTML está formada por múltiples etiquetas HTML, anidadas una dentro de otra, formando un árbol de etiquetas relacionadas entre sí, 
+    que se denomina árbol DOM.</p>
+<p>El DOM es la estructura que podemos modificar de forma dinámica desde Javascript, 
+    añadiendo nuevas etiquetas, modificando o eliminando otras, cambiando sus atributos HTML, añadiendo clases, cambiando el contenido de texto, etc.</p>
+<h3>Árbol DOM</h3>
+<p>El árbol DOM está compuesto por nodos que pueden ser de tipo <code>elemento</code> o de tipo <code>atributo</code>. 
+Los <code>elementos</code> son cada una de las etiquetas presentes en el documento HTML, mientras que los <code>atributos</code> son nodos que representan los atributos de cada elemento.</p>
+<ion-img src="../assets/img/arbol_DOM.png"></ion-img>
+<h3>document</h3>
+<p>En JavaScript, la forma de acceder al DOM es a través de un objeto llamado <code>document</code>, que representa el árbol DOM de la página o pestaña del navegador donde nos encontramos.</p>
+<p>💡 El objeto <code>document</code> tiene una enorme cantidad de propiedades y métodos que sería imposible de abordar en una sola lección. 
+    Solo se abordarán los métodos más importantes. Para conocer a detalle todas las características de este objeto ingresa <a href="https://developer.mozilla.org/es/docs/Web/API/Document" target="_blank">aquí</a>.</p>
+
+<h3>Acceso a los elementos</h3>
+<p>Para acceder a los elementos del árbol DOM el objeto <code>document</code> cuenta con algunos métodos para tal propósito.</p>
+<h4>getElementById</h4>
+<p>Este método permite acceder a un elemento HTML por medio del valor de su atributo <code>id</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;!-- HTML --&gt;
+    &lt;<tag>h1</tag> <name>id</name>="<value>titulo1</value>"&gt;<text>Título</text>&lt;/<tag>h1</tag>&gt; 
+    </pre>  
+</figure>
+<br>
+<figure class="code-card">
+    <pre class="code-pre">
+    // Obtiene el h1 con id 'titulo1'
+    document.<tag>getElementById</tag>(<value>'titulo1'</value>);    
+    </pre>  
+</figure>
+
+<h4>getElementsByName</h4>
+<p>Este método permite acceder a todos los elementos HTML cuyo atributo <code>name</code> coincida con el parámetro de entrada.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;!-- HTML --&gt;
+    &lt;<tag>p</tag> <name>name</name>="<value>lorem</value>"&gt;<text>Lorem 1...</text>&lt;/<tag>p</tag>&gt; 
+    &lt;<tag>p</tag> <name>name</name>="<value>lorem</value>"&gt;<text>Lorem 2...</text>&lt;/<tag>p</tag>&gt;
+    </pre>  
+</figure>
+<br>
+<figure class="code-card">
+    <pre class="code-pre">
+    // Obtiene todos los elementos con nombre 'lorem'
+    document.<tag>getElementsByName</tag>(<value>'lorem'</value>);    
+    </pre>  
+</figure>
+
+<h4>getElementsByTagName</h4>
+<p>Este método permite acceder a todos los elementos HTML cuyo tipo de etiqueta coincida con el parámetro de entrada.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;!-- HTML --&gt;
+    &lt;<tag>p</tag>&gt;<text>Lorem 1...</text>&lt;/<tag>p</tag>&gt; 
+    &lt;<tag>p</tag>&gt;<text>Lorem 2...</text>&lt;/<tag>p</tag>&gt;
+    &lt;<tag>p</tag>&gt;<text>Lorem 3...</text>&lt;/<tag>p</tag>&gt;
+    </pre>  
+</figure>
+<br>
+<figure class="code-card">
+    <pre class="code-pre">
+    // Obtiene todos los elementos 'p'
+    document.<tag>getElementsByTagName</tag>(<value>'p'</value>);    
+    </pre>  
+</figure>
+
+<h4>getElementsByClassName</h4>
+<p>Este método permite acceder a todos los elementos HTML cuyo atributo <code>class</code> coincida con el parámetro de entrada.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;!-- HTML --&gt;
+    &lt;<tag>h3</tag> <name>class</name>="<value>bold</value>"&gt;<text>Subtítulo</text>&lt;/<tag>h3</tag>&gt; 
+    &lt;<tag>p</tag> <name>class</name>="<value>bold</value>"&gt;<text>Lorem...</text>&lt;/<tag>p</tag>&gt;
+    </pre>  
+</figure>
+<br>
+<figure class="code-card">
+    <pre class="code-pre">
+    // Obtiene los elementos con clase 'bold'
+    document.<tag>getElementsByClassName</tag>(<value>'bold'</value>);    
+    </pre>  
+</figure>
+
+<h4>querySelectorAll</h4>
+<p>Este método utiliza selectores de CSS, por lo cuál es muy potente y sustituye los métodos anteriores.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;!-- HTML --&gt;
+    &lt;<tag>div</tag> <name>class</name>="<value>container</value>"&gt;
+        &lt;<tag>a</tag> <name>href</name>="<value>home.html</value>"&gt;
+            &lt;<tag>img</tag> <name>class</name>="<value>logo</value>" <name>src</name>="<value>logo1.gif</value>"/&gt;         
+        &lt;/<tag>a</tag>&gt; 
+        &lt;<tag>a</tag> <name>href</name>="<value>subscribe.html</value>"&gt;
+            &lt;<tag>img</tag> <name>class</name>="<value>logo</value>" <name>src</name>="<value>logo2.gif</value>"/&gt;         
+        &lt;/<tag>a</tag>&gt; 
+    &lt;/<tag>div</tag>&gt;
+    </pre>  
+</figure>
+<br>
+<figure class="code-card">
+    <pre class="code-pre">
+    // Obtiene las imágenes con clase 'logo'
+    document.<tag>querySelectorAll</tag>(<value>'.container .logo'</value>);    
+    </pre>  
+</figure>
+
+<h4>querySelector</h4>
+<p>Es igual a <code>querySelectorAll</code> con la limitante de que solamente devuelve el primer elemento encontrado.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;!-- HTML --&gt;
+    &lt;<tag>div</tag> <name>class</name>="<value>container</value>"&gt;
+        &lt;<tag>a</tag> <name>href</name>="<value>home.html</value>"&gt;
+            &lt;<tag>img</tag> <name>id</name>="<value>trade</value>" <name>src</name>="<value>logo1.gif</value>"/&gt;         
+        &lt;/<tag>a</tag>&gt; 
+    &lt;/<tag>div</tag>&gt;
+    </pre>  
+</figure>
+<br>
+<figure class="code-card">
+    <pre class="code-pre">
+    // Obtiene la imagen con id 'trade'
+    document.<tag>querySelector</tag>(<value>'#trade'</value>);    
+    </pre>  
+</figure>
+
+<h3>Acceso a los atributos</h3>
+<p>Una vez se ha accedido a un elemento es posible acceder a sus atributos, ya sea para consultarlos o para modificarlos.</p>
+<h4>Acceso de lectura</h4>
+<p>Para leer el atributo de un elemento se puede escribir el nombre del atributo despúes del selector o almacenar el elemento en una variable y posteriormente acceder al atributo.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    document.<tag>querySelector</tag>(<value>'#trade'</value>).<tag>src</tag>; 
+    // logo1.gif
+
+    <tag>var</tag> <name>img</name> = document.<tag>querySelector</tag>(<value>'#trade'</value>);
+    <name>img</name>.<tag>src</tag>; 
+    // logo1.gif
+    </pre>  
+</figure>
+<p>También es posible acceder a los atributos de un listado de elementos. Por ejemplo, al texto de un listado de párrafos.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>let</tag> <name>items</name> = document.<tag>querySelectorAll</tag>(<value>'p'</value>); 
+
+    <name>items</name>.<tag>forEach</tag>(<value>function</value>(<name>elemento</name>)) {
+        console.<tag>log</tag>(<name>elemento</name>.<value>textContent</value>); 
+    })
+    </pre>  
+</figure>
+<h4>Acceso de escritura</h4>
+<p>La característica más potente de JavaScript es la de poder modificar los elementos HTML y sus atributos. 
+    Para ello simplemente se debe realizar una asignación directa al atributo que queremos modificar.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>img</name> = document.<tag>querySelector</tag>(<value>'#trade'</value>);
+    <name>img</name>.<tag>src</tag> = <value>'../img/icono.png'</value>;
+    </pre>  
+</figure>
+<p>También es posible modificar los atributos CSS de un elemento, a través del atributo <code>style</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>parrafo1</name> = document.<tag>querySelector</tag>(<value>'p'</value>);
+    <name>parrafo1</name>.<tag>style</tag>.fontSize = <value>'20px'</value>;
+    <name>parrafo1</name>.<tag>style</tag>.color = <value>'red'</value>;
+    <name>parrafo1</name>.<tag>style</tag>.margin = <value>'5px 10px'</value>;
+    </pre>  
+</figure>
+<p>O se puede asignar directamente una clase de estilos CSS por medio del atributo <code>className</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>parrafo1</name> = document.<tag>querySelector</tag>(<value>'p'</value>);
+    <name>parrafo1</name>.<tag>className</tag> = <value>'texto'</value>;
+    </pre>  
+</figure>

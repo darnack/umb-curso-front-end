@@ -1,0 +1,124 @@
+<p>Los datos en JavaScript pueden ser convertidos de un tipo a otro por medio de varios métodos.</p>
+<h3>String</h3>
+<p>El método <code>String</code> permite convertir cualquier tipo de dato su equivalente en texto.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>String</tag>(<value>true</value>); // "true"
+    <tag>String</tag>(<value>false</value>); // "false"
+    <tag>String</tag>(<value>2023</value>); // "2023"
+    <tag>String</tag>(<value>0.15</value>); // "0.15"
+    <tag>String</tag>(<value>{}</value>); // "[object Object]"
+    <tag>String</tag>(<value>null</value>); // "null"
+    <tag>String</tag>(<value>undefined</value>); // "undefined"
+    <tag>String</tag>(<value>[]</value>); // ""
+    </pre>  
+</figure>
+<h3>Number</h3>
+<p>El método <code>Number</code> intenta convertir cualquier tipo de dato a su equivalente numérico.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>Number</tag>(<value>false</value>); // 0
+    <tag>Number</tag>(<value>true</value>); // 1    
+    <tag>Number</tag>(<value>"123"</value>); // 123    
+    <tag>Number</tag>(<value>"texto"</value>); // NaN
+    <tag>Number</tag>(<value>null</value>); // 0
+    <tag>Number</tag>(<value>undefined</value>); // NaN
+    <tag>Number</tag>(<value>[]</value>); // 0
+    <tag>Number</tag>(<value>""</value>); // 0
+    </pre>  
+</figure>
+<h3>Boolean</h3>
+<p>El método <code>Boolean</code> intenta convertir cualquier tipo de dato a su equivalente booleano.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>Boolean</tag>(<value>0</value>); // false
+    <tag>Boolean</tag>(<value>1</value>); // true    
+    <tag>Boolean</tag>(<value>"true"</value>); // true
+    <tag>Boolean</tag>(<value>"0"</value>); // true
+    <tag>Boolean</tag>(<value>"null"</value>); // true
+    <tag>Boolean</tag>(<value>""</value>); // false
+    </pre>  
+</figure>
+<p>💡 Cualquier cadena no vacía se interpreta como <code>true</code>.</p>
+<h3>parseInt</h3>
+<p>El método <code>parseInt</code> convierte una cadena o un número a su equivalente entero</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>parseInt</tag>(<value>0.12345</value>); // 0
+    <tag>parseInt</tag>(<value>"0.12345"</value>); // 0
+    <tag>parseInt</tag>(<value>"x"</value>); // NaN
+    <tag>parseInt</tag>(<value>3.1415</value>); // 3    
+    </pre>  
+</figure>
+<h3>parseFloat</h3>
+<p>El método <code>parseFloat</code> convierte una cadena o un número a su equivalente numérico de punto flotante.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>parseFloat</tag>(<value>0</value>); // 0
+    <tag>parseFloat</tag>(<value>"0.12345"</value>); // 0.12345
+    <tag>parseFloat</tag>(<value>"y"</value>); // NaN
+    <tag>parseFloat</tag>(<value>3.1415</value>); // 3.1415    
+    </pre>  
+</figure>
+<h3>toFixed</h3>
+<p>El método <code>toFixed</code> convierte un número a una cadena de texto con decimales ajustados. Recibe como parámetro la cantidad de decimales.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <name>number</name> = <value>0.123456789</value>;
+    <name>number</name>.<tag>toFixed</tag>(); // '0'
+
+    <name>number</name> = <value>0.123456789</value>;
+    <name>number</name>.<tag>toFixed</tag>(<value>3</value>); // '0.123'
+
+    <name>number</name> = <value>1000</value>;
+    <name>number</name>.<tag>toFixed</tag>(<value>2</value>); // '1000.00'
+    </pre>  
+</figure>
+<h3>toPrecision</h3>
+<p>El método <code>toPrecision</code> convierte un número a una cadena de texto con dígitos ajustados. Recibe como parámetro la cantidad de dígitos de precisión.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <name>number</name> = <value>0.123456789</value>;
+    <name>number</name>.<tag>toPrecision</tag>(); // '0.123456789'
+
+    <name>number</name> = <value>0.123456789</value>;
+    <name>number</name>.<tag>toPrecision</tag>(<value>3</value>); // '0.123'
+
+    <name>number</name> = <value>1.123456789</value>;
+    <name>number</name>.<tag>toPrecision</tag>(<value>3</value>); // '0.12'
+
+    <name>number</name> = <value>1000</value>;
+    <name>number</name>.<tag>toPrecision</tag>(<value>6</value>); // '1000.00'
+
+    <name>number</name> = <value>1000</value>;
+    <name>number</name>.<tag>toPrecision</tag>(<value>1</value>); // '1e+3
+    </pre>  
+</figure>
+<p>💡 El método <code>toPrecision</code> no tiene encuenta el valor <code>0</code> a la izquierda del punto como parte significativa del valor.</p>
+<h3>toExponential</h3>
+<p>El método <code>toExponential</code> convierte un número a una cadena de texto en formato exponencial. Recibe como parámetro la cantidad de dígitos de precisión.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <name>number</name> = <value>0</value>;
+    <name>number</name>.<tag>toExponential</tag>(); // '0e+0'
+
+    <name>number</name> = <value>1000</value>;
+    <name>number</name>.<tag>toExponential</tag>(); // '1e+3'
+
+    <name>number</name> = <value>-1000</value>;
+    <name>number</name>.<tag>toExponential</tag>(); // '-1e+3'
+
+    <name>number</name> = <value>3.141516</value>;
+    <name>number</name>.<tag>toExponential</tag>(<value>2</value>); // '3.14e+0'
+    </pre>  
+</figure>
+<h3>Conversiones implícitas</h3>
+<p>El operador de suma <code>+</code> es a la vez un operador de concatenación. Por definición cuando hay un operador <code>+</code> adyacente a una cadena de texto, 
+    el operador <code>+</code> se comporta como operador de concatenación, por lo tanto si existiese otro valor adyacente que sea de tipo numérico, este será convertido a cadena de texto y será concatenado.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <value>5</value> + <tag>'2'</tag>; // es igual a '52'
+    <tag>'5'</tag> + <value>2</value>; // es igual a '52'
+    <value>5</value> + <value>2</value>; // es igual a 7
+    </pre>  
+</figure>
