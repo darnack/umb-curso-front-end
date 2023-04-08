@@ -4,8 +4,8 @@
 <p>El DOM es la estructura que podemos modificar de forma dinámica desde Javascript, 
     añadiendo nuevas etiquetas, modificando o eliminando otras, cambiando sus atributos HTML, añadiendo clases, cambiando el contenido de texto, etc.</p>
 <h3>Árbol DOM</h3>
-<p>El árbol DOM está compuesto por nodos que pueden ser de tipo <code>elemento</code> o de tipo <code>atributo</code>. 
-Los <code>elementos</code> son cada una de las etiquetas presentes en el documento HTML, mientras que los <code>atributos</code> son nodos que representan los atributos de cada elemento.</p>
+<p>El árbol DOM está compuesto por nodos que pueden ser de tipo <code>elemento</code>, de tipo <code>atributo</code> o de tipo <code>texto</code>. 
+Los <code>elementos</code> son cada una de las etiquetas presentes en el documento HTML, mientras que los <code>atributos</code> son nodos que representan los atributos de cada elemento. Los nodos de tipo <code>texto</code> son texto contenido entre las etiquetas de los elementos HTML.</p>
 <ion-img src="../assets/img/arbol_DOM.png"></ion-img>
 <h3>document</h3>
 <p>En JavaScript, la forma de acceder al DOM es a través de un objeto llamado <code>document</code>, que representa el árbol DOM de la página o pestaña del navegador donde nos encontramos.</p>
@@ -172,5 +172,12 @@ Los <code>elementos</code> son cada una de las etiquetas presentes en el documen
     <pre class="code-pre">
     <tag>var</tag> <name>parrafo1</name> = document.<tag>querySelector</tag>(<value>'p'</value>);
     <name>parrafo1</name>.<tag>className</tag> = <value>'texto'</value>;
+    </pre>  
+</figure>
+<p>Otro atributo importante que puede ser modificado es <code>innerHTML</code> el cuál permite asignar el contenido HTML a un elemento</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>container</name> = document.<tag>querySelector</tag>(<value>'div.container'</value>);
+    <name>container</name>.<tag>innerHTML</tag> = <value>'&lt;p&gt;párrafo&lt;/p&gt;'</value>;
     </pre>  
 </figure>

@@ -1,0 +1,121 @@
+<p>El DOM puede ser manipulado creando nuevos elementos o eliminándolos, 
+    lo que proporciona una herramienta potente para agregar comportamiento dinámico a las aplicaciones web.</p>
+
+<h3>Crear elementos</h3>
+<p>El objeto <code>document</code> dispone de varios métodos que permiten crear nuevos elementos para posteriormente agregarlos al DOM.</p>
+<h4>createElement</h4>
+<p>El método <code>createElement</code> permite crear un elemento HTML indicando la etiqueta correspondiente.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>div</name> = document.<tag>createElement</tag>(<value>'div'</value>);    
+    </pre>  
+</figure>
+<p>En este caso se ha creado un elemento <code>div</code> y ha sido asignado a una variable, pero el <code>div</code> aún no tiene contenido ni se ha insertado en el DOM.</p>
+<h4>createTextNode</h4>
+<p>El método <code>createTextNode</code> permite crear un nodo de tipo texto.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>texto</name> = document.<tag>createTextNode</tag>(<value>'Lorem...'</value>);    
+    </pre>  
+</figure>
+<p>Con la instrucción anterior se ha creado un nodo de texto, pero no ha sido asignado aún a un elemento.</p>
+<h4>appendChild</h4>
+<p>El método <code>appendChild</code> permite agregar un nodo a un elemento. Esto permite agregar un nodo de texto o un elemento HTML a un elemento contenedor.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    div.<tag>appendChild</tag>(<name>texto</name>);    
+    </pre>  
+</figure>
+<p>Con esta instrucción se a agregado el texto al div, pero aún no han sido agregados al DOM.</p>
+<h4>append</h4>
+<p>El método <code>append</code> es igual a <code>appendChild</code> con la diferencia de que append permite agregar nodos de texto o texto directamente a un elemento. </p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>div</name> = document.<tag>createElement</tag>(<value>'div'</value>);
+    // agrega texto al div
+    <tag>var</tag> <name>texto</name> = document.<tag>createTextNode</tag>(<value>'Lorem...'</value>); 
+    div.<tag>append</tag>(<name>texto</name>);
+    // también agrega texto al div
+    div.<tag>append</tag>(<name>'Lorem...'</name>);
+    </pre>  
+</figure>
+<p>Ambos métodos permiten agregar un elemento como hijo de otro elemento.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>div</name> = document.<tag>createElement</tag>(<value>'div'</value>);
+    <tag>var</tag> <name>input</name> = document.<tag>createElement</tag>(<value>'input'</value>);
+    // agrega un input al div
+    div.<tag>append</tag>(<name>input</name>);
+    // también agrega un input al div
+    div.<tag>appendChild</tag>(<name>input</name>);
+    </pre>  
+</figure>
+<h3>Agregar elementos</h3>
+<p>Para agregar un elemento al DOM la clave es agregar el elemento creado como hijo de un elemento que ya exista.</p>
+<p>Para primero es necesario seleccionar el elemento contenedor con cualquier de los métodos selectores disponibles, y posteriormente agregar a este contenedor el elemento creado.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>container</name> = document.<tag>getElementById</tag>(<value>'container'</value>); 
+    <tag>var</tag> <name>div</name> = document.<tag>createElement</tag>(<value>'div'</value>);
+    div.<tag>append</tag>(<name>'Lorem...'</name>);
+    // agrega el div al contenedor
+    container.<tag>append</tag>(<name>div</name>);
+    </pre>  
+</figure>
+<p>Con esta instrucción se agrega el elemento <code>div</code> al árbol del DOM como hijo del elemento contenedor y se hace visible en pantalla.</p>
+<h3>Crear atributos</h3>
+<p>Existen dos estratégias para agregar atributos a los elementos HTML creados dinámicamente.</p>
+<h4>setAttribute</h4>
+<p>Por medio del método <code>setAttribute</code> es posible asignar valores a los atributos de un elemento HTML.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>p</name> = document.<tag>createElement</tag>(<value>'p'</value>);
+    <name>p</name>.<tag>className</tag> = <value>'cartel'</value>;
+    <name>p</name>.<tag>style</tag>.color = <value>'red'</value>;
+    <name>p</name>.<tag>style</tag>.fontSize = <value>'18px'</value>;
+    <name>p</name>.<tag>style</tag>.maxHeight = <value>'25px'</value>;
+    <name>p</name>.<tag>textContent</tag> = <value>'Lorem...'</value>;    
+    </pre>  
+</figure>
+<h4>createAttribute</h4>
+<p>El método <code>createAttribute</code> permite crear un nodo de tipo atributo. Es especialmente útil si se desea agregar un atributo personalizado al elemento HTML.</p>
+<p>Este método debe ser complementado por el método <code>setAttributeNode</code> que permite agregar el nodo tipo atributo al elemento HTML.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>status</name> = document.<tag>createAttribute</tag>(<value>'status'</value>);
+    <name>status</name>.<tag>value</tag> = <value>'active'</value>;
+
+    <tag>var</tag> <name>h1</name> = document.<tag>getElementById</tag>(<value>'#title'</value>); 
+    <name>h1</name>.<tag>setAttributeNode</tag>(<name>status</name>);
+    </pre>  
+</figure>
+<h3>Eliminar elementos</h3>
+<p>El método <code>removeChild</code> permite eliminar un nodo hijo del DOM. 
+    El nodo eliminado sigue existiendo en memoria, pero no en el DOM, y es devuelto por el método. 
+    A menos que se mantenga la referencia sobre el nodo en una variable, este nodo es eliminado definitivamente en el momento que el navegador libere memoria.</p>
+<p>💡 Para implementar este método es necesario conocer el contenedor del elemento que se quiere eliminar.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>con</name> = document.<tag>getElementById</tag>(<value>'#container'</value>); 
+    <tag>var</tag> <name>el</name> = document.<tag>getElementById</tag>(<value>'#element'</value>); 
+    <tag>var</tag> <name>removed</name> = <name>con</name>.<tag>removeChild</tag>(<name>el</name>);
+    </pre>  
+</figure>
+<p>💡 Un truco que facilita la eliminación del elemento sin necesidad de conocer su contenedor, es utilizar la propiedad <code>parentNode</code>.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>el</name> = document.<tag>getElementById</tag>(<value>'#element'</value>); 
+    <name>el</name>.<value>parentNode</value>.<tag>removeChild</tag>(<name>el</name>);
+    </pre>  
+</figure>
+<h3>Reemplazar elementos</h3>
+<p>Es posible reemplazar un nodo por medio del método <code>replaceChild</code>, para ello es necesario conocer el contenedor del elemento a reemplazar, y enviar al método en primer lugar 
+el nuevo elemento, y en segundo lugar el elemento viejo a reemplazar.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>con</name> = document.<tag>getElementById</tag>(<value>'#container'</value>); 
+    <tag>var</tag> <name>oldElement</name> = document.<tag>querySelector</tag>(<value>'p'</value>); 
+    <tag>var</tag> <name>newElement</name> = document.<tag>createElement</tag>(<value>'p'</value>); 
+    <name>con</name>.<tag>replaceChild</tag>(<name>newElement</name>, <name>oldElement</name>);
+    </pre>  
+</figure>

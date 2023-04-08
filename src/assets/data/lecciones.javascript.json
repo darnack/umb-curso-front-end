@@ -21,8 +21,8 @@
         }
       ]
      },
-     { 
-      "numero": "2",
+     {
+      "numero":"2", 
       "modulo": "javascript",
       "titulo": "Variables",
       "contenido": "leccion.variables.html",
@@ -50,8 +50,23 @@
         }
        ]
      },
-     { 
-      "numero": "3",
+     {
+      "numero":"3",
+      "modulo": "javascript",
+      "titulo": "Tipos de dato",
+      "contenido": "leccion.tipos-dato.html",
+      "evaluaciones": [
+        {
+          "tipo": 3,
+          "pregunta": "¿Cuál es el resultado de la siguiente operación?",
+          "contenido": "const data = 1000n;\ntypeof data;",
+          "items": ["number", "NaN", "bigint", "const"],
+          "respuesta": "bigint"
+        }
+       ]
+     },
+     {
+      "numero":"4",   
       "modulo": "javascript",
       "titulo": "Operadores",
       "contenido": "leccion.operadores.html",
@@ -72,133 +87,8 @@
         }
       ]
      },
-     { 
-      "numero": "4",
-      "modulo": "javascript",
-      "titulo": "Estructuras de control de flujo",
-      "contenido": "leccion.estructuras.html",
-      "evaluaciones": [
-        {
-          "tipo": 2,
-          "pregunta": "Ordene la estructura do while de la forma correcta",
-          "contenido": "",
-          "items": ["let a = 0;","do","{ a += 5; }","while(a < 100)"],
-          "respuesta": ""
-        },
-        {
-          "tipo": 1,
-          "pregunta": "¿Cuál es el valor final de la variable 'numero'?",
-          "contenido": "while (numero <= 5) {\n   numero++; \n}",
-          "items": [],
-          "respuesta": "6"
-        }
-       ]
-     },
-     { 
-      "numero": "5",
-      "modulo": "javascript",
-      "titulo": "Funciones",
-      "contenido": "leccion.funciones.html",
-      "evaluaciones": [
-        {
-          "tipo": 1,
-          "pregunta": "Ingresa la palabra clave correcta que corrige este código.",
-          "contenido": "const pow = funcion(a, b)\n{\n   return a ** b;\n};",
-          "items": [],
-          "respuesta": "function"
-        },
-        {
-          "tipo": 1,
-          "pregunta": "Ingresa la palabra clave correcta que corrige este código.",
-          "contenido": "funcion pow(a, b)\n{\n   return a ** b;\n}",
-          "items": [],
-          "respuesta": "function"
-        }
-       ]
-     },
-     { 
-      "numero": "6",
-      "modulo": "javascript",
-      "titulo": "Consola de depuración",
-      "contenido": "leccion.consola.html",
-      "evaluaciones": [
-        {
-          "tipo": 3,
-          "pregunta": "¿Qué opción de implentación es más adecuada en este caso?",
-          "contenido": "console.log('Error inesperado');",
-          "items": ["console.info()","console.error()","console.warn()"],
-          "respuesta": "console.error()"
-        },
-        {
-          "tipo": 3,
-          "pregunta": "¿Qué operación realiza este método?",
-          "contenido": "console.timeLog();",
-          "items": ["Inicia un temporizador.","Toma el tiempo transcurrido.","Detiene un temporizador.","Muestra la hora del sistema."],
-          "respuesta": "Toma el tiempo transcurrido."
-        }     
-       ]
-     },
-     { 
-      "numero": "7",
-      "modulo": "javascript",
-      "titulo": "Módulos",
-      "contenido": "leccion.modulos.html",
-      "evaluaciones": [
-        {
-          "tipo": 1,
-          "pregunta": "Ingresa la palabra clave correcta para exportar esta función.",
-          "contenido": "funcion pow(a, b)\n{\n   return a ** b;\n}",
-          "items": [],
-          "respuesta": "export"
-        },
-        {
-          "tipo": 3,
-          "pregunta": "¿Qué valor debe tener el atributo type para referenciar correctamente un módulo?",
-          "contenido": "<script type=\"?\" src=\"main.js\"></script>",
-          "items": ["module","application/javascript","text/javascript","application/module"],
-          "respuesta": "module"
-        } 
-       ]
-     },
-     { 
-      "numero": "8",
-      "modulo": "javascript",
-      "titulo": "Métodos de cadena",
-      "contenido": "leccion.metodos-cadena.html",
-      "evaluaciones": [ 
-        {
-          "tipo": 3,
-          "pregunta": "¿Qué valor devuelve este código?",
-          "contenido": "var texto = 'JavaScript';\ntexto.substring(1,4);",
-          "items": ["ava","JavaScript","Java","avaS","-1"],
-          "respuesta": "ava"
-        } 
-      ]
-     },
-     { 
-      "numero": "9",
-      "modulo": "javascript",
-      "titulo": "Arreglos",
-      "contenido": "leccion.arreglos.html",
-      "evaluaciones": [
-        {
-          "tipo": 3,
-          "pregunta": "¿Qué método permite agrega un elemento al comienzo de un arreglo?",
-          "contenido": "",
-          "items": ["shift","unshift","push","pop"],
-          "respuesta": "unshift"
-        },
-        {
-          "tipo": 3,
-          "pregunta": "¿Cuál es el resultado de la siguiente operación?",
-          "contenido": "let colores = ['rojo', 'verde', 'azul'];\ncolores.splice(2,1,'negro');",
-          "items": ["['rojo', 'verde']","['rojo', 'azul', 'verde']","['rojo', 'verde', 'negro']","['rojo', 'verde', 'azul', 'negro']"],
-          "respuesta": "['rojo', 'verde', 'negro']"
-        }
-       ]
-     },
-     { 
-      "numero": "10",
+     {
+      "numero":"5",  
       "modulo": "javascript",
       "titulo": "Conversiones",
       "contenido": "leccion.conversiones.html",
@@ -219,8 +109,126 @@
         }
        ]
      },
+     {
+      "numero":"6",
+      "modulo": "javascript",
+      "titulo": "Métodos de cadena",
+      "contenido": "leccion.metodos-cadena.html",
+      "evaluaciones": [ 
+        {
+          "tipo": 3,
+          "pregunta": "¿Qué valor devuelve este código?",
+          "contenido": "var texto = 'JavaScript';\ntexto.substring(1,4);",
+          "items": ["ava","JavaScript","Java","avaS","-1"],
+          "respuesta": "ava"
+        } 
+      ]
+     },
+     {
+      "numero":"7",
+      "modulo": "javascript",
+      "titulo": "Estructuras de control de flujo",
+      "contenido": "leccion.estructuras.html",
+      "evaluaciones": [
+        {
+          "tipo": 2,
+          "pregunta": "Ordene la estructura do while de la forma correcta",
+          "contenido": "",
+          "items": ["let a = 0;","do","{ a += 5; }","while(a < 100)"],
+          "respuesta": ""
+        },
+        {
+          "tipo": 1,
+          "pregunta": "¿Cuál es el valor final de la variable 'numero'?",
+          "contenido": "while (numero <= 5) {\n   numero++; \n}",
+          "items": [],
+          "respuesta": "6"
+        }
+       ]
+     },
+     {
+      "numero":"8",
+      "modulo": "javascript",
+      "titulo": "Arreglos",
+      "contenido": "leccion.arreglos.html",
+      "evaluaciones": [
+        {
+          "tipo": 3,
+          "pregunta": "¿Qué método permite agrega un elemento al comienzo de un arreglo?",
+          "contenido": "",
+          "items": ["shift","unshift","push","pop"],
+          "respuesta": "unshift"
+        },
+        {
+          "tipo": 3,
+          "pregunta": "¿Cuál es el resultado de la siguiente operación?",
+          "contenido": "let colores = ['rojo', 'verde', 'azul'];\ncolores.splice(2,1,'negro');",
+          "items": ["['rojo', 'verde']","['rojo', 'azul', 'verde']","['rojo', 'verde', 'negro']","['rojo', 'verde', 'azul', 'negro']"],
+          "respuesta": "['rojo', 'verde', 'negro']"
+        }
+       ]
+     },
+     {
+      "numero":"9",
+      "modulo": "javascript",
+      "titulo": "Objetos",
+      "contenido": "leccion.objetos.html",
+      "evaluaciones": [
+        {
+          "tipo": 3,
+          "pregunta": "¿Cómo representar este objeto en notación JSON?",
+          "contenido": "let flor = new Object();\nflor.petalo = \"blanco\";",
+          "items": ["{ flor: { petalo: 'blanco'}}","let flor = { petalo: 'blanco'}","{ petalo: blanco }","{ flor: { \"petalo\": \"blanco\"}}"],
+          "respuesta": "let flor = { petalo: 'blanco'}"
+        }
+       ]
+     },
      { 
-      "numero": "11",
+      "numero":"10",
+      "modulo": "javascript",
+      "titulo": "Funciones",
+      "contenido": "leccion.funciones.html",
+      "evaluaciones": [
+        {
+          "tipo": 1,
+          "pregunta": "Ingresa la palabra clave correcta que corrige este código.",
+          "contenido": "const pow = funcion(a, b)\n{\n   return a ** b;\n};",
+          "items": [],
+          "respuesta": "function"
+        },
+        {
+          "tipo": 1,
+          "pregunta": "Ingresa la palabra clave correcta que corrige este código.",
+          "contenido": "funcion pow(a, b)\n{\n   return a ** b;\n}",
+          "items": [],
+          "respuesta": "function"
+        }
+       ]
+     },
+     {  
+      "numero":"11",     
+      "modulo": "javascript",
+      "titulo": "Consola de depuración",
+      "contenido": "leccion.consola.html",
+      "evaluaciones": [
+        {
+          "tipo": 3,
+          "pregunta": "¿Qué opción de implentación es más adecuada en este caso?",
+          "contenido": "console.log('Error inesperado');",
+          "items": ["console.info()","console.error()","console.warn()"],
+          "respuesta": "console.error()"
+        },
+        {
+          "tipo": 3,
+          "pregunta": "¿Qué operación realiza este método?",
+          "contenido": "console.timeLog();",
+          "items": ["Inicia un temporizador.","Toma el tiempo transcurrido.","Detiene un temporizador.","Muestra la hora del sistema."],
+          "respuesta": "Toma el tiempo transcurrido."
+        }     
+       ]
+     },
+     {
+      "numero":"12",       
       "modulo": "javascript",
       "titulo": "DOM",
       "contenido": "leccion.dom.html",
@@ -241,35 +249,52 @@
       ]
      },
      { 
-      "numero": "12",
+      "numero":"13",     
       "modulo": "javascript",
       "titulo": "Manipulación del DOM",
       "contenido": "leccion.manipulacion-dom.html",
-      "evaluaciones": [ ]
+      "evaluaciones": [ 
+        {
+          "tipo": 2,
+          "pregunta": "Ordena el código correctamente",
+          "contenido": "",
+          "items": ["var p = document.\n   createElement('p')","var attr = document.\ncreateAttribute('class')","attr.value = 'texto'",
+          "p.setAttributeNode(attr)","var container = document.\ngetElementById('main')", "container.append(p)"],
+          "respuesta": ""
+        }
+      ]
      },
-     { 
-      "numero": "13",
+     {
+      "numero":"14",
       "modulo": "javascript",
-      "titulo": "Cláusulas",
-      "contenido": "leccion.clausulas.html",
-      "evaluaciones": [ ]
+      "titulo": "Módulos",
+      "contenido": "leccion.modulos.html",
+      "evaluaciones": [
+        {
+          "tipo": 1,
+          "pregunta": "Ingresa la palabra clave correcta para exportar esta función.",
+          "contenido": "funcion pow(a, b)\n{\n   return a ** b;\n}",
+          "items": [],
+          "respuesta": "export"
+        },
+        {
+          "tipo": 3,
+          "pregunta": "¿Qué valor debe tener el atributo type para referenciar correctamente un módulo?",
+          "contenido": "<script type=\"?\" src=\"main.js\"></script>",
+          "items": ["module","application/javascript","text/javascript","application/module"],
+          "respuesta": "module"
+        } 
+       ]
      },
-     { 
-      "numero": "14",
-      "modulo": "javascript",
-      "titulo": "Json",
-      "contenido": "leccion.json.html",
-      "evaluaciones": [ ]
-     },
-     { 
-      "numero": "15",
+     {
+      "numero":"15", 
       "modulo": "javascript",
       "titulo": "Eventos",
       "contenido": "leccion.eventos.html",
       "evaluaciones": [ ]
      },
      { 
-      "numero": "16",
+      "numero":"16",
       "modulo": "javascript",
       "titulo": "Consumo de APIs",
       "contenido": "leccion.consumo-apis.html",

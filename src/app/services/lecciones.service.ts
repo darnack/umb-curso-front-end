@@ -34,6 +34,10 @@ export class LeccionesService {
       return leccion.modulo === module
     })
 
+    output.forEach(function(item, index){
+      item.numero = String(index + 1);
+    });
+
     return output
   }
 

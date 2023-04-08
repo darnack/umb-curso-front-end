@@ -1,0 +1,128 @@
+<p>Un objeto es una estructura de datos que tiene propiedades, las cuales a su vez pueden hacer referencia a un dato, una variable, un arreglo, una función, u otro objeto. 
+    Los objetos son estructuras de datos jerarquizadas.</p>
+<p>El manejo de objetos es fundamental para el tratamiento de datos, 
+    enviar y recibir información empaquetada dentro de objetos estableciendo comunicación con servidores y servicios remotos, 
+    manejar estructuras de datos relacionadas a la parte visual del aplicativo web y muchos otros propósitos. </p>
+<p>💡 Existen dos maneras de declarar un objeto, por medio del constructor o por medio de notación JSON.</p>
+<h3>Constructor</h3>
+<p>Por medio del constructor <code>Object</code> y del operador <code>new</code> es posible declarar un objeto. 
+    Las propiedades del objeto son declaradas de forma dinámica simplemente al nombrarlas y asignarles un valor.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>carro</name> = <tag>new</tag> <tag>Object</tag>(); 
+    <name>carro</name>.<tag>marca</tag> = <value>'Audi'</value>;
+    <name>carro</name>.<tag>color</tag> = <value>'rojo'</value>;
+    <name>carro</name>.<tag>modelo</tag> = <value>'A4'</value>;
+    <name>carro</name>.<tag>kilometraje</tag> = <value>'1240km'</value>;
+
+    <tag>var</tag> <name>motor</name> = <tag>new</tag> <tag>Object</tag>(); 
+    <name>motor</name>.<tag>tipo</tag> = <value>'gasolina'</value>;
+    <name>motor</name>.<tag>cilindros</tag> = <value>8</value>;
+
+    <name>carro</name>.<tag>motor</tag> = <name>motor</name>;
+    </pre>  
+</figure>
+<h3>Notación JSON</h3>
+<p>Las siglas JSON significan <i>JavaScript Object Notation</i> o Notación de Objetos de JavaScript. 
+    Ha surgido como una alternativa a la notación XML y ha tenido un éxito y acogida definitiva en la industria del software, convirtiéndose en un estándar para la representación de objetos.</p>
+<p>💡 La notación JSON hace uso de 4 simples conceptos.</p>
+<h4>Objeto</h4>
+<p>Un objeto JSON es representado por los corchetes <code>{</code> <code>}</code>. Unos corchetes vacíos representan un objeto vacío.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>objeto</name> = {}; 
+    </pre>  
+</figure>
+<h4>Llave / Valor</h4>
+<p>Las propiedades de un objeto JSON son representadas en forma llave/valor utilizando el caracter clave <code>:</code> como separador entre la llave y el valor, 
+    y la coma <code>,</code> como separador entre las diferentes propiedades del mismo objeto.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>carro</name> = {
+        <tag>marca</tag>: <value>'Audi'</value>,
+        <tag>color</tag>: <value>'rojo'</value>,
+        <tag>modelo</tag>: <value>'A4'</value>,
+        <tag>cantidad</tag>: <value>20</value>,
+        <tag>electrico</tag>: <value>false</value>
+    }; 
+    </pre>  
+</figure>
+<h4>Colecciones</h4>
+<p>Las colecciones en un objeto JSON son representadas por llaves <code>[</code> <code>]</code>. 
+Cada elemento de la colección puede ser un dato primitivo o un objeto JSON</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>carro</name> = {
+        <tag>marca</tag>: <value>'Audi'</value>,
+        <tag>color</tag>: <value>'rojo'</value>,
+        <tag>modelo</tag>: <value>'A4'</value>,
+        <tag>cantidad</tag>: <value>20</value>,
+        <tag>electrico</tag>: <value>false</value>,
+        <tag>disponibilidad</tag>: [
+            <value>'colombia'</value>, 
+            <value>'brasil'</value>, 
+            <value>'argentina'</value>
+        ],
+    }; 
+    </pre>  
+</figure>
+<h4>Anidación</h4>
+<p>Las propiedades de un objeto JSON pueden hacer referencia a otro objeto JSON anidado, 
+    esta anidación puede repetirse indefinidamente tanto como sea necesario para describir un objeto con el nivel de detalle requerido.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>carro</name> = {
+        <tag>marca</tag>: <value>'Audi'</value>,
+        <tag>color</tag>: <value>'rojo'</value>,
+        <tag>modelo</tag>: <value>'A4'</value>,
+        <tag>cantidad</tag>: <value>20</value>,
+        <tag>electrico</tag>: <value>false</value>,
+        <tag>disponibilidad</tag>: [
+            <value>'colombia'</value>, 
+            <value>'brasil'</value>, 
+            <value>'argentina'</value>
+        ],
+        <tag>motor</tag>: {
+            <tag>tipo</tag>: <value>'gasolina'</value>,
+            <tag>cilindros</tag>: <value>8</value>,
+        }
+    }; 
+    </pre>  
+</figure>
+<h3>Acceso a las propiedades</h3>
+<p>Para acceder a las propiedades de un objeto y leerlas o modificarlas, generalmente se utiliza el operador punto <code>.</code>, 
+    aunque también es posible acceder a estas como si se trataran de elementos de un arreglo.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <name>carro</name>.<tag>marca</tag>; // 'Audi'
+    <name>carro</name>.<tag>motor</tag>.<tag>tipo</tag>; // 'gasolina'
+
+    <name>carro</name>[<value>'color'</value>]; // 'rojo'
+    <name>carro</name>[<value>'motor'</value>][<value>'cilindros'</value>]; // 8
+    </pre>  
+</figure>
+<h3>Descubrimiento de propiedades</h3>
+<p>En algunas ocasiones no sabemos que propiedades puede tener un objeto, por lo cuál resulta útil recorrer sus propiedades para descubrirlas. 
+Para ello debemos utilizar el ciclo <code>for</code> de la siguiente manera:</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>persona</name> = {
+        <tag>nombres</tag>: <value>'Juan Camilo'</value>,
+        <tag>apellidos</tag>: <value>'Pinto Guerrero'</value>,
+        <tag>identificacion</tag>: <value>'1025100110'</value>,
+        <tag>genero</tag>: <value>'M'</value>,
+        <tag>estatura</tag>: <value>1.75</value>
+    }; 
+
+    <tag>for</tag>(<value>propiedad</value> in <name>persona</name>) {
+        console.<tag>log</tag>(<value>propiedad</value>,<name>':'</name>,
+                    <name>persona</name>[<value>propiedad</value>]);
+    }
+
+    // nombres : Juan Camilo
+    // apellidos : Pinto Guerrero
+    // identificacion : 1025100110
+    // genero : M
+    // estatura : 1.75
+    </pre>  
+</figure>
