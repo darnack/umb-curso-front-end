@@ -1,0 +1,317 @@
+<p>El manejo de eventos es uno de los temas más importantes en JavaScript, ya que el objetivo fundamental de este lenguaje es agregar interactividad al contenidos de las aplicaciones web. 
+    Esto se consigue principalmente con la implementación de los eventos.</p>
+
+<h3>Manejadores de eventos</h3>
+<p>Hay varias manejas de manejar eventos en JavaScript.</p>
+<h4>Manejador por atributo</h4>
+<p>Las etiquetas de los elementos HTML tienen atributos de eventos soportados nativamente. 
+    Para implementarlos solo basta con escribir código JavaScript directamente asociado a estos atributos.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>input</tag> <name>onclick</name>="<value>console.log('¡clic!')</value>"/&gt; 
+    </pre>  
+</figure>
+<p>Aunque es muy recomendable invocar solamente funciones JavScript, en lugar de escribir código directamente sobre estos atributos, de esta manera se mantienen un código más legible.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;!-- HTML --&gt;
+    &lt;<tag>input</tag> <name>onclick</name>="<value>clic()</value>"/&gt; 
+    </pre>  
+</figure>
+<br>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;!-- JavaScript --&gt;
+    <tag>function</tag> <name>clic</name>() {
+        console.<tag>log</tag>(<value>'¡clic!'</value>);
+    }
+    </pre>  
+</figure>
+<h4>Manejador por propiedad</h4>
+<p>Una manera más ordenada de manejar los eventos es utilizando las propiedades de evento de los elementos HTML.
+    Para ello primero se debe seleccionar el elemento del DOM, posteriormente se debe asignar el evento a la propiedad correspondiente.
+</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;!-- JavaScript --&gt;
+    <tag>function</tag> <name>clic</name>() {
+        console.<tag>log</tag>(<value>'¡clic!'</value>);
+    }
+
+    <tag>var</tag> <name>item</name> = document.<tag>getElementById</tag>(<value>'#item'</value>); 
+    <name>item</name>.<tag>onclick</tag> = <name>clic</name>();
+    </pre>  
+</figure>
+<h4>Manejador agregado</h4>
+<p>La forma más sofisticada de implementar manejadores de eventos es agregándolos por medio de la función <code>addEventListener</code>. 
+Este permite agregar eventos de forma dinámica a cualquier elemento HTML.</p>
+<p>💡 El nombre del evento a diferencia de los dos casos anteriores, no es precedido por la palabra <code>on</code>, así, en lugar de introducir <i>onclick</i>, solo debe escribirse <i>click</i>.</p>
+<p>Por medio de una función nombrada:</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>function</tag> <name>clic</name>() {
+        console.<tag>log</tag>(<value>'¡clic!'</value>);
+    }
+
+    <tag>var</tag> <name>el</name> = document.<tag>getElementById</tag>(<value>'#item'</value>); 
+    <name>el</name>.<tag>addEventListener</tag>(<value>"onclick"</value>, <name>clic</name>());
+    </pre>  
+</figure>
+<p>Por medio de una función anónima:</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>el</name> = document.<tag>getElementById</tag>(<value>'#item'</value>); 
+    
+    <name>el</name>.<tag>addEventListener</tag>(<value>"onclick"</value>, <tag>function</tag>(){
+        console.<tag>log</tag>(<value>'¡clic!'</value>);
+    });
+    </pre>  
+</figure>
+<p>o en notación <i>lamda</i>:</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>el</name> = document.<tag>getElementById</tag>(<value>'#item'</value>); 
+    
+    <name>el</name>.<tag>addEventListener</tag>(<value>"onclick"</value>, (event) => {
+        console.<tag>log</tag>(<value>'¡clic!'</value>);
+    });
+    </pre>  
+</figure>
+<h3>Interfaz de evento</h3>
+<p>La interfaz de evento <code>Event</code> es un objeto que contiene propiedades pertinentes al evento, 
+    permite conocer información relevante como el elemento que originó el evento o las coordenadas desde dónde se originó.</p>
+<p>Para acceder a la interfaz <code>Event</code> se debe pasar como primer parámetro de entrada a la función asignada al manejador del evento. </p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <name>el</name>.<tag>addEventListener</tag>(<value>"click"</value>, 
+        <tag>function</tag>(<tag>event</tag>){
+            console.<tag>log</tag>(<tag>event</tag>.<value>clientX</value>);
+            console.<tag>log</tag>(<tag>event</tag>.<value>clientY</value>);
+            console.<tag>log</tag>(<tag>event</tag>.<value>target</value>.<value>value</value>);
+    });
+    </pre>  
+</figure>
+<p>La interfaz <code>Event</code> tiene muchas propiedades, algunas de ellas son:</p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Propiedad</th>
+        <th>Descripción</th>
+    </tr>   
+    <tr>    
+        <td>altKey</td>
+        <td>Indica si la tecla <code>&lt;alt&gt;</code> fue pulsada durante el evento.</td>
+    </tr>
+    <tr>    
+        <td>button</td>
+        <td>Devuelve el botón del ratón.</td>
+    </tr>
+    <tr>    
+        <td>charCode</td>
+        <td>Devuelve el valor Unicode de una tecla de carácter que fue apretada como parte de un evento keypress.</td>
+    </tr>
+    <tr>    
+        <td>clientX</td>
+        <td>Devuelve la posición horizontal del evento.</td>
+    </tr>
+    <tr>    
+        <td>clientY</td>
+        <td>Devuelve la posición vertical del evento.</td>
+    </tr>
+    <tr>    
+        <td>ctrlKey</td>
+        <td>Indica si la tecla <code>&lt;ctrl&gt;</code> fue apretada durante el evento.</td>
+    </tr>
+    <tr>    
+        <td>currentTarget</td>
+        <td>Devuelve una referencia al objetivo actual registrado para el evento.</td>
+    </tr>
+    <tr>    
+        <td>isChar</td>
+        <td>Indica si el evento produce o no una tecla de carácter.</td>
+    </tr>
+    <tr>    
+        <td>keyCode</td>
+        <td>Devuelve el valor Unicode de la tecla presionada.</td>
+    </tr>
+    <tr>    
+        <td>screenX</td>
+        <td>Devuelve la coordenada horizontal del evento en la pantalla.</td>
+    </tr>
+    <tr>    
+        <td>screenY</td>
+        <td>Devuelve la coordenada vertical del evento en la pantalla.</td>
+    </tr>
+    <tr>    
+        <td>shiftKey</td>
+        <td>Indica si la tecla <code>&lt;shift&gt;</code> fue presionada cuando el evento fue disparado.</td>
+    </tr>
+    <tr>    
+        <td><strong>target</strong></td>
+        <td>Devuelve la referencia del objeto que disparó el evento.</td>
+    </tr>
+    <tr>    
+        <td>timeStamp</td>
+        <td>Devuelve el momento de creación del evento.</td>
+    </tr>
+    <tr>    
+        <td>type</td>
+        <td>Devuelve el nombre del evento (distingue mayúsculas y minúsculas).</td>
+    </tr>
+    <tr>    
+        <td>which</td>
+        <td>Devuelve el valor Unicode de la tecla en un evento del teclado, sin importar el tipo de tecla que se presionó.</td>
+    </tr>
+</tbody>    
+</table>
+<p>También cuenta con algunos métodos como lo son:</p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Método</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>preventDefault</td>
+        <td>Cancela el comportamiento nativo del evento.</td>
+    </tr>
+    <tr>    
+        <td>stopPropagation</td>
+        <td>Para la propagación de los eventos más allá en el DOM.</td>
+    </tr>
+</tbody>    
+</table>
+<h3>Tipos de evento</h3>
+<p>Los eventos permiten agregar interactividad al aplicativo web, esto se consigue manejando 4 tipos de eventos: eventos del ratón, eventos del teclado, eventos del formulario y eventos del navegador.</p>
+<h4>Eventos del ratón</h4>
+<p>El ratón o mouse es un periférico con grandes posibilidades de interacción, JavaScript permite identificar eventos del ratón como lo son:</p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Evento</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>click</td>
+        <td>Se produce al pulsar el botón izquierdo del ratón y posteriormente soltarlo.</td>
+    </tr>
+    <tr>    
+        <td>focus</td>
+        <td>Se produce cuando se da clic sobre un elemento produciendo un foco sobre este.</td>
+    </tr>
+    <tr>    
+        <td>dragdrop</td>
+        <td>Se produce cuando un usuario suelta algo que había arrastrado sobre la página web.</td>
+    </tr>
+    <tr>    
+        <td>blur</td>
+        <td>Se produce cuando se da clic fuera de un elemento con foco, haciendo que se pierda el foco sobre este.</td>
+    </tr>
+    <tr>    
+        <td>mousedown</td>
+        <td>Se produce en el momento de pulsar cualquier botón del mouse.</td>
+    </tr>
+    <tr>    
+        <td>mousemove</td>
+        <td>Se produce cuando el ratón se mueve por la pantalla.</td>
+    </tr>
+    <tr>    
+        <td>mouseout</td>
+        <td>Se produce cuando el puntero del ratón sale del área ocupada por un elemento.</td>
+    </tr>
+    <tr>    
+        <td>mouseover</td>
+        <td>Se produce cuando el puntero del ratón entra en el área ocupada por un elemento.</td>
+    </tr>
+    <tr>    
+        <td>mouseup</td>
+        <td>Se produce en el momento que el usuario suelta el botón del ratón, que previamente había pulsado.</td>
+    </tr>
+    <tr>    
+        <td>mouseup</td>
+        <td>Se produce en el momento que el usuario suelta el botón del ratón, que previamente había pulsado.</td>
+    </tr>
+</tbody>    
+</table>
+<h4>Eventos del teclado</h4>
+<p>Los eventos del teclado son especialmente útiles para crear atajos o en los video juegos.</p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Evento</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>keydown</td>
+        <td>Se produce en el instante que un usuario presiona una tecla.</td>
+    </tr>
+    <tr>    
+        <td>keypress</td>
+        <td>Se produce cuando el usuario deja pulsada una tecla un tiempo determinado. Antes de este evento se produce un <code>keydown</code>.</td>
+    </tr>
+    <tr>    
+        <td>keyup</td>
+        <td>Se produce cuando el usuario deja de apretar una tecla. Se produce en el momento que se libera la tecla.</td>
+    </tr>
+</tbody>    
+</table>
+<h4>Eventos del formulario</h4>
+<p>Estos se producen relacionados a elementos de captura de datos en un formulario.</p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Evento</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>change</td>
+        <td>Se desata este evento cuando cambia el estado de un elemento de formulario.</td>
+    </tr>
+    <tr>    
+        <td>reset</td>
+        <td>Se desata en el momento que un usuario hace clic en el botón de reset de un formulario.</td>
+    </tr>
+    <tr>    
+        <td>select</td>
+        <td>Se ejecuta cuando un usuario realiza una selección de un elemento de un formulario.</td>
+    </tr>
+    <tr>    
+        <td>submit</td>
+        <td>Ocurre cuando el usuario presiona el botón de enviar el formulario. Se ejecuta justo antes del envío.</td>
+    </tr>
+</tbody>    
+</table>
+<h4>Eventos del navegador</h4>
+<p>Estos eventos están relacionados a cambios sobre el navegador o eventos de carga.</p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Evento</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>abort</td>
+        <td>Se produce cuando un usuario detiene la carga de una imagen, al detener la carga de la página o cerrar la página.</td>
+    </tr>
+    <tr>    
+        <td>error</td>
+        <td>Se produce cuando no se puede cargar un documento o una imagen y esta queda rota.</td>
+    </tr>
+    <tr>    
+        <td>load</td>
+        <td>Este evento se desata cuando la página ha terminado de cargarse.</td>
+    </tr>
+    <tr>    
+        <td>resize</td>
+        <td>Se produce cuando se redimensiona la ventana del navegador.</td>
+    </tr>
+    <tr>    
+        <td>unload</td>
+        <td>Se produce al abandonar la página.</td>
+    </tr>
+    <tr>    
+        <td>scroll</td>
+        <td>Este evento se produce cuando se realiza scroll o desplazamiento.</td>
+    </tr>
+</tbody>    
+</table>
