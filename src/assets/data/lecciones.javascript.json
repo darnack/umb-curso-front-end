@@ -291,13 +291,19 @@
       "modulo": "javascript",
       "titulo": "Eventos",
       "contenido": "leccion.eventos.html",
-      "evaluaciones": [ ]
+      "evaluaciones": [ {
+        "tipo": 3,
+        "pregunta": "¿Que evento debe ir en el manejador para controlar la pulsación simple del ratón sobre el input?",
+        "contenido": "input = document.querySelector('input')\ninput.addEventListener('?', (evt) => {})",
+        "items": ["mousedown", "click", "keydown", "onmousedown", "onclick", "onkeydown"],
+        "respuesta": "mousedown"
+      }]
      },
      { 
       "numero":"16",
       "modulo": "javascript",
-      "titulo": "Consumo de APIs",
-      "contenido": "leccion.consumo-apis.html",
+      "titulo": "AJAX",
+      "contenido": "leccion.ajax.html",
       "evaluaciones": [ ]
      }
    ]
