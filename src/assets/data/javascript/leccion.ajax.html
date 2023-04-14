@@ -1,7 +1,11 @@
-<p>La sigla AJAX significa <i>Asynchronous JavaScript and XML</i>, es decir, JavaScript y XML asíncrono. 
+<p>La sigla AJAX significa <i>Asynchronous JavaScript and XML</i>. 
     Esta tecnología surgió de la idea de obtener y enviar datos en tiempo real sin necesidad de recargar toda la página. 
-    Esto se consigue generando una comunicación asíncrona entre el navegador y el servidor. </p>
+    Esto se consigue generando una comunicación asíncrona entre el cliente y el servidor. </p>
+<ion-img src="../assets/img/cliente-servidor.png"></ion-img>
+<p>Las comunicaciones asíncronas tienen la virtud de que se procesan en hilos de ejecución independientes al proceso principal de la aplicación, 
+    esto evita bloqueos y le permite a las aplicaciones ejecutar diferentes procesos al mismo tiempo.</p>
 <p>Gracias a AJAX es posible construir aplicaciones dinámicas que envíen y reciban datos de forma fluida.</p>
+
 <h3>XMLHttpRequest</h3>
 <p>El objeto <code>XMLHttpRequest</code> permite implementar comunicación AJAX desde JavaScript sin necesidad de librerías externas.</p>
 <figure class="code-card">
@@ -9,22 +13,23 @@
     <tag>var</tag> <name>xhr</name> = <value>new</value> <tag>XMLHttpRequest</tag>(); 
     </pre>  
 </figure>
-<h4>Configuración</h4>
+<h4>Comunicación</h4>
 <p>El método <code>open</code> permite configurar los parámetros de comunicación.</p>
 <p>📌 El primer parámetro corresponde al método o verbo HTTP, normalmente es <code>GET</code>, <code>POST</code>, <code>PUT</code>, o <code>DELETE</code>. Dependerá del método admitido por el recurso remoto invocado.</p>
 <p>📌 El segundo parámetro corresponde a la url o dirección del recurso invocado. Normalmente corresponde a un método de un servicio web.</p>
-<p>📌 El tercer parámetro indica si la comunicación se realizará de forma asíncrona, esto significa que los demás procesos de la aplicación no esperarán la respuesta de la invocación.
-    Se recomiendo simpre ponerlo como <code>true</code>.
+<p>📌 El tercer parámetro indica si la comunicación se realizará de forma asíncrona, 
+    esto significa que los demás procesos de la aplicación no esperarán la respuesta de la invocación y seguirán funcionando, haciendo uso de otros hilos de procesamiento.
+    Se recomienda establecerlo como <code>true</code>.
 </p>
 <figure class="code-card">
     <pre class="code-pre">
-    <tag>let</tag> <name>url</name> = <value>'hhtps://webservice.com'</value>;
+    <tag>let</tag> <name>url</name> = <value>'https://webservice.com/method'</value>;
     <name>xhr</name>.<tag>open</tag>(<tag>'GET'</tag>, <name>url</name>, <tag>true</tag>); 
     </pre>  
 </figure>
 <h4>Cabeceras</h4>
 <p>Las solicitudes HTTP contienen datos de cabecera que permiten establecer los parámetros de la comunicación entre el cliente y el servidor.
-    Por ejemplo, el cliente puede indicarle al servidor el tipo de datos le enviará en el cuerpo de la solicitud.</p>
+    Por ejemplo, el cliente puede indicarle al servidor el tipo de datos que le enviará en el cuerpo de la solicitud. Las cabeceras se configuran por medio del método <code>setRequestHeader</code>.</p>
 <p>📌 El primer parámetro es el nombre de la cabecera, y el segundo es el valor de la cabecera.</p>
 <figure class="code-card">
     <pre class="code-pre">
@@ -51,7 +56,7 @@
     );     
     </pre>  
 </figure>
-<p>💡 El método <code>JSON.stringify</code> permite tomar un objeto JSON y expresarlo como texto plano, lo que permite al servidor interpretar los datos mejor.</p>
+<p>💡 El método <code>JSON.stringify</code> permite tomar un objeto JSON y expresarlo como texto plano, lo que permite al servidor interpretar mejor los datos.</p>
 <h4>Manejo de la respuesta</h4>
 <p>La propiedad <code>onload</code> permite, por medio de una función, recibir y manejar la respuesta de la solicitud enviada.</p>
 <figure class="code-card">
@@ -66,10 +71,85 @@
     };     
     </pre>  
 </figure>
-<p>💡 El método <code>JSON.parse</code> convierte un texto plano en un objeto JSON, esto permite manejar los datos adecuadamente con JavaScript. 
+<p>En este ejemplo se evalúa la propiedad <code>status</code> en la respuesta del método. Si es igual a <code>200</code> significa que la solicitud fue correcta, 
+entonces se procede a extraer los datos de la respuesta por medio de la propiedad <code>response</code>.</p>
+<p>💡 El método <code>JSON.parse</code> convierte un texto plano en un objeto JSON, esto permite manejar los datos adecuadamente en JavaScript. 
     Para que esta conversión sea posible, el texto plano debe estar en notación JSON.</p>
+
+<h4>Propiedad Status</h4>
+<p>La propiedad <code>status</code> representa el código HTTP de respuesta de la solicitud. Los valores más comunes de la propiedad son:</p>
+<table class="ws-table-all notranslate">
+    <tbody>
+    <tr>    
+        <th>Código</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>OK<br><mono>200</mono></td>
+        <td>La solicitud ha tenido éxito.</td>
+    </tr>
+    <tr>    
+        <td>Created<br><mono>201</mono></td>
+        <td>La solicitud ha tenido éxito y se ha creado un nuevo recurso como resultado de ello.</td>
+    </tr>
+    <tr>    
+        <td>No Content<br><mono>204</mono></td>
+        <td>La petición se ha completado con éxito pero su respuesta no tiene ningún contenido.</td>
+    </tr>
+    <tr>    
+        <td>Moved Permanently<br><mono>301</mono></td>
+        <td>Este código de respuesta significa que la URI del recurso solicitado ha sido cambiado.</td>
+    </tr>
+    <tr>    
+        <td>Bad request<br><mono>400</mono></td>
+        <td>Esta respuesta significa que el servidor no pudo interpretar la solicitud dada una sintaxis inválida.</td>
+    </tr>
+    <tr>    
+        <td>Unauthorized<br><mono>401</mono></td>
+        <td>Es necesario autenticar para obtener la respuesta solicitada.</td>
+    </tr>
+    <tr>    
+        <td>Forbbiden<br><mono>403</mono></td>
+        <td>El recurso solicitado no está permitido.</td>
+    </tr>
+    <tr>    
+        <td>Not Found<br><mono>404</mono></td>
+        <td>El servidor no pudo encontrar el contenido solicitado.</td>
+    </tr>
+    <tr>    
+        <td>Method Not Allowed<br><mono>405</mono></td>
+        <td>El método solicitado es conocido por el servidor pero esta siendo consultado por medio de un método HTTP incorrecto.</td>
+    </tr>
+    <tr>    
+        <td>Conflict<br><mono>409</mono></td>
+        <td>El servidor ha aceptado la solicitud pero no ha podido finalizar el proceso por alguna inconsistencia de tipo lógico.</td>
+    </tr>
+    <tr>    
+        <td>Internal Server Error<br><mono>500</mono></td>
+        <td>Error interno inesperado en el servidor.</td>
+    </tr>
+    <tr>    
+        <td>Not Implemented<br><mono>501</mono></td>
+        <td>Método no implementado, no se encuentra disponible.</td>
+    </tr>
+    <tr>    
+        <td>Bad Gateway<br><mono>502</mono></td>
+        <td>El servidor obtuvo una respuesta inválida mientras trabajaba como una puerta de enlace para obtener una respuesta necesaria para manejar la petición.</td>
+    </tr>
+    <tr>    
+        <td>Service Unavailable<br><mono>503</mono></td>
+        <td>El servidor no está listo para manejar la petición. Causas comunes puede ser que el servidor está caído por mantenimiento o está sobrecargado.</td>
+    </tr>
+    <tr>    
+        <td>Gateway Timeout<br><mono>504</mono></td>
+        <td>Esta respuesta de error es dada cuando el servidor está actuando como una puerta de enlace y no puede obtener una respuesta a tiempo.</td>
+    </tr>
+</tbody>    
+</table>
+
 <h4>Manejo de errores</h4>
-<p>En caso de cualquier error, ya sea por indispoinibilidad del servicio o por un error interno procesando los datos, la propiedad <code>onerror</code> permite manejar los eventos de error por medio de una función.</p>
+<p>En caso de cualquier error, ya sea por indispoinibilidad del servicio o por un error interno procesando los datos, 
+    la propiedad <code>onerror</code> permite manejar los eventos de error de la solicitud por medio de una función.</p>
 <figure class="code-card">
     <pre class="code-pre">
     <name>xhr</name>.<tag>onerror</tag> = <value>function</value>() {
@@ -77,3 +157,28 @@
     };     
     </pre>  
 </figure>
+<h3>Ejemplo</h3>
+<p>En este ejemplo se consulta el listado de universidades en Colombia desde un servicio web (API) público, y se imprime la respuesta en la consola.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    <tag>var</tag> <name>xhr</name> = <value>new</value> <tag>XMLHttpRequest</tag>(); 
+    <tag>let</tag> <name>url</name> = <value>'http://universities.hipolabs.com/search?country=colombia'</value>;
+    <name>xhr</name>.<tag>open</tag>(<tag>'GET'</tag>, <name>url</name>, <tag>true</tag>); 
+    <name>xhr</name>.<tag>setRequestHeader</tag>(<tag>'Content-Type'</tag>, <tag>'application/json'</tag>);  
+    <name>xhr</name>.<tag>send</tag>();
+    <name>xhr</name>.<tag>onload</tag> = <value>function</value>() {
+        <tag>if</tag>(<name>xhr</name>.<tag>status</tag> == <value>200</value>) {
+          <tag>let</tag> <name>data</name> = JSON.<value>parse</value>(<name>xhr</name>.<tag>response</tag>);
+          <name>data</name>.<tag>forEach</tag>(<value>function</value>(<name>item</name>) {
+            <name>console</name>.<tag>log</tag>(<name>item</name>.<tag>name</tag>); 
+          });          
+        } <tag>else</tag> {
+          <name>console</name>.<tag>error</tag>(<value>'Error en la solicitud:'</value>, <name>xhr</name>.<tag>status</tag>);
+        }
+    };    
+    <name>xhr</name>.<tag>onerror</tag> = <value>function</value>() {
+        <name>console</name>.<tag>error</tag>(<value>'Error en la solicitud'</value>);
+    };  
+    </pre>  
+</figure>
+<p>💡 Con los datos de la respuesta sería posible alimentar una tabla o un listado por medio de la manipulación del DOM para visualizar los resultados de la consulta.</p>

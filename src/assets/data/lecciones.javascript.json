@@ -304,6 +304,12 @@
       "modulo": "javascript",
       "titulo": "AJAX",
       "contenido": "leccion.ajax.html",
-      "evaluaciones": [ ]
+      "evaluaciones": [ {
+        "tipo": 3,
+        "pregunta": "La solicitud devuelve el siguiente error: '405 Method Not Allowed'. ¿Cómo se corrige?",
+        "contenido": "let url = 'https://webservice.com/method';\nxhr.open('POST', url, true);",
+        "items": ["Cambiar el método POST por el que corresponda.", "Cambiar el método POST por GET.", "Cambiar 'https' por 'http' en la url.", "Poner el último parámetro en 'false'", "Crear la instancia del objeto xhr."],
+        "respuesta": "Cambiar el método POST por el que corresponda."
+      }]
      }
    ]
