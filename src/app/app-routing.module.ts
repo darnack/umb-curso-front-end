@@ -70,7 +70,11 @@ const routes: Routes = [
         loadChildren: () => import('./views/evaluaciones/ordenamiento/ordenamiento.module').then( m => m.OrdenamientoPageModule)
       }
     ]    
+  },  {
+    path: 'finalizada',
+    loadChildren: () => import('./views/evaluaciones/finalizada/finalizada.module').then( m => m.FinalizadaPageModule)
   }
+
 ];
 
 @NgModule({

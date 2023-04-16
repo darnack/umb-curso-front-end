@@ -45,7 +45,7 @@ export class RespuestaAbiertaPage implements OnInit {
         const leccion = this.leccionesService.getLeccion(module, id);
 
         this.modulo = module
-        this.numero = (Number(id) + 1).toString()
+        this.numero = id
 
         if(leccion.evaluaciones && leccion.evaluaciones.length > 0)
           this.evaluacion = leccion.evaluaciones[evaluation];
@@ -85,7 +85,7 @@ export class RespuestaAbiertaPage implements OnInit {
   siguiente()  {
     this.setOpen(false);
     this.currentTimeOut = setTimeout(() => {      
-      this.router.navigate(['/lecciones', this.modulo, this.numero])    
+      this.leccionesService.siguienteLeccion(this.modulo, this.numero)  
     }, 10);    
   }
 

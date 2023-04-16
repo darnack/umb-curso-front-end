@@ -1,0 +1,18 @@
+$umb-color: #990000;
+
+ion-button.ion-button-center {
+    display: block;
+    margin: 24px 30% 10px 30%;
+    width: 100%;    
+}
+
+p {
+    text-align: center;
+}
+
+ion-icon {
+    font-size: 90px;
+    margin: auto;
+    display: block;
+    color: $umb-color;
+}

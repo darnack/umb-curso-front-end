@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LeccionModel } from '../models/leccion.model'
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class LeccionesService {
 
   private lecciones: LeccionModel[]  
 
-  constructor(private httpClient: HttpClient) {        
+  constructor(private httpClient: HttpClient, private router: Router) {        
     this.lecciones = []
    
     this.loadData();
@@ -51,6 +52,7 @@ export class LeccionesService {
       modulo: output === undefined ? '' : output.modulo,
       titulo: output === undefined ? '' : output.titulo,
       contenido: output === undefined ? '' : output.contenido,
+      habilitada: output === undefined ? false : output.habilitada,
       evaluaciones: output?.evaluaciones
     };
   }
@@ -59,5 +61,18 @@ export class LeccionesService {
     this.lecciones = this.lecciones?.filter(leccion => {
       return leccion.numero !== number
     })
+  }
+
+  siguienteLeccion(modulo:string, numero:string )  {
+    var lecciones = this.getLecciones(modulo);
+    var siguiente = Number(numero) + 1
+
+    if(Number(lecciones?.length) < siguiente)
+    {
+      this.router.navigate(['/finalizada'])
+    }
+    else {
+      this.router.navigate(['/lecciones', modulo, siguiente])
+    }
   }
 }
