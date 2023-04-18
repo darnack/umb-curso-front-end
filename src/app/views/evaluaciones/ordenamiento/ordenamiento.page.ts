@@ -4,6 +4,7 @@ import { LeccionesService } from '../../../services/lecciones.service';
 import { EvaluacionModel } from 'src/app/models/evaluacion-model';
 import { TipoEvaluacion } from 'src/app/models/tipo-evaluacion';
 import { IonReorderGroup, ItemReorderEventDetail } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-ordenamiento',
@@ -22,7 +23,7 @@ export class OrdenamientoPage implements OnInit {
   modulo: string;
   currentTimeOut: NodeJS.Timeout | undefined
 
-  constructor(private activateRoute: ActivatedRoute, private leccionesService: LeccionesService, private router: Router) { 
+  constructor(private activateRoute: ActivatedRoute, private leccionesService: LeccionesService, private router: Router, private storage: Storage) { 
     this.evaluacion = {
       tipo: TipoEvaluacion.Default,
       pregunta: '',
@@ -78,7 +79,7 @@ export class OrdenamientoPage implements OnInit {
     }
   }
 
-  evaluate(answer: IonReorderGroup) 
+  async evaluate(answer: IonReorderGroup) 
   {
     if(this.currentTimeOut !== undefined)
       clearTimeout(this.currentTimeOut);
@@ -86,8 +87,13 @@ export class OrdenamientoPage implements OnInit {
     this.setOpen(true);
 
     if(JSON.stringify(this.logicItemsList) === JSON.stringify(this.evaluacion.items)) {
-      this.aprobado = true          
-      this.currentTimeOut = setTimeout(() => {            
+      this.aprobado = true  
+
+      var leccion  = String(Number(this.numero) + 1)
+      var key = this.modulo.concat("_", leccion)
+      await this.storage.set(key, false)   
+
+      this.currentTimeOut = setTimeout(() => {           
         this.siguiente();
       }, 3000);
     }
@@ -105,7 +111,7 @@ export class OrdenamientoPage implements OnInit {
 
   siguiente()  {
     this.setOpen(false);
-    this.currentTimeOut = setTimeout(() => {      
+    this.currentTimeOut = setTimeout(() => {
       this.leccionesService.siguienteLeccion(this.modulo, this.numero)  
     }, 10);    
   }

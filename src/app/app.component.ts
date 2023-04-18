@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { LeccionesService } from './services/lecciones.service';
+import { Storage } from '@ionic/storage-angular';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -17,5 +19,11 @@ export class AppComponent {
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   
   // Se inyecta servicio para que carge las lecciones desde el arranque de la app con suficiente tiempo para evitar pantallas blancas por falta de datos
-  constructor(private leccionesService: LeccionesService) {}
+  constructor(private leccionesService: LeccionesService, private storage: Storage) {}
+
+  async ngOnInit() {
+    // If using a custom driver:
+    // await this.storage.defineDriver(MyCustomDriver)
+    await this.storage.create();
+  }
 }

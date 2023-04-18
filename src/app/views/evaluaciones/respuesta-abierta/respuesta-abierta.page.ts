@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { LeccionesService } from '../../../services/lecciones.service';
 import { EvaluacionModel } from 'src/app/models/evaluacion-model';
 import { TipoEvaluacion } from 'src/app/models/tipo-evaluacion';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-respuesta-abierta',
@@ -19,7 +20,7 @@ export class RespuestaAbiertaPage implements OnInit {
   modulo: string;
   currentTimeOut: NodeJS.Timeout | undefined
 
-  constructor(private activateRoute: ActivatedRoute, private leccionesService: LeccionesService, private router: Router) {
+  constructor(private activateRoute: ActivatedRoute, private leccionesService: LeccionesService, private router: Router, private storage: Storage) {
     this.evaluacion = {
       tipo: TipoEvaluacion.Default,
       pregunta: '',
@@ -53,7 +54,7 @@ export class RespuestaAbiertaPage implements OnInit {
     );
   }
 
-  evaluate(answer: HTMLInputElement) 
+  async evaluate(answer: HTMLInputElement) 
   {
     if (answer.value && answer.value?.toString().trim() !== '')
     {
@@ -63,7 +64,12 @@ export class RespuestaAbiertaPage implements OnInit {
       this.setOpen(true);
 
       if(answer.value?.toString().trim().toUpperCase() == this.evaluacion.respuesta.trim().toUpperCase()) {
-        this.aprobado = true          
+        this.aprobado = true   
+        
+        var leccion  = String(Number(this.numero) + 1)
+        var key = this.modulo.concat("_", leccion)  
+        await this.storage.set(key, false)   
+
         this.currentTimeOut = setTimeout(() => {            
           this.siguiente();
         }, 3000);
@@ -82,10 +88,10 @@ export class RespuestaAbiertaPage implements OnInit {
     this.isModalOpen = isOpen;
   }
 
-  siguiente()  {
+  siguiente() {
     this.setOpen(false);
-    this.currentTimeOut = setTimeout(() => {      
-      this.leccionesService.siguienteLeccion(this.modulo, this.numero)  
+    this.currentTimeOut = setTimeout(() => {
+        this.leccionesService.siguienteLeccion(this.modulo, this.numero)  
     }, 10);    
   }
 

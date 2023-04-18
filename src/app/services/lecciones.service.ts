@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class LeccionesService {
 
-  private lecciones: LeccionModel[]  
+  private lecciones: Array<LeccionModel>
 
   constructor(private httpClient: HttpClient, private router: Router) {        
     this.lecciones = []
@@ -30,14 +30,10 @@ export class LeccionesService {
     });
   }
 
-  getLecciones(module: string) : LeccionModel[] | undefined {
+  getLecciones(module: string) : LeccionModel[] {
     var output =  this.lecciones?.filter(leccion => {
       return leccion.modulo === module
     })
-
-    output.forEach(function(item, index){
-      item.numero = String(index + 1);
-    });
 
     return output
   }
@@ -52,7 +48,7 @@ export class LeccionesService {
       modulo: output === undefined ? '' : output.modulo,
       titulo: output === undefined ? '' : output.titulo,
       contenido: output === undefined ? '' : output.contenido,
-      habilitada: output === undefined ? false : output.habilitada,
+      desabilitado: output === undefined ? true : output.desabilitado,
       evaluaciones: output?.evaluaciones
     };
   }

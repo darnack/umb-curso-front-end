@@ -4,6 +4,7 @@ import { LeccionesService } from '../../../services/lecciones.service';
 import { EvaluacionModel } from 'src/app/models/evaluacion-model';
 import { TipoEvaluacion } from 'src/app/models/tipo-evaluacion';
 import { IonRadioGroup } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-opcion-multiple',
@@ -20,7 +21,7 @@ export class OpcionMultiplePage implements OnInit {
   modulo: string;
   currentTimeOut: NodeJS.Timeout | undefined
 
-  constructor(private activateRoute: ActivatedRoute, private leccionesService: LeccionesService, private router: Router) { 
+  constructor(private activateRoute: ActivatedRoute, private leccionesService: LeccionesService, private router: Router, private storage: Storage) { 
     this.evaluacion = {
       tipo: TipoEvaluacion.Default,
       pregunta: '',
@@ -61,7 +62,7 @@ export class OpcionMultiplePage implements OnInit {
     this.evaluacion.items = newList;
   }
 
-  evaluate(answer: IonRadioGroup) 
+  async evaluate(answer: IonRadioGroup) 
   {
     if (answer.value && answer.value?.toString().trim() !== '')
     {
@@ -71,7 +72,12 @@ export class OpcionMultiplePage implements OnInit {
       this.setOpen(true);
 
       if(answer.value?.toString().trim() == this.evaluacion.respuesta) {
-        this.aprobado = true          
+        this.aprobado = true 
+
+        var leccion  = String(Number(this.numero) + 1)
+        var key = this.modulo.concat("_", leccion)  
+        await this.storage.set(key, false)   
+
         this.currentTimeOut = setTimeout(() => {            
           this.siguiente();
         }, 3000);
@@ -91,7 +97,7 @@ export class OpcionMultiplePage implements OnInit {
 
   siguiente()  {
     this.setOpen(false);
-    this.currentTimeOut = setTimeout(() => {      
+    this.currentTimeOut = setTimeout(() => {
       this.leccionesService.siguienteLeccion(this.modulo, this.numero)      
     }, 10);    
   }

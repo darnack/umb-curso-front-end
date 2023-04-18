@@ -19,7 +19,7 @@
 
   <div id="container">    
     <ion-list>
-      <ion-item *ngFor="let leccion of lecciones" [routerLink]="['/lecciones', leccion.modulo, leccion.numero]" disabled="leccion.habilitada">
+      <ion-item *ngFor="let leccion of lecciones" [routerLink]="['/lecciones', leccion.modulo, leccion.numero]" disabled="{{leccion.desabilitado}}">
         <span class="item">
           {{leccion.numero}}
         </span>
@@ -29,5 +29,5 @@
       </ion-item>
     </ion-list>
   </div>
-  
+ 
 </ion-content>
