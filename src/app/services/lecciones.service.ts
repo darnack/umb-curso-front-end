@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { LeccionModel } from '../models/leccion.model'
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage-angular';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class LeccionesService {
 
   private lecciones: Array<LeccionModel>
 
-  constructor(private httpClient: HttpClient, private router: Router) {        
+  constructor(private httpClient: HttpClient, private router: Router, private storage: Storage) {        
     this.lecciones = []
    
     this.loadData();
@@ -59,12 +60,19 @@ export class LeccionesService {
     })
   }
 
-  siguienteLeccion(modulo:string, numero:string )  {
+  async siguienteLeccion(modulo:string, numero:string )  {
     var lecciones = this.getLecciones(modulo);
     var siguiente = Number(numero) + 1
 
     if(Number(lecciones?.length) < siguiente)
     {
+      var next_module = "";
+      if(modulo == "html") next_module = "css";
+      else if (modulo == "css") next_module = "javascript";
+
+      if(next_module !== "")
+        await this.storage.set(next_module.concat("_1"), false)
+
       this.router.navigate(['/finalizada'])
     }
     else {

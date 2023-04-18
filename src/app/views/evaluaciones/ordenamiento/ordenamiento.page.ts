@@ -112,7 +112,7 @@ export class OrdenamientoPage implements OnInit {
   siguiente()  {
     this.setOpen(false);
     this.currentTimeOut = setTimeout(() => {
-      this.leccionesService.siguienteLeccion(this.modulo, this.numero)  
+      this.leccionesService.siguienteLeccion(this.modulo, this.numero).then()  
     }, 10);    
   }
 

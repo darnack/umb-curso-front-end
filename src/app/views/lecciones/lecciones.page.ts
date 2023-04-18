@@ -29,7 +29,11 @@ export class LeccionesPage implements OnInit {
 
         this.lecciones = this.leccionesService.getLecciones(module);
 
-        this.lecciones[0].desabilitado = false
+        var n = this.lecciones.findIndex(x => x.modulo == "html" && x.numero == "1");
+
+        if(n >= 0) {          
+          this.lecciones[n].desabilitado = false
+        }
 
         var el = this;
 
@@ -40,8 +44,9 @@ export class LeccionesPage implements OnInit {
             
             var i = el.lecciones.findIndex(x => x.modulo == modulo && x.numero == numero);
     
-            if(i > 0) {              
+            if(i >= 0) {              
               el.lecciones[i].desabilitado = Boolean(value);
+              //console.log("modulo:", el.lecciones[i].modulo, "numero:", el.lecciones[i].numero, "deshabilitado:", el.lecciones[i].desabilitado)
             }    
         });
 
