@@ -1,43 +1,180 @@
-<p>Cada elemento HTML tiene una etiqueta asociada. Podemos crear un elemento usando su etiqueta en nuestro archivo HTML</p>
-<p>Estos son ejemplos de etiquetas usadas comúnmente:</p>
-<ul>
-  <li><code>&lt;html&gt;</code>: Todo el contenido de la página debe estar entre estas etiquetas.</li>
-  <li><code>&lt;head&gt;</code>: Contiene el título de la página que puedes ver en la pestaña de tu navegador y además contiene metadatos.</li>
-  <li><code>&lt;body&gt;</code>: Contiene todos los elementos visibles de la página web. Toda la estructura de la página debe estar entre estas etiquetas.</li>
-  <li><code>&lt;div&gt;</code>: Contenedor de elementos. Permite personalizar la estructura de un documento html.</li>  
-  <li><code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code>, <code>&lt;h6&gt;</code>: Estos elementos representan encabezados o títulos de mayor a menor importancia o nivel en la página web. &nbsp;</li>
-  <li><code>&lt;p&gt;</code>: Párrafo.</li>
-  <li><code>&lt;span&gt;</code>: Etiqueta de texto.</li>
-  <li><code>&lt;a&gt;</code>: Enlace a otra página web o a secciones internas de tu página web.</li>
-  <li><code>&lt;strong&gt;</code>: Permite resaltar texto importante mostrándola en negrilla. </li>
-  <li><code>&lt;center&gt;</code>: Permite centrar un conjunto de elementos. </li>
-  <li><code>&lt;em&gt;</code>: Permite resaltar texto importante mostrándola en cursiva.</li>
-  <li><code>&lt;hr&gt;</code>: Línea horizontal que puede ser usada para separar párrafos o secciones de tu página web.</li>
-  <li><code>&lt;br&gt;</code>: Salto de línea.</li>
-  <li><code>&lt;form&gt;</code>: Formulario. Permite capturar datos.</li>  
-  <li><code>&lt;input&gt;</code>: Campo de entrada que permite capturar información para porteriormente enviarla a un servidor.</li>
-  <li><code>&lt;select&gt;</code>: Lista desplegable.</li>
-  <li><code>&lt;textarea&gt;</code>: Campo de texto multilínea.</li>
-  <li><code>&lt;ol&gt;</code>: Lista de elementos ordenados.</li>
-  <li><code>&lt;ul&gt;</code>: Lista de elementos no ordenados.</li>  
-  <li><code>&lt;aside&gt;</code>: Panel lateral.</li>
-  <li><code>&lt;footer&gt;</code>: Pie de página.</li>
-</ul>
+<p>Una etiqueta es una marca que representa un elemento HTML. Cada elemento HTML tiene una etiqueta asociada. 
+  Podemos crear un elemento usando su etiqueta correspondiente.</p>
 
-<p>La mayoría de los elementos en HTML tienen una etiqueta de apertura y una etiqueta de cierre. Entre ambas etiquetas se escribe el contenido del elemento.</p>
+<p>La mayoría de los elementos en HTML tienen una etiqueta de apertura y una etiqueta de cierre. Entre ambas etiquetas el elemento puede contener texto u otro elemento HTML.</p>
 <figure class="code-card">
   <pre class="code-pre">
-  &lt;<tag>h1</tag>&gt;<text>Mi elemento HTML</text>&lt;/<tag>h1</tag>&gt;        
+    &lt;<tag>h1</tag>&gt;<text>Esta es una etiqueta de título</text>&lt;/<tag>h1</tag>&gt;        
   </pre>
 </figure>
 <p>Este elemento tiene una etiqueta de apertura y una etiqueta de cierre para rodear su contenido.</p>
-<ul><li>La etiqueta de apertura es <code><strong>&lt;h1&gt;</strong></code> </li><li>La etiqueta de cierre es <code><strong>&lt;/h1&gt;</strong></code>.</li></ul>
+<ul>
+  <li>La etiqueta de apertura es <code><strong>&lt;h1&gt;</strong></code>.</li>
+  <li>La etiqueta de cierre es <code><strong>&lt;/h1&gt;</strong></code>.</li>
+</ul>
 <p>Sin embargo, algunos elementos no necesitan una etiqueta de cierre porque no actúan como contenedores. Por ejemplo, imágenes y campos de entrada:</p>
 <figure class="code-card">
   <pre class="code-pre">
-  &lt;!-- Etiqueta de imagen --&gt;
-  &lt;<tag>img</tag> <name>src</name>="<value>imagen.jpg</value>" /&gt; 
-  &lt;!-- Etiqueta de campo de entrada --&gt;
-  &lt;<tag>input</tag> <name>type</name>="<value>text</value>" /&gt;
+    &lt;!-- Etiqueta de imagen --&gt;
+    &lt;<tag>img</tag> <name>src</name>="<value>imagen.jpg</value>" /&gt; 
+    &lt;!-- Etiqueta de campo de entrada --&gt;
+    &lt;<tag>input</tag> <name>type</name>="<value>text</value>" /&gt;
   </pre>
 </figure>
+<p>Las etiquetas pueden contener otras etiquetas, lo que permite estructurar contenido para crear formas más complejas.</p>
+<figure class="code-card">
+  <pre class="code-pre">
+    &lt;<tag>div</tag> <name>class</name>="<value>articulo</value>"&gt;   
+      &lt;<tag>h1</tag>&gt;<text>Título</text>&lt;/<tag>h1</tag>&gt;    
+      &lt;<tag>p</tag>&gt;<text>Párrafo</text> &lt;<tag>b</tag>&gt;<text>negrilla</text>&lt;/<tag>b</tag>&gt;&lt;/<tag>p</tag>&gt;
+      &lt;<tag>a</tag> <name>href</name>="<value>home.html</value>"&gt;
+       &lt;<tag>img</tag> <name>src</name>="<value>imagen.gif</value>" /&gt;         
+      &lt;/<tag>a</tag>&gt; 
+    &lt;/<tag>div</tag>&gt; 
+  </pre>
+</figure>
+<p>Existen muchas etiquetas HTML. Las más usadas comúnmente son:</p>
+<table class="ws-table-all notranslate">
+  <tbody>
+  <tr>    
+    <th>Etiqueta</th>
+    <th>Descripción</th>
+  </tr>
+  <tr>    
+    <td><code>&lt;html&gt;</code></td>
+    <td>Todo el contenido de la página debe estar entre estas etiquetas.</td>
+  </tr>
+  <tr>    
+    <td><code>&lt;head&gt;</code></td>
+    <td>Contiene el título de la página que puedes ver en la pestaña de tu navegador y además contiene metadatos.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;body&gt;</code></td>
+    <td>Contiene todos los elementos visibles de la página web. Toda la estructura de la página debe estar entre estas etiquetas.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;div&gt;</code></td>
+    <td>Contenedor de elementos. Permite personalizar la estructura de un documento html.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code>, <code>&lt;h6&gt;</code></td>
+    <td>Estos elementos representan encabezados o títulos de mayor a menor importancia o nivel en la página web.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;p&gt;</code></td>
+    <td>Párrafo. Ideal para contener grandes cantidades de texto.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;span&gt;</code></td>
+    <td>Etiqueta de texto. Puede utilizarse para pequeñas notaciones de texto.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;a&gt;</code></td>
+    <td>Enlace a otra página web o a secciones internas de la página web.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;img&gt;</code></td>
+    <td>Inserta una imagen.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;audio&gt;</code></td>
+    <td>Inserta un audio.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;video&gt;</code></td>
+    <td>Inserta un video.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;b&gt;</code></td>
+    <td>Texto en negrilla.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;i&gt;</code></td>
+    <td>Texto en cursiva.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;u&gt;</code></td>
+    <td>Texto subrayado.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;blockquote&gt;</code></td>
+    <td>Texto en formato de cita.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;hr&gt;</code></td>
+    <td>Línea horizontal. Permite crear separación entre diferentes contenidos.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;br&gt;</code></td>
+    <td>Salto de línea.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;form&gt;</code></td>
+    <td>Formulario. Permite capturar datos.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;input&gt;</code></td>
+    <td>Campo de entrada que permite capturar información para porteriormente enviarla a un servidor.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;label&gt;</code></td>
+    <td>Título de un campo de entrada.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;button&gt;</code></td>
+    <td>Botón de acción para dar clic.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;select&gt;</code></td>
+    <td>Lista desplegable.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;option&gt;</code></td>
+    <td>Elemento de la lista desplegable.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;textarea&gt;</code></td>
+    <td>Campo de texto multilínea.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;ol&gt;</code></td>
+    <td>Lista de elementos ordenados.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;ul&gt;</code></td>
+    <td>Lista de elementos no ordenados.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;li&gt;</code></td>
+    <td>Elemento de una lista.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;table&gt;</code></td>
+    <td>Permite crear una tabla.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;tr&gt;</code></td>
+    <td>Fila de una tabla</td>
+  </tr>
+  <tr>
+    <td><code>&lt;td&gt;</code></td>
+    <td>Columna de una tabla.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;header&gt;</code></td>
+    <td>Cabecera de la página.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;nav&gt;</code></td>
+    <td>Menú de navegación.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;aside&gt;</code></td>
+    <td>Panel lateral.</td>
+  </tr>
+  <tr>
+    <td><code>&lt;footer&gt;</code></td>
+    <td>Pie de página.</td>
+  </tr>
+  </tbody>
+</table>

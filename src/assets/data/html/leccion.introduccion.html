@@ -1,4 +1,5 @@
-<p>HTML es un lenguaje de marcado, permite definir la estructura de la página web, el contenido que se va a mostrar en el navegador. Sus siglas significan "HyperText Markup Language", en inglés (Lenguaje de Marcado de Hipertexto).</p>
+<p>HTML es un lenguaje de marcado, permite definir la estructura de una página o aplicación web, el contenido que se va a mostrar en el navegador. 
+  Sus siglas significan "HyperText Markup Language", o <i>Lenguaje de Marcado de Hipertexto</i>.</p>
 <p>Un archivo HTML está conformado por elementos HTML. Estos elementos son componentes individuales que nos permiten crear la estructura de la página.</p>
 <p>Aquí tenemos un ejemplo de una página web muy sencilla:</p>
 <figure class="code-card">
@@ -10,17 +11,20 @@
     &lt;/<tag>head</tag>&gt; 
     &lt;<tag>body</tag>&gt;     
       &lt;<tag>h1</tag>&gt;<text>Mi página web</text>&lt;/<tag>h1</tag>&gt;
-      &lt;<tag>p</tag>&gt;<text>Estoy aprendiendo desarrollo web.</text>&lt;/<tag>p</tag>&gt;
+      &lt;<tag>p</tag>&gt;<text>Introducción al mundo HTML.</text>&lt;/<tag>p</tag>&gt;
     &lt;/<tag>body</tag>&gt; 
   &lt;/<tag>html</tag>&gt; 
   </pre>  
 </figure>
 
-<p>Un documento HTML está dividido en dos zonas principales:</p>
-<ul>
-  <li>La cabecera, comprendida entre las etiquetas <code>&lt;head&gt;</code> y <code>&lt;/head&gt;</code>.</li>
-  <li>El cuerpo, comprendido entre las etiquetas <code>&lt;body&gt;</code> y <code>&lt;/body&gt;</code>.</li>
-</ul>
-<p>Dentro de la cabecera hay información del documento que no se ve en la pantalla del navegador, principalmente la información encontrada en la cabecera es el título del documento, metadatos de la página, referencia a hojas de estilo y referencia a scripts.</p>
-<p>Dentro del cuerpo está todo lo que queremos que aparezca en la pantalla principal como texto, botones, controles, formularios, imágenes, vídeo y animaciones.</p>
- 
+<h3>Doctype</h3>
+<p>La declaración <code>&lt;!DOCTYPE html&gt;</code> es un <i>document type declaration</i> o <i>DTD</i>. 
+  Informa al navegador qué versión de HTML se usó para escribir el documento. En este caso el doctype corresponde a un documento HTML 5.</p>
+<h3>Html</h3>
+<p>La etiqueta <code>&lt;html&gt;</code> sirve para contener la cabecera y el cuerpo del documento HTML. Puede contener atributos como el idioma del documento.</p>
+<h3>Head</h3>
+<p>La cabecera, comprendida entre las etiquetas <code>&lt;head&gt;</code> y <code>&lt;/head&gt;</code> 
+  contiene información del documento que no se ve en la pantalla del navegador. Principalmente la información encontrada en la cabecera es el título del documento, metadatos de la página, referencia a hojas de estilo y referencia a scripts</p>
+<h3>Body</h3>
+<p>El cuerpo, comprendido entre las etiquetas <code>&lt;body&gt;</code> y <code>&lt;/body&gt;</code> 
+  contiene todo lo que queremos que aparezca en la pantalla como texto, botones, controles, formularios, imágenes, vídeo y animaciones.</p>
