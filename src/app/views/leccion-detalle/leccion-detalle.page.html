@@ -4,7 +4,9 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-back-button></ion-back-button>
+      <ion-button color="dark" (click)="goBack()">
+          <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>       
     </ion-buttons>
     <ion-title>{{leccion.titulo}}</ion-title>
   </ion-toolbar>

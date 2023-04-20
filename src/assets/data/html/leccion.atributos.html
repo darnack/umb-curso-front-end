@@ -1,30 +1,98 @@
-<p>Los elementos HTML pueden tener atributos que nos permiten describir información adicional sobre el elemento. Estos incluyen <code><strong>class</strong></code>, <code><strong>id</strong></code>, <code><strong>style</strong></code>, <code><strong>lang</strong></code>, <code><strong>src</strong></code>, y <code><strong>href</strong></code>.</p>
+<p>Las etiquetas HTML tienen atributos que controlan su aspecto y comportamiento. </p>
 <figure class="code-card">
     <pre class="code-pre">
-    &lt;<tag>h1</tag> <name>id</name>="<value>identificador</value>"&gt;<text>Título</text>&lt;/<tag>h1</tag>&gt;      
+    &lt;<tag>h1</tag> <name>atributo</name>="<value>valor</value>"&gt;...&lt;/<tag>h1</tag>&gt;      
     </pre>  
   </figure>
-<ul><li>Los atributos deben ser escritos en la etiqueta de apertura, antes del paréntesis angular de cierre. </li><li>Los atributos están separados por un signo igual <code>=</code> de su valor. A la izquierda escribimos el nombre del atributo y a la derecha especificamos su valor. En este ejemplo, el valor es <code><strong>identificador</strong></code>.</li><li>El valor del atributo debe estar rodeado por comillas. </li></ul>
-<p>Cada tipo de elemento tiene un conjunto específico de atributos que podemos asignar y cada atributo tiene un conjunto de valores posibles.</p>
-<p>Estos son algunos de los atributos más comunes, y que además son soportados globalmente por cualquier elemento HTML:</p>
-<ul>
-    <li><code>id</code>: Permite asignar un identificador único al elemento.</li>
-    <li><code>name</code>: Asigna un nombre que permite a los formularios acceder al valor de un campo.</li>
-    <li><code>style</code>: Define los atributos de estilos CSS para un elemento determinado.</li>
-    <li><code>class</code>: Asocia al elemento una o varias clases de estilos CSS contenidas desde una hoja de estilo.</li>
-    <li><code>title</code>: Texto a ser mostrado cuando el cursor esté sobre el elemento.</li>
-    <li><code>lang</code>: Define el lenguaje utilizado en el elemento.</li>
-    <li><code>spellcheck</code>: Indica si se permite la corrección ortográfica para el elemento.</li>    
-    <li><code>accesskey</code>: Define una tecla que activa o agrega un foco al elemento.</li>
-    <li><code>draggable</code>: Define si el elemento puede ser arrastrado.</li>
-    <li><code>dropzone</code>: Indica que el elemento acepta contenido soltado en el mismo.</li>
-</ul>
-<p>Estos son otros atributos muy comunes, pero que son soportados por elementos muy especificos:</p>
-<ul>
-    <li><code>href</code>: Permite asignar una URL a un enlace <code>&lt;a&gt;</code>.</li>
-    <li><code>src</code>: Permite indicar la fuente de una imagen.</li>
-    <li><code>maxlength</code>: Define la longuitud máxima permitida para un <code>&lt;input&gt;</code> o un <code>&lt;textarea&gt;</code>.</li>
-    <li><code>type</code>: Define el tipo para los elementos <code>&lt;button&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;embed&gt;</code>, <code>&lt;object&gt;</code>,  <code>&lt;script&gt;</code>, <code>&lt;source&gt;</code>, <code>&lt;style&gt;</code>.</li>
-    <li><code>value</code>: Define el valor para los elementos <code>&lt;button&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;option&gt;</code>, <code>&lt;li&gt;</code>,  <code>&lt;meter&gt;</code>, <code>&lt;progress&gt;</code>, <code>&lt;param&gt;</code>.</li>
-</ul>
+<p>📌 Los atributos deben ser escritos dentro la etiqueta de apertura.</p> 
+<p>📌 Los atributos requieren un valor que debe ser escrito entre comillas después del símbolo igual.</p>
+<p>📌 Una eqtiqueta puede tener más de un atributo, estos deben estar separados por un espacio simple.</p>
+<h3>Atributos comunes</h3>
+<p>Existen atributos que son soportados por todas las etiquetas de forma común, estos son:</p>
+<table class="ws-table-all notranslate">
+    <tbody><tr>    
+        <th>Atributo</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>id</td>
+        <td>Permite asignar un identificador único al elemento.</td>
+    </tr>
+    <tr>    
+        <td>name</td>
+        <td>Asigna un nombre que permite a los formularios acceder al valor de un campo.</td>
+    </tr>
+    <tr>    
+        <td>style</td>
+        <td>Define los atributos de estilos CSS para un elemento determinado.</td>
+    </tr>
+    <tr>    
+        <td>class</td>
+        <td>Asocia al elemento una o varias clases de estilos CSS contenidas desde una hoja de estilo.</td>
+    </tr>
+    <tr>    
+        <td>title</td>
+        <td>Texto a ser mostrado cuando el cursor esté sobre el elemento.</td>
+    </tr>
+    <tr>    
+        <td>lang</td>
+        <td>Define el lenguaje utilizado en el elemento.</td>
+    </tr>
+    <tr>    
+        <td>spellcheck</td>
+        <td>Indica si se permite la corrección ortográfica para el elemento.</td>
+    </tr>
+    <tr>    
+        <td>accesskey</td>
+        <td>Define una tecla que activa o agrega un foco al elemento.</td>
+    </tr>
+    <tr>    
+        <td>draggable</td>
+        <td>Define si el elemento puede ser arrastrado.</td>
+    </tr>
+    <tr>    
+        <td>dropzone</td>
+        <td>Indica que el elemento acepta contenido soltado en el mismo.</td>
+    </tr>
+    </tbody>
+</table>
+<h3>Atributos propios</h3>
+<p>Cada etiqueta tiene atributos propios que controlan características que son particulares de la etiqueta. La lista es enorme, por lo que a continuación se muestran solo unos ejemplos:</p>
+<table class="ws-table-all notranslate">
+    <tbody><tr>    
+    <th>Atributo</th>
+    <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>href</td>
+        <td>Permite asignar una URL a un enlace <code>&lt;a&gt;</code>.</td>
+    </tr>
+    <tr>    
+        <td>src</td>
+        <td>Permite indicar el origen de un recurso. Es soportado por las etiquetas <code>&lt;img&gt;</code>, <code>&lt;source&gt;</code> y <code>&lt;script&gt;</code>.</td>
+    </tr>
+    <tr>    
+        <td>maxlength</td>
+        <td>Define la longuitud máxima permitida para un <code>&lt;input&gt;</code> o un <code>&lt;textarea&gt;</code></td>
+    </tr>
+    <tr>    
+        <td>type</td>
+        <td>Define el tipo para los elementos <code>&lt;button&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;embed&gt;</code>, <code>&lt;object&gt;</code>,  <code>&lt;script&gt;</code>, <code>&lt;source&gt;</code>, <code>&lt;style&gt;</code>.</td>
+    </tr>
+    <tr>    
+        <td>value</td>
+        <td>Define el valor para los elementos <code>&lt;button&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;option&gt;</code>, <code>&lt;li&gt;</code>,  <code>&lt;meter&gt;</code>, <code>&lt;progress&gt;</code>, <code>&lt;param&gt;</code>.</td>
+    </tr>
+    </tbody>
+</table>
+
 <p>💡 Estudia el diccionario completo de atributos <a href="https://developer.mozilla.org/es/docs/Web/HTML/Attributes" target="_blank">aquí</a>.</p>
+
+<h3>Atributos personalizados</h3>
+<p>Si los atributos comunes o propios de las etiquetas no son suficientes, existe la posibilidad de crear atributos personalizados para cualquier etiqueta. A esto se le llama <code>data rol</code>.</p>
+<p>Para crear un <code>data rol</code> el nombre del atributo personalizado debe comenzar con <code>data-</code> y continuar con el nombre personalizado. Por ejemplo:</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>td</tag> <name>data-referencia</name>="<value>123</value>"&gt;...&lt;/<tag>td</tag>&gt;      
+    </pre>  
+  </figure>

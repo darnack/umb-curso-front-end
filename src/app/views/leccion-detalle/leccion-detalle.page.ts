@@ -5,6 +5,7 @@ import { LeccionModel } from '../../models/leccion.model'
 import { DomSanitizer} from '@angular/platform-browser';
 import { TipoEvaluacion } from 'src/app/models/tipo-evaluacion';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-leccion-detalle',
@@ -22,7 +23,8 @@ export class LeccionDetallePage implements OnInit {
     private activateRoute: ActivatedRoute, 
     private leccionesService: LeccionesService, 
     private sanitizer: DomSanitizer,
-    private httpClient: HttpClient) 
+    private httpClient: HttpClient,
+    private router: Router) 
   {
     this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml('');
     this.leccion = { 
@@ -92,4 +94,7 @@ export class LeccionDetallePage implements OnInit {
       return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
+  goBack() {
+    this.router.navigate(['/lecciones', this.leccion.modulo])
+  }
 }
