@@ -5,6 +5,6 @@ export interface LeccionModel {
     modulo: string,
     titulo: string,
     contenido: string,
-    desabilitado: boolean,
+    deshabilitado: boolean,
     evaluaciones: EvaluacionModel[] | undefined
 }

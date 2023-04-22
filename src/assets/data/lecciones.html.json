@@ -184,6 +184,21 @@
     { 
       "numero":"9",
       "modulo": "html",
+      "titulo": "Mapas de imágenes",
+      "contenido":"leccion.mapas.html",
+      "evaluaciones": [	  
+        {
+          "tipo": 3,
+          "pregunta": "¿A qué tipo de forma corresponde esta área?",
+          "contenido": "<area coords=\"25,25,10\">",
+          "items": ["Un triángulo","Un círculo","Un polígono de 3 puntos", "Un óvalo"],
+          "respuesta": "Un círculo"
+        }
+	  ]
+    },
+    { 
+      "numero":"10",
+      "modulo": "html",
       "titulo": "Multimedia",
       "contenido":"leccion.multimedia.html",
       "evaluaciones": [	  
@@ -204,7 +219,7 @@
 	  ]
     },  
     { 
-      "numero":"10",
+      "numero":"11",
       "modulo": "html",
       "titulo": "iFrame",
       "contenido":"leccion.iframe.html",
@@ -216,6 +231,25 @@
         "items": ["scrolling","allowfullscreen","importance", "source"],
         "respuesta": "source"
       }
+	  ]
+    },
+    { 
+      "numero":"12",
+      "modulo": "html",
+      "titulo": "Marquesinas",
+      "contenido":"leccion.marquesinas.html",
+      "evaluaciones": [
+        {
+          "tipo": 3,
+          "pregunta": "¿Cuál es el comportameinto de este código?",
+          "contenido": "<marquee direction=\"alternate\">...</marquee>",
+          "items": [
+            "El texto rotará desapareciendo por un borde y apareciendo por el otro.",
+            "El texto aparecerá de un lado y se desplazará hasta el otro lado deteniendose allí",
+            "El texto se desplazará de un lado al otro rebotando en los bordes de la pantalla.", 
+            "El texto rotará sobre su propio eje."],
+          "respuesta": "El texto se desplazará de un lado al otro rebotando en los bordes de la pantalla."
+        } 
 	  ]
     }
 ]

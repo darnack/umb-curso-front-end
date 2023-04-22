@@ -32,7 +32,7 @@ export class LeccionDetallePage implements OnInit {
       modulo: '',
       titulo: '',
       contenido:'',
-      desabilitado: true,
+      deshabilitado: true,
       evaluaciones: undefined
     };
 

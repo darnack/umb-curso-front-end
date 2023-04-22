@@ -49,7 +49,7 @@ export class LeccionesService {
       modulo: output === undefined ? '' : output.modulo,
       titulo: output === undefined ? '' : output.titulo,
       contenido: output === undefined ? '' : output.contenido,
-      desabilitado: output === undefined ? true : output.desabilitado,
+      deshabilitado: output === undefined ? true : output.deshabilitado,
       evaluaciones: output?.evaluaciones
     };
   }

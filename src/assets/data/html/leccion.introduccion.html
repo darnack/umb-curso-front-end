@@ -4,16 +4,17 @@
 <p>Aquí tenemos un ejemplo de una página web muy sencilla:</p>
 <figure class="code-card">
   <pre class="code-pre">
-  &lt;!DOCTYPE html&gt;
-  &lt;<tag>html</tag> <name>lang</name>="<value>es</value>"&gt;  
-    &lt;<tag>head</tag>&gt;
-      &lt;<tag>title</tag>&gt;<text>Mi página web</text>&lt;/<tag>title</tag>&gt;
-    &lt;/<tag>head</tag>&gt; 
-    &lt;<tag>body</tag>&gt;     
-      &lt;<tag>h1</tag>&gt;<text>Mi página web</text>&lt;/<tag>h1</tag>&gt;
-      &lt;<tag>p</tag>&gt;<text>Introducción al mundo HTML.</text>&lt;/<tag>p</tag>&gt;
-    &lt;/<tag>body</tag>&gt; 
-  &lt;/<tag>html</tag>&gt; 
+    &lt;!DOCTYPE html&gt;
+    &lt;<tag>html</tag> <name>lang</name>="<value>es</value>"&gt;  
+      &lt;<tag>head</tag>&gt;
+        &lt;<tag>title</tag>&gt;<text>Mi página web</text>&lt;/<tag>title</tag>&gt;
+        &lt;<tag>meta</tag> <name>charset</name>="<value>utf-8</value>"/&gt;
+      &lt;/<tag>head</tag>&gt; 
+      &lt;<tag>body</tag>&gt;     
+        &lt;<tag>h1</tag>&gt;<text>Mi página web</text>&lt;/<tag>h1</tag>&gt;
+        &lt;<tag>p</tag>&gt;<text>Introducción al mundo HTML.</text>&lt;/<tag>p</tag>&gt;
+      &lt;/<tag>body</tag>&gt; 
+    &lt;/<tag>html</tag>&gt; 
   </pre>  
 </figure>
 
@@ -24,7 +25,10 @@
 <p>La etiqueta <code>&lt;html&gt;</code> sirve para contener la cabecera y el cuerpo del documento HTML. Puede contener atributos como el idioma del documento.</p>
 <h3>Head</h3>
 <p>La cabecera, comprendida entre las etiquetas <code>&lt;head&gt;</code> y <code>&lt;/head&gt;</code> 
-  contiene información del documento que no se ve en la pantalla del navegador. Principalmente la información encontrada en la cabecera es el título del documento, metadatos de la página, referencia a hojas de estilo y referencia a scripts</p>
+  contiene información del documento que no se ve en la pantalla del navegador. Principalmente la información encontrada en la cabecera es el título del documento, metadatos de la página, referencia a hojas de estilo y referencia a scripts.</p>
 <h3>Body</h3>
 <p>El cuerpo, comprendido entre las etiquetas <code>&lt;body&gt;</code> y <code>&lt;/body&gt;</code> 
   contiene todo lo que queremos que aparezca en la pantalla como texto, botones, controles, formularios, imágenes, vídeo y animaciones.</p>
+<h3>Meta</h3>
+<p>La etiqueta <code>&lt;meta&gt;</code> sirve para aportar información sobre el documento, como por ejemplo, 
+  el conjunto de caracteres soportados por el documento mediante el atributo <code>charset</code>.</p>

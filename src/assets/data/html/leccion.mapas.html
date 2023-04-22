@@ -1,0 +1,99 @@
+<p>Los mapas de imágenes permiten crear áreas distinguibles dentro de una misma imagen, y a cada área se le puede asignar un enlace. 
+    Esto resulta muy útil para crear infografías o mapas interactivos de navegación. </p>
+<p>En el siguiente ejemplo cada área de la misma imagen tiene un enlace que dirige a una página distinta.</p>
+
+<map name="infographic">
+    <area shape="poly" coords="130,147,200,107,254,219,130,228"
+            href="https://developer.mozilla.org/es/docs/Web/HTML"
+            target="_blank" alt="HTML">
+    <area shape="poly" coords="130,147,130,228,6,219,59,107"
+            href="https://developer.mozilla.org/es/docs/Web/CSS"
+            target="_blank" alt="CSS">
+    <area shape="poly" coords="130,147,200,107,130,4,59,107"
+            href="https://developer.mozilla.org/es/docs/Web/JavaScript"
+            target="_blank" alt="JavaScript">
+</map>
+<img usemap="#infographic" src="../assets/img/mdn-info2.png" alt="MDN infographic" style="width: 260px; height: 232px; margin:auto;display:block;">
+
+<p>Esto se logra implementando la etiqueta <code>&lt;map&gt;</code>, dentro de la cuál se definen áreas distintas por medio de la etiqueta <code>&lt;area&gt;</code>. 
+Al final el mapa definido se asigna a la imagen por medio del atributo <code>usemap</code> de la etiqueta <code>&lt;img/&gt;</code>.</p>
+
+<figure class="code-card">
+<pre class="code-pre">
+    &lt;<tag>map</tag> <name>name</name>="<value>info</value>"&gt;
+      &lt;<tag>area</tag>
+        <name>shape</name>="<value>polly</value>"
+        <name>coords</name>="<value>130,147,200,107,254,219,130,228</value>"
+        <name>href</name>="<value>https://developer.mozilla.org/es/docs/Web/HTML</value>"
+        <name>target</name>="<value>_blank</value>"
+        <name>title</name>="<value>HTML</value>"&gt;    
+      &lt;<tag>area</tag>
+        <name>shape</name>="<value>polly</value>"
+        <name>coords</name>="<value>130,147,130,228,6,219,59,107</value>"
+        <name>href</name>="<value>https://developer.mozilla.org/es/docs/Web/CSS</value>"
+        <name>target</name>="<value>_blank</value>"
+        <name>title</name>="<value>CSS</value>"&gt;
+      &lt;<tag>area</tag>
+        <name>shape</name>="<value>polly</value>"
+        <name>coords</name>="<value>130,147,200,107,130,4,59,107</value>"
+        <name>href</name>="<value>https://developer.mozilla.org/es/docs/Web/JavaScript</value>"
+        <name>target</name>="<value>_blank</value>"
+        <name>title</name>="<value>JavaScript</value>"&gt;  
+    &lt;/<tag>map</tag>&gt;
+
+    &lt;<tag>img</tag> <name>usemap</name>="<value>info</value>" <name>src</name>="<value>lessons.png</value>"/&gt; 
+
+</pre>  
+</figure>
+<h3>Atributos explicados</h3>
+<h4>name</h4>
+<p>Establece el nombre del mapa en la etiqueta <code>&lt;map&gt;</code> para posteriormente asignárselo a la imagen.</p>
+<h4>shape</h4>    
+<p>Determina el tipo de forma del área. Sus posibles valores son: <code>rect</code>, <code>circle</code> y <code>polly</code>.</p>
+<h4>coords</h4>
+<p>Establece las coordenadas del área según el tipo de forma.</p>
+<ul>
+    <li><b>rect</b>: Para rectángulos las coordenadas se escriben como: <code>x<sub>1</sub></code>, <code>y<sub>1</sub></code>, <code>x<sub>2</sub></code>, <code>y<sub>2</sub></code>. 
+        Dónde <code>x<sub>1</sub></code> y <code>y<sub>1</sub></code> es la coordenada de la esquina superior izquierda del rectángulo, 
+        mientras que <code>x<sub>2</sub></code> y <code>y<sub>2</sub></code> es la coordenada de la esquina inferior derecha.</li>
+    <li><b>circle</b>: Para circulos las coordenadas se escriben como: <code>x</code>, <code>y</code>, <code>radius</code>. 
+        Dónde <code>x</code> y <code>y</code> es la coordenada del centro del círculo, y <code>radius</code> la distancia entre el centro y el perímetro.</li>
+    <li><b>polly</b>: Para polígonos las coordenadas se escriben como pares <code>(x,y)</code> de forma sucesiva, 
+        colocando tanto puntos como sean necesarios para completar la forma deseada: 
+        <code>x<sub>1</sub></code>, <code>y<sub>1</sub></code>, <code>x<sub>2</sub></code>, <code>y<sub>2</sub></code>, <code>x<sub>n</sub></code>, <code>y<sub>n</sub></code>. </li>
+</ul>
+<h4>href</h4>
+<p>Se utiliza para asignar la ruta de enlace al área correspondiente.</p>
+<h4>target</h4>
+<p>Establece el método apertura del enlace, sus valores pueden ser: </p>
+<table class="ws-table-all notranslate">
+    <tbody><tr>    
+    <th>Valor</th>
+    <th>Descripción</th>
+    </tr>
+    <tr>    
+    <td>_blank</td>
+    <td>Abre el enlace en una nueva ventana o pestaña.</td>
+    </tr>
+    <tr>    
+    <td>_self</td>
+    <td>Abre el enlace en el mismo documento.</td>
+    </tr>
+    <tr>    
+    <td>_parent</td>
+    <td>Abre el enlace en la ventana contenedora del iframe.</td>
+    </tr>
+    <tr>    
+    <td>_top</td>
+    <td>Abre el enlace en pantalla completa.</td>
+    </tr>
+    <tr>    
+    <td>framename</td>
+    <td>Abre el enlace dentro del iframe indicado.</td>
+    </tr>
+    </tbody>
+  </table>
+  <h4>title</h4>
+  <p>Se utiliza para asignar un mensaje emergente sobre el área al pasar el puntero del ratón por encima.</p>
+  <h4>usemap</h4>
+  <p>Se implementa sobre la etiqueta <code>&lt;img/&gt;</code> para asignarle el nombre del <code>&lt;map&gt;</code> correspondiente y aplicar ese mapa a la imagen.</p>

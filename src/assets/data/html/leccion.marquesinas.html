@@ -1,0 +1,55 @@
+<p>Una marquesina consiste en una ventana en la que aparece un texto que se desplaza.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+   &lt;<tag>marquee</tag>&gt;<text>Esto es una marquesina</text>&lt;/<tag>marquee</tag>&gt;      
+    </pre>  
+  </figure>
+<marquee style="margin-top:10px;">Esto es una marquesina</marquee>
+<h3>Atributos</h3>
+<p>Los principales atributos que permiten controlar el aspecto y comportamiento de la marquesina son:</p>
+<table class="ws-table-all notranslate">
+    <tbody><tr>    
+        <th>Atributo</th>
+        <th>Descripción</th>
+    </tr>
+    <tr>    
+        <td>width</td>
+        <td>Establece la anchura.</td>
+    </tr>
+    <tr>    
+        <td>height</td>
+        <td>Establece la altura.</td>
+    </tr>
+    <tr>    
+        <td>align</td>
+        <td>Establece al alineación del texto, sus posibles valores son: 
+            <code>top</code>, <code>middle</code> y <code>bottom</code>.</td>
+    </tr>
+    <tr>    
+        <td>direction</td>
+        <td>Establece la dirección de desplazamiento del texto, sus valores son <code>right</code> o <code>left</code>.</td>
+    </tr>
+    <tr>    
+        <td>scrollamount</td>
+        <td>Determina la cantidad de desplazamiento del texto, su valor se expresa en pixeles.</td>
+    </tr>
+    <tr>    
+        <td>scrolldelay</td>
+        <td>Determina el tiempo en milisegundos que pasará entre cada movimiento de avance.</td>
+    </tr>
+    <tr>    
+        <td>hspace, vspace</td>
+        <td>Establecen la separación horizontal y vertical respecto altexto que les rodea.</td>
+    </tr>
+    </tbody>
+</table>
+<h4>Behavior</h4>
+<p>Este atributo determina el comportamiento de la marquesina. Su posible valores son:</p>
+<p>📌 <code>scroll</code>: El texto rotará desapareciendo por un borde y apareciendo por el otro. </p>
+<marquee behavior="scroll"><q>scroll</q></marquee>
+<p>📌 <code>slide</code>: El texto aparecerá de un lado y se desplazará hasta el otro lado deteniendose allí. </p>
+<marquee behavior="slide" direction="right"><q>slide</q></marquee>
+<p>📌 <code>alternate</code>: El texto se desplazará de un lado al otro rebotando en los bordes de la pantalla. </p>
+<marquee behavior="alternate"><q>alternate</q></marquee>
+<p>💡 Hoy en día las marquesinas no se utilizan mucho, excepto para mostrar indicadores, pero si en lugar de colocar texto colocamos imágenes, 
+    este elemento puede convertirse en una manera sencilla de animar contenido y hacer algo creativo.</p>
