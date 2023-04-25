@@ -1,0 +1,121 @@
+<p>A través del agrupamiento de opciones es posible categorizar las opciones disponibles para el usuario, y que de esta manera la experiencia de uso de los formularios sea más intuitiva.</p>
+<h3>Listas desplegables</h3>
+<p>Las listas desplegables son utilizadas ampliamente en formularios. 
+    Si queremos agrupar las opciones desplegadas para categorizarlas, debemos utilizar la etiqueta <code>&lt;optgroup&gt;</code> 
+    de forma tal que contenga las opciones a agrupar. El atributo <code>label</code> permite asignarle un nombre visible al agrupador.</p>
+<figure class="code-card">
+<pre class="code-pre">
+    &lt;<tag>select</tag>&gt;
+        &lt;<tag>option</tag>&gt;<text>Seleccione...</text>&lt;/<tag>option</tag>&gt;
+        &lt;<tag>optgroup</tag> <name>label</name>="<value>Frutas</value>"&gt; 
+            &lt;<tag>option</tag>&gt;<text>Fresa</text>&lt;/<tag>option</tag>&gt;
+            &lt;<tag>option</tag>&gt;<text>Naranja</text>&lt;/<tag>option</tag>&gt;
+            &lt;<tag>option</tag>&gt;<text>Uva</text>&lt;/<tag>option</tag>&gt;
+        &lt;/<tag>optgroup</tag>&gt;
+        &lt;<tag>optgroup</tag> <name>label</name>="<value>Verduras</value>"&gt; 
+            &lt;<tag>option</tag>&gt;<text>Lechuga</text>&lt;/<tag>option</tag>&gt;
+            &lt;<tag>option</tag>&gt;<text>Apio</text>&lt;/<tag>option</tag>&gt;
+            &lt;<tag>option</tag>&gt;<text>Berenjena</text>&lt;/<tag>option</tag>&gt;
+        &lt;/<tag>optgroup</tag>&gt;
+        &lt;<tag>optgroup</tag> <name>label</name>="<value>Carnes</value>"&gt; 
+            &lt;<tag>option</tag>&gt;<text>Res</text>&lt;/<tag>option</tag>&gt;
+            &lt;<tag>option</tag>&gt;<text>Pollo</text>&lt;/<tag>option</tag>&gt;
+            &lt;<tag>option</tag>&gt;<text>Cerdo</text>&lt;/<tag>option</tag>&gt;
+            &lt;<tag>option</tag>&gt;<text>Pescado</text>&lt;/<tag>option</tag>&gt;
+        &lt;/<tag>optgroup</tag>&gt;
+    &lt;/<tag>select</tag>&gt;
+
+</pre>  
+</figure>
+<select style="margin: 16px auto 0 auto; display: block; width: 220px;">
+    <option>Seleccione...</option>
+    <optgroup label="Frutas"> 
+        <option>Fresa</option>
+        <option>Naranja</option>
+        <option>Uva</option>
+    </optgroup>
+    <optgroup label="Verduras"> 
+        <option>Lechuga</option>
+        <option>Apio</option>
+        <option>Berenjena</option>
+    </optgroup>
+    <optgroup label="Carnes"> 
+        <option>Res</option>
+        <option>Pollo</option>
+        <option>Cerdo</option>
+        <option>Pescado</option>
+    </optgroup>
+</select>
+
+<h3>Radio</h3>
+<p>Los campos tipo <code>radio</code> se utilizan en escenarios de selección única. Para implementarlos de forma apropiada se deben agrupar por nombre por medio del atributo <code>name</code>.</p>
+<p>💡 La etiqueta <code>&lt;fieldset&gt;</code> permite contener los campos <code>&lt;input&gt;</code>. 
+    La etiqueta <code>&lt;legend&gt;</code> permite asignar un texto de encabezado al grupo, y la etiqueta <code>&lt;label&gt;</code> contiene al <code>&lt;input&gt;</code> y al texto visible del campo.</p>
+<figure class="code-card">
+<pre class="code-pre">
+  &lt;<tag>fieldset</tag>&gt;
+    &lt;<tag>legend</tag>&gt;<text>Elige un color</text>&lt;/<tag>legend</tag>&gt;
+      &lt;<tag>label</tag>&gt;
+          &lt;<tag>input</tag> <name>type</name>="<value>radio</value>" <name>name</name>="<value>color</value>" 
+                 <name>value</name>="<value>azul</value>"/&gt; <text>Azul</text>
+      &lt;/<tag>label</tag>&gt;
+      &lt;<tag>label</tag>&gt;
+          &lt;<tag>input</tag> <name>type</name>="<value>radio</value>" <name>name</name>="<value>color</value>" 
+                 <name>value</name>="<value>amarillo</value>"/&gt; <text>Amarillo</text>
+      &lt;/<tag>label</tag>&gt;
+      &lt;<tag>label</tag>&gt;
+          &lt;<tag>input</tag> <name>type</name>="<value>radio</value>" <name>name</name>="<value>color</value>" 
+                 <name>value</name>="<value>rojo</value>"/&gt; <text>Rojo</text>
+      &lt;/<tag>label</tag>&gt;
+  &lt;/<tag>fieldset</tag>&gt;
+
+</pre>  
+</figure>
+
+<fieldset style="margin: 16px auto 0 auto; ">
+    <legend>Elige un color</legend>
+    <label style="margin: 4px 0;">
+        <input type="radio" name="color" value="azul"/> Azul
+    </label>
+    <label style="margin: 4px 0;">
+        <input type="radio" name="color" value="amarillo"/> Amarillo
+    </label>
+    <label style="margin: 4px 0;">
+        <input type="radio" name="color" value="rojo"/> Rojo
+    </label>
+</fieldset>
+
+<h3>Checkbox</h3>
+<p>Los campos tipo <code>checkbox</code> se utlizan en escenarios de selección múltiple. Al igual que los campos tipo <code>radio</code> se agrupan por medio del atributo <code>name</code>.</p>
+<figure class="code-card">
+<pre class="code-pre">
+  &lt;<tag>fieldset</tag>&gt;
+    &lt;<tag>legend</tag>&gt;<text>Elige tu comida favorita</text>&lt;/<tag>legend</tag>&gt;
+      &lt;<tag>label</tag>&gt;
+          &lt;<tag>input</tag> <name>type</name>="<value>checkbox</value>" <name>name</name>="<value>food</value>" 
+                 <name>value</name>="<value>pizza</value>"/&gt; <text>Pizza</text>
+      &lt;/<tag>label</tag>&gt;
+      &lt;<tag>label</tag>&gt;
+          &lt;<tag>input</tag> <name>type</name>="<value>checkbox</value>" <name>name</name>="<value>food</value>" 
+                 <name>value</name>="<value>hamburguesa</value>"/&gt; <text>Hamburguesa</text>
+      &lt;/<tag>label</tag>&gt;
+      &lt;<tag>label</tag>&gt;
+          &lt;<tag>input</tag> <name>type</name>="<value>checkbox</value>" <name>name</name>="<value>food</value>" 
+                 <name>value</name>="<value>hotdog</value>"/&gt; <text>Hot Dog</text>
+      &lt;/<tag>label</tag>&gt;
+  &lt;/<tag>fieldset</tag>&gt;
+
+</pre>  
+</figure>
+<fieldset style="margin: 16px auto 0 auto; ">
+<legend>Elige tu comida favorita</legend>
+    <label style="margin: 4px 0;">
+        <input type="checkbox" name="food" value="pizza"/> Pizza
+    </label>
+    <label style="margin: 4px 0;">
+        <input type="checkbox" name="food" value="hamburguesa"/> Hamburguesa
+    </label>
+    <label style="margin: 4px 0;">
+        <input type="checkbox" name="food" value="hotdog"/> Hot Dog
+    </label>
+</fieldset>

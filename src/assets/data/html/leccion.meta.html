@@ -1,0 +1,103 @@
+<p>La etiqueta <code>&lt;meta&gt;</code> es un elemento HTML que se utiliza para proporcionar información adicional, llamada metadatos, sobre un documento HTML.</p>
+<p>Los metadatos no se muestran directamente en la página web, sino que sirven como información para navegadores, motores de búsqueda y otras aplicaciones que interactúan con la página.</p>
+<p>💡 Esta etiqueta siempre se ubica dentro de la cabecera del documento.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+      &lt;!DOCTYPE html&gt;
+      &lt;<tag>html</tag> <name>lang</name>="<value>es</value>"&gt;  
+        &lt;<tag>head</tag>&gt;          
+          &lt;<tag>meta</tag> <name>charset</name>="<value>utf-8</value>"&gt;
+        &lt;/<tag>head</tag>&gt; 
+        &lt;<tag>body</tag>&gt;     
+          ...
+        &lt;/<tag>body</tag>&gt; 
+      &lt;/<tag>html</tag>&gt; 
+    </pre>  
+</figure>
+<h3>Charset</h3>
+<p>El atributo <code>charset</code> se utiliza para especificar la codificación de caracteres utilizada en el documento HTML.</p>
+<h4>UTF-8</h4>
+<p>Codificación de caracteres para Unicode. Así se evita, por ejemplo, que la ñ o las tildes no se muestren correctamente.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>meta</tag> <name>charset</name>="<value>utf-8</value>"&gt;
+    </pre>  
+</figure>
+<h4>ISO-8859-1</h4>
+<p>Codificación de caracteres para el alfabeto latino.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>meta</tag> <name>charset</name>="<value>ISO-8859-1</value>"&gt;
+    </pre>  
+</figure>
+<h4>Name y Content</h4>
+<p>Los atributos <code>name</code> y <code>content</code> representan el nombre y el contenido del metadato respectivamente.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>meta</tag> <name>name</name>="<value>[name]</value>" <name>content</name>="<value>[content]</value>"&gt;
+    </pre>  
+</figure>
+<br>
+<h3>Etiquetas para SEO</h3>
+<p>Esta tipo de metadatos se utliza para el proceso de SEO <i>(Search Engine Optimization)</i>, el cuál permite que los motores de búsqueda encuentren contenido en el sitio web.</p>
+<h4>Descripción</h4>
+<p>El meta <code>description</code> se utiliza para proporcionar una descripción breve y concisa del contenido de una página web. Los motores de búsqueda, como Google, a menudo muestran esta descripción en los resultados de búsqueda.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>meta</tag> <name>name</name>="<value>description</value>" <name>content</name>="<value>Curso de HTMl gratuito...</value>"&gt;
+    </pre>  
+</figure>
+<h4>Palabras clave</h4>
+<p>El meta <code>keywords</code> permite a los motores de búsqueda categorizar el contenido de la página.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>meta</tag> <name>name</name>="<value>keywords</value>" <name>content</name>="<value>HTML, curso, gratuito</value>"&gt;
+    </pre>  
+</figure>
+<h4>Robots</h4>
+<p>El meta <code>robots</code> permite indicar a los motores de búsqueda cómo deben rastrear e indexar una página en particular.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>meta</tag> <name>name</name>="<value>robots</value>" <name>content</name>="<value>index, follow</value>"&gt;
+    &lt;<tag>meta</tag> <name>name</name>="<value>robots</value>" <name>content</name>="<value>noindex, nofollow</value>"&gt;
+    &lt;<tag>meta</tag> <name>name</name>="<value>robots</value>" <name>content</name>="<value>index, nofollow</value>"&gt;
+    &lt;<tag>meta</tag> <name>name</name>="<value>robots</value>" <name>content</name>="<value>noindex, follow</value>"&gt;
+    </pre>  
+</figure>
+<p>📌 Utiliza "index, follow" para permitir que los motores de búsqueda indexen y sigan los enlaces de una página.</p>
+<p>📌 Utiliza "noindex, nofollow" para evitar que los motores de búsqueda indexen la página y sigan sus enlaces.</p>
+<p>📌 Utiliza "index, nofollow" si deseas que la página sea indexada pero no que se sigan los enlaces.</p>
+<p>📌 Utiliza "noindex, follow" si deseas que se sigan los enlaces pero no que se indexe la página.</p>
+<h4>Autor y fecha</h4>
+<p>Los meta <code>author</code> y <code>date</code> proporcionar información sobre el autor y la fecha de publicación de la página puede mejorar la credibilidad y la autenticidad del contenido, lo que puede influir positivamente en el SEO.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>meta</tag> <name>name</name>="<value>author</value>" <name>content</name>="<value>Elkin Lesmes</value>"&gt;
+    &lt;<tag>meta</tag> <name>name</name>="<value>date</value>" <name>content</name>="<value>2023-04-24</value>"&gt;
+    </pre>  
+</figure>
+<h4>Derechos de autor</h4>
+<p>El meta <code>copyright</code> proporciona información acerca de los derechos de autor, usualmente se especifica aquí el nombre de la compañía.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>meta</tag> <name>name</name>="<value>copyright</value>" <name>content</name>="<value>UMB</value>"&gt;    
+    </pre>  
+</figure>
+<h4>Búsqueda segura</h4>
+<p>El meta <code>rating</code> indica que hay contenido para adultos en una página y que, por tanto, debe excluirse de los resultados de Búsqueda Segura. 
+    Se puede asignar como contenido <code>adult</code> o <code>RTA-5042-1996-1400-1577-RTA</code>, las dos son equivalentes.</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>meta</tag> <name>name</name>="<value>rating</value>" <name>content</name>="<value>adult</value>"&gt;
+    </pre>  
+</figure>
+<br>
+<h3>Viewport</h3>
+<p>Controla cómo se renderiza la página en dispositivos móviles</p>
+<figure class="code-card">
+    <pre class="code-pre">
+    &lt;<tag>meta</tag> <name>name</name>="<value>viewport</value>" <name>content</name>="<value>width=device-width, initial-scale=1</value>"&gt;    
+    </pre>  
+</figure>
+<p>📌 <code>width=device-width</code> establece el ancho de la página web para seguir el ancho de la pantalla del dispositivo.</p>
+<p>📌 <code>initial-scale=1</code> establece el nivel de zoom inicial cuando el navegador carga la página web por primera vez.</p>

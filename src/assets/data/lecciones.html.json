@@ -158,9 +158,24 @@
         "respuesta": "name"
       }
 	  ]
-    },  
+    },
     { 
       "numero":"8",
+      "modulo": "html",
+      "titulo": "Opciones agrupadas",
+      "contenido":"leccion.grupos.html",
+      "evaluaciones": [
+        {
+          "tipo": 3,
+          "pregunta": "¿Cuál es el tipo de campo que utilizan las evaluaciones de selección única?",
+          "contenido": "",
+          "items": ["checkbox","radio","select","option"],
+          "respuesta": "radio"
+        } 
+	  ]
+    },
+    { 
+      "numero":"9",
       "modulo": "html",
       "titulo": "Imágenes",
       "contenido":"leccion.imagenes.html",
@@ -182,7 +197,7 @@
 	  ]
     },  
     { 
-      "numero":"9",
+      "numero":"10",
       "modulo": "html",
       "titulo": "Mapas de imágenes",
       "contenido":"leccion.mapas.html",
@@ -197,7 +212,26 @@
 	  ]
     },
     { 
-      "numero":"10",
+      "numero":"11",
+      "modulo": "html",
+      "titulo": "Marquesinas",
+      "contenido":"leccion.marquesinas.html",
+      "evaluaciones": [
+        {
+          "tipo": 3,
+          "pregunta": "¿Cuál es el comportameinto de este código?",
+          "contenido": "<marquee direction=\"alternate\">...</marquee>",
+          "items": [
+            "El texto rotará desapareciendo por un borde y apareciendo por el otro.",
+            "El texto aparecerá de un lado y se desplazará hasta el otro lado deteniendose allí",
+            "El texto se desplazará de un lado al otro rebotando en los bordes de la pantalla.", 
+            "El texto rotará sobre su propio eje."],
+          "respuesta": "El texto se desplazará de un lado al otro rebotando en los bordes de la pantalla."
+        } 
+	  ]
+    },
+    { 
+      "numero":"12",
       "modulo": "html",
       "titulo": "Multimedia",
       "contenido":"leccion.multimedia.html",
@@ -219,7 +253,7 @@
 	  ]
     },  
     { 
-      "numero":"11",
+      "numero":"13",
       "modulo": "html",
       "titulo": "iFrame",
       "contenido":"leccion.iframe.html",
@@ -234,22 +268,18 @@
 	  ]
     },
     { 
-      "numero":"12",
+      "numero":"14",
       "modulo": "html",
-      "titulo": "Marquesinas",
-      "contenido":"leccion.marquesinas.html",
+      "titulo": "Meta",
+      "contenido":"leccion.meta.html",
       "evaluaciones": [
-        {
-          "tipo": 3,
-          "pregunta": "¿Cuál es el comportameinto de este código?",
-          "contenido": "<marquee direction=\"alternate\">...</marquee>",
-          "items": [
-            "El texto rotará desapareciendo por un borde y apareciendo por el otro.",
-            "El texto aparecerá de un lado y se desplazará hasta el otro lado deteniendose allí",
-            "El texto se desplazará de un lado al otro rebotando en los bordes de la pantalla.", 
-            "El texto rotará sobre su propio eje."],
-          "respuesta": "El texto se desplazará de un lado al otro rebotando en los bordes de la pantalla."
-        } 
+      {
+        "tipo": 1,
+        "pregunta": "¿Cuál es nombre del meta que permite la indexación",
+        "contenido": "<meta name=\"?\" content=\"index\">",
+        "items": [],
+        "respuesta": "robots"
+      }
 	  ]
     }
 ]
