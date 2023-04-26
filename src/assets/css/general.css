@@ -108,3 +108,9 @@ value {
 text {
     color: #222;
 }
+
+.input-wrapper {
+    padding: 0;
+    margin: 0;
+    height: fit-content;
+}

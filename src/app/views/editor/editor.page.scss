@@ -1,0 +1,68 @@
+ion-button.action {
+    background-color: #990000;
+    padding: 0 12px;
+    color: white;
+    border-radius: 5px;
+    font-weight: 400;
+}
+
+ion-button.pick {
+    height: 20px;
+    width: 20px;
+    margin-left: 12px;
+    cursor: pointer !important;    
+}
+
+code {    
+    margin: 0;
+    padding: 0;
+    height: 24px;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    vertical-align: sub;
+}
+
+code.line:hover {
+    background-color: #666;
+}
+
+label {
+    margin-left: 12px;
+    vertical-align: inherit;
+    font-size: 16px;
+}
+
+label.active {
+    color: #000;
+}
+
+span.button-inner, ion-button.element {
+    text-transform: lowercase !important;
+    font-weight: 600;
+}
+
+ion-ripple-effect::after  {
+    font-family: monospace;
+}
+
+.inner-scroll.scroll-y
+{
+    padding: 0;
+}
+
+.input-wrapper {
+    padding: 0;
+    margin: 0;
+    height: fit-content;
+}
+
+ion-item {
+    --min-height: 5px;
+    --max-height: 10px;
+}
+
+h2 {
+   padding: 0px;
+   margin : 0px;
+ }

@@ -2,30 +2,49 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
-        <ion-list id="inbox-list">
 
-          <ion-list-header>
-            <ion-img src="../assets/img/Icon UMB.png"></ion-img></ion-list-header>
-            <ion-list-header>UMB Aprende</ion-list-header>
-            <ion-note>Curso Front-End</ion-note>
+        <ion-list id="home">
+          <ion-list-header class="title">
+            <ion-img src="../assets/img/Icon UMB.png"></ion-img>
+          </ion-list-header>
+          <ion-list-header class="title">Cursos UMB</ion-list-header>
+          <ion-note>Fundamentos Front-End</ion-note>
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerDirection="root" [routerLink]="[home.url]" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon slot="start" [ios]="home.icon" [md]="home.icon" [style.color]="home.color"></ion-icon>
+              <ion-label>{{ home.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+        <ion-list id="inbox-list">     
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of modules; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <!--<ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>-->
               <ion-icon slot="start" [ios]="p.icon" [md]="p.icon" [style.color]="p.color"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
 
-        <!--<ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
+        <ion-list id="labels-list">
+          <h3 class="subtitle">Extras</h3>
 
-          <ion-item *ngFor="let label of labels" lines="none">
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerDirection="root" [routerLink]="[editor.url]" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon slot="start" [ios]="editor.icon" [md]="editor.icon" [style.color]="editor.color"></ion-icon>
+              <ion-label>{{ editor.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <!--<ion-item *ngFor="let label of labels" lines="none">
             <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
             <ion-label>{{ label }}</ion-label>
-          </ion-item>
-        </ion-list>-->
+          </ion-item>-->
+
+        </ion-list>
+
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>

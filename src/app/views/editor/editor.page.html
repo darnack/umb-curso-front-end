@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">      
+        <ion-button (click)="setOpen(true)" class="action">Visualizar</ion-button>
+    </ion-buttons>
+    <ion-title>Editor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<div id="container">  
+
+  <ion-button class="element" (click)="AddInput()">&lt;input&gt;</ion-button>
+  <ion-button class="element" (click)="AddH1()">&lt;h1&gt;</ion-button>
+  <ion-button class="element" (click)="AddParagraph()">&lt;p&gt;</ion-button>
+  <ion-button class="element" (click)="AddDiv()">&lt;div&gt;</ion-button>
+
+  <ion-select #comboElements
+    label="Action Sheet Interface" 
+    interface="action-sheet" 
+    placeholder="Seleccione una etiqueta" 
+    cancelText="Cerrar"
+    (ionChange)="handleChange($event)"
+    (ionDismiss)="handleChange($event)"
+    (ionCancel)="handleChange($event)"
+    clearInput="true">    
+    <ion-select-option *ngFor="let item of combobox; let i = index" value="{{i}}">{{item}}</ion-select-option>
+  </ion-select>
+
+<figure class="code-card">
+  <pre class="code-pre"><code class="line" *ngFor="let item of DOM; let i = index"><ion-button class="pick" *ngIf="item.active; else inactiveButton" (click)="pick(i)"><b>{{i+1}}</b></ion-button><ng-template #inactiveButton><ion-button class="pick" (click)="pick(i)">{{i+1}}</ion-button></ng-template><label class="active" *ngIf="item.active; else inactive">{{item.html}}</label><ng-template #inactive><label>{{item.html}}</label></ng-template><br></code><br></pre>
+</figure>
+
+</div>
+</ion-content>
+
+<!-- <pre class="code-pre"><code class="line" *ngFor="let line of lines; let i = index"><ion-button class="pick">{{i}}</ion-button><label>{{ line }}</label><br></code><br></pre> -->
+
+<!--   <code *ngFor="let line of lines; let i = index"> {{ line }} <br></code> -->
+    <!--<ion-reorder-group [disabled]="false" (ionItemReorder)="handleReorder($any($event))" #answer>    
+      <ion-item *ngFor="let line of lines">
+        <code class="ion-text-wrap console">{{line}}</code>                
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+    </ion-reorder-group>-->
+
+    <!--<ion-radio-group value="strawberries">
+      <ion-item *ngFor="let line of lines; let i = index" >
+        <ion-label>{{line}}</ion-label>
+        <ion-radio value="{{i}}"></ion-radio>        
+    </ion-item>
+      <br/>      
+    </ion-radio-group>-->
+
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template #modal>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title></ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false)">Cerrar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding" [innerHTML]=this.trustedHTML>
+
+    </ion-content>
+  </ng-template>
+</ion-modal>
