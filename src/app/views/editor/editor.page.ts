@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 import { IonReorderGroup, ItemReorderEventDetail } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-editor',
@@ -13,7 +14,10 @@ export class EditorPage implements OnInit {
   innerHTML = {"html": ""};  
   trustedHTML: SafeHtml;
   sanitizer;
-  isModalOpen = false;
+  isModalOpen = false;  
+  public insertMode = "outside"
+  public insertModeIcon = "return-down-forward-outline"
+  
   public lines = ['<html>','  <head></head>','  <body>',' </body>','</html>']
   public currentIndex = 0;
   public componentIndex = 1;
@@ -56,7 +60,7 @@ export class EditorPage implements OnInit {
   
   public DOM: Array<any> = []
 
-  constructor(private alertController: AlertController, private _sanitizer: DomSanitizer) {
+  constructor(private alertController: AlertController, private _sanitizer: DomSanitizer, private toast: ToastController) {
     this.sanitizer = _sanitizer;
     this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml(this.innerHTML.html);
 
@@ -80,8 +84,7 @@ export class EditorPage implements OnInit {
     await alert.present();
   }
 
-  async AddInput() {
-    var element = "    <input placeholder='Write some text...'/>"
+  async AddInput() {    
     await this.AddElement(23, "", ['type="text"', 'placeholder="Ingresa texto aquí..."'])
   }
 
@@ -110,19 +113,40 @@ export class EditorPage implements OnInit {
       html = html.concat("<", this.elements[i].tag, attributes, ">", text, "</", this.elements[i].tag, ">")
     else
       html = html.concat("<", this.elements[i].tag, attributes, "/>")
+    
+    this.componentIndex++    
+
+    var currentTab = 0;
+    if(this.DOM.length > 0) currentTab = this.DOM[this.currentIndex].tab;
+
+    if(this.DOM.length > 0 && this.DOM[this.currentIndex].type == "block" && this.insertMode == "inside" )
+    {      
+      var containerTag = this.DOM[this.currentIndex].tag  
+      var containerAttr = this.DOM[this.currentIndex].attributes 
+      var tab = " ".repeat(currentTab)    
+      var inner = ""
+
+      this.DOM.splice(this.currentIndex, 1)
+
+      inner = "".concat(tab, "<", containerTag, containerAttr, ">")
+      this.DOM.splice(this.currentIndex, 0, { html: inner, active: true, type: "inline", tag: this.elements[i].tag, tab: currentTab, attributes: attributes })
+            
+      html = " ".repeat(currentTab+1) + html
+      this.DOM.splice(this.currentIndex+1, 0, { html: html, active: true, type: this.elements[i].type, tag: this.elements[i].tag, tab: currentTab+1, attributes: attributes  })
+
+      inner = "".concat(tab, "</", containerTag, ">")
+      this.DOM.splice(this.currentIndex+2, 0, { html: inner, active: true, type: "inline", tag: this.elements[i].tag, tab: currentTab, attributes: attributes  })
+    }
+    else {
+      this.DOM.splice(this.currentIndex+1, 0, { html: html, active: true, type: this.elements[i].type, tag: this.elements[i].tag, tab: currentTab, attributes: attributes  })
+    }
 
     this.currentIndex++
-    this.componentIndex++
-    
-    this.DOM.splice(this.currentIndex, 0, {html: html, active: true})
 
     if(this.DOM.length == this.currentIndex)
       this.pick(this.currentIndex-1)
     else
       this.pick(this.currentIndex)
-
-    this.innerHTML.html += html
-    this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml(this.innerHTML.html);
   }
 
   handleChange(event: Event) {   
@@ -146,6 +170,31 @@ export class EditorPage implements OnInit {
     ev.detail.complete();
   }
 
+  async presentToast(position: 'top' | 'middle' | 'bottom', message: string) {
+    const toast = await this.toast.create({
+      message: message,
+      duration: 1500,
+      position: position
+    });
+
+    await toast.present();
+  }
+
+  async changeInsertMode()
+  {
+    if(this.insertMode == "outside")
+    {
+      this.insertMode = "inside"
+      this.insertModeIcon = "enter-outline"
+      await this.presentToast("top", "Los elementos se insertarán DENTRO de la etiqueta actual")
+    } else
+    {
+      this.insertMode = "outside"
+      this.insertModeIcon = "return-down-forward-outline"      
+      await this.presentToast("top", "Los elementos se insertarán DEBAJO de la etiqueta actual")
+    }
+  }
+
   pick(index: number) {
     try {
       this.DOM.forEach(function(item, key, index) {       
@@ -159,6 +208,15 @@ export class EditorPage implements OnInit {
   }
 
   setOpen(isOpen: boolean) {
+
+    var el = this
+    el.innerHTML.html = ""
+    this.DOM.forEach(function(item, key, index) {       
+      el.innerHTML.html += item.html
+    })
+
+    this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml(el.innerHTML.html);
+
     this.isModalOpen = isOpen;
   }
 

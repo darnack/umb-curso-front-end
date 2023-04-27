@@ -3,7 +3,10 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-buttons slot="end">      
+    <ion-buttons slot="end">     
+        <ion-button id="insertModeButton" (click)="changeInsertMode()" fill="clear">
+          <ion-icon slot="icon-only" name="{{insertModeIcon}}"></ion-icon>
+        </ion-button> 
         <ion-button (click)="setOpen(true)" class="action">Visualizar</ion-button>
     </ion-buttons>
     <ion-title>Editor</ion-title>
