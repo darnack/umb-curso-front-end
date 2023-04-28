@@ -1,9 +1,5 @@
 ion-button.action {
-    background-color: #990000;
-    padding: 0 12px;
-    color: white;
-    border-radius: 5px;
-    font-weight: 400;
+    color: #990000;
 }
 
 ion-button.pick {
@@ -37,9 +33,19 @@ label.active {
     color: #000;
 }
 
+span.action-sheet-button-inner.sc-ion-action-sheet-md {    
+    justify-content: center !important;
+}
+
 span.button-inner, ion-button.element {
     text-transform: lowercase !important;
     font-weight: 600;
+}
+
+ion-button.ion-button-center {
+    display: block;
+    margin: 24px 30% 10px 30%;
+    width: 100%;    
 }
 
 ion-ripple-effect::after  {

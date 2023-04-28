@@ -114,3 +114,8 @@ text {
     margin: 0;
     height: fit-content;
 }
+
+span.action-sheet-button-inner.sc-ion-action-sheet-md {    
+    justify-content: center !important;
+    font-weight: 600;
+}

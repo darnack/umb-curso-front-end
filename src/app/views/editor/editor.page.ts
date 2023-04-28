@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
-import { IonReorderGroup, ItemReorderEventDetail } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -15,45 +14,55 @@ export class EditorPage implements OnInit {
   trustedHTML: SafeHtml;
   sanitizer;
   isModalOpen = false;  
+  isModalAttrOpen = false;
+  customActionSheetOptions = {
+    header: 'Etiquetas',
+    subHeader: 'Agrega una etiqueta al documento',
+  };
+
   public insertMode = "outside"
   public insertModeIcon = "return-down-forward-outline"
   
+  public attributes:Array<string> = [];
+  public attributesValues:Array<string> = [];
+
   public lines = ['<html>','  <head></head>','  <body>',' </body>','</html>']
   public currentIndex = 0;
+  public currentElement = -1;
   public componentIndex = 1;
   public elements = [
-    { name: "<div>", type:"block", tag: "div"},
-    { name: "<p>", type:"block", tag: "p"},
-    { name: "<span>", type:"block", tag: "span"},
-    { name: "<h1>", type:"block", tag: "h1"},
-    { name: "<h2>", type:"block", tag: "h2"},
-    { name: "<h3>", type:"block", tag: "h3"},
-    { name: "<a>", type:"block", tag: "a"},
-    { name: "<i>", type:"block", tag: "i"},
-    { name: "<b>", type:"block", tag: "b"},
-    { name: "<u>", type:"block", tag: "u"},
-    { name: "<q>", type:"block", tag: "q"},
-    { name: "<del>", type:"block", tag: "del"},
-    { name: "<sub>", type:"block", tag: "sub"},
-    { name: "<sup>", type:"block", tag: "sup"},
-    { name: "<br>", type:"line", tag: "<br>"},
-    { name: "<ul>", type:"block", tag: "ul"},
-    { name: "<ol>", type:"block", tag: "ol"},
-    { name: "<li>", type:"block", tag: "li"},
-    { name: "<table>", type:"block", tag: "table"},
-    { name: "<th>", type:"block", tag: "th"},
-    { name: "<tr>", type:"block", tag: "tr"},
-    { name: "<td>", type:"block", tag: "td"},
-    { name: "<label>", type:"block", tag: "label"},
-    { name: "<input>", type:"line", tag: "input"},
-    { name: "<button>", type:"block", tag: "button"},
-    { name: "<textarea>", type:"block", tag: "textarea"},
-    { name: "<select>", type:"block", tag: "select"},
-    { name: "<option>", type:"block", tag: "option"},
-    { name: "<optgroup>", type:"block", tag: "optgroup"},
-    { name: "<fieldset>", type:"block", tag: "fieldset"},
-    { name: "<legend>", type:"block", tag: "legend"},
-    { name: "<marquee>", type:"block", tag: "marquee"},
+    { name: "<div>", type:"block", tag: "div", attributes: ["texto", "style", "class"] },
+    { name: "<p>", type:"block", tag: "p", attributes: ["texto", "style", "class"] },
+    { name: "<span>", type:"block", tag: "span", attributes: ["texto", "style", "class"] },
+    { name: "<h1>", type:"block", tag: "h1", attributes: ["texto", "style", "class"] },
+    { name: "<h2>", type:"block", tag: "h2", attributes: ["texto", "style", "class"] },
+    { name: "<h3>", type:"block", tag: "h3", attributes: ["texto", "style", "class"] },
+    { name: "<a>", type:"block", tag: "a", attributes: ["texto", "style", "class", "href", "target"] },
+    { name: "<i>", type:"block", tag: "i", attributes: ["texto", "style", "class"] },
+    { name: "<b>", type:"block", tag: "b", attributes: ["texto", "style", "class"] },
+    { name: "<u>", type:"block", tag: "u", attributes: ["texto", "style", "class"]},
+    { name: "<q>", type:"block", tag: "q", attributes: ["texto", "style", "class"]},
+    { name: "<del>", type:"block", tag: "del", attributes: ["texto", "style", "class"]},
+    { name: "<sub>", type:"block", tag: "sub", attributes: ["texto", "style", "class"]},
+    { name: "<sup>", type:"block", tag: "sup", attributes: ["texto", "style", "class"]},
+    { name: "<br>", type:"line", tag: "<br>", attributes: ["texto", "style", "class"]},
+    { name: "<ul>", type:"block", tag: "ul", attributes: ["texto", "style", "class"]},
+    { name: "<ol>", type:"block", tag: "ol", attributes: ["texto", "style", "class"]},
+    { name: "<li>", type:"block", tag: "li", attributes: ["texto", "style", "class"]},
+    { name: "<table>", type:"block", tag: "table", attributes: ["texto", "style", "class"]},
+    { name: "<th>", type:"block", tag: "th", attributes: ["texto", "style", "class"]},
+    { name: "<tr>", type:"block", tag: "tr", attributes: ["texto", "style", "class"]},
+    { name: "<td>", type:"block", tag: "td", attributes: ["texto", "style", "class"]},
+    { name: "<label>", type:"block", tag: "label", attributes: ["texto", "style", "class"]},
+    { name: "<input>", type:"line", tag: "input", attributes: ["type", "value", "placeholder", "style", "class"]},
+    { name: "<button>", type:"block", tag: "button", attributes: ["texto", "style", "class"]},
+    { name: "<textarea>", type:"block", tag: "textarea", attributes: ["texto", "style", "class"]},
+    { name: "<select>", type:"block", tag: "select", attributes: ["texto", "style", "class"]},
+    { name: "<option>", type:"block", tag: "option", attributes: ["texto", "style", "class"]},
+    { name: "<optgroup>", type:"block", tag: "optgroup", attributes: ["texto", "style", "class"]},
+    { name: "<fieldset>", type:"block", tag: "fieldset", attributes: ["texto", "style", "class"]},
+    { name: "<legend>", type:"block", tag: "legend", attributes: ["texto", "style", "class"]},
+    { name: "<marquee>", type:"block", tag: "marquee", attributes: ["texto", "style", "class"]},
   ]
 
   public combobox: Array<string> = []
@@ -65,7 +74,7 @@ export class EditorPage implements OnInit {
     this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml(this.innerHTML.html);
 
     var el = this;
-    this.elements.forEach(function(item, key, index) {       
+    this.elements.forEach(function(item, index, array) {       
       el.combobox.push(item.name)
     })
   }  
@@ -84,30 +93,29 @@ export class EditorPage implements OnInit {
     await alert.present();
   }
 
-  async AddInput() {    
-    await this.AddElement(23, "", ['type="text"', 'placeholder="Ingresa texto aquí..."'])
+  async AddInput() {   
+    this.currentElement = 23;
+    this.attributes = this.elements[this.currentElement].attributes ?? []
+    this.attributesValues = []
+
+    this.setModalAttrOpen(true)     
   }
 
   async AddH1() {    
-    await this.AddElement(3, "Título " + this.componentIndex, [])
+    await this.AddElement(3, "Título " + this.componentIndex, "")
   }
 
   async AddParagraph() {    
-    await this.AddElement(1, "Párrafo " + this.componentIndex, [])
+    await this.AddElement(1, "Párrafo " + this.componentIndex, "")
   }
 
   async AddDiv() {    
-    await this.AddElement(0, "...", [])
+    await this.AddElement(0, "...", "")
   }
 
-  async AddElement(i: number, text: string, attr:string [])
+  async AddElement(i: number, text: string, attributes:string)
   {
     var html = ""
-    var attributes = ""
-
-    attr.forEach(function(item, key, index) {       
-      attributes = attributes.concat(" ", item)
-    })
 
     if(this.elements[i].type == "block")
       html = html.concat("<", this.elements[i].tag, attributes, ">", text, "</", this.elements[i].tag, ">")
@@ -149,25 +157,44 @@ export class EditorPage implements OnInit {
       this.pick(this.currentIndex)
   }
 
-  handleChange(event: Event) {   
-    try { 
-    const value = (event as CustomEvent).detail.value;
-    this.AddElement(value, "", []) 
-    } catch(ex) {}  
+  aceptar() {
+    var text = ""
+    var attr = " "
+    var el = this
+
+    this.attributes.forEach(function(item, index, array) {     
+      let val = el.attributesValues[Number(index)]
+      if (val !== undefined) {   
+        if (item == "texto" )        
+          text = val
+        else
+          attr = attr.concat(item,'="', val ,'" ')
+      }
+    })
+
+    this.AddElement(this.currentElement, text, attr.trimEnd() );
+    this.setModalAttrOpen(false)
   }
 
-  handleReorder(ev: CustomEvent<ItemReorderEventDetail>) {
-    // The `from` and `to` properties contain the index of the item
-    // when the drag started and ended, respectively
-    //console.log('Dragged from index', ev.detail.from, 'to', ev.detail.to);
+  async insertar() {
+    if(this.currentElement >= 0)
+    {
+      this.attributes = this.elements[this.currentElement].attributes ?? []
+      this.attributesValues = []
+      this.setModalAttrOpen(true)
+    } else {
+      await this.presentToast("top", "Seleccione una etiqueta de la lista desplegable")
+    }
+  }
 
-    const draggedItem = this.lines.splice(ev.detail.from, 1)[0];  
-    this.lines.splice(ev.detail.to, 0, draggedItem); 
+  handleChange(event: Event) {   
+    const value = (event as CustomEvent).detail.value;    
+    this.currentElement = value;
+  }
 
-    // Finish the reorder and position the item in the DOM based on
-    // where the gesture ended. This method can also be called directly
-    // by the reorder group
-    ev.detail.complete();
+  removeInput(index:number):void{
+    this.attributes.splice(index, 1);
+    this.attributesValues.splice(index, 1);
   }
 
   async presentToast(position: 'top' | 'middle' | 'bottom', message: string) {
@@ -197,7 +224,7 @@ export class EditorPage implements OnInit {
 
   pick(index: number) {
     try {
-      this.DOM.forEach(function(item, key, index) {       
+      this.DOM.forEach(function(item, index, array) {       
         item.active = false
       })
 
@@ -211,13 +238,17 @@ export class EditorPage implements OnInit {
 
     var el = this
     el.innerHTML.html = ""
-    this.DOM.forEach(function(item, key, index) {       
+    this.DOM.forEach(function(item, index, array) {       
       el.innerHTML.html += item.html
     })
 
     this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml(el.innerHTML.html);
 
     this.isModalOpen = isOpen;
+  }
+
+  setModalAttrOpen(isOpen: boolean) {
+    this.isModalAttrOpen = isOpen;
   }
 
 }
