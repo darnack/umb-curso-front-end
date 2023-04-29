@@ -4,7 +4,16 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button (click)="setOpen(true)" class="action" fill="clear">
+      <ion-button (click)="setPreviewModalOpen(true)" class="action" fill="clear">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>  
+      <ion-button (click)="editarAtributos()" class="action" fill="clear">
+        <ion-icon slot="icon-only" name="create-sharp"></ion-icon>
+      </ion-button>  
+      <ion-button (click)="editarEstilos()" class="action" fill="clear">
+        <ion-icon slot="icon-only" name="color-palette-sharp"></ion-icon>
+      </ion-button>  
+      <ion-button (click)="setPreviewModalOpen(true)" class="action" fill="clear">
         <ion-icon slot="icon-only" name="eye"></ion-icon>
       </ion-button>        
     </ion-buttons>
@@ -31,7 +40,7 @@
     </ion-col>
     <ion-col size="2">
       <ion-button id="insertButton" (click)="insertar()">
-        <ion-icon slot="icon-only" name="code-download-sharp"></ion-icon>
+        <ion-icon slot="icon-only" name="code-slash-sharp"></ion-icon>
       </ion-button>       
     </ion-col>
     <ion-col size="2">
@@ -57,13 +66,13 @@
 </div>
 </ion-content>
 
-<ion-modal [isOpen]="isModalOpen">
+<ion-modal [isOpen]="isPreviewOpen">
   <ng-template #modal>
     <ion-header>
       <ion-toolbar>
         <ion-title>Previsualización</ion-title>
         <ion-buttons slot="end">
-          <ion-button (click)="setOpen(false)">Cerrar</ion-button>
+          <ion-button (click)="setPreviewModalOpen(false)">Cerrar</ion-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
@@ -74,13 +83,13 @@
 </ion-modal>
 
 
-<ion-modal [isOpen]="isModalAttrOpen">
+<ion-modal [isOpen]="isAttributeOpen">
   <ng-template #modal>
     <ion-header>
       <ion-toolbar>
         <ion-title>Atributos de la etiqueta</ion-title>
         <ion-buttons slot="end">
-          <ion-button (click)="setModalAttrOpen(false)">Cerrar</ion-button>
+          <ion-button (click)="setAttributeModalOpen(false)">Cerrar</ion-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
@@ -88,17 +97,17 @@
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-item *ngFor="let item of attributes; let i = index">
-              <ion-label>{{item}}</ion-label>
-              <ion-input [(ngModel)]="attributesValues[i]" type="text" placeholder="Valor atributo..."></ion-input>
-              <button item-right ion-button icon-only (click)="removeInput(i)">
+            <ion-item *ngFor="let item of attributesList; let i = index">
+              <ion-label>{{item.name}}</ion-label>
+              <ion-input [(ngModel)]="item.value" type="text" placeholder="Valor atributo..."></ion-input>
+              <button item-right ion-button icon-only (click)="removeAttribute(i)">
                   <ion-icon name="close"></ion-icon>
               </button>
             </ion-item>
           </ion-col>
         </ion-row>   
         <ion-row>         
-            <ion-button class="ion-button-center" (click)="aceptar()"> 
+            <ion-button class="ion-button-center" (click)="aceptarAtributos()"> 
               ACEPTAR
             </ion-button>
         </ion-row>   
@@ -107,3 +116,35 @@
   </ng-template>
 </ion-modal>
 
+<ion-modal [isOpen]="isStyleOpen">
+  <ng-template #modal>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Estilos de la etiqueta</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setStyleModalOpen(false)">Cerrar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item *ngFor="let item of styleList; let i = index">
+              <ion-label>{{item.name}}</ion-label>
+              <ion-input [(ngModel)]="item.value" type="text" placeholder="Valor atributo..."></ion-input>
+              <button item-right ion-button icon-only (click)="removeStyle(i)">
+                  <ion-icon name="close"></ion-icon>
+              </button>
+            </ion-item>
+          </ion-col>
+        </ion-row>   
+        <ion-row>         
+            <ion-button class="ion-button-center" (click)="aceptarEstilos()"> 
+              ACEPTAR
+            </ion-button>
+        </ion-row>   
+      </ion-grid>
+    </ion-content>
+  </ng-template>
+</ion-modal>
