@@ -11,66 +11,60 @@ import { UUID } from 'angular2-uuid';
 })
 export class EditorPage implements OnInit {
 
-  innerHTML = {"html": ""};  
-  trustedHTML: SafeHtml;
-  sanitizer;
-  isPreviewOpen = false;  
-  isAttributeOpen = false;
-  isStyleOpen = false
-  editorMode = "insertar"
-  customActionSheetOptions = {
-    header: 'Etiquetas',
-    subHeader: 'Agrega una etiqueta al documento',
-  };
+  public innerHTML = {"html": ""};  
+  public trustedHTML: SafeHtml;
+  public sanitizer;
+  public isPreviewOpen = false;  
+  public isAttributeOpen = false;
+  public isStyleOpen = false
 
+  public editorMode = "insertar"
   public insertMode = "outside"
   public insertModeIcon = "return-down-forward-outline"
   
+  public DOM: Array<any> = []
   public attributesList: Array<any> = []
   public styleList: Array<any> = []
-
   public combobox: Array<string> = []
-  
-  public DOM: Array<any> = []
-
   public lines = ['<html>','  <head></head>','  <body>',' </body>','</html>']
+
   public currentIndex = -1;
   public currentElement = -1;
   public componentIndex = 1;
   public elements = [
-    { name: "<div>", type:"block", tag: "div", attributes: ["text"] },
-    { name: "<p>", type:"block", tag: "p", attributes: ["text"] },
-    { name: "<span>", type:"block", tag: "span", attributes: ["text"] },
-    { name: "<h1>", type:"block", tag: "h1", attributes: ["text"] },
-    { name: "<h2>", type:"block", tag: "h2", attributes: ["text"] },
-    { name: "<h3>", type:"block", tag: "h3", attributes: ["text"] },
-    { name: "<a>", type:"block", tag: "a", attributes: ["text", "href", "target"] },
-    { name: "<img>", type:"line", tag: "img", attributes: ["src", "alt"] },
-    { name: "<i>", type:"block", tag: "i", attributes: ["text"] },
-    { name: "<b>", type:"block", tag: "b", attributes: ["text"] },
-    { name: "<u>", type:"block", tag: "u", attributes: ["text"]},
-    { name: "<q>", type:"block", tag: "q", attributes: ["text"]},
-    { name: "<del>", type:"block", tag: "del", attributes: ["text"]},
-    { name: "<sub>", type:"block", tag: "sub", attributes: ["text"]},
-    { name: "<sup>", type:"block", tag: "sup", attributes: ["text"]},
-    { name: "<br>", type:"line", tag: "br", attributes: ["text"]},
-    { name: "<ul>", type:"block", tag: "ul", attributes: ["text"]},
-    { name: "<ol>", type:"block", tag: "ol", attributes: ["text"]},
-    { name: "<li>", type:"block", tag: "li", attributes: ["text"]},
-    { name: "<table>", type:"block", tag: "table", attributes: ["text", "align", "valign"]},
-    { name: "<th>", type:"block", tag: "th", attributes: ["text"]},
-    { name: "<tr>", type:"block", tag: "tr", attributes: ["text"]},
-    { name: "<td>", type:"block", tag: "td", attributes: ["text", "colspan", "rowspan", "align", "valign"]},
-    { name: "<label>", type:"block", tag: "label", attributes: ["text"]},
-    { name: "<input>", type:"line", tag: "input", attributes: ["type", "value","name", "placeholder","maxlength"]},
-    { name: "<button>", type:"block", tag: "button", attributes: ["text"]},
-    { name: "<textarea>", type:"block", tag: "textarea", attributes: ["text","maxlength"]},
-    { name: "<select>", type:"block", tag: "select", attributes: ["text"]},
-    { name: "<option>", type:"block", tag: "option", attributes: ["text","value"]},
-    { name: "<optgroup>", type:"block", tag: "optgroup", attributes: ["text","label"]},
-    { name: "<fieldset>", type:"block", tag: "fieldset", attributes: ["text"]},
-    { name: "<legend>", type:"block", tag: "legend", attributes: ["text"]},
-    { name: "<marquee>", type:"block", tag: "marquee", attributes: ["text", "direction", "behavior", "scrollamount", "scrolldelay"]},
+    { name: "<div>", type:"pair", tag: "div", attributes: ["text"] },
+    { name: "<p>", type:"pair", tag: "p", attributes: ["text"] },
+    { name: "<span>", type:"pair", tag: "span", attributes: ["text"] },
+    { name: "<h1>", type:"pair", tag: "h1", attributes: ["text"] },
+    { name: "<h2>", type:"pair", tag: "h2", attributes: ["text"] },
+    { name: "<h3>", type:"pair", tag: "h3", attributes: ["text"] },
+    { name: "<a>", type:"pair", tag: "a", attributes: ["text", "href", "target"] },
+    { name: "<img>", type:"single", tag: "img", attributes: ["src", "alt"] },
+    { name: "<i>", type:"pair", tag: "i", attributes: ["text"] },
+    { name: "<b>", type:"pair", tag: "b", attributes: ["text"] },
+    { name: "<u>", type:"pair", tag: "u", attributes: ["text"]},
+    { name: "<q>", type:"pair", tag: "q", attributes: ["text"]},
+    { name: "<del>", type:"pair", tag: "del", attributes: ["text"]},
+    { name: "<sub>", type:"pair", tag: "sub", attributes: ["text"]},
+    { name: "<sup>", type:"pair", tag: "sup", attributes: ["text"]},
+    { name: "<br>", type:"single", tag: "br", attributes: ["text"]},
+    { name: "<ul>", type:"pair", tag: "ul", attributes: ["text"]},
+    { name: "<ol>", type:"pair", tag: "ol", attributes: ["text"]},
+    { name: "<li>", type:"pair", tag: "li", attributes: ["text"]},
+    { name: "<table>", type:"pair", tag: "table", attributes: ["text", "align", "valign"]},
+    { name: "<th>", type:"pair", tag: "th", attributes: ["text"]},
+    { name: "<tr>", type:"pair", tag: "tr", attributes: ["text"]},
+    { name: "<td>", type:"pair", tag: "td", attributes: ["text", "colspan", "rowspan", "align", "valign"]},
+    { name: "<label>", type:"pair", tag: "label", attributes: ["text"]},
+    { name: "<input>", type:"single", tag: "input", attributes: ["type", "value","name", "placeholder","maxlength"]},
+    { name: "<button>", type:"pair", tag: "button", attributes: ["text"]},
+    { name: "<textarea>", type:"pair", tag: "textarea", attributes: ["text","maxlength"]},
+    { name: "<select>", type:"pair", tag: "select", attributes: ["text"]},
+    { name: "<option>", type:"pair", tag: "option", attributes: ["text","value"]},
+    { name: "<optgroup>", type:"pair", tag: "optgroup", attributes: ["text","label"]},
+    { name: "<fieldset>", type:"pair", tag: "fieldset", attributes: ["text"]},
+    { name: "<legend>", type:"pair", tag: "legend", attributes: ["text"]},
+    { name: "<marquee>", type:"pair", tag: "marquee", attributes: ["text", "direction", "behavior", "scrollamount", "scrolldelay"]},
   ]
   public styles = ["color","background-color","opacity",
   "margin","padding","border",  
@@ -110,11 +104,12 @@ export class EditorPage implements OnInit {
 
   async AddElement(i: number, attributes: Array<any>)
   {
-    var html = ""
+    var innerHTML = ""
 
-    var text = this.getTextFromAttributes(attributes)
-    var attributesText = this.getInnerHTMLFromAttributes(attributes)
+    var innerText = this.getTextFromAttributes(attributes)
+    var innerAttributes = this.getInnerHTMLFromAttributes(attributes)
 
+    // determina la tabulación del elemento
     var currentTab = 0;
     if (this.DOM.length > 0) { 
       currentTab = this.DOM[this.currentIndex].tab;
@@ -122,41 +117,44 @@ export class EditorPage implements OnInit {
         currentTab++
     }
 
-    if(this.elements[i].type == "block")
-      html = html.concat("<", this.elements[i].tag, attributesText, ">", text, "</", this.elements[i].tag, ">")
+    // arma el HTML dependiendo del tipo de etiqueta (pair:<el>/el>, single: <el/>)
+    if(this.elements[i].type == "pair")
+      innerHTML = innerHTML.concat("<", this.elements[i].tag, innerAttributes, ">", innerText, "</", this.elements[i].tag, ">")
     else
-      html = html.concat("<", this.elements[i].tag, attributesText, "/>")
+      innerHTML = innerHTML.concat("<", this.elements[i].tag, innerAttributes, "/>")
     
     this.componentIndex++
 
-    if(this.DOM.length > 0 && this.DOM[this.currentIndex].type == "block" && this.insertMode == "inside" )
+    // agrega elemento dentro de la etiqueta actual si es 'pair' y está activo el modo 'inside'
+    if(this.DOM.length > 0 && this.DOM[this.currentIndex].type == "pair" && this.insertMode == "inside" )
     {      
       var containerTag = this.DOM[this.currentIndex].tag        
       var containerAttr = (this.DOM[this.currentIndex].attributes) as Array<any>
-      var containerAttrText = this.getInnerHTMLFromAttributes(containerAttr)
-      var containerText = this.getTextFromAttributes(containerAttr)
+      var containerInnerAttributes = this.getInnerHTMLFromAttributes(containerAttr)
+      var containerInnerText = this.getTextFromAttributes(containerAttr)
 
       var tab = " ".repeat(currentTab)    
       var inner = ""
 
       this.DOM.splice(this.currentIndex, 1)
 
-      let guid = UUID.UUID()
+      let pairGuid = UUID.UUID()
 
-      inner = "".concat(tab, "<", containerTag, containerAttrText, ">", containerText)
-      this.DOM.splice(this.currentIndex, 0, { html: inner, pair: guid, active: true, type: "containerStart", tag: containerTag, tab: currentTab, attributes: containerAttr, style: [] })
+      inner = "".concat(tab, "<", containerTag, containerInnerAttributes, ">", containerInnerText)
+      this.DOM.splice(this.currentIndex, 0, { html: inner, pair: pairGuid, active: true, type: "containerStart", tag: containerTag, tab: currentTab, attributes: containerAttr, style: [] })
             
-      html = " ".repeat(currentTab+1) + html
-      this.DOM.splice(this.currentIndex+1, 0, { html: html, pair: undefined, active: true, type: this.elements[i].type, tag: this.elements[i].tag, tab: currentTab+1, attributes: attributes, style: []  })
+      innerHTML = " ".repeat(currentTab+1) + innerHTML
+      this.DOM.splice(this.currentIndex+1, 0, { html: innerHTML, pair: undefined, active: true, type: this.elements[i].type, tag: this.elements[i].tag, tab: currentTab+1, attributes: attributes, style: []  })
 
       inner = "".concat(tab, "</", containerTag, ">")
-      this.DOM.splice(this.currentIndex+2, 0, { html: inner, pair: guid, active: true, type: "containerEnd", tag: containerTag, tab: currentTab, attributes: containerAttr, style: []  })
+      this.DOM.splice(this.currentIndex+2, 0, { html: inner, pair: pairGuid, active: true, type: "containerEnd", tag: containerTag, tab: currentTab, attributes: containerAttr, style: []  })
 
       this.currentIndex++
-    }
+    } // agrega elemento debajo de la etiqueta actual 
     else {
-      html = " ".repeat(currentTab) + html      
+      innerHTML = " ".repeat(currentTab) + innerHTML      
 
+      // si es etiqueta de apertura desplaza el índice de inserción hasta el final de la etiqueta de cierre
       if(this.DOM.length > 0 && this.DOM[this.currentIndex].type == "containerStart") {
         let pair = this.DOM[this.currentIndex].pair              
         for(let i = this.currentIndex; i < this.DOM.length; i++) {
@@ -169,9 +167,10 @@ export class EditorPage implements OnInit {
         this.currentIndex = this.currentIndex+1
       }
 
-      this.DOM.splice(this.currentIndex, 0, { html: html, active: true, type: this.elements[i].type, tag: this.elements[i].tag, tab: currentTab, attributes: attributes, style: [] })
+      this.DOM.splice(this.currentIndex, 0, { html: innerHTML, active: true, type: this.elements[i].type, tag: this.elements[i].tag, tab: currentTab, attributes: attributes, style: [] })
     }    
 
+    // marca como seleccionado la nueva posición
     if(this.DOM.length == this.currentIndex)
       this.pick(this.currentIndex-1)
     else
@@ -179,19 +178,20 @@ export class EditorPage implements OnInit {
   }
 
   async UpdateElement(i: number, attributes: Array<any>) {
-    var inner = ""
-    var attr = this.getInnerHTMLFromAttributes(attributes)
-    var text = this.getTextFromAttributes(attributes)
+    var innerHTML = ""
     let element = this.DOM[i]
+    var innerAttributes = this.getInnerHTMLFromAttributes(attributes)
+    var innerText = this.getTextFromAttributes(attributes)
+    var innerStyle = this.getInnerHTMLFromStyles(element.style)
     element.attributes = attributes
     var tab = " ".repeat(element.tab)
 
-    if(element.type == "block")
-      element.html = inner.concat(tab, "<", element.tag, attr, ">", text, "</", element.tag, ">")
+    if(element.type == "pair")
+      element.html = innerHTML.concat(tab, "<", element.tag, innerAttributes, innerStyle, ">", innerText, "</", element.tag, ">")
     else if(element.type == "containerStart"){
-      element.html = inner.concat(tab, "<", element.tag, attr, ">", text)
+      element.html = innerHTML.concat(tab, "<", element.tag, innerAttributes, innerStyle, ">", innerText)
     } else
-      element.html = inner.concat(tab, "<", element.tag, attr, "/>")
+      element.html = innerHTML.concat(tab, "<", element.tag, innerAttributes, innerStyle, "/>")
     
     this.DOM.splice(this.currentIndex, 1, element)
   }
@@ -206,7 +206,7 @@ export class EditorPage implements OnInit {
     var tab = " ".repeat(element.tab)
     element.style = styles
 
-    if(element.type == "block")
+    if(element.type == "pair")
       element.html = innerHTML.concat(tab, "<", element.tag, innerAttributes, innerStyle, ">", innerText, "</", element.tag, ">")
     else if(element.type == "containerStart"){
       element.html = innerHTML.concat(tab, "<", element.tag, innerAttributes, innerStyle, ">", innerText)
@@ -288,24 +288,19 @@ export class EditorPage implements OnInit {
   }
 
   async editarAtributos() {
-    if(this.currentIndex >= 0)
-    {
-      if(this.DOM[this.currentIndex].type == "containerEnd") {
-        await this.presentToast("top", "Seleccione un elemento válido")
-        return;
-      }
-
-      this.attributesList = []
-      let el = this
-      let attr = this.DOM[this.currentIndex].attributes as Array<any>
-      attr.forEach(function(item, index, array){
-        el.attributesList.push({ name: item.name, value: item.value})
-      })      
-      this.editorMode = "editar"
-      this.setAttributeModalOpen(true)
-    } else {
+    if(this.currentIndex < 0) {
       await this.presentToast("top", "Primero inserte una línea de código")
+      return
+    }    
+    
+    if(this.DOM[this.currentIndex].type == "containerEnd") {
+      await this.presentToast("top", "Seleccione un elemento válido")
+      return;
     }
+
+    this.attributesList = this.DOM[this.currentIndex].attributes as Array<any>  
+    this.editorMode = "editar"
+    this.setAttributeModalOpen(true)
   }
 
   async editarEstilos() {
@@ -314,7 +309,9 @@ export class EditorPage implements OnInit {
       this.styleList = []
       let el = this
       let elementStyle = this.DOM[this.currentIndex].style as Array<any>
-      this.styles.forEach(function(item, index, array){        
+      // mapea el listado completo de estilos
+      this.styles.forEach(function(item, index, array){  
+        // busca el estilo dento del listado de estilos del elemento actual      
         let result =  elementStyle.find(style => {
           return style.name === item
         })
@@ -385,6 +382,7 @@ export class EditorPage implements OnInit {
               let deleteItems = 0                       
               let pair = this.DOM[this.currentIndex].pair
               
+              // realiza el conteo de los elementos a eliminar, hasta llegar a la etiqueta de cierre
               for(let i = this.currentIndex; i < this.DOM.length; i++) {                    
                 deleteItems++              
                 if(this.DOM[i].type == "containerEnd" && this.DOM[i].pair == pair)
@@ -438,7 +436,6 @@ export class EditorPage implements OnInit {
   }
   
   setPreviewModalOpen(isOpen: boolean) {
-
     var el = this
     el.innerHTML.html = ""
     this.DOM.forEach(function(item, index, array) {       
@@ -446,7 +443,6 @@ export class EditorPage implements OnInit {
     })
 
     this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml(el.innerHTML.html);
-
     this.isPreviewOpen = isOpen;
   }
 
