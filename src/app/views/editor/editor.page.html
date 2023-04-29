@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button (click)="setPreviewModalOpen(true)" class="action" fill="clear">
+      <ion-button (click)="presentAlertConfirm()" class="action" fill="clear">
         <ion-icon slot="icon-only" name="trash"></ion-icon>
       </ion-button>  
       <ion-button (click)="editarAtributos()" class="action" fill="clear">
@@ -60,7 +60,7 @@
 </ion-grid>
 
 <figure class="code-card">
-  <pre class="code-pre"><code class="line" *ngFor="let item of DOM; let i = index"><ion-button class="pick" *ngIf="item.active; else inactiveButton" (click)="pick(i)"><b>{{i+1}}</b></ion-button><ng-template #inactiveButton><ion-button class="pick" (click)="pick(i)">{{i+1}}</ion-button></ng-template><label class="active" *ngIf="item.active; else inactive">{{item.html}}</label><ng-template #inactive><label>{{item.html}}</label></ng-template><br></code><br></pre>
+  <pre class="code-editor"><code class="line" *ngFor="let item of DOM; let i = index"><ion-button class="pick" *ngIf="item.active; else inactiveButton" (click)="pick(i)"><b>{{i+1}}</b></ion-button><ng-template #inactiveButton><ion-button class="pick" (click)="pick(i)">{{i+1}}</ion-button></ng-template><label class="active" *ngIf="item.active; else inactive">{{item.html}}</label><ng-template #inactive><label>{{item.html}}</label></ng-template><br></code><br></pre>
 </figure>
 
 </div>
@@ -98,9 +98,9 @@
         <ion-row>
           <ion-col>
             <ion-item *ngFor="let item of attributesList; let i = index">
-              <ion-label>{{item.name}}</ion-label>
+              <ion-label><span style="color:#990000">{{item.name}}</span>:</ion-label>
               <ion-input [(ngModel)]="item.value" type="text" placeholder="Valor atributo..."></ion-input>
-              <button item-right ion-button icon-only (click)="removeAttribute(i)">
+              <button item-right ion-button icon-only (click)="removeAttribute(i)" class="removeButton">
                   <ion-icon name="close"></ion-icon>
               </button>
             </ion-item>
@@ -131,9 +131,9 @@
         <ion-row>
           <ion-col>
             <ion-item *ngFor="let item of styleList; let i = index">
-              <ion-label>{{item.name}}</ion-label>
+              <ion-label><span style="color:#990000">{{item.name}}</span>:</ion-label>
               <ion-input [(ngModel)]="item.value" type="text" placeholder="Valor atributo..."></ion-input>
-              <button item-right ion-button icon-only (click)="removeStyle(i)">
+              <button item-right ion-button icon-only (click)="removeStyle(i)" class="removeButton">
                   <ion-icon name="close"></ion-icon>
               </button>
             </ion-item>

@@ -80,8 +80,16 @@ select {
     line-height: 1.4em; 
     background: #eeeef0;
     padding: 18px 0 0 0;
-    margin: -10px;
+    margin: -10px -5px 0 -10px;
     color: #999;
+}
+
+.code-editor {
+    background: #eeeef0;
+    padding: 18px 0 0 0;
+    margin: -10px 0 0 -8px;    
+    color: #999;
+    font-size: 12px;
 }
 
 code {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 import { ToastController } from '@ionic/angular';
+import { UUID } from 'angular2-uuid';
 
 @Component({
   selector: 'app-editor',
@@ -16,6 +17,7 @@ export class EditorPage implements OnInit {
   isPreviewOpen = false;  
   isAttributeOpen = false;
   isStyleOpen = false
+  editorMode = "insertar"
   customActionSheetOptions = {
     header: 'Etiquetas',
     subHeader: 'Agrega una etiqueta al documento',
@@ -91,14 +93,7 @@ export class EditorPage implements OnInit {
   }
 
   async AddInput() {   
-    this.currentElement = 24;
-    this.attributesList = []
-    let el = this
-    this.elements[this.currentElement].attributes.forEach(function(item, index, array){
-      el.attributesList.push({ name: item, value: ""})
-    })    
-
-    this.setAttributeModalOpen(true)     
+    await this.AddElement(24, [{name:"type", value: "text"}, {name:"placeholder", value: "Escribe algo..."}])      
   }
 
   async AddH1() {    
@@ -136,7 +131,7 @@ export class EditorPage implements OnInit {
 
     if(this.DOM.length > 0 && this.DOM[this.currentIndex].type == "block" && this.insertMode == "inside" )
     {      
-      var containerTag = this.DOM[this.currentIndex].tag  
+      var containerTag = this.DOM[this.currentIndex].tag        
       var containerAttr = (this.DOM[this.currentIndex].attributes) as Array<any>
       var containerAttrText = this.getInnerHTMLFromAttributes(containerAttr)
       var containerText = this.getTextFromAttributes(containerAttr)
@@ -146,26 +141,79 @@ export class EditorPage implements OnInit {
 
       this.DOM.splice(this.currentIndex, 1)
 
+      let guid = UUID.UUID()
+
       inner = "".concat(tab, "<", containerTag, containerAttrText, ">", containerText)
-      this.DOM.splice(this.currentIndex, 0, { html: inner, active: true, type: "containerStart", tag: this.elements[i].tag, tab: currentTab, attributes: attributes })
+      this.DOM.splice(this.currentIndex, 0, { html: inner, pair: guid, active: true, type: "containerStart", tag: containerTag, tab: currentTab, attributes: containerAttr, style: [] })
             
       html = " ".repeat(currentTab+1) + html
-      this.DOM.splice(this.currentIndex+1, 0, { html: html, active: true, type: this.elements[i].type, tag: this.elements[i].tag, tab: currentTab+1, attributes: attributes  })
+      this.DOM.splice(this.currentIndex+1, 0, { html: html, pair: undefined, active: true, type: this.elements[i].type, tag: this.elements[i].tag, tab: currentTab+1, attributes: attributes, style: []  })
 
       inner = "".concat(tab, "</", containerTag, ">")
-      this.DOM.splice(this.currentIndex+2, 0, { html: inner, active: true, type: "containerEnd", tag: this.elements[i].tag, tab: currentTab, attributes: attributes  })
+      this.DOM.splice(this.currentIndex+2, 0, { html: inner, pair: guid, active: true, type: "containerEnd", tag: containerTag, tab: currentTab, attributes: containerAttr, style: []  })
+
+      this.currentIndex++
     }
     else {
-      html = " ".repeat(currentTab) + html
-      this.DOM.splice(this.currentIndex+1, 0, { html: html, active: true, type: this.elements[i].type, tag: this.elements[i].tag, tab: currentTab, attributes: attributes  })
-    }
+      html = " ".repeat(currentTab) + html      
 
-    this.currentIndex++
+      if(this.DOM.length > 0 && this.DOM[this.currentIndex].type == "containerStart") {
+        let pair = this.DOM[this.currentIndex].pair              
+        for(let i = this.currentIndex; i < this.DOM.length; i++) {
+          if(this.DOM[i].type == "containerEnd" && this.DOM[i].pair == pair) {
+            this.currentIndex = i
+            break
+          }             
+        }
+      } else {
+        this.currentIndex = this.currentIndex+1
+      }
+
+      this.DOM.splice(this.currentIndex, 0, { html: html, active: true, type: this.elements[i].type, tag: this.elements[i].tag, tab: currentTab, attributes: attributes, style: [] })
+    }    
 
     if(this.DOM.length == this.currentIndex)
       this.pick(this.currentIndex-1)
     else
       this.pick(this.currentIndex)
+  }
+
+  async UpdateElement(i: number, attributes: Array<any>) {
+    var inner = ""
+    var attr = this.getInnerHTMLFromAttributes(attributes)
+    var text = this.getTextFromAttributes(attributes)
+    let element = this.DOM[i]
+    element.attributes = attributes
+    var tab = " ".repeat(element.tab)
+
+    if(element.type == "block")
+      element.html = inner.concat(tab, "<", element.tag, attr, ">", text, "</", element.tag, ">")
+    else if(element.type == "containerStart"){
+      element.html = inner.concat(tab, "<", element.tag, attr, ">", text)
+    } else
+      element.html = inner.concat(tab, "<", element.tag, attr, "/>")
+    
+    this.DOM.splice(this.currentIndex, 1, element)
+  }
+
+  async UpdateStyle(i: number, styles: Array<any>) {
+    var innerHTML = ""
+    let element = this.DOM[i]
+    
+    var innerAttributes = this.getInnerHTMLFromAttributes(element.attributes)
+    var innerText = this.getTextFromAttributes(element.attributes)
+    var innerStyle = this.getInnerHTMLFromStyles(styles)
+    var tab = " ".repeat(element.tab)
+    element.style = styles
+
+    if(element.type == "block")
+      element.html = innerHTML.concat(tab, "<", element.tag, innerAttributes, innerStyle, ">", innerText, "</", element.tag, ">")
+    else if(element.type == "containerStart"){
+      element.html = innerHTML.concat(tab, "<", element.tag, innerAttributes, innerStyle, ">", innerText)
+    } else
+      element.html = innerHTML.concat(tab, "<", element.tag, innerAttributes, innerStyle, "/>")
+    
+    this.DOM.splice(this.currentIndex, 1, element)
   }
 
   private getTextFromAttributes(attributes: Array<any>) : string
@@ -192,13 +240,35 @@ export class EditorPage implements OnInit {
     return attr.trimEnd();
   }
 
+  private getInnerHTMLFromStyles(styles: Array<any>)
+  {
+    let innerStyle = ' style="'
+    let count = 0;
+
+    styles.forEach(function(item, index, array) {   
+      if(item.value != "") {
+        innerStyle = innerStyle.concat(item.name,':', item.value ,';')
+        count++
+      }
+    })
+
+    if(count > 0)
+      return innerStyle.concat('"');
+    else
+      return ""
+  }
+
   aceptarAtributos() {
-    this.AddElement(this.currentElement, this.attributesList );
+    if(this.editorMode == "insertar")
+      this.AddElement(this.currentElement, this.attributesList );
+    else
+      this.UpdateElement(this.currentIndex, this.attributesList );
+
     this.setAttributeModalOpen(false)
   }
 
   aceptarEstilos() {
-    console.log(this.styleList)
+    this.UpdateStyle(this.currentIndex, this.styleList)    
     this.setStyleModalOpen(false)
   }
 
@@ -210,7 +280,7 @@ export class EditorPage implements OnInit {
       this.elements[this.currentElement].attributes.forEach(function(item, index, array){
         el.attributesList.push({ name: item, value: ""})
       })      
-
+      this.editorMode = "insertar"
       this.setAttributeModalOpen(true)
     } else {
       await this.presentToast("top", "Seleccione una etiqueta de la lista desplegable")
@@ -220,13 +290,18 @@ export class EditorPage implements OnInit {
   async editarAtributos() {
     if(this.currentIndex >= 0)
     {
+      if(this.DOM[this.currentIndex].type == "containerEnd") {
+        await this.presentToast("top", "Seleccione un elemento válido")
+        return;
+      }
+
       this.attributesList = []
       let el = this
       let attr = this.DOM[this.currentIndex].attributes as Array<any>
       attr.forEach(function(item, index, array){
         el.attributesList.push({ name: item.name, value: item.value})
       })      
-
+      this.editorMode = "editar"
       this.setAttributeModalOpen(true)
     } else {
       await this.presentToast("top", "Primero inserte una línea de código")
@@ -237,9 +312,16 @@ export class EditorPage implements OnInit {
     if(this.currentIndex >= 0)
     {
       this.styleList = []
-      let el = this      
-      this.styles.forEach(function(item, index, array){
-        el.styleList.push({ name: item, value: ""})
+      let el = this
+      let elementStyle = this.DOM[this.currentIndex].style as Array<any>
+      this.styles.forEach(function(item, index, array){        
+        let result =  elementStyle.find(style => {
+          return style.name === item
+        })
+        if(result !== undefined && result.value !== undefined)
+          el.styleList.push({ name: item, value: result.value})
+        else
+          el.styleList.push({ name: item, value: ""})
       })      
 
       this.setStyleModalOpen(true)
@@ -269,6 +351,63 @@ export class EditorPage implements OnInit {
     });
 
     await toast.present();
+  }
+
+  async presentAlertConfirm() {
+    if (this.currentIndex < 0) {
+      await this.presentToast("top", "Primero inserte una línea de código")
+      return;
+    }      
+    
+    if (this.DOM[this.currentIndex].type == "containerEnd") {
+      await this.presentToast("top", "Seleccione un elemento válido")
+      return;
+    }
+
+  const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirma esta acción',
+      message: '¿Está seguro de eliminar este elemento?',
+      buttons: [
+        {
+          text: 'No',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            //console.log('Confirm Cancel: blah');
+          },
+        },
+        {
+          text: 'Si',
+          handler: () => {
+            if (this.DOM[this.currentIndex].type == "containerStart")
+            { 
+              let deleteItems = 0                       
+              let pair = this.DOM[this.currentIndex].pair
+              
+              for(let i = this.currentIndex; i < this.DOM.length; i++) {                    
+                deleteItems++              
+                if(this.DOM[i].type == "containerEnd" && this.DOM[i].pair == pair)
+                  break 
+              }
+
+              this.DOM.splice(this.currentIndex, deleteItems)
+            }
+            else {
+              this.DOM.splice(this.currentIndex, 1)
+            }
+            if (this.DOM.length == 0) 
+              this.currentIndex = -1
+            else
+              this.currentIndex--
+
+            this.pick(this.currentIndex)
+          },
+        },
+      ],
+    });
+
+    await alert.present();
   }
 
   async changeInsertMode()

@@ -22,11 +22,13 @@ code {
 label {
     margin-left: 12px;
     vertical-align: inherit;
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: lighter;
 }
 
 label.active {
     color: #000;
+    font-weight: 600;
 }
 
 ion-select {
@@ -34,6 +36,16 @@ ion-select {
     margin-top: 2px;
     border-radius: 4px;
     text-align: center;
+}
+
+button.removeButton {
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 13px;
+    width: 25px;
+}
+button.removeButton:hover{
+    background-color: #666;
 }
 
 span.action-sheet-button-inner.sc-ion-action-sheet-md {    
