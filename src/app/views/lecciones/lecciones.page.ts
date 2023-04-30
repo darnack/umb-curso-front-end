@@ -39,6 +39,7 @@ export class LeccionesPage implements OnInit {
 
         this.storage.forEach(function(value, key, index) {       
     
+          if(key != "editor") {
             var modulo = String(key).split('_')[0]
             var numero = String(key).split('_')[1]
             
@@ -48,6 +49,7 @@ export class LeccionesPage implements OnInit {
               el.lecciones[i].deshabilitado = Boolean(value);
               //console.log("modulo:", el.lecciones[i].modulo, "numero:", el.lecciones[i].numero, "deshabilitado:", value)
             } 
+          }
         });
 
         this.titulo = "Módulo " + module.toUpperCase()

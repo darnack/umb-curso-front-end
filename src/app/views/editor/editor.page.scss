@@ -9,6 +9,15 @@ ion-button.pick {
     cursor: pointer !important;    
 }
 
+ion-grid {
+    padding: 8px 0;
+}
+
+ion-button.element {
+    --padding-start: 12px;
+    --padding-end: 12px;
+}
+
 code {    
     margin: 0;
     padding: 0;
@@ -19,14 +28,14 @@ code {
     vertical-align: sub;
 }
 
-label {
+.code-editor label {
     margin-left: 12px;
     vertical-align: inherit;
     font-size: 15px;
     font-weight: lighter;
 }
 
-label.active {
+.code-editor label.active {
     color: #000;
     font-weight: 600;
 }
@@ -34,6 +43,7 @@ label.active {
 ion-select {
     border: 1px solid #333;
     margin-top: 2px;
+    margin-left: 2px;
     border-radius: 4px;
     text-align: center;
 }
@@ -44,6 +54,7 @@ button.removeButton {
     font-size: 13px;
     width: 25px;
 }
+
 button.removeButton:hover{
     background-color: #666;
 }
@@ -63,27 +74,8 @@ ion-button.ion-button-center {
     width: 100%;    
 }
 
-ion-ripple-effect::after  {
-    font-family: monospace;
-}
-
-.inner-scroll.scroll-y
-{
-    padding: 0;
-}
-
-.input-wrapper {
-    padding: 0;
-    margin: 0;
-    height: fit-content;
-}
-
 ion-item {
     --min-height: 5px;
     --max-height: 10px;
 }
 
-h2 {
-   padding: 0px;
-   margin : 0px;
- }

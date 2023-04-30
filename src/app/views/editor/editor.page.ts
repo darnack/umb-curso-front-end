@@ -3,6 +3,7 @@ import { AlertController } from '@ionic/angular';
 import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 import { ToastController } from '@ionic/angular';
 import { UUID } from 'angular2-uuid';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-editor',
@@ -55,16 +56,27 @@ export class EditorPage implements OnInit {
     { name: "<th>", type:"pair", tag: "th", attributes: ["text"]},
     { name: "<tr>", type:"pair", tag: "tr", attributes: ["text"]},
     { name: "<td>", type:"pair", tag: "td", attributes: ["text", "colspan", "rowspan", "align", "valign"]},
-    { name: "<label>", type:"pair", tag: "label", attributes: ["text"]},
+    { name: "<form>", type:"pair", tag: "form", attributes: ["action","method","enctype"]},    
     { name: "<input>", type:"single", tag: "input", attributes: ["type", "value","name", "placeholder","maxlength"]},
+    { name: "<label>", type:"pair", tag: "label", attributes: ["text"]},
+    { name: "<fieldset>", type:"pair", tag: "fieldset", attributes: ["text"]},
+    { name: "<legend>", type:"pair", tag: "legend", attributes: ["text"]},
     { name: "<button>", type:"pair", tag: "button", attributes: ["text"]},
     { name: "<textarea>", type:"pair", tag: "textarea", attributes: ["text","maxlength"]},
     { name: "<select>", type:"pair", tag: "select", attributes: ["text"]},
     { name: "<option>", type:"pair", tag: "option", attributes: ["text","value"]},
     { name: "<optgroup>", type:"pair", tag: "optgroup", attributes: ["text","label"]},
-    { name: "<fieldset>", type:"pair", tag: "fieldset", attributes: ["text"]},
-    { name: "<legend>", type:"pair", tag: "legend", attributes: ["text"]},
+    { name: "<audio>", type:"pair", tag: "audio", attributes: ["controls","crossorigin","loop","mute","autoplay"]},
+    { name: "<video>", type:"pair", tag: "audio", attributes: ["controls","crossorigin","loop","mute","autoplay","width","height"]},    
+    { name: "<source>", type:"pair", tag: "select", attributes: ["src","type"]},
+    { name: "<iframe>", type:"pair", tag: "iframe", attributes: ["src","width","height","allowfullscreen","scrolling","importance"]},
     { name: "<marquee>", type:"pair", tag: "marquee", attributes: ["text", "direction", "behavior", "scrollamount", "scrolldelay"]},
+    { name: "<header>", type:"pair", tag: "header", attributes: ["text"]},
+    { name: "<nav>", type:"pair", tag: "nav", attributes: ["text"]},
+    { name: "<aside>", type:"pair", tag: "aside", attributes: ["text"]},
+    { name: "<section>", type:"pair", tag: "section", attributes: ["text"]},
+    { name: "<article>", type:"pair", tag: "article", attributes: ["text"]},
+    { name: "<footer>", type:"pair", tag: "footer", attributes: ["text"]},
   ]
   public styles = ["color","background-color","opacity",
   "margin","padding","border",  
@@ -73,7 +85,7 @@ export class EditorPage implements OnInit {
   "justify-content","align-content",
   "font-family","font-size","font-weight","font-style","text-align","text-decoration","text-transform","text-indent","line-height","letter-spacing","word-spacing","text-shadow"]
 
-  constructor(private alertController: AlertController, private _sanitizer: DomSanitizer, private toast: ToastController) {
+  constructor(private alertController: AlertController, private _sanitizer: DomSanitizer, private toast: ToastController, private storage: Storage) {
     this.sanitizer = _sanitizer;
     this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml(this.innerHTML.html);
 
@@ -84,6 +96,14 @@ export class EditorPage implements OnInit {
   }  
 
   ngOnInit() {
+    let el = this
+    this.storage.forEach(function(value, key, index) {
+      if(key == "editor") {        
+        el.DOM = value
+        el.currentIndex = 0
+        el.pick(0)
+      }
+    });
   }
 
   async AddInput() {   
@@ -99,7 +119,11 @@ export class EditorPage implements OnInit {
   }
 
   async AddDiv() {    
-    await this.AddElement(0, [{name:"text", value:"..."}])
+    await this.AddElement(0, [])
+  }
+
+  async AddAnchor() {    
+    await this.AddElement(6, [{name:"href", value:"https://umbvirtual.edu.co/"},{name:"text",value:"UMB Virtual"},{name:"target",value:"_blank"}])
   }
 
   async AddElement(i: number, attributes: Array<any>)
@@ -108,14 +132,8 @@ export class EditorPage implements OnInit {
 
     var innerText = this.getTextFromAttributes(attributes)
     var innerAttributes = this.getInnerHTMLFromAttributes(attributes)
-
-    // determina la tabulación del elemento
+    
     var currentTab = 0;
-    if (this.DOM.length > 0) { 
-      currentTab = this.DOM[this.currentIndex].tab;
-      if (this.DOM[this.currentIndex].type == "containerStart") 
-        currentTab++
-    }
 
     // arma el HTML dependiendo del tipo de etiqueta (pair:<el>/el>, single: <el/>)
     if(this.elements[i].type == "pair")
@@ -127,12 +145,15 @@ export class EditorPage implements OnInit {
 
     // agrega elemento dentro de la etiqueta actual si es 'pair' y está activo el modo 'inside'
     if(this.DOM.length > 0 && this.DOM[this.currentIndex].type == "pair" && this.insertMode == "inside" )
-    {      
+    {
       var containerTag = this.DOM[this.currentIndex].tag        
       var containerAttr = (this.DOM[this.currentIndex].attributes) as Array<any>
       var containerInnerAttributes = this.getInnerHTMLFromAttributes(containerAttr)
       var containerInnerText = this.getTextFromAttributes(containerAttr)
 
+      // determina la tabulación del elemento
+      currentTab = this.DOM[this.currentIndex].tab;
+      if (this.DOM[this.currentIndex].type == "containerStart") currentTab++
       var tab = " ".repeat(currentTab)    
       var inner = ""
 
@@ -151,21 +172,32 @@ export class EditorPage implements OnInit {
 
       this.currentIndex++
     } // agrega elemento debajo de la etiqueta actual 
-    else {
-      innerHTML = " ".repeat(currentTab) + innerHTML      
-
-      // si es etiqueta de apertura desplaza el índice de inserción hasta el final de la etiqueta de cierre
+    else {  
+      if (this.DOM.length > 0) {
+        currentTab = this.DOM[this.currentIndex].tab;        
+      }
+      
       if(this.DOM.length > 0 && this.DOM[this.currentIndex].type == "containerStart") {
+        // si es etiqueta de apertura desplaza el índice de inserción hasta el final de la etiqueta de cierre
         let pair = this.DOM[this.currentIndex].pair              
         for(let i = this.currentIndex; i < this.DOM.length; i++) {
           if(this.DOM[i].type == "containerEnd" && this.DOM[i].pair == pair) {
             this.currentIndex = i
             break
-          }             
+          }
         }
+
+        if( this.insertMode == "outside") {
+          this.currentIndex = this.currentIndex+1
+        } else {
+          currentTab++
+        }
+
       } else {
         this.currentIndex = this.currentIndex+1
       }
+
+      innerHTML = " ".repeat(currentTab) + innerHTML
 
       this.DOM.splice(this.currentIndex, 0, { html: innerHTML, active: true, type: this.elements[i].type, tag: this.elements[i].tag, tab: currentTab, attributes: attributes, style: [] })
     }    
@@ -175,6 +207,8 @@ export class EditorPage implements OnInit {
       this.pick(this.currentIndex-1)
     else
       this.pick(this.currentIndex)
+
+    await this.storage.set("editor", this.DOM)
   }
 
   async UpdateElement(i: number, attributes: Array<any>) {
@@ -194,6 +228,8 @@ export class EditorPage implements OnInit {
       element.html = innerHTML.concat(tab, "<", element.tag, innerAttributes, innerStyle, "/>")
     
     this.DOM.splice(this.currentIndex, 1, element)
+
+    await this.storage.set("editor", this.DOM)
   }
 
   async UpdateStyle(i: number, styles: Array<any>) {
@@ -214,6 +250,8 @@ export class EditorPage implements OnInit {
       element.html = innerHTML.concat(tab, "<", element.tag, innerAttributes, innerStyle, "/>")
     
     this.DOM.splice(this.currentIndex, 1, element)
+
+    await this.storage.set("editor", this.DOM)
   }
 
   private getTextFromAttributes(attributes: Array<any>) : string
@@ -273,8 +311,7 @@ export class EditorPage implements OnInit {
   }
 
   async insertar() {
-    if(this.currentElement >= 0)
-    {
+    if(this.currentElement >= 0) {
       this.attributesList = []
       let el = this
       this.elements[this.currentElement].attributes.forEach(function(item, index, array){
@@ -304,8 +341,7 @@ export class EditorPage implements OnInit {
   }
 
   async editarEstilos() {
-    if(this.currentIndex >= 0)
-    {
+    if(this.currentIndex >= 0) {
       this.styleList = []
       let el = this
       let elementStyle = this.DOM[this.currentIndex].style as Array<any>
@@ -376,7 +412,7 @@ export class EditorPage implements OnInit {
         },
         {
           text: 'Si',
-          handler: () => {
+          handler: async () => {
             if (this.DOM[this.currentIndex].type == "containerStart")
             { 
               let deleteItems = 0                       
@@ -394,12 +430,15 @@ export class EditorPage implements OnInit {
             else {
               this.DOM.splice(this.currentIndex, 1)
             }
+
             if (this.DOM.length == 0) 
               this.currentIndex = -1
             else
-              this.currentIndex--
+              this.currentIndex = 0
 
             this.pick(this.currentIndex)
+
+            await this.storage.set("editor", this.DOM)
           },
         },
       ],
