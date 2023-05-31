@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package umb.cursos.aprende.frontend;
 
 import com.getcapacitor.BridgeActivity;
 
