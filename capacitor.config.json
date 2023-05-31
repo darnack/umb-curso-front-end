@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "umb-curso-front-end",
+	"appId": "umb.cursos.aprende.frontend",
+	"appName": "cursos-umb-aprende-frontend",
 	"webDir": "www",
 	"bundledWebRuntime": false
 }

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">umb-curso-front-end</string>
-    <string name="title_activity_main">umb-curso-front-end</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="app_name">cursos-umb-aprende-frontend</string>
+    <string name="title_activity_main">cursos-umb-aprende-frontend</string>
+    <string name="package_name">umb.cursos.aprende.frontend</string>
+    <string name="custom_url_scheme">umb.cursos.aprende.frontend</string>
 </resources>
