@@ -1,6 +1,6 @@
 {
 	"appId": "umb.cursos.aprende.frontend",
-	"appName": "cursos-umb-aprende-frontend",
+	"appName": "Cursos UMB: Aprende Front-End",
 	"webDir": "www",
 	"bundledWebRuntime": false
 }

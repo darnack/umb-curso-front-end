@@ -213,7 +213,7 @@
       "evaluaciones": [
         {
           "tipo": 3,
-          "pregunta": "¿Qué opción de implentación es más adecuada en este caso?",
+          "pregunta": "¿Qué opción de implementación es más adecuada en este caso?",
           "contenido": "console.log('Error inesperado');",
           "items": ["console.info()","console.error()","console.warn()"],
           "respuesta": "console.error()"

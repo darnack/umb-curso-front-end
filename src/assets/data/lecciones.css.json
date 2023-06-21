@@ -36,7 +36,7 @@
       },
       {
         "tipo": 3,
-        "pregunta": "¿Cuantos selectores se pueden incluir en una misma regla?",
+        "pregunta": "¿Cuántos selectores se pueden incluir en una misma regla CSS?",
         "contenido": "",
         "items": ["Solo uno","Varios separados por punto y coma","Varios separados por comas", "Máximo 2"],
         "respuesta": "Varios separados por comas"
@@ -51,7 +51,7 @@
     "evaluaciones": [
       {
         "tipo": 3,
-        "pregunta": "¿Qué selector afecta al elemento <a id=\"enlace\" class=\"link\"></a>?",
+        "pregunta": "¿Qué selector obtiene el elemento <a id=\"enlace\" class=\"link\"></a>?",
         "contenido": "",
         "items": ["a.enlace",".enlace","#link", "a.link"],
         "respuesta": "a.link"
@@ -154,7 +154,7 @@
       {
         "tipo": 1,
         "pregunta": "Escribe la respuesta correcta",
-        "contenido": "Propiedad que determina el espaciado o margen interno de un elemento",
+        "contenido": "Propiedad que determina el espaciado o margen interno de un elemento.",
         "items": [],
         "respuesta": "padding"
       },
@@ -197,7 +197,7 @@
     "evaluaciones": [
       {
         "tipo": 3,
-        "pregunta": "Reserva el espacio del elemento",
+        "pregunta": "Valor de la propiedad position que reserva el espacio del elemento.",
         "contenido": "",
         "items": ["fixed","static","absolute", "relative"],
         "respuesta": "relative"

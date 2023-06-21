@@ -219,7 +219,7 @@
       "evaluaciones": [
         {
           "tipo": 3,
-          "pregunta": "¿Cuál es el comportameinto de este código?",
+          "pregunta": "¿Cuál es el comportamiento de este código?",
           "contenido": "<marquee direction=\"alternate\">...</marquee>",
           "items": [
             "El texto rotará desapareciendo por un borde y apareciendo por el otro.",
@@ -275,7 +275,7 @@
       "evaluaciones": [
       {
         "tipo": 1,
-        "pregunta": "¿Cuál es nombre del meta que permite la indexación",
+        "pregunta": "¿Cuál es nombre del meta que permite la indexación?",
         "contenido": "<meta name=\"?\" content=\"index\">",
         "items": [],
         "respuesta": "robots"

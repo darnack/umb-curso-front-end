@@ -30,9 +30,9 @@ export class EditorPage implements OnInit {
   public lines = ['<html>','  <head></head>','  <body>',' </body>','</html>']
 
   public currentIndex = -1;
-  public currentElement = -1;
+  public currentTag = -1;
   public componentIndex = 1;
-  public elements = [
+  public tagSelectable = [
     { name: "<div>", type:"pair", tag: "div", attributes: ["text"] },
     { name: "<p>", type:"pair", tag: "p", attributes: ["text"] },
     { name: "<span>", type:"pair", tag: "span", attributes: ["text"] },
@@ -78,7 +78,7 @@ export class EditorPage implements OnInit {
     { name: "<article>", type:"pair", tag: "article", attributes: ["text"]},
     { name: "<footer>", type:"pair", tag: "footer", attributes: ["text"]},
   ]
-  public styles = ["color","background-color","opacity",
+  public styleSelectable = ["color","background-color","opacity",
   "margin","padding","border",  
   "width","height","top","bottom","left","right",
   "display","position","float","box-sizing",
@@ -90,7 +90,7 @@ export class EditorPage implements OnInit {
     this.trustedHTML = this.sanitizer.bypassSecurityTrustHtml(this.innerHTML.html);
 
     var el = this;
-    this.elements.forEach(function(item, index, array) {       
+    this.tagSelectable.forEach(function(item, index, array) {       
       el.combobox.push(item.name)
     })
   }  
@@ -136,10 +136,10 @@ export class EditorPage implements OnInit {
     var currentTab = 0;
 
     // arma el HTML dependiendo del tipo de etiqueta (pair:<el>/el>, single: <el/>)
-    if(this.elements[i].type == "pair")
-      innerHTML = innerHTML.concat("<", this.elements[i].tag, innerAttributes, ">", innerText, "</", this.elements[i].tag, ">")
+    if(this.tagSelectable[i].type == "pair")
+      innerHTML = innerHTML.concat("<", this.tagSelectable[i].tag, innerAttributes, ">", innerText, "</", this.tagSelectable[i].tag, ">")
     else
-      innerHTML = innerHTML.concat("<", this.elements[i].tag, innerAttributes, "/>")
+      innerHTML = innerHTML.concat("<", this.tagSelectable[i].tag, innerAttributes, "/>")
     
     this.componentIndex++
 
@@ -165,7 +165,7 @@ export class EditorPage implements OnInit {
       this.DOM.splice(this.currentIndex, 0, { html: inner, pair: pairGuid, active: true, type: "containerStart", tag: containerTag, tab: currentTab, attributes: containerAttr, style: [] })
             
       innerHTML = " ".repeat(currentTab+1) + innerHTML
-      this.DOM.splice(this.currentIndex+1, 0, { html: innerHTML, pair: undefined, active: true, type: this.elements[i].type, tag: this.elements[i].tag, tab: currentTab+1, attributes: attributes, style: []  })
+      this.DOM.splice(this.currentIndex+1, 0, { html: innerHTML, pair: undefined, active: true, type: this.tagSelectable[i].type, tag: this.tagSelectable[i].tag, tab: currentTab+1, attributes: attributes, style: []  })
 
       inner = "".concat(tab, "</", containerTag, ">")
       this.DOM.splice(this.currentIndex+2, 0, { html: inner, pair: pairGuid, active: true, type: "containerEnd", tag: containerTag, tab: currentTab, attributes: containerAttr, style: []  })
@@ -199,7 +199,7 @@ export class EditorPage implements OnInit {
 
       innerHTML = " ".repeat(currentTab) + innerHTML
 
-      this.DOM.splice(this.currentIndex, 0, { html: innerHTML, active: true, type: this.elements[i].type, tag: this.elements[i].tag, tab: currentTab, attributes: attributes, style: [] })
+      this.DOM.splice(this.currentIndex, 0, { html: innerHTML, active: true, type: this.tagSelectable[i].type, tag: this.tagSelectable[i].tag, tab: currentTab, attributes: attributes, style: [] })
     }    
 
     // marca como seleccionado la nueva posición
@@ -298,7 +298,7 @@ export class EditorPage implements OnInit {
 
   aceptarAtributos() {
     if(this.editorMode == "insertar")
-      this.AddElement(this.currentElement, this.attributesList );
+      this.AddElement(this.currentTag, this.attributesList );
     else
       this.UpdateElement(this.currentIndex, this.attributesList );
 
@@ -311,10 +311,10 @@ export class EditorPage implements OnInit {
   }
 
   async insertar() {
-    if(this.currentElement >= 0) {
+    if(this.currentTag >= 0) {
       this.attributesList = []
       let el = this
-      this.elements[this.currentElement].attributes.forEach(function(item, index, array){
+      this.tagSelectable[this.currentTag].attributes.forEach(function(item, index, array){
         el.attributesList.push({ name: item, value: ""})
       })      
       this.editorMode = "insertar"
@@ -346,7 +346,7 @@ export class EditorPage implements OnInit {
       let el = this
       let elementStyle = this.DOM[this.currentIndex].style as Array<any>
       // mapea el listado completo de estilos
-      this.styles.forEach(function(item, index, array){  
+      this.styleSelectable.forEach(function(item, index, array){  
         // busca el estilo dento del listado de estilos del elemento actual      
         let result =  elementStyle.find(style => {
           return style.name === item
@@ -365,7 +365,7 @@ export class EditorPage implements OnInit {
 
   handleChange(event: Event) {   
     const value = (event as CustomEvent).detail.value;    
-    this.currentElement = value;
+    this.currentTag = value;
   }
 
   removeAttribute(index:number):void{
