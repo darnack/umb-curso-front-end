@@ -1,0 +1,5 @@
+keytool -genkey -v -keystore CURSOS_UMB_FRONT_END_RELEASE_KEY.keystore -alias Darnack -keyalg RSA -keysize 2048 -validity 10000 -storetype jks
+
+certificate password: iloveUMB.curso-front-end
+key alias: Darnack
+password: iloveUMB.curso-front-end
